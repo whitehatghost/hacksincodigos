@@ -1,58 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servicios - HacksinCodigos</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
   <link rel="icon" href="/assets/cicada-logo.png">
   <style>
-    .features {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .features > div {
-      width: 90%;
-      max-width: 800px;
-      margin: 1rem auto;
-      padding: 1rem;
-      border: 2px solid #00ff88;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #00ff88;
-    }
-
-    .whatsapp-button {
+    .buy-button {
       display: inline-block;
       margin-top: 1rem;
-      background-color: #00ff88;
-      color: black;
+      background: linear-gradient(135deg, #00ff88, #12ffa0);
+      color: #9d00ff;
       padding: 0.7rem 1.5rem;
       border-radius: 50px;
       text-decoration: none;
       font-weight: bold;
       font-family: monospace;
       font-size: 1rem;
-      box-shadow: 0 0 12px rgba(0, 255, 136, 0.6);
+      box-shadow: 0 0 12px rgba(0, 255, 136, 0.5);
       transition: all 0.3s ease-in-out;
+      border: 2px solid #9d00ff;
+      text-shadow: 0 0 6px #9d00ff;
     }
 
-    .whatsapp-button:hover {
-      background-color: #12ffa0;
-      color: black;
-      box-shadow: 0 0 20px #00ff88;
+    .buy-button:hover {
+      background: #0aff7e;
+      color: #000000;
+      box-shadow: 0 0 16px #9d00ff, 0 0 20px #00ff88;
       transform: scale(1.05);
     }
 
-    .features table {
+    table {
       width: 100%;
-      max-width: 100%;
       overflow-x: auto;
       display: block;
       font-family: monospace;
-      border-collapse: collapse;
-      margin-top: 1rem;
     }
 
     th, td {
@@ -62,11 +45,33 @@
       color: #00ff88;
     }
 
-    @media screen and (max-width: 768px) {
-      .features table {
-        display: block;
-        overflow-x: auto;
-      }
+    .features {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .features > div {
+      width: 90%;
+      max-width: 900px;
+      margin: 1rem auto;
+      padding: 1rem;
+      border: 2px solid #00ff88;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00ff88;
+    }
+
+    .burbuja {
+      margin-top: 1rem;
+      padding: 1rem;
+      border: 1px solid #00ff88;
+      border-radius: 10px;
+      background-color: #111;
+      box-shadow: 0 0 10px #00ff88;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
   </style>
 </head>
@@ -89,44 +94,11 @@
   <section class="hero" style="background: url('/assets/bg-hacker.gif') no-repeat center center / cover; text-align: center;">
     <h1>Conocé nuestros servicios</h1>
     <p>Transformamos tu infraestructura física en soluciones digitales rápidas, seguras y profesionales. Desde páginas web hasta soporte técnico 24/7.</p>
-    <a href="https://wa.me/50689840662" class="whatsapp-button">Whatsapp</a>
+    <a href="https://wa.me/50689840662" class="buy-button">Whatsapp</a>
   </section>
 
   <section class="features">
-    <div>
-      <h2>Infraestructura en la Nube</h2>
-      <p>Montamos entornos virtuales seguros y eficientes para tu empresa. Desde escritorios remotos hasta almacenamiento seguro, accedé a todo tu sistema desde cualquier lugar del mundo.</p>
-      <div style="overflow-x: auto;">
-        <table>
-          <tr>
-            <th></th>
-            <th>Infraestructura Tradicional</th>
-            <th>Infraestructura en la Nube</th>
-          </tr>
-          <tr>
-            <td>Acceso Remoto</td>
-            <td>❌</td>
-            <td>✅</td>
-          </tr>
-          <tr>
-            <td>Escalabilidad</td>
-            <td>❌</td>
-            <td>✅</td>
-          </tr>
-          <tr>
-            <td>Seguridad</td>
-            <td>❌</td>
-            <td>✅</td>
-          </tr>
-          <tr>
-            <td>Costos de Mantenimiento</td>
-            <td>❌</td>
-            <td>✅</td>
-          </tr>
-        </table>
-      </div>
-      <a href="https://wa.me/50689840662" class="whatsapp-button">Solicitar este servicio</a>
-    </div>
+    <!-- Aquí van todos los bloques de servicios completos -->
   </section>
 
   <footer>
@@ -139,4 +111,3 @@
   </audio>
 </body>
 </html>
-

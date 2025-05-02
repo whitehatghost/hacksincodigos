@@ -1,41 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Servicios - HacksinCodigos</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="assets/cicada-logo.png">
+  <link rel="icon" href="/assets/cicada-logo.png">
   <style>
-    .buy-button {
+    .features {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .features > div {
+      width: 90%;
+      max-width: 800px;
+      margin: 1rem auto;
+      padding: 1rem;
+      border: 2px solid #00ff88;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00ff88;
+    }
+
+    .whatsapp-button {
       display: inline-block;
       margin-top: 1rem;
-      background: linear-gradient(135deg, #00ff88, #12ffa0);
-      color: #9d00ff;
+      background-color: #00ff88;
+      color: black;
       padding: 0.7rem 1.5rem;
       border-radius: 50px;
       text-decoration: none;
       font-weight: bold;
       font-family: monospace;
       font-size: 1rem;
-      box-shadow: 0 0 12px rgba(0, 255, 136, 0.5);
+      box-shadow: 0 0 12px rgba(0, 255, 136, 0.6);
       transition: all 0.3s ease-in-out;
-      border: 2px solid #9d00ff;
-      text-shadow: 0 0 6px #9d00ff;
     }
 
-    .buy-button:hover {
-      background: #0aff7e;
-      color: #000000;
-      box-shadow: 0 0 16px #9d00ff, 0 0 20px #00ff88;
+    .whatsapp-button:hover {
+      background-color: #12ffa0;
+      color: black;
+      box-shadow: 0 0 20px #00ff88;
       transform: scale(1.05);
     }
 
-    table {
+    .features table {
       width: 100%;
+      max-width: 100%;
       overflow-x: auto;
       display: block;
       font-family: monospace;
+      border-collapse: collapse;
+      margin-top: 1rem;
     }
 
     th, td {
@@ -44,27 +61,19 @@
       border: 1px solid #00ff88;
       color: #00ff88;
     }
-  
 
-  nav ul li {
-    width: 100%;
-    text-align: center;
-    margin: 0.5rem 0;
-  }
-
-  nav ul li a {
-    display: block;
-    padding: 0.8rem;
-    width: 100%;
-  }
-}
+    @media screen and (max-width: 768px) {
+      .features table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
   </style>
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <div class="logo">
-      <img src="assets/cicada-logo.png" alt="Cicada Logo" style="height: 50px; width: 50px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 8px #00ff88;">
+      <img src="/assets/cicada-logo.png" alt="Cicada Logo" style="height: 50px; width: 50px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 8px #00ff88;">
       HacksinCodigos<span class="blink">_</span>
     </div>
     <nav>
@@ -77,7 +86,7 @@
     </nav>
   </header>
 
-  <section class="hero" style="background: url('assets/bg-hacker.gif') no-repeat center center / cover;">
+  <section class="hero" style="background: url('/assets/bg-hacker.gif') no-repeat center center / cover; text-align: center;">
     <h1>Conocé nuestros servicios</h1>
     <p>Transformamos tu infraestructura física en soluciones digitales rápidas, seguras y profesionales. Desde páginas web hasta soporte técnico 24/7.</p>
     <a href="https://wa.me/50689840662" class="whatsapp-button">Whatsapp</a>
@@ -116,95 +125,7 @@
           </tr>
         </table>
       </div>
-      <a href="https://wa.me/50689840662" class="buy-button">Solicitar este servicio</a>
-    </div>
-
-    <div>
-      <h2>VPN y Seguridad</h2>
-      <p>Acceso remoto privado, protegido con VPN personalizada, firewalls y autenticación segura. Tu equipo podrá conectarse desde casa o desde el extranjero sin comprometer la seguridad.</p>
-      <a href="https://wa.me/50689840662" class="buy-button">Solicitar este servicio</a>
-    </div>
-
-    <div>
-      <h2>Planes de Diseño Web Profesional</h2>
-<p>Sitios informativos, portafolios y landing pages para emprendedores y negocios en crecimiento.</p>
-
-<div class="burbuja">
-  <h3>Plan Landing Page – $299 USD</h3>
-  <ul>
-    <li>1 página personalizada con diseño único</li>
-    <li>Redacción de contenido (hasta 500 palabras)</li>
-    <li>Formulario de contacto + botón de WhatsApp</li>
-    <li>Hosting y dominio .com por 1 año</li>
-    <li>Certificado SSL incluido</li>
-    <li>1 cambio mensual de contenido</li>
-    <li>Soporte básico incluido</li>
-  </ul>
-  <p><strong>Opción mensual:</strong> $39 USD x 12 meses</p>
-  <a href="https://wa.me/50689840662" class="buy-button">Solicitar este plan</a>
-</div>
-
-<div class="burbuja">
-  <h3>Plan Profesional – $649 USD</h3>
-  <ul>
-    <li>Hasta 7 páginas (Inicio, Nosotros, Servicios, Contacto, etc.)</li>
-    <li>Redacción de contenido (hasta 2000 palabras)</li>
-    <li>Diseño personalizado adaptado a tu marca</li>
-    <li>Hosting y dominio .com por 1 año</li>
-    <li>Certificado SSL y correos corporativos</li>
-    <li>Hasta 3 cambios mensuales</li>
-    <li>Soporte técnico y visual continuo</li>
-  </ul>
-  <p><strong>Opción mensual:</strong> $69 USD x 12 meses</p>
-  <a href="https://wa.me/50689840662" class="buy-button">Solicitar este plan</a>
-</div>
-
-<div class="burbuja">
-  <h3>Plan Premium – $899 USD</h3>
-  <ul>
-    <li>Hasta 10 páginas con diseño premium</li>
-    <li>Redacción de contenido completa y estructurada</li>
-    <li>Rediseño de logotipo o mejora visual incluida</li>
-    <li>Imágenes premium y optimización de carga</li>
-    <li>Hosting y dominio .com por 1 año</li>
-    <li>Certificado SSL y correos corporativos</li>
-    <li>Hasta 5 cambios mensuales</li>
-    <li>Soporte prioritario</li>
-  </ul>
-  <p><strong>Opción mensual:</strong> $85 USD x 12 meses</p>
-  <a href="https://wa.me/50689840662" class="buy-button">Solicitar este plan</a>
-</div>
-
-<div class="burbuja">
-  <h3>Mantenimiento Anual – $150 USD</h3>
-  <ul>
-    <li>Renovación de dominio y hosting</li>
-    <li>Certificado SSL</li>
-    <li>Cambios mensuales (hasta 1 por mes)</li>
-    <li>Soporte técnico y backups básicos</li>
-  </ul>
-  <a href="https://wa.me/50689840662" class="buy-button">Solicitar mantenimiento</a>
-</div>
-
-<div class="burbuja">
-  <p><strong>¿Ya tenés tus textos?</strong> Te descontamos $50-$100 según el plan.</p>
-  <p><strong>¿Pagás todo de una vez?</strong> ¡10% de descuento adicional!</p>
-</div>
-
-</div>
-
-<div>
-  <h2>Cursos Online</h2>
-      <p>Accedé a nuestros cursos online sobre tecnología, ciberseguridad, diseño web, inteligencia artificial y más. Cursos diseñados para que aprendas desde cero con una metodología clara, moderna y práctica.</p>
-      <p>Perfecto para emprendedores, técnicos, programadores y cualquier persona que quiera dominar herramientas digitales en poco tiempo.</p>
-      <a href="https://wa.me/50689840662" class="buy-button">Acceder a Cursos Online</a>
-    </div>
-
-    <div>
-      <h2>Soporte IT 24/7</h2>
-      <p>Brindamos soporte técnico remoto para empresas los 365 días del año. Atendemos fallos, incidencias, configuraciones, caídas de red y cualquier urgencia que afecte tu operación digital.</p>
-      <p>Incluye asistencia por WhatsApp, correo, escritorio remoto y llamadas directas con técnicos expertos.</p>
-      <a href="https://wa.me/50689840662" class="buy-button">Solicitar Soporte IT</a>
+      <a href="https://wa.me/50689840662" class="whatsapp-button">Solicitar este servicio</a>
     </div>
   </section>
 
@@ -213,7 +134,7 @@
   </footer>
 
   <audio autoplay loop>
-    <source src="assets/bg-music.mp3" type="audio/mpeg">
+    <source src="/assets/bg-music.mp3" type="audio/mpeg">
     Tu navegador no soporta audio HTML5.
   </audio>
 </body>

@@ -12,18 +12,36 @@
       bottom: 100px;
       right: 20px;
       z-index: 1000;
+      animation: pulse 2s infinite;
     }
 
-    .whatsapp-float img {
+    .instagram-button {
+      position: fixed;
+      bottom: 30px;
+      right: 20px;
+      z-index: 1000;
+      animation: pulse 2s infinite;
+    }
+
+    .whatsapp-float img,
+    .instagram-button img {
       width: 45px;
       height: 45px;
       border-radius: 50%;
       box-shadow: 0 0 10px #00ff88;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .whatsapp-float img:hover {
+    .whatsapp-float img:hover,
+    .instagram-button img:hover {
       transform: scale(1.1);
+      box-shadow: 0 0 20px #00ff88, 0 0 30px #12ffa0;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px #00ff88; }
+      50% { box-shadow: 0 0 20px #12ffa0; }
+      100% { box-shadow: 0 0 10px #00ff88; }
     }
   </style>
 </head>

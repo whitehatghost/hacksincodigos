@@ -35,10 +35,6 @@ header {
   50% { opacity: 0; }
 }
 
-nav {
-  width: 100%;
-}
-
 nav ul {
   display: flex;
   flex-direction: row;
@@ -74,7 +70,6 @@ nav ul li a:hover {
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    margin-top: 1rem;
   }
 
   nav ul li a {
@@ -191,4 +186,25 @@ footer {
   font-size: 0.9rem;
   box-shadow: 0 0 10px #00ff88;
 }
+
+.instagram-button {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 999;
+  background-color: transparent;
+}
+
+.instagram-button img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff007a;
+  transition: transform 0.3s ease;
+}
+
+.instagram-button:hover img {
+  transform: scale(1.1);
+}
+
 

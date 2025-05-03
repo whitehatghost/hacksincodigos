@@ -1,208 +1,99 @@
-/* Estilos generales */
+/* Reset básico */
 body {
-  background-color: #000;
-  color: #00ff88;
-  font-family: monospace;
   margin: 0;
   padding: 0;
+  background: #000;
+  color: #00ff88;
+  font-family: monospace;
 }
 
+/* Estilo del header */
 header {
+  background-color: #111;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: #111;
-  box-shadow: 0 0 10px #00ff88;
 }
 
 .logo {
   display: flex;
   align-items: center;
   font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.logo img {
-  margin-right: 0.5rem;
-}
-
-.blink {
-  animation: blink 1s step-start infinite;
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
+  font-weight: bold;
+  color: #00ff88;
 }
 
 nav ul {
+  list-style: none;
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: nowrap;
+  gap: 1.5rem;
   padding: 0;
   margin: 0;
-  list-style: none;
-  white-space: nowrap;
-}
-
-nav ul li {
-  list-style: none;
 }
 
 nav ul li a {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  color: #00ff88;
   text-decoration: none;
-  font-family: monospace;
-  transition: background 0.3s;
-}
-
-nav ul li a:hover {
-  background-color: #00ff8833;
-}
-
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  nav ul li a {
-    display: block;
-    width: 80vw;
-    text-align: center;
-    margin: 0.3rem auto;
-    padding: 0.8rem 1rem;
-    font-size: 1.2rem;
-  }
+  color: #00ff88;
+  font-weight: bold;
 }
 
 .hero {
   padding: 2rem;
   text-align: center;
-  background: url('/assets/bg-hacker.gif') no-repeat center center / cover;
 }
 
 .features {
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 1rem;
+  gap: 1.5rem;
 }
 
-.features > div {
-  width: 90%;
-  max-width: 900px;
-  margin: 1rem auto;
-  padding: 1rem;
+.features div {
   border: 2px solid #00ff88;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #00ff88;
-}
-
-.burbuja {
-  margin-top: 1rem;
+  border-radius: 12px;
   padding: 1rem;
-  border: 1px solid #00ff88;
-  border-radius: 10px;
-  background-color: #111;
   box-shadow: 0 0 10px #00ff88;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.buy-button {
-  display: inline-block;
-  margin-top: 1rem;
-  background: linear-gradient(135deg, #00ff88, #12ffa0);
-  color: #9d00ff;
-  padding: 0.7rem 1.5rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: bold;
-  font-family: monospace;
-  font-size: 1rem;
-  box-shadow: 0 0 12px rgba(0, 255, 136, 0.5);
-  transition: all 0.3s ease-in-out;
-  border: 2px solid #9d00ff;
-  text-shadow: 0 0 6px #9d00ff;
-}
-
-.buy-button:hover {
-  background: #0aff7e;
-  color: #000000;
-  box-shadow: 0 0 16px #9d00ff, 0 0 20px #00ff88;
-  transform: scale(1.05);
-}
-
-input[type="text"], input[type="email"], textarea {
-  width: 100%;
-  max-width: 500px;
-  padding: 0.75rem;
-  margin: 0.5rem auto;
-  display: block;
-  border-radius: 8px;
-  border: 1px solid #00ff88;
-  font-family: monospace;
-  background-color: #000;
-  color: #00ff88;
-  box-shadow: 0 0 8px #00ff88;
-}
-
-input::placeholder, textarea::placeholder {
-  color: #aaa;
-}
-
-textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-table {
-  width: 100%;
-  overflow-x: auto;
-  display: block;
-  font-family: monospace;
-}
-
-th, td {
-  padding: 0.5rem;
-  text-align: center;
-  border: 1px solid #00ff88;
-  color: #00ff88;
 }
 
 footer {
+  background-color: #111;
   text-align: center;
   padding: 1rem;
-  background-color: #111;
+  margin-top: 2rem;
+  font-size: 0.8rem;
   color: #00ff88;
-  font-size: 0.9rem;
-  box-shadow: 0 0 10px #00ff88;
+}
+
+/* Botones flotantes */
+.whatsapp-float,
+.instagram-button {
+  position: fixed;
+  right: 20px;
+  z-index: 1000;
+}
+
+.whatsapp-float {
+  bottom: 100px;
 }
 
 .instagram-button {
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  z-index: 999;
-  background-color: transparent;
+  bottom: 30px;
 }
 
+.whatsapp-float img,
 .instagram-button img {
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  box-shadow: 0 0 10px #ff007a;
   transition: transform 0.3s ease;
 }
 
+.whatsapp-float img:hover,
+.instagram-button img:hover {
+  transform: scale(1.1);
+}
 .instagram-button:hover img {
   transform: scale(1.1);
 }

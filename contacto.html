@@ -3,42 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacto - HacksinCodigos</title>
+  <title>HacksinCodigos</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="cicada-logo.png">
+  <link rel="icon" href="assets/cicada-logo.png">
   <style>
-    .contacto {
-      padding: 2rem;
-      font-family: monospace;
-      background: #0c0c0c;
-      color: #00ff88;
+    .whatsapp-float {
+      position: fixed;
+      bottom: 120px;
+      right: 20px;
+      z-index: 1000;
     }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 500px;
-      margin: 2rem auto;
+
+    .instagram-button {
+      position: fixed;
+      bottom: 50px;
+      right: 20px;
+      z-index: 1000;
     }
-    input, textarea {
-      padding: 0.8rem;
-      border: none;
-      border-radius: 5px;
-      font-family: monospace;
-      font-size: 1rem;
+
+    .whatsapp-float img,
+    .instagram-button img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
     }
-    button {
-      padding: 0.8rem;
-      background: #00ff88;
-      border: none;
-      border-radius: 50px;
-      font-weight: bold;
-      color: #000;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    button:hover {
-      background: #12ffa0;
+
+    .whatsapp-float img:hover,
+    .instagram-button img:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
@@ -58,21 +51,45 @@
     </nav>
   </header>
 
-  <section class="contacto">
-    <h1>Contáctanos</h1>
-    <p>Podés escribirnos directamente por WhatsApp o usar el siguiente formulario para enviarnos un mensaje:</p>
+  <section class="hero">
+    <h1>HacksinCodigos</h1>
+    <p>Somos un equipo especializado en digitalizar empresas: migramos tu infraestructura a la nube, creamos páginas web en 48h, activamos VPN seguras, correos empresariales y soporte técnico 24/7. También brindamos cursos online en tecnología, ciberseguridad y desarrollo web.</p>
+    <p><strong>+10 años de experiencia combinada, soporte inmediato y resultados reales.</strong></p>
+  </section>
 
-    <form name="contact" method="POST" data-netlify="true">
-      <input type="text" name="nombre" placeholder="Tu nombre" required>
-      <input type="email" name="email" placeholder="Tu correo" required>
-      <textarea name="mensaje" rows="6" placeholder="¿En qué te podemos ayudar?" required></textarea>
-      <button type="submit">Enviar mensaje</button>
-    </form>
+  <section class="features">
+    <div>
+      <h2>📬 Contáctanos directamente</h2>
+      <p>📞 Teléfono: <strong>+506 8984 0662</strong> (Luis Rodríguez)</p>
+      <p>💬 WhatsApp: <a href="https://wa.me/50689840662" target="_blank">Enviar mensaje</a></p>
+      <p>📸 Instagram: <a href="https://instagram.com/hacksincodigos" target="_blank">@hacksincodigos</a></p>
+      <p>📍 Oficinas: <strong>Heredia, Costa Rica</strong></p>
+    </div>
+
+    <div>
+      <h2>📝 Envíanos un mensaje</h2>
+      <form name="contact" method="POST" data-netlify="true">
+        <input type="text" name="name" placeholder="Tu nombre" required><br>
+        <input type="email" name="email" placeholder="Tu correo" required><br>
+        <textarea name="message" placeholder="¿En qué te podemos ayudar?" required></textarea><br>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 HacksinCodigos | Creador: Luis Rodriguez | Todos los derechos reservados</p>
+    <p>&copy; 2025 HacksinCodigos | Creador: Luis Rodríguez | Todos los derechos reservados</p>
   </footer>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a href="https://wa.me/50689840662" class="whatsapp-float" target="_blank">
+    <img src="assets/whatsapp-icon.png" alt="WhatsApp">
+  </a>
+
+  <!-- Botón flotante de Instagram -->
+  <a href="https://instagram.com/hacksincodigos" class="instagram-button" target="_blank">
+    <img src="assets/instagram-icon.png" alt="Instagram">
+  </a>
 
   <audio autoplay loop>
     <source src="assets/bg-music.mp3" type="audio/mpeg">

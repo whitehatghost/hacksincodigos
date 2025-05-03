@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servicios - HacksinCodigos</title>
-  <link rel="stylesheet" href="/style.css">
-  <link rel="icon" href="/assets/cicada-logo.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/cicada-logo.png">
   <style>
     .buy-button {
       display: inline-block;
@@ -73,37 +73,12 @@
       margin-left: auto;
       margin-right: auto;
     }
-
-    .social-button {
-      position: fixed;
-      bottom: 20px;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      z-index: 999;
-      box-shadow: 0 0 10px #00ff88;
-    }
-
-    .whatsapp-button-float {
-      right: 20px;
-    }
-
-    .instagram-button-float {
-      right: 80px;
-    }
-
-    .social-button img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
-    }
   </style>
 </head>
 <body>
   <header>
     <div class="logo">
-      <img src="/assets/cicada-logo.png" alt="Cicada Logo" style="height: 50px; width: 50px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 8px #00ff88;">
+      <img src="assets/cicada-logo.png" alt="Cicada Logo" style="height: 50px; width: 50px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 8px #00ff88;">
       HacksinCodigos<span class="blink">_</span>
     </div>
     <nav>
@@ -116,19 +91,43 @@
     </nav>
   </header>
 
-  <section class="hero" style="background: url('/assets/bg-hacker.gif') no-repeat center center / cover; text-align: center;">
+  <section class="hero">
     <h1>Conocé nuestros servicios</h1>
     <p>Transformamos tu infraestructura física en soluciones digitales rápidas, seguras y profesionales. Desde páginas web hasta soporte técnico 24/7.</p>
-    <a href="https://wa.me/50689840662" class="buy-button">Whatsapp</a>
+    <a href="https://wa.me/50689840662" class="whatsapp-button">Whatsapp</a>
   </section>
 
   <section class="features">
     <div>
       <h2>Infraestructura en la Nube</h2>
-      <p>Montamos entornos virtuales seguros y eficientes para tu empresa...</p>
+      <p>Montamos entornos virtuales seguros y eficientes para tu empresa. Desde escritorios remotos hasta almacenamiento seguro, accedé a todo tu sistema desde cualquier lugar del mundo.</p>
       <div style="overflow-x: auto;">
         <table>
-          <!-- Tabla de comparación -->
+          <tr>
+            <th></th>
+            <th>Infraestructura Tradicional</th>
+            <th>Infraestructura en la Nube</th>
+          </tr>
+          <tr>
+            <td>Acceso Remoto</td>
+            <td>❌</td>
+            <td>✅</td>
+          </tr>
+          <tr>
+            <td>Escalabilidad</td>
+            <td>❌</td>
+            <td>✅</td>
+          </tr>
+          <tr>
+            <td>Seguridad</td>
+            <td>❌</td>
+            <td>✅</td>
+          </tr>
+          <tr>
+            <td>Costos de Mantenimiento</td>
+            <td>❌</td>
+            <td>✅</td>
+          </tr>
         </table>
       </div>
       <a href="https://wa.me/50689840662?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20Infraestructura%20en%20la%20Nube" class="buy-button">Solicitar este servicio</a>
@@ -136,18 +135,24 @@
 
     <div>
       <h2>VPN y Seguridad</h2>
-      <p>Acceso remoto privado...</p>
+      <p>Acceso remoto privado, protegido con VPN personalizada, firewalls y autenticación segura. Tu equipo podrá conectarse desde casa o desde el extranjero sin comprometer la seguridad.</p>
       <a href="https://wa.me/50689840662?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20VPN%20y%20Seguridad" class="buy-button">Solicitar este servicio</a>
     </div>
 
     <div>
       <h2>Diseño Web</h2>
-      <p>Desarrollamos páginas web...</p>
+      <p>Desarrollamos páginas web con velocidad, estilo y funcionalidad. Cada sitio está optimizado para verse bien, posicionar en Google y convertir visitas en clientes.</p>
 
       <div class="burbuja">
         <h3>Plan Landing Page – $299 USD</h3>
         <ul>
-          <li>1 página personalizada...</li>
+          <li>1 página personalizada con diseño único</li>
+          <li>Redacción de contenido (hasta 500 palabras)</li>
+          <li>Formulario de contacto + botón de WhatsApp</li>
+          <li>Hosting y dominio .com por 1 año</li>
+          <li>Certificado SSL incluido</li>
+          <li>1 cambio mensual de contenido</li>
+          <li>Soporte básico incluido</li>
         </ul>
         <p><strong>Opción mensual:</strong> $39 USD x 12 meses</p>
         <a href="https://wa.me/50689840662?text=Hola%2C%20me%20interesa%20el%20Plan%20Landing%20Page" class="buy-button">Solicitar este plan</a>
@@ -156,7 +161,13 @@
       <div class="burbuja">
         <h3>Plan Profesional – $649 USD</h3>
         <ul>
-          <li>Hasta 7 páginas...</li>
+          <li>Hasta 7 páginas (Inicio, Nosotros, Servicios, Contacto, etc.)</li>
+          <li>Redacción de contenido (hasta 2000 palabras)</li>
+          <li>Diseño personalizado adaptado a tu marca</li>
+          <li>Hosting y dominio .com por 1 año</li>
+          <li>Certificado SSL y correos corporativos</li>
+          <li>Hasta 3 cambios mensuales</li>
+          <li>Soporte técnico y visual continuo</li>
         </ul>
         <p><strong>Opción mensual:</strong> $69 USD x 12 meses</p>
         <a href="https://wa.me/50689840662?text=Hola%2C%20me%20interesa%20el%20Plan%20Profesional" class="buy-button">Solicitar este plan</a>
@@ -165,7 +176,14 @@
       <div class="burbuja">
         <h3>Plan Premium – $899 USD</h3>
         <ul>
-          <li>Hasta 10 páginas...</li>
+          <li>Hasta 10 páginas con diseño premium</li>
+          <li>Redacción de contenido completa y estructurada</li>
+          <li>Rediseño de logotipo o mejora visual incluida</li>
+          <li>Imágenes premium y optimización de carga</li>
+          <li>Hosting y dominio .com por 1 año</li>
+          <li>Certificado SSL y correos corporativos</li>
+          <li>Hasta 5 cambios mensuales</li>
+          <li>Soporte prioritario</li>
         </ul>
         <p><strong>Opción mensual:</strong> $85 USD x 12 meses</p>
         <a href="https://wa.me/50689840662?text=Hola%2C%20me%20interesa%20el%20Plan%20Premium" class="buy-button">Solicitar este plan</a>
@@ -175,40 +193,41 @@
         <h3>Mantenimiento Anual – $150 USD</h3>
         <ul>
           <li>Renovación de dominio y hosting</li>
+          <li>Certificado SSL</li>
+          <li>Cambios mensuales (hasta 1 por mes)</li>
+          <li>Soporte técnico y backups básicos</li>
         </ul>
         <a href="https://wa.me/50689840662?text=Hola%2C%20quiero%20contratar%20el%20Mantenimiento%20Anual" class="buy-button">Solicitar mantenimiento</a>
+      </div>
+
+      <div class="burbuja">
+        <p><strong>¿Ya tenés tus textos?</strong> Te descontamos $50-$100 según el plan.</p>
+        <p><strong>¿Pagás todo de una vez?</strong> ¡10% de descuento adicional!</p>
       </div>
     </div>
 
     <div>
       <h2>Cursos Online</h2>
-      <p>Accedé a nuestros cursos online sobre tecnología...</p>
+      <p>Accedé a nuestros cursos online sobre tecnología, ciberseguridad, diseño web, inteligencia artificial y más. Cursos diseñados para que aprendas desde cero con una metodología clara, moderna y práctica.</p>
+      <p>Perfecto para emprendedores, técnicos, programadores y cualquier persona que quiera dominar herramientas digitales en poco tiempo.</p>
       <a href="https://wa.me/50689840662?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20Cursos%20Online" class="buy-button">Acceder a Cursos Online</a>
     </div>
 
     <div>
       <h2>Soporte IT 24/7</h2>
-      <p>Brindamos soporte técnico remoto...</p>
+      <p>Brindamos soporte técnico remoto para empresas los 365 días del año. Atendemos fallos, incidencias, configuraciones, caídas de red y cualquier urgencia que afecte tu operación digital.</p>
+      <p>Incluye asistencia por WhatsApp, correo, escritorio remoto y llamadas directas con técnicos expertos.</p>
       <a href="https://wa.me/50689840662?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20Soporte%20IT%2024%2F7" class="buy-button">Solicitar Soporte IT</a>
     </div>
   </section>
-
-  <!-- Botones flotantes -->
-  <a href="https://wa.me/50689840662" class="social-button whatsapp-button-float" target="_blank">
-    <img src="/assets/whatsapp-icon.png" alt="WhatsApp">
-  </a>
-  <a href="https://instagram.com/hacksincodigos" class="social-button instagram-button-float" target="_blank">
-    <img src="/assets/instagram-icon.png" alt="Instagram">
-  </a>
 
   <footer>
     <p>&copy; 2025 HacksinCodigos | Creador: Luis Rodriguez | Todos los derechos reservados</p>
   </footer>
 
   <audio autoplay loop>
-    <source src="/assets/bg-music.mp3" type="audio/mpeg">
+    <source src="assets/bg-music.mp3" type="audio/mpeg">
     Tu navegador no soporta audio HTML5.
   </audio>
 </body>
 </html>
-

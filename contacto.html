@@ -69,7 +69,11 @@
 
     <div>
       <h2>📝 Envíanos un mensaje</h2>
-      <form name="contact" method="POST" data-netlify="true">
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <!-- Campo oculto honeypot para bloquear bots -->
+        <p style="display:none;">
+          <label>Si ves este campo, déjalo vacío: <input name="bot-field" /></label>
+        </p>
         <input type="text" name="name" placeholder="Tu nombre" required><br>
         <input type="email" name="email" placeholder="Tu correo" required><br>
         <textarea name="message" placeholder="¿En qué te podemos ayudar?" required></textarea><br>

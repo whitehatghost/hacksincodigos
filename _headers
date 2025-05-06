@@ -8,4 +8,8 @@
   X-XSS-Protection: 1; mode=block
 
 /noticias.html
-  Content-Security-Policy: default-src 'self' https://api.allorigins.win https://api.rss2json.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://api.allorigins.win https://api.rss2json.com
+  Content-Security-Policy: default-src 'self'; 
+    connect-src 'self' https://api.allorigins.win https://api.rss2json.com;
+    img-src 'self' data: https:;
+    style-src 'self' 'unsafe-inline';
+    script-src 'self' 'unsafe-inline' https://api.allorigins.win https://api.rss2json.com;

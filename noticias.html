@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://api.rss2json.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://api.rss2json.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' https://api.rss2json.com;">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Noticias actualizadas sobre ciberseguridad, vulnerabilidades, ataques y amenazas globales.">
   <meta name="robots" content="index, follow">
@@ -81,26 +81,24 @@
       border-top: 1px solid #00ff88;
     }
 
-    h3 {
+    .rss-title {
       color: #00ff00;
+      font-weight: bold;
       margin-top: 2rem;
     }
 
-    ul {
+    ul.rss-feed {
       list-style-type: disc;
-      padding-left: 1.5rem;
+      margin-left: 2rem;
+      color: #0ff;
     }
 
-    ul li {
-      margin-bottom: 0.5rem;
-    }
-
-    ul li a {
-      color: #00ccff;
+    ul.rss-feed li a {
+      color: #00f;
       text-decoration: none;
     }
 
-    ul li a:hover {
+    ul.rss-feed li a:hover {
       text-decoration: underline;
     }
   </style>
@@ -135,6 +133,9 @@
     <p>&copy; 2025 HacksinCodigos | Creador: Luis Rodríguez | Todos los derechos reservados</p>
   </footer>
 
+  <script src="rss-reader.js"></script>
+</body>
+</html>
   <script src="rss-reader.js"></script>
 </body>
 </html>

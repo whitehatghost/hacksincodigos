@@ -206,4 +206,12 @@ footer {
 .instagram-button:hover img {
   transform: scale(1.1);
 }
+.elfsight-app-f0e00250-2209-483f-b640-fa3e9a8f07f1 {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  margin: 0 auto;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
 

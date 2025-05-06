@@ -1,47 +1,50 @@
-const feeds = [
-  {
-    name: "Krebs on Security",
-    url: "https://api.rss2json.com/v1/api.json?rss_url=https://krebsonsecurity.com/feed"
-  },
-  {
-    name: "Threatpost",
-    url: "https://api.rss2json.com/v1/api.json?rss_url=https://threatpost.com/feed"
-  },
-  {
-    name: "BleepingComputer",
-    url: "https://api.rss2json.com/v1/api.json?rss_url=https://www.bleepingcomputer.com/feed/"
-  },
-  {
-    name: "Naked Security (Sophos)",
-    url: "https://api.rss2json.com/v1/api.json?rss_url=https://nakedsecurity.sophos.com/feed"
-  },
-  {
-    name: "Microsoft Security Blog",
-    url: "https://api.rss2json.com/v1/api.json?rss_url=https://www.microsoft.com/en-us/security/blog/feed"
-  }
-];
+document.addEventListener("DOMContentLoaded", () => {
+  const feeds = [
+    { name: "Krebs", url: "https://krebsonsecurity.com/feed" },
+    { name: "Threatpost", url: "https://threatpost.com/feed" },
+    { name: "BleepingComputer", url: "https://www.bleepingcomputer.com/feed/" },
+    { name: "Sophos", url: "https://nakedsecurity.sophos.com/feed" },
+    { name: "Microsoft", url: "https://www.microsoft.com/en-us/security/blog/feed" }
+  ];
 
-const container = document.getElementById("rss-feeds");
+  const container = document.getElementById("rss-output");
+  if (!container) return;
 
-feeds.forEach(feed => {
-  fetch(feed.url)
-    .then(response => response.json())
-    .then(data => {
-      const section = document.createElement("div");
-      section.className = "feed";
-      section.innerHTML = `<h3>${feed.name}</h3><ul></ul>`;
+  feeds.forEach(feed => {
+    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`;
 
-      const ul = section.querySelector("ul");
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        if (!data.items || !data.items.length) {
+          throw new Error("No se pudo obtener contenido del feed.");
+        }
 
-      data.items.slice(0, 5).forEach(item => {
-        const li = document.createElement("li");
-        li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
-        ul.appendChild(li);
+        const section = document.createElement("section");
+        section.classList.add("feed-section");
+
+        const title = document.createElement("h2");
+        title.textContent = `📰 ${feed.name}`;
+        section.appendChild(title);
+
+        const ul = document.createElement("ul");
+
+        data.items.slice(0, 5).forEach(item => {
+          const li = document.createElement("li");
+          const link = document.createElement("a");
+          link.href = item.link;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = item.title;
+          li.appendChild(link);
+          ul.appendChild(li);
+        });
+
+        section.appendChild(ul);
+        container.appendChild(section);
+      })
+      .catch(error => {
+        console.error(`Error cargando feed: ${feed.name}`, error);
       });
-
-      container.appendChild(section);
-    })
-    .catch(error => {
-      console.error("Error cargando feed:", feed.name, error);
-    });
+  });
 });

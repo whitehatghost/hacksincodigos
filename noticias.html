@@ -2,114 +2,113 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://static.elfsight.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' https://static.elfsight.com;">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Últimas noticias sobre ciberseguridad, ataques, vulnerabilidades y más.">
+  <meta name="description" content="Noticias actualizadas sobre ciberseguridad, vulnerabilidades, ataques y amenazas globales.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Luis Rodríguez">
-  <meta name="keywords" content="ciberseguridad, noticias, vulnerabilidades, hacking ético, amenazas, malware, ransomware">
- 
+  <meta name="keywords" content="noticias ciberseguridad, vulnerabilidades, amenazas, ataques, hacksincodigos, malware, exploits">
   <title>Noticias de Ciberseguridad - HacksinCodigos</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="assets/cicada-logo.png">
   <style>
     body {
-      font-family: monospace;
-      color: #00ff88;
       background-color: #000;
+      color: #0f0;
+      font-family: monospace;
       margin: 0;
       padding: 0;
     }
 
-    .hero {
-      text-align: center;
-      padding: 2rem;
-      background: url('assets/bg-hacker.gif') no-repeat center center/cover;
-    }
-
-    .hero h1 {
-      font-size: 2rem;
-      color: #00ff88;
-    }
-
-    .hero p {
-      color: #00ffcc;
-      font-size: 1rem;
-    }
-
-    .elfsight-app-f0e00250-2209-483f-b640-fa3e9a8f07f1 {
-      width: 100%;
-      max-width: 1200px;
-      margin: 2rem auto;
-      min-height: 700px;
-    }
-
-    footer {
+    header, footer {
       text-align: center;
       padding: 1rem;
-      color: #00ff88;
       background-color: #111;
-      font-size: 0.9rem;
-    }
-
-    nav {
-      text-align: center;
-      background-color: #111;
-      padding: 1rem;
     }
 
     nav ul {
-      list-style: none;
-      padding: 0;
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      list-style: none;
+      padding: 0;
     }
 
-    nav a {
-      text-decoration: none;
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
       color: #00ff88;
-      font-weight: bold;
+      text-decoration: none;
     }
 
     .logo {
-      text-align: center;
-      padding: 1rem;
-      font-size: 1.5rem;
-      color: #00ff88;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1rem;
     }
 
     .logo img {
-      height: 40px;
+      height: 50px;
+      width: 50px;
       border-radius: 50%;
-      vertical-align: middle;
+      object-fit: cover;
+      box-shadow: 0 0 8px #00ff88;
+      margin-right: 10px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: url('assets/bg-hacker.gif') no-repeat center center / cover;
+    }
+
+    .hero h2 {
+      font-size: 1.8rem;
+      color: #00ff88;
+    }
+
+    .rss-container {
+      max-width: 1080px;
+      width: 95%;
+      margin: 2rem auto;
+      min-height: 600px;
+    }
+
+    footer {
+      font-size: 0.9rem;
+      border-top: 1px solid #00ff88;
     }
   </style>
 </head>
 <body>
-  <div class="logo">
-    <img src="assets/cicada-logo.png" alt="HacksinCodigos Logo">
-    HacksinCodigos<span class="blink">_</span>
-  </div>
-
-  <nav>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="servicios.html">Servicios</a></li>
-      <li><a href="testimonios.html">Testimonios</a></li>
-      <li><a href="noticias.html">Noticias</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-      
-    </ul>
-  </nav>
+  <header>
+    <div class="logo">
+      <img src="assets/cicada-logo.png" alt="Cicada Logo">
+      <span>HacksinCodigos<span class="blink">_</span></span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="testimonios.html">Testimonios</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <section class="hero">
-    <h1>📰 Noticias de Ciberseguridad</h1>
+    <h2>📰 Noticias de Ciberseguridad</h2>
     <p>Últimas actualizaciones sobre vulnerabilidades, amenazas, ataques y tendencias en ciberseguridad mundial.</p>
   </section>
 
-  
-  <script src="https://static.elfsight.com/platform/platform.js" async></script>
-  <div class="elfsight-app-f0e00250-2209-483f-b640-fa3e9a8f07f1" data-elfsight-app-lazy></div>
+  <div class="rss-container">
+    <!-- Elfsight RSS Feed | CIBERSEC -->
+    <script src="https://static.elfsight.com/platform/platform.js" async></script>
+    <div class="elfsight-app-f0e00250-2209-483f-b640-fa3e9a8f07f1" data-elfsight-app-lazy></div>
+  </div>
 
   <footer>
     <p>&copy; 2025 HacksinCodigos | Creador: Luis Rodríguez | Todos los derechos reservados</p>

@@ -2,11 +2,31 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://static.elfsight.com; script-src 'self' 'unsafe-inline' https://static.elfsight.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.elfsightcdn.com;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.elfsight.com; style-src 'self' 'unsafe-inline'; script-src 'self' https://*.elfsight.com; img-src 'self' data: https://*.elfsight.com;">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noticias - HacksinCodigos</title>
+  <meta name="description" content="Noticias actualizadas sobre ciberseguridad, amenazas y vulnerabilidades">
+  <meta name="robots" content="index, follow">
+  <title>Noticias | HacksinCodigos</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="assets/cicada-logo.png">
+  <style>
+    .rss-container {
+      max-width: 95%;
+      height: 80vh;
+      margin: 2rem auto;
+      padding: 1rem;
+      border: 2px solid #00ff88;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #00ff88;
+      background-color: rgba(0, 0, 0, 0.85);
+      overflow: hidden;
+    }
+
+    .elfsight-app {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -31,11 +51,11 @@
     <p>Últimas actualizaciones sobre vulnerabilidades, amenazas, ataques y tendencias en ciberseguridad mundial.</p>
   </section>
 
-  <section class="features" style="text-align: center;">
-    <!-- RSS Feed integrado -->
+  <div class="rss-container">
+    <!-- Elfsight RSS Feed -->
     <script src="https://static.elfsight.com/platform/platform.js" async></script>
     <div class="elfsight-app-f0e00250-2209-483f-b640-fa3e9a8f07f1" data-elfsight-app-lazy></div>
-  </section>
+  </div>
 
   <footer>
     <p>&copy; 2025 HacksinCodigos | Creador: Luis Rodríguez | Todos los derechos reservados</p>

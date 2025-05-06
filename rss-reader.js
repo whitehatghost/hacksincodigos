@@ -1,46 +1,37 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
   const feeds = [
-    { name: "Krebs", url: "https://krebsonsecurity.com/feed" },
+    { name: "Krebs on Security", url: "https://krebsonsecurity.com/feed" },
     { name: "Threatpost", url: "https://threatpost.com/feed" },
     { name: "BleepingComputer", url: "https://www.bleepingcomputer.com/feed/" },
-    { name: "Sophos", url: "https://nakedsecurity.sophos.com/feed" },
-    { name: "Microsoft", url: "https://www.microsoft.com/en-us/security/blog/feed" }
+    { name: "Naked Security (Sophos)", url: "https://nakedsecurity.sophos.com/feed" },
+    { name: "Microsoft Security Blog", url: "https://www.microsoft.com/en-us/security/blog/feed" }
   ];
 
-  const container = document.getElementById("rss-output");
-  if (!container) return;
+  const container = document.getElementById("rss-feed");
 
   feeds.forEach(feed => {
-    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`;
+    const apiUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(`https://api.rss2json.com/v1/api.json?rss_url=${feed.url}`)}`;
 
     fetch(apiUrl)
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
+        return response.json();
+      })
       .then(data => {
-        if (!data.items || !data.items.length) {
-          throw new Error("No se pudo obtener contenido del feed.");
-        }
+        const parsed = JSON.parse(data.contents);
+        if (!parsed.items || !parsed.items.length) throw new Error("No hay contenido.");
 
         const section = document.createElement("section");
-        section.classList.add("feed-section");
+        section.innerHTML = `<h3>${feed.name}</h3>`;
 
-        const title = document.createElement("h2");
-        title.textContent = `📰 ${feed.name}`;
-        section.appendChild(title);
-
-        const ul = document.createElement("ul");
-
-        data.items.slice(0, 5).forEach(item => {
+        const list = document.createElement("ul");
+        parsed.items.slice(0, 5).forEach(item => {
           const li = document.createElement("li");
-          const link = document.createElement("a");
-          link.href = item.link;
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-          link.textContent = item.title;
-          li.appendChild(link);
-          ul.appendChild(li);
+          li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
+          list.appendChild(li);
         });
 
-        section.appendChild(ul);
+        section.appendChild(list);
         container.appendChild(section);
       })
       .catch(error => {

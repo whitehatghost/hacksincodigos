@@ -2,7 +2,13 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self';">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' https://static.elfsight.com;
+    connect-src https://*.elfsight.com;
+    frame-src https://*.elfsight.com;
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' data: https://*.elfsight.com;">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="HacksinCodigos: migramos tu empresa a la nube, creamos páginas web seguras, activamos VPN, correos y soporte IT 24/7. Cursos online y más.">
   <meta name="robots" content="index, follow">

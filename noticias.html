@@ -72,33 +72,44 @@
       max-width: 1080px;
       width: 95%;
       margin: 2rem auto;
-      min-height: 600px;
+      padding: 1rem;
+      background-color: #111;
+      border: 1px solid #00ff88;
+      border-radius: 10px;
+      box-shadow: 0 0 12px #00ff88;
+    }
+
+    .rss-container section {
+      margin-bottom: 2rem;
+    }
+
+    .rss-container h3 {
+      color: #00ff88;
+      border-bottom: 1px solid #00ff88;
+      padding-bottom: 0.5rem;
+    }
+
+    .rss-container ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+
+    .rss-container li {
+      margin: 0.5rem 0;
+    }
+
+    .rss-container a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .rss-container a:hover {
+      color: #00ff88;
     }
 
     footer {
       font-size: 0.9rem;
       border-top: 1px solid #00ff88;
-    }
-
-    .rss-title {
-      color: #00ff00;
-      font-weight: bold;
-      margin-top: 2rem;
-    }
-
-    ul.rss-feed {
-      list-style-type: disc;
-      margin-left: 2rem;
-      color: #0ff;
-    }
-
-    ul.rss-feed li a {
-      color: #00f;
-      text-decoration: none;
-    }
-
-    ul.rss-feed li a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
@@ -124,17 +135,12 @@
     <p>Últimas actualizaciones sobre vulnerabilidades, amenazas, ataques y tendencias en ciberseguridad mundial.</p>
   </section>
 
-  <div class="rss-container" id="rss-container">
-    <p style="text-align: center;">Cargando noticias...</p>
-  </div>
+  <div id="rss-feed" class="rss-container"></div>
 
   <footer>
     <p>&copy; 2025 HacksinCodigos | Creador: Luis Rodríguez | Todos los derechos reservados</p>
   </footer>
 
-  <script src="rss-reader.js"></script>
-</body>
-</html>
   <script src="rss-reader.js"></script>
 </body>
 </html>

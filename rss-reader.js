@@ -23,87 +23,92 @@ function timeAgo(dateString) {
 }
 
 const feeds = [
-  {
-    name: "Krebs on Security",
-    url: "https://api.allorigins.win/get?url=" + encodeURIComponent("https://api.rss2json.com/v1/api.json?rss_url=https://krebsonsecurity.com/feed")
-  },
-  {
-    name: "Threatpost",
-    url: "https://api.allorigins.win/get?url=" + encodeURIComponent("https://api.rss2json.com/v1/api.json?rss_url=https://threatpost.com/feed")
-  },
-  {
-    name: "BleepingComputer",
-    url: "https://api.allorigins.win/get?url=" + encodeURIComponent("https://api.rss2json.com/v1/api.json?rss_url=https://www.bleepingcomputer.com/feed/")
-  },
-  {
-    name: "Naked Security (Sophos)",
-    url: "https://api.allorigins.win/get?url=" + encodeURIComponent("https://api.rss2json.com/v1/api.json?rss_url=https://nakedsecurity.sophos.com/feed")
-  },
-  {
-    name: "Microsoft Security Blog",
-    url: "https://api.allorigins.win/get?url=" + encodeURIComponent("https://api.rss2json.com/v1/api.json?rss_url=https://www.microsoft.com/en-us/security/blog/feed")
-  }
+  "https://krebsonsecurity.com/feed",
+  "https://www.bleepingcomputer.com/feed/",
+  "https://nakedsecurity.sophos.com/feed",
+  "https://www.microsoft.com/en-us/security/blog/feed",
+  "https://cybersecuritynews.es/feed/"
 ];
 
+const allItems = [];
 const container = document.getElementById("rss-feed");
 
-feeds.forEach(feed => {
-  fetch(feed.url)
-    .then(res => res.json())
-    .then(data => {
-      const contents = JSON.parse(data.contents);
-      const section = document.createElement("section");
-      const title = document.createElement("h3");
-      title.textContent = feed.name;
-      section.appendChild(title);
+Promise.all(
+  feeds.map(feed =>
+    fetch("https://api.allorigins.win/get?url=" + encodeURIComponent("https://api.rss2json.com/v1/api.json?rss_url=" + feed))
+      .then(res => res.json())
+      .then(data => {
+        const parsed = JSON.parse(data.contents);
+        return parsed.items.map(item => ({
+          title: item.title,
+          link: item.link,
+          pubDate: item.pubDate,
+          thumbnail: item.thumbnail || item.enclosure?.link || "",
+          source: parsed.feed.title
+        }));
+      })
+      .catch(err => {
+        console.error("Error cargando feed:", feed, err);
+        return [];
+      })
+  )
+).then(results => {
+  results.forEach(feedItems => {
+    allItems.push(...feedItems);
+  });
 
-      const grid = document.createElement("div");
-      grid.style.display = "grid";
-      grid.style.gridTemplateColumns = "repeat(auto-fill, minmax(300px, 1fr))";
-      grid.style.gap = "20px";
+  const sorted = allItems
+    .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
+    .slice(0, 25);
 
-      contents.items.slice(0, 5).forEach(item => {
-        const card = document.createElement("div");
-        card.style.border = "1px solid #00ff88";
-        card.style.borderRadius = "8px";
-        card.style.padding = "1rem";
-        card.style.backgroundColor = "#111";
-        card.style.boxShadow = "0 0 12px #00ff88";
+  const grid = document.createElement("div");
+  grid.style.display = "grid";
+  grid.style.gridTemplateColumns = "repeat(auto-fill, minmax(300px, 1fr))";
+  grid.style.gap = "20px";
 
-        if (item.thumbnail || item.enclosure?.link) {
-          const img = document.createElement("img");
-          img.src = item.thumbnail || item.enclosure.link;
-          img.alt = item.title;
-          img.style.width = "100%";
-          img.style.borderRadius = "5px";
-          img.style.marginBottom = "10px";
-          card.appendChild(img);
-        }
+  sorted.forEach(item => {
+    const card = document.createElement("div");
+    card.style.border = "1px solid #00ff88";
+    card.style.borderRadius = "8px";
+    card.style.padding = "1rem";
+    card.style.backgroundColor = "#111";
+    card.style.boxShadow = "0 0 12px #00ff88";
 
-        const link = document.createElement("a");
-        link.href = item.link;
-        link.target = "_blank";
-        link.textContent = item.title;
-        link.style.display = "block";
-        link.style.color = "#00ff88";
-        link.style.textDecoration = "none";
-        link.style.fontWeight = "bold";
-        link.style.marginBottom = "6px";
+    if (item.thumbnail) {
+      const img = document.createElement("img");
+      img.src = item.thumbnail;
+      img.alt = item.title;
+      img.style.width = "100%";
+      img.style.borderRadius = "5px";
+      img.style.marginBottom = "10px";
+      card.appendChild(img);
+    }
 
-        const date = document.createElement("span");
-        date.textContent = timeAgo(item.pubDate);
-        date.style.fontSize = "0.8rem";
-        date.style.color = "#999";
+    const link = document.createElement("a");
+    link.href = item.link;
+    link.target = "_blank";
+    link.textContent = item.title;
+    link.style.display = "block";
+    link.style.color = "#00ff88";
+    link.style.textDecoration = "none";
+    link.style.fontWeight = "bold";
+    link.style.marginBottom = "6px";
 
-        card.appendChild(link);
-        card.appendChild(date);
-        grid.appendChild(card);
-      });
+    const source = document.createElement("small");
+    source.textContent = item.source;
+    source.style.color = "#aaa";
+    source.style.display = "block";
 
-      section.appendChild(grid);
-      container.appendChild(section);
-    })
-    .catch(err => {
-      console.error("Error cargando feed:", feed.name, err);
-    });
+    const date = document.createElement("span");
+    date.textContent = timeAgo(item.pubDate);
+    date.style.fontSize = "0.8rem";
+    date.style.color = "#999";
+
+    card.appendChild(link);
+    card.appendChild(source);
+    card.appendChild(date);
+    grid.appendChild(card);
+  });
+
+  container.appendChild(grid);
 });

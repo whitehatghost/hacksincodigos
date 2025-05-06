@@ -13,8 +13,8 @@
   <style>
     body {
       background-color: #000;
-      color: #fff;
-      font-family: Arial, sans-serif;
+      color: #0f0;
+      font-family: monospace;
       margin: 0;
       padding: 0;
     }
@@ -23,6 +23,25 @@
       text-align: center;
       padding: 1rem;
       background-color: #111;
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00ff88;
+      margin-bottom: 1rem;
+    }
+
+    .logo img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 8px #00ff88;
+      margin-right: 10px;
     }
 
     nav ul {
@@ -46,38 +65,15 @@
       color: #00ff88;
     }
 
-    .logo {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-
-    .logo img {
-      height: 50px;
-      width: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 0 8px #00ff88;
-      margin-right: 10px;
-    }
-
-    .logo span {
-      color: #00ff88;
-      font-weight: bold;
-      font-size: 1.5rem;
-    }
-
     .hero {
       text-align: center;
       padding: 2rem 1rem;
-      background-color: #000;
+      background: url('assets/bg-hacker.gif') no-repeat center center / cover;
     }
 
     .hero h2 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: #00ff88;
-      margin-bottom: 1rem;
     }
 
     .rss-container {
@@ -86,58 +82,79 @@
       margin: 2rem auto;
       padding: 1rem;
       background-color: #111;
-      border: 1px solid #333;
+      border: 1px solid #00ff88;
       border-radius: 10px;
-      box-shadow: 0 0 12px #0a0a0a;
+      box-shadow: 0 0 12px #00ff88;
     }
 
-    .news-item {
-      margin-bottom: 1.5rem;
+    .rss-item {
       border-bottom: 1px solid #333;
-      padding-bottom: 1rem;
+      padding: 1rem 0;
     }
 
-    .news-item h3 {
-      margin: 0 0 0.5rem;
+    .rss-item img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 0.5rem;
+      border-radius: 5px;
+    }
+
+    .rss-item a {
       color: #00ff88;
-    }
-
-    .news-item p {
-      margin: 0.3rem 0;
-    }
-
-    .news-item a {
-      color: #fff;
+      font-size: 1rem;
       text-decoration: none;
     }
 
-    .news-item a:hover {
+    .rss-item a:hover {
       text-decoration: underline;
-      color: #00ff88;
     }
 
-    .date-badge {
-      display: inline-block;
-      background-color: #00ff88;
-      color: #000;
-      padding: 2px 6px;
-      font-size: 0.75rem;
-      border-radius: 4px;
-      margin-bottom: 5px;
+    .rss-time {
+      font-size: 0.8rem;
+      color: #ccc;
+      margin-top: 0.2rem;
     }
 
     footer {
       font-size: 0.9rem;
       border-top: 1px solid #00ff88;
-      margin-top: 3rem;
+      padding-top: 1rem;
+    }
+
+    .whatsapp-float,
+    .instagram-button {
+      position: fixed;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .whatsapp-float {
+      bottom: 120px;
+    }
+
+    .instagram-button {
+      bottom: 50px;
+    }
+
+    .whatsapp-float img,
+    .instagram-button img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    .whatsapp-float img:hover,
+    .instagram-button img:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body>
   <header>
     <div class="logo">
-      <img src="assets/cicada-logo.png" alt="Cicada Logo">
-      <span>HacksinCodigos<span class="blink">_</span></span>
+      <img src="assets/cicada-logo.png" alt="Logo">
+      HacksinCodigos<span class="blink">_</span>
     </div>
     <nav>
       <ul>
@@ -152,16 +169,24 @@
 
   <section class="hero">
     <h2>📰 Noticias de Ciberseguridad</h2>
-    <p>Últimas noticias y actualizaciones sobre vulnerabilidades, amenazas, ataques y tendencias en ciberseguridad mundial.Mantente al dia con nuestro feed.</p>
+    <p>Últimas actualizaciones sobre vulnerabilidades, amenazas, ataques y tendencias en ciberseguridad mundial.</p>
   </section>
 
-  <div id="rss-feed" class="rss-container">
-    <!-- Aquí se insertan las noticias desde rss-reader.js -->
-  </div>
+  <div id="rss-feed" class="rss-container"></div>
 
   <footer>
-    <p>&copy; 2025 HacksinCodigos | Todos los derechos reservados</p>
+    <p>&copy; 2025 HacksinCodigos | Creador: Luis Rodríguez | Todos los derechos reservados</p>
   </footer>
+
+  
+  <a href="https://wa.me/50689840662" class="whatsapp-float" target="_blank">
+    <img src="assets/whatsapp-icon.png" alt="WhatsApp">
+  </a>
+
+  
+  <a href="https://instagram.com/hacksincodigos" class="instagram-button" target="_blank">
+    <img src="assets/instagram-icon.png" alt="Instagram">
+  </a>
 
   <script src="rss-reader.js"></script>
 </body>

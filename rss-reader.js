@@ -1,37 +1,47 @@
-// URL del feed que querés mostrar
-const feedUrl = encodeURIComponent("https://www.bleepingcomputer.com/feed/");
-const feedUrl = encodeURIComponent("https://www.krebsonsecurity.com/feed);
-const feedUrl = encodeURIComponent("https://www.krebsonsecurity.com/feed);
-const feedUrl = encodeURIComponent("https://www.krebsonsecurity.com/feed);
-                                  
+const feeds = [
+  {
+    name: "Krebs on Security",
+    url: "https://api.rss2json.com/v1/api.json?rss_url=https://krebsonsecurity.com/feed"
+  },
+  {
+    name: "Threatpost",
+    url: "https://api.rss2json.com/v1/api.json?rss_url=https://threatpost.com/feed"
+  },
+  {
+    name: "BleepingComputer",
+    url: "https://api.rss2json.com/v1/api.json?rss_url=https://www.bleepingcomputer.com/feed/"
+  },
+  {
+    name: "Naked Security (Sophos)",
+    url: "https://api.rss2json.com/v1/api.json?rss_url=https://nakedsecurity.sophos.com/feed"
+  },
+  {
+    name: "Microsoft Security Blog",
+    url: "https://api.rss2json.com/v1/api.json?rss_url=https://www.microsoft.com/en-us/security/blog/feed"
+  }
+];
 
-// URL del API que convierte RSS a JSON
-const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${feedUrl}`;
+const container = document.getElementById("rss-feeds");
 
-fetch(apiUrl)
-  .then(response => response.json())
-  .then(data => {
-    const container = document.getElementById("rss-feed");
-    container.innerHTML = "";
+feeds.forEach(feed => {
+  fetch(feed.url)
+    .then(response => response.json())
+    .then(data => {
+      const section = document.createElement("div");
+      section.className = "feed";
+      section.innerHTML = `<h3>${feed.name}</h3><ul></ul>`;
 
-    if (data.items && data.items.length > 0) {
-      data.items.slice(0, 8).forEach(item => {
-        const entry = document.createElement("div");
-        entry.className = "rss-item";
+      const ul = section.querySelector("ul");
 
-        entry.innerHTML = `
-          <h3><a href="${item.link}" target="_blank" style="color:#00ff88;">${item.title}</a></h3>
-          <p>${item.pubDate ? new Date(item.pubDate).toLocaleString() : ''}</p>
-          <p>${item.description || ''}</p>
-        `;
-
-        container.appendChild(entry);
+      data.items.slice(0, 5).forEach(item => {
+        const li = document.createElement("li");
+        li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
+        ul.appendChild(li);
       });
-    } else {
-      container.innerHTML = "No se encontraron noticias.";
-    }
-  })
-  .catch(error => {
-    console.error("Error al cargar el feed:", error);
-    document.getElementById("rss-feed").innerHTML = "Hubo un error al cargar las noticias.";
-  });
+
+      container.appendChild(section);
+    })
+    .catch(error => {
+      console.error("Error cargando feed:", feed.name, error);
+    });
+});

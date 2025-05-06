@@ -13,8 +13,8 @@
   <style>
     body {
       background-color: #000;
-      color: #0f0;
-      font-family: monospace;
+      color: #fff;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
     }
@@ -30,6 +30,7 @@
       justify-content: center;
       list-style: none;
       padding: 0;
+      margin: 0;
     }
 
     nav ul li {
@@ -37,8 +38,12 @@
     }
 
     nav ul li a {
-      color: #00ff88;
+      color: #fff;
       text-decoration: none;
+    }
+
+    nav ul li a:hover {
+      color: #00ff88;
     }
 
     .logo {
@@ -57,15 +62,22 @@
       margin-right: 10px;
     }
 
+    .logo span {
+      color: #00ff88;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
     .hero {
       text-align: center;
       padding: 2rem 1rem;
-      background: url('assets/bg-hacker.gif') no-repeat center center / cover;
+      background-color: #000;
     }
 
     .hero h2 {
-      font-size: 1.8rem;
+      font-size: 2rem;
       color: #00ff88;
+      margin-bottom: 1rem;
     }
 
     .rss-container {
@@ -74,42 +86,50 @@
       margin: 2rem auto;
       padding: 1rem;
       background-color: #111;
-      border: 1px solid #00ff88;
+      border: 1px solid #333;
       border-radius: 10px;
-      box-shadow: 0 0 12px #00ff88;
+      box-shadow: 0 0 12px #0a0a0a;
     }
 
-    .rss-container section {
-      margin-bottom: 2rem;
+    .news-item {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #333;
+      padding-bottom: 1rem;
     }
 
-    .rss-container h3 {
+    .news-item h3 {
+      margin: 0 0 0.5rem;
       color: #00ff88;
-      border-bottom: 1px solid #00ff88;
-      padding-bottom: 0.5rem;
     }
 
-    .rss-container ul {
-      list-style: none;
-      padding-left: 1rem;
+    .news-item p {
+      margin: 0.3rem 0;
     }
 
-    .rss-container li {
-      margin: 0.5rem 0;
-    }
-
-    .rss-container a {
+    .news-item a {
       color: #fff;
       text-decoration: none;
     }
 
-    .rss-container a:hover {
+    .news-item a:hover {
+      text-decoration: underline;
       color: #00ff88;
+    }
+
+    .date-badge {
+      display: inline-block;
+      background-color: #00ff88;
+      color: #000;
+      padding: 2px 6px;
+      font-size: 0.75rem;
+      border-radius: 4px;
+      margin-bottom: 5px;
     }
 
     footer {
       font-size: 0.9rem;
       border-top: 1px solid #00ff88;
+      margin-top: 3rem;
     }
   </style>
 </head>
@@ -132,13 +152,15 @@
 
   <section class="hero">
     <h2>📰 Noticias de Ciberseguridad</h2>
-    <p>Últimas actualizaciones sobre vulnerabilidades, amenazas, ataques y tendencias en ciberseguridad mundial.</p>
+    <p>Últimas noticias y actualizaciones sobre vulnerabilidades, amenazas, ataques y tendencias en ciberseguridad mundial.Mantente al dia con nuestro feed.</p>
   </section>
 
-  <div id="rss-feed" class="rss-container"></div>
+  <div id="rss-feed" class="rss-container">
+    <!-- Aquí se insertan las noticias desde rss-reader.js -->
+  </div>
 
   <footer>
-    <p>&copy; 2025 HacksinCodigos | Creador: Luis Rodríguez | Todos los derechos reservados</p>
+    <p>&copy; 2025 HacksinCodigos | Todos los derechos reservados</p>
   </footer>
 
   <script src="rss-reader.js"></script>

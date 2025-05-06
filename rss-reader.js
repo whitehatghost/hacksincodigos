@@ -27,7 +27,8 @@ const feeds = [
   "https://www.bleepingcomputer.com/feed/",
   "https://nakedsecurity.sophos.com/feed",
   "https://www.microsoft.com/en-us/security/blog/feed",
-  "https://cybersecuritynews.es/feed/"
+  "https://cybersecuritynews.es/feed/",
+  "https://www.welivesecurity.com/es/feed"
 ];
 
 const allItems = [];

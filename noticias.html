@@ -2,6 +2,12 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' https://api.rss2json.com https://api.allorigins.win;
+    connect-src https://api.rss2json.com https://api.allorigins.win;
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' data: https:;">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Noticias actualizadas sobre ciberseguridad, vulnerabilidades, ataques y amenazas globales.">
   <meta name="robots" content="index, follow">
@@ -19,10 +25,11 @@
       padding: 0;
     }
 
-    header, footer {
+    header {
+      background-color: #000;
       text-align: center;
-      padding: 1rem;
-      background-color: #111;
+      padding: 1rem 0;
+      border-bottom: 1px solid #00ff88;
     }
 
     .logo {
@@ -59,6 +66,7 @@
     nav ul li a {
       color: #fff;
       text-decoration: none;
+      font-weight: bold;
     }
 
     nav ul li a:hover {
@@ -71,9 +79,15 @@
       background: url('assets/bg-hacker.gif') no-repeat center center / cover;
     }
 
-    .hero h2 {
-      font-size: 1.8rem;
+    .hero h1 {
+      font-size: 2rem;
       color: #00ff88;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      color: #ccc;
+      font-size: 1rem;
     }
 
     .rss-container {
@@ -119,6 +133,9 @@
       font-size: 0.9rem;
       border-top: 1px solid #00ff88;
       padding-top: 1rem;
+      text-align: center;
+      background-color: #111;
+      padding: 1rem;
     }
 
     .whatsapp-float,
@@ -148,35 +165,30 @@
     .instagram-button img:hover {
       transform: scale(1.1);
     }
-    
-
   </style>
 </head>
 <body>
   <header>
-  <div class="logo">
-    <img src="assets/cicada-logo.png" alt="Cicada Logo" style="height: 50px; width: 50px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 8px #00ff88;">
-    HacksinCodigos<span class="blink">_</span>
-  </div>
-  <nav>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="servicios.html">Servicios</a></li>
-      <li><a href="cursos.html">Cursos</a></li>
-      <li><a href="capacitaciones.html">Capacitaciones Empresariales</a></li>
-      <li><a href="noticias.html">Noticias</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-    </ul>
-  </nav>
-</header>
+    <div class="logo">
+      <img src="assets/cicada-logo.png" alt="Cicada Logo">
+      HacksinCodigos<span class="blink">_</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="cursos.html">Cursos</a></li>
+        <li><a href="capacitaciones.html">Capacitaciones Empresariales</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<section class="hero" style="background: linear-gradient(135deg, #111, #000); text-align: center; padding: 2rem 1rem;">
-  <h1 style="color: #00ff88;">📰 Noticias de Ciberseguridad</h1>
-  <p style="color: #ccc;">Últimas actualizaciones sobre vulnerabilidades, amenazas, ataques y tendencias globales para mantenerte siempre actualizado.</p>
-</section>
-
-
-
+  <section class="hero">
+    <h1>📰 Noticias de Ciberseguridad</h1>
+    <p>Últimas actualizaciones sobre vulnerabilidades, amenazas, ataques y tendencias globales para mantenerte siempre actualizado.</p>
+  </section>
 
   <div id="rss-feed" class="rss-container"></div>
 
@@ -184,12 +196,12 @@
     <p>&copy; 2025 HacksinCodigos | Todos los derechos reservados</p>
   </footer>
 
-  
+  <!-- Botón flotante de WhatsApp -->
   <a href="https://wa.me/50689840662" class="whatsapp-float" target="_blank">
     <img src="assets/whatsapp-icon.png" alt="WhatsApp">
   </a>
 
-  
+  <!-- Botón flotante de Instagram -->
   <a href="https://instagram.com/hacksincodigos" class="instagram-button" target="_blank">
     <img src="assets/instagram-icon.png" alt="Instagram">
   </a>

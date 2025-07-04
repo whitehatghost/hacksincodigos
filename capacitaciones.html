@@ -8,97 +8,141 @@
   <link rel="icon" href="assets/cicada-logo.png">
   <style>
     body {
-      background-color: #111;
-      color: white;
+      background-color: #000;
+      color: #00ff88;
       font-family: monospace;
       margin: 0;
+      padding: 0;
     }
-    .buy-button {
-      display: inline-block;
-      margin-top: 1rem;
-      background: linear-gradient(135deg, #00ff88, #12ffa0);
-      color: #9d00ff;
-      padding: 0.7rem 1.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
-      box-shadow: 0 0 12px rgba(0, 255, 136, 0.5);
-      border: 2px solid #9d00ff;
-      text-shadow: 0 0 6px #9d00ff;
-      transition: all 0.3s ease-in-out;
-    }
-    .buy-button:hover {
-      background: #0aff7e;
-      color: black;
-      box-shadow: 0 0 16px #9d00ff, 0 0 20px #00ff88;
-      transform: scale(1.05);
-    }
-    .features {
-      max-width: 1000px;
-      margin: auto;
-      padding: 2rem;
-    }
-    .features h1 {
-      color: #00ff88;
+
+    header {
+      background-color: #111;
       text-align: center;
-    }
-    .features h2 {
-      color: #12ffa0;
-    }
-    .burbuja {
-      margin-top: 1rem;
       padding: 1rem;
-      border: 1px solid #00ff88;
-      border-radius: 10px;
-      background-color: #1a1a1a;
-      box-shadow: 0 0 10px #00ff88;
     }
-    ul {
-      padding-left: 1.5rem;
-    }
-    header .logo {
-      padding: 1rem;
-      font-size: 1.5rem;
-      color: #00ff88;
+
+    .logo {
       display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 10px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00ff88;
+      margin-bottom: 1rem;
     }
-    header img {
+
+    .logo img {
       height: 50px;
       width: 50px;
       border-radius: 50%;
       object-fit: cover;
       box-shadow: 0 0 8px #00ff88;
+      margin-right: 10px;
     }
+
     nav ul {
       display: flex;
-      list-style: none;
       justify-content: center;
-      gap: 1rem;
+      list-style: none;
       padding: 0;
       margin: 0;
-      background-color: #000;
     }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
     nav ul li a {
-      color: white;
+      color: #fff;
       text-decoration: none;
-      font-weight: bold;
-      padding: 1rem;
-      display: inline-block;
     }
+
     nav ul li a:hover {
-      background-color: #00ff88;
-      color: #000;
+      color: #00ff88;
     }
+
+    .hero {
+      padding: 2rem;
+      text-align: center;
+      background: url('assets/bg-hacker.gif') no-repeat center center / cover;
+    }
+
+    .hero h1 {
+      color: #00ff88;
+      font-size: 2rem;
+    }
+
+    .hero p {
+      color: #ccc;
+      font-size: 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contenido {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: #111;
+      border: 1px solid #00ff88;
+      border-radius: 10px;
+      box-shadow: 0 0 12px #00ff88;
+    }
+
+    .contenido h2 {
+      color: #00ff88;
+    }
+
+    .contenido ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .contenido ul li {
+      margin-bottom: 0.5rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .contenido ul li::before {
+      content: "✔️";
+      position: absolute;
+      left: 0;
+    }
+
     footer {
       text-align: center;
       padding: 1rem;
-      font-size: 0.9rem;
-      background-color: #000;
-      color: #00ff88;
-      margin-top: 2rem;
+      background-color: #111;
+      border-top: 1px solid #00ff88;
+    }
+
+    .whatsapp-float,
+    .instagram-button {
+      position: fixed;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .whatsapp-float {
+      bottom: 120px;
+    }
+
+    .instagram-button {
+      bottom: 50px;
+    }
+
+    .whatsapp-float img,
+    .instagram-button img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    .whatsapp-float img:hover,
+    .instagram-button img:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
@@ -120,69 +164,38 @@
     </nav>
   </header>
 
-  <section class="features">
-    <h1>Capacitaciones Empresariales</h1>
-    <p>Ofrecemos capacitaciones diseñadas para <strong>pequeñas, medianas y grandes empresas</strong> que buscan fortalecer las habilidades de su personal en áreas clave como ciberseguridad, IT y herramientas digitales modernas.</p>
+  <section class="hero">
+    <h1>🏢 Capacitaciones Empresariales</h1>
+    <p>Entrenamos a tu equipo en los temas más importantes de tecnología y seguridad informática. Cursos prácticos, personalizados y certificados.</p>
+  </section>
 
-    <div class="burbuja">
-      <h2>¿Por qué capacitar a tu equipo?</h2>
-      <ul>
-        <li>🔐 Reducí riesgos de ciberataques y errores humanos</li>
-        <li>⚙️ Mejorá la eficiencia en el uso de herramientas tecnológicas</li>
-        <li>📊 Cumplí con buenas prácticas y estándares internacionales</li>
-        <li>👥 Fomentá una cultura digital y de ciberseguridad en tu empresa</li>
-      </ul>
-    </div>
+  <section class="contenido">
+    <h2>Temas disponibles:</h2>
+    <ul>
+      <li>Ciberseguridad y protección contra amenazas</li>
+      <li>Uso de herramientas digitales (Teams, Google Workspace, etc.)</li>
+      <li>Correo empresarial y buenas prácticas</li>
+      <li>Instalación de sistemas operativos</li>
+      <li>Configuración de redes internas</li>
+      <li>Uso de VPNs y acceso remoto seguro</li>
+      <li>Seguridad en la nube</li>
+    </ul>
 
-    <div class="burbuja">
-      <h2>Temas que capacitamos</h2>
-      <ul>
-        <li>✅ Ciberseguridad para empleados y equipos técnicos</li>
-        <li>✅ Uso seguro de correos, contraseñas y redes</li>
-        <li>✅ Prevención de phishing, malware y fraudes</li>
-        <li>✅ Instalación y mantenimiento de sistemas operativos</li>
-        <li>✅ Linux desde cero y línea de comandos</li>
-        <li>✅ Firewalls, redes internas y protección de WiFi</li>
-        <li>✅ Herramientas en la nube: Drive, Office, Outlook, VPN</li>
-        <li>✅ Automatización con IA (ChatGPT, workflows)</li>
-        <li>✅ Soporte técnico básico y monitoreo</li>
-      </ul>
-    </div>
+    <p>Capacitaciones disponibles en modalidad virtual o presencial (según zona). Ideal para empresas que desean mejorar la cultura tecnológica y reducir riesgos.</p>
 
-    <div class="burbuja">
-      <h2>Modalidades disponibles</h2>
-      <ul>
-        <li>🖥️ Capacitaciones online en vivo</li>
-        <li>📹 Clases grabadas para ver en cualquier momento</li>
-        <li>🏢 Capacitaciones internas personalizadas por equipo</li>
-        <li>📜 Certificados digitales por cada curso</li>
-      </ul>
-    </div>
-
-    <div class="burbuja">
-      <h2>¿A quiénes capacitamos?</h2>
-      <p>Hemos capacitado:</p>
-      <ul>
-        <li>👩‍💼 Equipos administrativos y contables</li>
-        <li>🛠️ Técnicos y personal de soporte</li>
-        <li>🧑‍💻 Departamentos de TI</li>
-        <li>🏢 Gerentes y mandos medios</li>
-        <li>🧑‍🎓 Estudiantes en práctica o recién contratados</li>
-      </ul>
-    </div>
-
-    <div style="text-align: center;">
-      <a href="https://wa.me/50689840662?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20para%20capacitaciones%20empresariales" class="buy-button">📲 Solicitar Cotización</a>
-    </div>
+    <a href="contacto.html" class="buy-button">Solicitar Cotización</a>
   </section>
 
   <footer>
     <p>&copy; 2025 HacksinCodigos | Todos los derechos reservados</p>
   </footer>
 
-  <audio autoplay loop>
-    <source src="assets/bg-music.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio HTML5.
-  </audio>
+  <a href="https://wa.me/50689840662" class="whatsapp-float" target="_blank">
+    <img src="assets/whatsapp-icon.png" alt="WhatsApp">
+  </a>
+
+  <a href="https://instagram.com/hacksincodigos" class="instagram-button" target="_blank">
+    <img src="assets/instagram-icon.png" alt="Instagram">
+  </a>
 </body>
 </html>

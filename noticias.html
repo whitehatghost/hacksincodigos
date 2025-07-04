@@ -25,13 +25,6 @@
       padding: 0;
     }
 
-    header {
-      background-color: #000;
-      text-align: center;
-      padding: 1rem 0;
-      border-bottom: 1px solid #00ff88;
-    }
-
     .logo {
       display: flex;
       justify-content: center;
@@ -66,28 +59,31 @@
     nav ul li a {
       color: #fff;
       text-decoration: none;
-      font-weight: bold;
     }
 
     nav ul li a:hover {
       color: #00ff88;
     }
 
+    header {
+      text-align: center;
+      padding: 1rem;
+      background-color: #111;
+    }
+
     .hero {
       text-align: center;
       padding: 2rem 1rem;
-      background: url('assets/bg-hacker.gif') no-repeat center center / cover;
+      background: linear-gradient(135deg, #111, #000);
     }
 
     .hero h1 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: #00ff88;
-      margin-bottom: 0.5rem;
     }
 
     .hero p {
       color: #ccc;
-      font-size: 1rem;
     }
 
     .rss-container {
@@ -132,10 +128,9 @@
     footer {
       font-size: 0.9rem;
       border-top: 1px solid #00ff88;
-      padding-top: 1rem;
-      text-align: center;
-      background-color: #111;
       padding: 1rem;
+      background-color: #111;
+      text-align: center;
     }
 
     .whatsapp-float,
@@ -170,7 +165,7 @@
 <body>
   <header>
     <div class="logo">
-      <img src="assets/cicada-logo.png" alt="Cicada Logo">
+      <img src="assets/cicada-logo.png" alt="Logo">
       HacksinCodigos<span class="blink">_</span>
     </div>
     <nav>
@@ -190,22 +185,23 @@
     <p>Últimas actualizaciones sobre vulnerabilidades, amenazas, ataques y tendencias globales para mantenerte siempre actualizado.</p>
   </section>
 
-  <div id="rss-feed" class="rss-container"></div>
+  <div id="rss-feed" class="rss-container">
+    <p id="loading">Cargando las noticias más recientes de ciberseguridad<span class="dots">...</span></p>
+  </div>
 
   <footer>
     <p>&copy; 2025 HacksinCodigos | Todos los derechos reservados</p>
   </footer>
 
-  <!-- Botón flotante de WhatsApp -->
   <a href="https://wa.me/50689840662" class="whatsapp-float" target="_blank">
     <img src="assets/whatsapp-icon.png" alt="WhatsApp">
   </a>
 
-  <!-- Botón flotante de Instagram -->
   <a href="https://instagram.com/hacksincodigos" class="instagram-button" target="_blank">
     <img src="assets/instagram-icon.png" alt="Instagram">
   </a>
 
   <script src="rss-reader.js"></script>
+  
 </body>
 </html>

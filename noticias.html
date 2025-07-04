@@ -3,13 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Noticias actualizadas sobre ciberseguridad, vulnerabilidades, ataques y amenazas globales.">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="Luis Rodríguez">
-  <meta name="keywords" content="noticias ciberseguridad, vulnerabilidades, amenazas, ataques, hacksincodigos, malware, exploits">
-  <title>Noticias de Ciberseguridad - HacksinCodigos</title>
+  <title>Capacitaciones Empresariales - HacksinCodigos</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="assets/cicada-logo.png">
+  <meta name="description" content="Capacitaciones empresariales en ciberseguridad, redes, sistemas, correo empresarial y más. Cursos prácticos y certificados para tu equipo.">
   <style>
     body {
       background-color: #000;
@@ -66,59 +63,82 @@
     }
 
     .hero {
+      background: linear-gradient(135deg, #111, #000);
       text-align: center;
       padding: 2rem 1rem;
-      background: url('assets/bg-hacker.gif') no-repeat center center / cover;
     }
 
-    .hero h2 {
-      font-size: 1.8rem;
+    .hero h1 {
       color: #00ff88;
+      font-size: 2rem;
     }
 
-    .rss-container {
+    .hero p {
+      color: #ccc;
+      font-size: 1rem;
+    }
+
+    .section {
       max-width: 1080px;
-      width: 95%;
       margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .burbuja {
+      margin: 1rem auto;
       padding: 1rem;
       background-color: #111;
       border: 1px solid #00ff88;
       border-radius: 10px;
       box-shadow: 0 0 12px #00ff88;
+      max-width: 800px;
     }
 
-    .rss-item {
-      border-bottom: 1px solid #333;
-      padding: 1rem 0;
-    }
-
-    .rss-item img {
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 0.5rem;
-      border-radius: 5px;
-    }
-
-    .rss-item a {
+    .burbuja h3 {
       color: #00ff88;
-      font-size: 1rem;
-      text-decoration: none;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
     }
 
-    .rss-item a:hover {
-      text-decoration: underline;
+    .burbuja ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1rem 0;
     }
 
-    .rss-time {
-      font-size: 0.8rem;
+    .burbuja ul li {
+      padding: 0.3rem 0;
       color: #ccc;
-      margin-top: 0.2rem;
+    }
+
+    .buy-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #00ff88, #12ffa0);
+      color: #9d00ff;
+      padding: 0.7rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: monospace;
+      font-size: 1rem;
+      box-shadow: 0 0 12px rgba(0, 255, 136, 0.5);
+      border: 2px solid #9d00ff;
+      text-shadow: 0 0 6px #9d00ff;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .buy-button:hover {
+      background: #0aff7e;
+      color: #000000;
+      box-shadow: 0 0 16px #9d00ff, 0 0 20px #00ff88;
+      transform: scale(1.05);
     }
 
     footer {
       font-size: 0.9rem;
       border-top: 1px solid #00ff88;
       padding-top: 1rem;
+      background-color: #111;
     }
 
     .whatsapp-float,
@@ -148,52 +168,92 @@
     .instagram-button img:hover {
       transform: scale(1.1);
     }
-    
-
   </style>
 </head>
 <body>
+
   <header>
-  <div class="logo">
-    <img src="assets/cicada-logo.png" alt="Cicada Logo" style="height: 50px; width: 50px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 8px #00ff88;">
-    HacksinCodigos<span class="blink">_</span>
-  </div>
-  <nav>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="servicios.html">Servicios</a></li>
-      <li><a href="cursos.html">Cursos</a></li>
-      <li><a href="capacitaciones.html">Capacitaciones Empresariales</a></li>
-      <li><a href="noticias.html">Noticias</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-    </ul>
-  </nav>
-</header>
+    <div class="logo">
+      <img src="assets/cicada-logo.png" alt="Logo">
+      HacksinCodigos<span class="blink">_</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="cursos.html">Cursos</a></li>
+        <li><a href="capacitaciones.html">Capacitaciones Empresariales</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<section class="hero" style="background: linear-gradient(135deg, #111, #000); text-align: center; padding: 2rem 1rem;">
-  <h1 style="color: #00ff88;">📰 Noticias de Ciberseguridad</h1>
-  <p style="color: #ccc;">Últimas actualizaciones sobre vulnerabilidades, amenazas, ataques y tendencias globales para mantenerte siempre actualizado.</p>
-</section>
+  <section class="hero">
+    <h1>🏢 Capacitaciones Empresariales</h1>
+    <p>Entrenamos a tu equipo en herramientas clave: ciberseguridad, redes, correos empresariales, instalación de sistemas y más.</p>
+  </section>
 
+  <section class="section">
+    <div class="burbuja">
+      <h3>🛡 Curso de Ciberseguridad Básica para Empresas</h3>
+      <ul>
+        <li>Buenas prácticas digitales y protección contra amenazas</li>
+        <li>Detección de correos sospechosos y uso de antivirus</li>
+        <li>Simulación de ataques reales y cómo prevenirlos</li>
+      </ul>
+      <a href="cursos.html" class="buy-button">Ver Curso</a>
+    </div>
 
+    <div class="burbuja">
+      <h3>🌐 Curso de Redes, VPN y Seguridad para Oficinas</h3>
+      <ul>
+        <li>Configuración de red segura en la empresa</li>
+        <li>Uso de VPN, firewalls y segmentación de redes</li>
+        <li>Protección contra accesos no autorizados</li>
+      </ul>
+      <a href="cursos.html" class="buy-button">Ver Curso</a>
+    </div>
 
+    <div class="burbuja">
+      <h3>📧 Capacitación en Correo Empresarial</h3>
+      <ul>
+        <li>Creación de correos con dominio personalizado</li>
+        <li>Sincronización en dispositivos y acceso web</li>
+        <li>Prevención de correos maliciosos y filtrado seguro</li>
+      </ul>
+      <a href="cursos.html" class="buy-button">Ver Curso</a>
+    </div>
 
-  <div id="rss-feed" class="rss-container"></div>
+    <div class="burbuja">
+      <h3>💻 Instalación y Mantenimiento de Sistemas</h3>
+      <ul>
+        <li>Instalación de Windows y Linux desde cero</li>
+        <li>Formateo seguro y backup de datos</li>
+        <li>Práctica con máquinas virtuales</li>
+      </ul>
+      <a href="cursos.html" class="buy-button">Ver Curso</a>
+    </div>
+
+    <div class="burbuja">
+      <p><strong>📩 ¿Querés una capacitación personalizada?</strong> Escribinos y armamos un plan a medida para tu equipo.</p>
+      <a href="https://wa.me/50689840662?text=Hola%2C%20quiero%20una%20capacitaci%C3%B3n%20empresarial%20personalizada" class="buy-button">Solicitar Capacitación</a>
+    </div>
+  </section>
 
   <footer>
     <p>&copy; 2025 HacksinCodigos | Todos los derechos reservados</p>
   </footer>
 
-  
+  <!-- WhatsApp -->
   <a href="https://wa.me/50689840662" class="whatsapp-float" target="_blank">
     <img src="assets/whatsapp-icon.png" alt="WhatsApp">
   </a>
 
-  
+  <!-- Instagram -->
   <a href="https://instagram.com/hacksincodigos" class="instagram-button" target="_blank">
     <img src="assets/instagram-icon.png" alt="Instagram">
   </a>
 
-  <script src="rss-reader.js"></script>
 </body>
 </html>

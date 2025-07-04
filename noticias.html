@@ -148,23 +148,7 @@
     .instagram-button img:hover {
       transform: scale(1.1);
     }
-    @keyframes dots {
-  0%   { content: "."; }
-  33%  { content: ".."; }
-  66%  { content: "..."; }
-}
-
-.dots::after {
-  content: "...";
-  animation: blink 1s steps(3, end) infinite;
-}
-
-@keyframes blink {
-  0% { content: "."; }
-  33% { content: ".."; }
-  66% { content: "..."; }
-  100% { content: "."; }
-}
+    
 
   </style>
 </head>
@@ -189,12 +173,9 @@
 
   <section class="hero">
     <h2>📰 Noticias de Ciberseguridad</h2>
-    <p>Últimas actualizaciones sobre vulnerabilidades, amenazas, ataques y tendencias en ciberseguridad mundial.</p>
+    <p>Últimas actualizaciones sobre vulnerabilidades, amenazas, ataques y tendencias en ciberseguridad mundial para mantenerte siempre actualizado.</p>
   </section>
 
-  <div id="loading-message" style="text-align: center; margin-top: 2rem; font-size: 1.1rem; color: #00ff88;">
-  Cargando las noticias más recientes de ciberseguridad para mantenerte actualizado<span class="dots">.</span>
-</div>
 
 
   <div id="rss-feed" class="rss-container"></div>

@@ -5,69 +5,121 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self';">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HacksinCodigos — Diseño y Redes Sociales</title>
-  <meta name="description" content="Diseño gráfico profesional, contenido para redes, videos, banners y paquetes mensuales para tu negocio.">
+  <meta name="description" content="Diseño gráfico profesional, creación de contenido para redes sociales, videos y banners publicitarios para negocios. HacksinCodigos te impulsa en línea." />
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="assets/cicada-logo.png">
+  <link rel="icon" href="assets/cicada-logo.png" />
   <style>
-    /* Botón igual al de la página de Cursos */
-    .buy-button {
-      display: inline-block;
-      margin-top: 1rem;
-      background: linear-gradient(135deg, #00ff88, #12ffa0);
-      color: #9d00ff;
-      padding: 0.7rem 1.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      font-family: monospace;
-      font-size: 1rem;
-      box-shadow: 0 0 12px rgba(0, 255, 136, 0.5);
-      transition: all 0.3s ease-in-out;
-      border: 2px solid #9d00ff;
-      text-shadow: 0 0 6px #9d00ff;
+    :root {
+      --hx-green: #00ff88;
+      --hx-bg: #000;
+      --hx-card: #0a0f0c;
+      --hx-muted: #b6ffd9;
+      --hx-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
     }
-    .buy-button:hover {
-      background: #0aff7e;
-      color: #000000;
-      box-shadow: 0 0 16px #9d00ff, 0 0 20px #00ff88;
-      transform: scale(1.05);
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--hx-bg);
+      color: var(--hx-muted);
+      text-align: center;
     }
 
-    /* Contenedor y burbujas: se mantienen como en tu versión anterior */
-    .features {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 1rem;
+    /* (No tocamos el header por CSS; usamos el mismo HTML inline del ejemplo) */
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: radial-gradient(circle at top, rgba(0,255,136,0.1), transparent);
     }
-    .features > div {
-      width: 90%;
-      max-width: 900px;
-      margin: 1rem auto;
-      padding: 1rem;
-      border: 2px solid #00ff88;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #00ff88;
+    .hero h1 {
+      color: var(--hx-green);
+      font-size: 2.5rem;
+      margin-bottom: 10px;
     }
-    .burbuja {
-      margin-top: 1rem;
-      padding: 1rem;
-      border: 1px solid #00ff88;
-      border-radius: 10px;
-      background-color: #111;
-      box-shadow: 0 0 10px #00ff88;
+    .hero p {
+      color: #e8fff5;
+      font-size: 1.2rem;
       max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      color: #d4ffd9; /* texto dentro de burbujas igual que antes */
+      margin: 0 auto 30px;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--hx-green);
+      color: #000;
+      padding: 14px 24px;
+      font-weight: 700;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .section h2 {
+      color: var(--hx-green);
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: linear-gradient(180deg, rgba(0,255,136,0.08), rgba(0,0,0,0.7));
+      border: 1px solid rgba(0,255,136,0.2);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: var(--hx-shadow);
+      text-align: center;
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--hx-green);
+    }
+    .card h3 {
+      color: var(--hx-green);
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+    .price {
+      font-size: 1.6rem;
+      color: var(--hx-green);
+      margin: 10px 0;
     }
 
-    /* Base visual como en Cursos */
-    body { background:#000; color:#00ff88; font-family: monospace; margin:0; text-align:center; }
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      border-top: 1px solid rgba(0,255,136,0.2);
+      color: var(--hx-muted);
+    }
+    .whatsapp-float, .instagram-button {
+      position: fixed;
+      right: 20px;
+      z-index: 1000;
+    }
+    .whatsapp-float { bottom: 120px; }
+    .instagram-button { bottom: 50px; }
+    .whatsapp-float img, .instagram-button img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+    .whatsapp-float img:hover, .instagram-button img:hover {
+      transform: scale(1.1);
+    }
   </style>
 </head>
 <body>
-  <!-- HEADER con el mismo look que "Cursos" y sin duplicado de Inicio -->
+  <!-- HEADER idéntico al del ejemplo -->
   <header style="background-color: #000; padding: 0.5rem 0;">
     <div class="logo" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
       <img src="assets/cicada-logo.png" alt="Cicada Logo" style="height: 50px; width: 50px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 8px #00ff88;">
@@ -77,116 +129,65 @@
       <ul style="display: flex; justify-content: center; list-style: none; margin: 0; padding: 0; background-color: #000;">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="servicios.html">Paginas Web y Servicios</a></li>
-        <li><a href="mantenimiento.html">Planes de Mantenimiento Web</a></li>
-        <li><a href="disenoyredes.html">Diseño y Redes Sociales</a></li>
+        <li><a href="mantenimiento.html" style="color:var(--hx-green)">Planes de Mantenimiento Web</a></li>
+        <li><a href="disenoyredes.html" style="color:var(--hx-green)">Diseño y Redes Sociales</a></li>
         <li><a href="cursos.html">Cursos</a></li>
-        <li><a href="portafolio.html">Portafolio</a></li>
-        <li><a href="testimonios.html">Clientes</a></li>
         <li><a href="noticias.html">Noticias</a></li>
         <li><a href="contacto.html">Contacto</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero con el mismo estilo que "Cursos" -->
-  <section class="hero" style="padding: 2rem 1rem; background: linear-gradient(135deg,#111,#000);">
-    <h1 style="font-size: 1.8rem; color:#00ff88; margin-bottom:.4rem;">Diseño y Redes Sociales</h1>
-    <p style="color:#ccc; max-width:900px; margin:0 auto;">
-      Impulsamos tu marca con <strong>imágenes, videos y campañas</strong> listas para publicar. Entrega rápida, estilo profesional y precios en USD.
-    </p>
-    <a href="https://wa.me/50689840662?text=Hola%2C%20quiero%20cotizar%20dise%C3%B1o%20para%20redes%20sociales." class="buy-button">Cotizar por WhatsApp</a>
+  <section class="hero">
+    <h1>Diseño Gráfico y Redes Sociales</h1>
+    <p>Impulsa la presencia digital de tu negocio con imágenes, videos y campañas diseñadas profesionalmente por <strong>HacksinCodigos</strong>.</p>
+    <a href="https://wa.me/50689840662?text=Hola%2C%20quiero%20cotizar%20dise%C3%B1o%20para%20redes%20sociales." class="btn">Cotizar por WhatsApp</a>
   </section>
 
-  <!-- Burbujas: SIN cambios de estilo (como pediste) -->
-  <section class="features">
-    <div>
-      <h2>Paquetes de Contenido Mensual</h2>
-      <p style="color:#d4ffd9;">Precios en USD. Entregas en formatos listos para Instagram, Facebook y TikTok.</p>
-
-      <div class="burbuja">
-        <h3>Imagen Unica para Anuncio — $10</h3>
-        <ul>
-          <li>1 imágenes unica Para Anuncio</li>
-          <li>Optimización para IG/FB</li>
-          <li>Incluye tu logo, producto y colores</li>
-        </ul>
-        <a href="https://wa.me/50689840662?text=Me%20interesa%20el%20Plan%20Esencial%20de%20dise%C3%B1o" class="buy-button">Solicitar Plan</a>
+  <section class="section">
+    <h2>Paquetes de Contenido Mensual</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Esencial</h3>
+        <p>4 imágenes al mes</p>
+        <div class="price">$29</div>
       </div>
-
-      <div class="burbuja">
-        <h3>Plan Esencial — $30</h3>
-        <ul>
-          <li>4 imágenes pro/mes</li>
-          <li>Optimización para IG/FB</li>
-          <li>Incluye tu logo, productos y colores</li>
-        </ul>
-        <a href="https://wa.me/50689840662?text=Me%20interesa%20el%20Plan%20Esencial%20de%20dise%C3%B1o" class="buy-button">Solicitar Plan</a>
+      <div class="card">
+        <h3>Emprendedor</h3>
+        <p>10 imágenes al mes</p>
+        <div class="price">$59</div>
       </div>
-
-      <div class="burbuja">
-        <h3>Plan Emprendedor — $60</h3>
-        <ul>
-          <li>10 imágenes pro /mes</li>
-          <li>Plantillas reutilizables</li>
-          <li>listas para publicar en IG/FB</li>
-        </ul>
-        <a href="https://wa.me/50689840662?text=Me%20interesa%20el%20Plan%20Emprendedor%20de%20dise%C3%B1o" class="buy-button">Solicitar Plan</a>
+      <div class="card">
+        <h3>Profesional</h3>
+        <p>15 imágenes al mes</p>
+        <div class="price">$89</div>
       </div>
-
-      <div class="burbuja">
-        <h3>Plan Profesional — $100</h3>
-        <ul>
-          <li>15 imágenes pro/mes</li>
-          <li>Plantillas reutilizables</li>
-          <li>listas para publicar en IG/FB</li>
-        </ul>
-        <a href="https://wa.me/50689840662?text=Me%20interesa%20el%20Plan%20Profesional%20de%20dise%C3%B1o" class="buy-button">Solicitar Plan</a>
-      </div>
-
-      <div class="burbuja">
-        <h3>Plan Corporativo — $150</h3>
-        <ul>
-          <li>20 imágenes pro/mes</li>
-          <li>Plantillas reutilizables</li>
-          <li>listas para publicar en IG/FB</li>
-        </ul>
-        <a href="https://wa.me/50689840662?text=Me%20interesa%20el%20Plan%20Corporativo%20de%20dise%C3%B1o" class="buy-button">Solicitar Plan</a>
+      <div class="card">
+        <h3>Corporativo</h3>
+        <p>20 imágenes al mes</p>
+        <div class="price">$129</div>
       </div>
     </div>
+  </section>
 
-    <div>
-      <h2>Videos para Redes Sociales</h2>
-
-      <div class="burbuja">
-        <h3>Video 15s — $20</h3>
-        <ul>
-          <li>Edición con tu logo</li>
-          <li>Voz IA opcional</li>
-        </ul>
-        <a href="https://wa.me/50689840662?text=Quiero%20video%20de%2015%20segundos" class="buy-button">Pedir Video</a>
+  <section class="section">
+    <h2>Videos para Redes Sociales</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>15 segundos</h3>
+        <div class="price">$17</div>
+        <p>Edición profesional con logo y voz IA</p>
       </div>
-
-      <div class="burbuja">
-        <h3>Video 30-35s — $30</h3>
-        <ul>
-          <li>Animaciones ligeras</li>
-          <li>Productos/servicios destacados, voz por IA</li>
-        </ul>
-        <a href="https://wa.me/50689840662?text=Quiero%20video%20de%2030-35%20segundos" class="buy-button">Pedir Video</a>
+      <div class="card">
+        <h3>30–35 segundos</h3>
+        <div class="price">$25</div>
+        <p>Video con animaciones y productos</p>
       </div>
-
-      <div class="burbuja">
-        <h3>Video 1 minuto — $40</h3>
-        <ul>
-          <li>Ideal para reels y anuncios</li>
-          <li>Productos, servicios destacados, voz por IA</li>
-        </ul>
-        <a href="https://wa.me/50689840662?text=Quiero%20video%20de%201%20minuto" class="buy-button">Pedir Video</a>
+      <div class="card">
+        <h3>1 minuto</h3>
+        <div class="price">$33</div>
+        <p>Ideal para reels o anuncios publicitarios</p>
       </div>
-    </div>
-
-    <div class="burbuja">
-      <p><strong>Nota:</strong> Todos los precios son en USD. Podés pagar en CRC al tipo de cambio del día.</p>
     </div>
   </section>
 
@@ -194,12 +195,12 @@
     <p>&copy; 2025 HacksinCodigos | Todos los derechos reservados</p>
   </footer>
 
-  <!-- Botones flotantes como en tus otras páginas -->
+  <!-- Botones flotantes -->
   <a href="https://wa.me/50689840662" class="whatsapp-float" target="_blank">
-    <img src="assets/whatsapp-icon.png" alt="WhatsApp" style="width:50px;height:50px;border-radius:50%;box-shadow:0 0 10px #00ff88;">
+    <img src="assets/whatsapp-icon.png" alt="WhatsApp">
   </a>
   <a href="https://instagram.com/hacksincodigos" class="instagram-button" target="_blank">
-    <img src="assets/instagram-icon.png" alt="Instagram" style="width:50px;height:50px;border-radius:50%;box-shadow:0 0 10px #00ff88;">
+    <img src="assets/instagram-icon.png" alt="Instagram">
   </a>
 </body>
 </html>

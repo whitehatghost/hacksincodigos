@@ -8,85 +8,61 @@
   <meta name="description" content="Noticias actualizadas sobre ciberseguridad, vulnerabilidades, ataques y amenazas globales." />
   <link rel="icon" href="assets/cicada-logo.png" />
   <style>
-    :root {
-      --hx-green: #00ff88;
-      --hx-bg: #000;
-      --hx-muted: #b6ffd9;
-    }
-    body {
-      background-color: var(--hx-bg);
-      color: var(--hx-muted);
-      font-family: 'Segoe UI', Roboto, monospace;
-      margin: 0;
-      padding: 0;
-      text-align: center;
+    :root { --hx-green:#00ff88; --hx-bg:#000; --hx-muted:#b6ffd9; }
+
+    body{
+      background-color:var(--hx-bg);
+      color:var(--hx-muted);
+      font-family:'Segoe UI', Roboto, monospace;
+      margin:0; padding:0; text-align:center;
     }
 
-    /* Header (idéntico al resto, hover plano) */
-    header { background-color:#000; padding:0.5rem 0; border-bottom:1px solid rgba(0,255,136,0.2); }
-    .logo { display:flex; align-items:center; justify-content:center; gap:10px; }
-    .logo img {
-      height:50px; width:50px; border-radius:50%; object-fit:cover; box-shadow:0 0 8px var(--hx-green);
-    }
-    .logo span { color:var(--hx-green); font-weight:bold; font-family:monospace; font-size:1.8rem; }
-    nav ul { display:flex; justify-content:center; list-style:none; margin:0; padding:0; background:#000; flex-wrap:wrap; }
-    nav ul li { margin:0; }
-    nav ul li a {
-      color:var(--hx-green); text-decoration:none; font-weight:bold; padding:1rem 1.5rem; display:inline-block;
-    }
-    /* Hover plano como en cursos/disenoyredes */
-    nav ul li a:hover { color:var(--hx-green); background:transparent; border-radius:0; text-decoration:underline; }
+    /* NO hay estilos para header/nav/hover: se respeta 100% el inline del header */
 
     /* Hero */
-    .hero {
+    .hero{
       text-align:center; padding:60px 20px;
-      background: radial-gradient(circle at top, rgba(0,255,136,0.1), transparent);
+      background:radial-gradient(circle at top, rgba(0,255,136,0.1), transparent);
     }
-    .hero h1 { color:var(--hx-green); font-size:2.3rem; margin-bottom:10px; }
-    .hero p { color:#e8fff5; font-size:1.1rem; max-width:800px; margin:0 auto; }
+    .hero h1{ color:var(--hx-green); font-size:2.3rem; margin-bottom:10px; }
+    .hero p{ color:#e8fff5; font-size:1.1rem; max-width:800px; margin:0 auto; }
 
     /* Contenedor RSS */
-    .rss-container {
+    .rss-container{
       max-width:1080px; width:95%; margin:2rem auto; padding:1rem;
       background-color:#111; border:1px solid var(--hx-green); border-radius:10px;
       box-shadow:0 0 15px rgba(0,255,136,0.4); text-align:left;
     }
-    .rss-item { border-bottom:1px solid rgba(0,255,136,0.2); padding:1rem 0; }
-    .rss-item:last-child { border-bottom:none; }
-    .rss-item img { max-width:100%; border-radius:8px; margin-bottom:0.8rem; }
-    .rss-item a { color:var(--hx-green); font-size:1.1rem; font-weight:bold; text-decoration:none; }
-    .rss-item a:hover { text-decoration:underline; }
-    .rss-time { font-size:0.85rem; color:#aaa; margin-top:0.3rem; }
+    .rss-item{ border-bottom:1px solid rgba(0,255,136,0.2); padding:1rem 0; }
+    .rss-item:last-child{ border-bottom:none; }
+    .rss-item img{ max-width:100%; border-radius:8px; margin-bottom:0.8rem; }
+    .rss-item a{ color:var(--hx-green); font-size:1.1rem; font-weight:bold; text-decoration:none; }
+    .rss-item a:hover{ text-decoration:underline; }
+    .rss-time{ font-size:0.85rem; color:#aaa; margin-top:0.3rem; }
 
     /* Footer */
-    footer { text-align:center; padding:40px 0; border-top:1px solid rgba(0,255,136,0.2); color:var(--hx-muted); }
+    footer{ text-align:center; padding:40px 0; border-top:1px solid rgba(0,255,136,0.2); color:var(--hx-muted); }
 
-    /* Botones flotantes */
-    .whatsapp-float, .instagram-button { position:fixed; right:20px; z-index:1000; }
-    .whatsapp-float { bottom:120px; }
-    .instagram-button { bottom:50px; }
-    .whatsapp-float img, .instagram-button img {
-      width:50px; height:50px; border-radius:50%; transition:transform 0.3s ease;
-      box-shadow:0 0 10px var(--hx-green);
+    /* Botones flotantes (mismo tamaño y efecto que usas) */
+    .whatsapp-float, .instagram-button{ position:fixed; right:20px; z-index:1000; }
+    .whatsapp-float{ bottom:120px; }
+    .instagram-button{ bottom:50px; }
+    .whatsapp-float img, .instagram-button img{
+      width:50px; height:50px; border-radius:50%;
+      transition:transform 0.3s ease; box-shadow:0 0 10px var(--hx-green);
     }
-    .whatsapp-float img:hover, .instagram-button img:hover { transform:scale(1.1); }
+    .whatsapp-float img:hover, .instagram-button img:hover{ transform:scale(1.1); }
 
-    /* Animación simple para "Cargando..." */
-    #loading .dots::after {
-      content: '...';
-      animation: blink 1.3s steps(4, end) infinite;
-    }
-    @keyframes blink {
-      0% { content: ''; }
-      33% { content: '.'; }
-      66% { content: '..'; }
-      100% { content: '...'; }
+    /* Animación “Cargando...” */
+    #loading .dots::after{ content:'...'; animation:blink 1.3s steps(4,end) infinite; }
+    @keyframes blink{
+      0%{content:''} 33%{content:'.'} 66%{content:'..'} 100%{content:'...'}
     }
   </style>
 </head>
 
 <body>
-  <!-- Header con inline styles igual que en tus otras páginas -->
+  <!-- HEADER *idéntico* a tus otras páginas (solo inline styles, sin CSS global que lo altere) -->
   <header style="background-color: #000; padding: 0.5rem 0;">
     <div class="logo" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
       <img src="assets/cicada-logo.png" alt="Cicada Logo" style="height: 50px; width: 50px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 8px #00ff88;">
@@ -94,15 +70,15 @@
     </div>
     <nav>
       <ul style="display: flex; justify-content: center; list-style: none; margin: 0; padding: 0; background-color: #000;">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="servicios.html">Paginas Web y Servicios</a></li>
-        <li><a href="mantenimiento.html">Planes de Mantenimiento Web</a></li>
-        <li><a href="disenoyredes.html">Diseño y Redes Sociales</a></li>
-        <li><a href="cursos.html">Cursos</a></li>
-        <li><a href="potafolio.html">Portafolio</a></li>
-        <li><a href="testimonios.html">Clientes</a></li>
-        <li><a href="noticias.html">Noticias</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="index.html" style="padding: 1rem 1.5rem; color: #00ff88; text-decoration: none; font-weight: bold;">Inicio</a></li>
+        <li><a href="servicios.html" style="padding: 1rem 1.5rem; color: #00ff88; text-decoration: none; font-weight: bold;">Paginas Web y Servicios</a></li>
+        <li><a href="mantenimiento.html" style="padding: 1rem 1.5rem; color: #00ff88; text-decoration: none; font-weight: bold;">Planes de Mantenimiento Web</a></li>
+        <li><a href="disenoyredes.html" style="padding: 1rem 1.5rem; color: #00ff88; text-decoration: none; font-weight: bold;">Diseño y Redes Sociales</a></li>
+        <li><a href="cursos.html" style="padding: 1rem 1.5rem; color: #00ff88; text-decoration: none; font-weight: bold;">Cursos</a></li>
+        <li><a href="potafolio.html" style="padding: 1rem 1.5rem; color: #00ff88; text-decoration: none; font-weight: bold;">Portafolio</a></li>
+        <li><a href="testimonios.html" style="padding: 1rem 1.5rem; color: #00ff88; text-decoration: none; font-weight: bold;">Clientes</a></li>
+        <li><a href="noticias.html" style="padding: 1rem 1.5rem; color: #00ff88; text-decoration: none; font-weight: bold;">Noticias</a></li>
+        <li><a href="contacto.html" style="padding: 1rem 1.5rem; color: #00ff88; text-decoration: none; font-weight: bold;">Contacto</a></li>
       </ul>
     </nav>
   </header>
@@ -128,7 +104,7 @@
     <img src="assets/instagram-icon.png" alt="Instagram">
   </a>
 
-  <!-- Tu lector RSS -->
+  <!-- Lector RSS -->
   <script src="rss-reader.js"></script>
 </body>
 </html>

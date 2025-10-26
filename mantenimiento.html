@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>HacksinCodigos — Planes de Mantenimiento Web</title>
+  <meta name="description" content="Planes de mantenimiento web en USD: actualizaciones, seguridad, copias de seguridad, cambios de contenido y soporte prioritario." />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; media-src 'self' data:; font-src 'self' data:; frame-ancestors 'self'; upgrade-insecure-requests" />
+  <link rel="icon" href="assets/cicada-logo.png" />
+  <style>
+    :root{
+      --hx-bg:#000;
+      --hx-green:#00ff88;
+      --hx-green-2:#22ff9a;
+      --hx-muted:#b6ffd9;
+      --hx-card:#0a0f0c;
+      --hx-shadow:0 30px 80px rgba(0,0,0,.55);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:radial-gradient(1200px 600px at 50% 0%, rgba(0,255,136,.08), transparent 65%), var(--hx-bg);color:#e8fff5;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif}
+    a{color:var(--hx-green);text-decoration:none}
+    .container{max-width:1200px;margin:0 auto;padding:0 18px}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:40;backdrop-filter:blur(6px);background:rgba(0,0,0,.8);border-bottom:1px solid rgba(0,255,136,.15)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand img{height:46px;width:46px;border-radius:50%;object-fit:cover;box-shadow:0 0 12px var(--hx-green)}
+    .brand span{font-weight:800;color:var(--hx-green)}
+    .menu{display:flex;gap:8px;flex-wrap:wrap}
+    .menu a{padding:10px 14px;border-radius:12px;color:var(--hx-muted);font-weight:700}
+    .menu a:hover{background:var(--hx-green);color:#04160e}
+
+    /* Hero */
+    .hero{padding:64px 0 40px;border-bottom:1px solid rgba(0,255,136,.12)}
+    .hero h1{font-size:42px;margin:0 0 8px;color:var(--hx-green)}
+    .hero p{margin:0 0 16px;max-width:900px;color:#d8ffef}
+    .badge{display:inline-block;margin:6px 8px 0 0;padding:6px 10px;border-radius:999px;border:1px solid rgba(0,255,136,.25);background:linear-gradient(180deg, rgba(0,255,136,.08), rgba(0,0,0,.35));color:var(--hx-green);font-weight:800}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:14px;font-weight:900;border:1px solid rgba(0,255,136,.18);box-shadow:var(--hx-shadow)}
+    .btn-primary{background:var(--hx-green);color:#04170e}
+    .btn-ghost{background:transparent;color:var(--hx-green)}
+
+    /* Pricing */
+    .section{padding:54px 0}
+    .section h2{font-size:34px;margin:0 0 6px;color:var(--hx-green)}
+    .lead{margin:0 0 26px;color:#d1ffe9}
+    .grid{display:grid;gap:18px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    @media(max-width:960px){.grid.cols-3{grid-template-columns:1fr 1fr}}
+    @media(max-width:640px){.grid.cols-3{grid-template-columns:1fr}}
+    .card{position:relative;background:linear-gradient(180deg, rgba(0,255,136,.06), rgba(0,0,0,.55));border:1px solid rgba(0,255,136,.18);border-radius:var(--radius);padding:22px}
+    .card h3{margin:0 0 6px}
+    .price{font-size:36px;color:var(--hx-green);font-weight:900}
+    .per{font-size:14px;color:#bbffe4}
+    .list{list-style:none;margin:14px 0 0;padding:0}
+    .list li{padding:8px 0 8px 26px;border-bottom:1px dashed rgba(0,255,136,.12);position:relative}
+    .list li:last-child{border-bottom:0}
+    .list li:before{content:'✔';position:absolute;left:0;color:var(--hx-green);font-weight:900}
+    .ribbon{position:absolute;right:14px;top:14px;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,var(--hx-green),var(--hx-green-2));color:#033; font-weight:900}
+
+    /* Table compare */
+    table{width:100%;border-collapse:collapse}
+    th,td{border:1px solid rgba(0,255,136,.18);padding:12px 10px;text-align:center}
+    th{color:var(--hx-green)}
+
+    /* FAQ */
+    details{background:rgba(0,255,136,.06);border:1px solid rgba(0,255,136,.18);border-radius:14px;padding:14px 16px}
+    details+details{margin-top:10px}
+    summary{cursor:pointer;font-weight:800;color:var(--hx-green)}
+
+    footer{border-top:1px solid rgba(0,255,136,.12);padding:30px 0 60px;text-align:center;color:#c8ffe7}
+
+    .float{position:fixed;right:16px;display:grid;gap:10px;z-index:60}
+    .float.whatsapp{bottom:92px}
+    .float.instagram{bottom:22px}
+    .float a img{width:54px;height:54px;border-radius:50%;box-shadow:0 8px 28px rgba(0,0,0,.5)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="assets/cicada-logo.png" alt="HacksinCodigos" />
+        <span>HacksinCodigos_</span>
+      </div>
+      <nav class="menu">
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Páginas Web</a>
+        <a href="disenoyredes.html">Diseño & Redes</a>
+        <a href="#precios">Mantenimiento</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Planes de Mantenimiento Web</h1>
+      <p>Mantenemos tu sitio <strong>rápido, seguro y actualizado</strong>. Incluye parches de WordPress/plugins, copias de seguridad, monitoreo y cambios de contenido mensuales.</p>
+      <div>
+        <span class="badge">Seguridad (hardening básico)</span>
+        <span class="badge">Backups</span>
+        <span class="badge">Soporte real</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://wa.me/50689840662?text=Hola%2C%20quiero%20un%20plan%20de%20mantenimiento%20web." target="_blank">Cotizar por WhatsApp</a>
+        <a class="btn btn-ghost" href="#comparativa">Ver comparativa</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="precios" class="section">
+    <div class="container">
+      <h2>Precios en USD</h2>
+      <p class="lead">Cambios no acumulables entre meses. Cancelación en cualquier momento.</p>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3>Básico</h3>
+          <div class="price">$39 <span class="per">/ mes</span></div>
+          <ul class="list">
+            <li>Actualizaciones de WordPress y plugins</li>
+            <li>Hasta <strong>5 cambios</strong> de contenido/mes</li>
+            <li>Monitoreo uptime + alertas email</li>
+            <li>Backup semanal</li>
+            <li>Seguridad básica (CSP ligera, headers)</li>
+            <li>Soporte por WhatsApp</li>
+          </ul>
+          <div class="cta-row" style="margin-top:14px"><a class="btn btn-primary" href="https://wa.me/50689840662?text=Quiero%20el%20Plan%20B%C3%A1sico%20de%20mantenimiento%20($39%2Fmes)." target="_blank">Elegir Básico</a></div>
+        </article>
+        <article class="card">
+          <div class="ribbon">Recomendado</div>
+          <h3>Pro</h3>
+          <div class="price">$69 <span class="per">/ mes</span></div>
+          <ul class="list">
+            <li>Todo lo del Básico</li>
+            <li>Hasta <strong>20 cambios</strong> al mes</li>
+            <li>Firewall web + bloqueo de IPs</li>
+            <li>Backup diario (retención 7 días)</li>
+            <li>2‑Factor para admin</li>
+            <li>Reporte mensual de estado</li>
+          </ul>
+          <div class="cta-row" style="margin-top:14px"><a class="btn btn-primary" href="https://wa.me/50689840662?text=Quiero%20el%20Plan%20Pro%20de%20mantenimiento%20($69%2Fmes)." target="_blank">Elegir Pro</a></div>
+        </article>
+        <article class="card">
+          <h3>Corporativo</h3>
+          <div class="price">$99 <span class="per">/ mes</span></div>
+          <ul class="list">
+            <li>Todo lo del Pro</li>
+            <li>Hasta <strong>40 cambios</strong> al mes</li>
+            <li>Monitoreo en tiempo real 24/7</li>
+            <li>Endurecimiento avanzado ("Murallita")</li>
+            <li>Soporte prioritario (SLA 4h hábiles)</li>
+            <li>Restauración express ante incidentes</li>
+          </ul>
+          <div class="cta-row" style="margin-top:14px"><a class="btn btn-primary" href="https://wa.me/50689840662?text=Quiero%20el%20Plan%20Corporativo%20de%20mantenimiento%20($99%2Fmes)." target="_blank">Elegir Corporativo</a></div>
+        </article>
+      </div>
+      <div class="card" style="margin-top:16px">* Los precios son en USD. Se puede pagar en CRC al tipo de cambio del día. Cambios no utilizados no se acumulan.</div>
+    </div>
+  </section>
+
+  <section id="comparativa" class="section" style="border-top:1px solid rgba(0,255,136,.12)">
+    <div class="container">
+      <h2>Comparativa rápida</h2>
+      <div class="card">
+        <div style="overflow:auto">
+          <table>
+            <thead>
+              <tr><th>Incluye</th><th>Básico</th><th>Pro</th><th>Corporativo</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Actualizaciones WP + Plugins</td><td>✔</td><td>✔</td><td>✔</td></tr>
+              <tr><td>Cambios de contenido</td><td>5</td><td>20</td><td>40</td></tr>
+              <tr><td>Backups</td><td>Semanal</td><td>Diario</td><td>Diario + restore</td></tr>
+              <tr><td>Firewall / WAF</td><td>—</td><td>✔</td><td>✔ (avanzado)</td></tr>
+              <tr><td>Monitoreo 24/7</td><td>—</td><td>—</td><td>✔</td></tr>
+              <tr><td>SLA respuesta hábil</td><td>24h</td><td>8h</td><td>4h</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="border-top:1px solid rgba(0,255,136,.12)">
+    <div class="container">
+      <h2>Preguntas frecuentes</h2>
+      <details><summary>¿Qué cuenta como "cambio"?</summary><p>Editar textos, precios, imágenes, banners, crear páginas sencillas o productos. No incluye desarrollos complejos; si se requieren, cotizamos aparte.</p></details>
+      <details><summary>¿Pueden migrar y asegurar mi web actual?</summary><p>Sí. Incluye revisión de plugins, limpieza básica, SSL, cabeceras de seguridad y reglas de endurecimiento según tu hosting.</p></details>
+      <details><summary>¿Cómo se pagan los planes?</summary><p>Mensualmente en USD (o CRC al tipo de cambio). Se factura por adelantado y puedes cancelar cuando quieras.</p></details>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© 2025 HacksinCodigos — Planes de mantenimiento web.</div>
+  </footer>
+
+  <!-- Botones flotantes -->
+  <div class="float whatsapp"><a href="https://wa.me/50689840662" target="_blank" rel="noopener"><img src="assets/whatsapp-icon.png" alt="WhatsApp"></a></div>
+  <div class="float instagram"><a href="https://instagram.com/hacksincodigos" target="_blank" rel="noopener"><img src="assets/instagram-icon.png" alt="Instagram"></a></div>
+</body>
+</html>

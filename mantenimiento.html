@@ -1,93 +1,89 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self';">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Planes de Mantenimiento Web - HacksinCodigos</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="assets/cicada-logo.png">
+  <meta name="description" content="Mantenimiento web en USD: actualizaciones, seguridad, backups, monitoreo y cambios mensuales. Planes Básico, Pro y Corporativo." />
+  <link rel="icon" href="assets/cicada-logo.png" />
 
-  <!-- Estilos iguales al ejemplo que enviaste -->
   <style>
-    .buy-button {
-      display: inline-block;
-      margin-top: 1rem;
-      background: linear-gradient(135deg, #00ff88, #12ffa0);
-      color: #9d00ff;
-      padding: 0.7rem 1.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      font-family: monospace;
-      font-size: 1rem;
-      box-shadow: 0 0 12px rgba(0, 255, 136, 0.5);
-      transition: all 0.3s ease-in-out;
-      border: 2px solid #9d00ff;
-      text-shadow: 0 0 6px #9d00ff;
+    /* Base visual (igual a Cursos / estilo neón) */
+    :root { --hx-green:#00ff88; --hx-violet:#9d00ff; }
+    body { background:#000; color:#00ff88; font-family: monospace; margin:0; text-align:center; }
+
+    /* Botón principal (buy-button) */
+    .buy-button{
+      display:inline-block; margin-top:1rem;
+      background:linear-gradient(135deg, var(--hx-green), #12ffa0);
+      color:var(--hx-violet); padding:.7rem 1.5rem; border-radius:50px;
+      text-decoration:none; font-weight:bold; font-size:1rem;
+      box-shadow:0 0 12px rgba(0,255,136,.5); transition:.3s ease-in-out;
+      border:2px solid var(--hx-violet); text-shadow:0 0 6px var(--hx-violet);
     }
-    .buy-button:hover {
-      background: #0aff7e;
-      color: #000000;
-      box-shadow: 0 0 16px #9d00ff, 0 0 20px #00ff88;
-      transform: scale(1.05);
+    .buy-button:hover{ background:#0aff7e; color:#000; box-shadow:0 0 16px var(--hx-violet),0 0 20px var(--hx-green); transform:scale(1.05); }
+
+    /* Header idéntico al resto */
+    header { background:#000; padding:.5rem 0; }
+    .logo { display:flex; align-items:center; justify-content:center; gap:10px; }
+    .logo img { height:50px; width:50px; border-radius:50%; object-fit:cover; box-shadow:0 0 8px var(--hx-green); }
+    .logo span { color:var(--hx-green); font-weight:bold; font-family:monospace; font-size:1.8rem; }
+    nav ul{ display:flex; justify-content:center; list-style:none; margin:0; padding:0; background:#000; flex-wrap:wrap; }
+    nav a{ color:var(--hx-green); text-decoration:none; font-weight:bold; padding:1rem 1.5rem; }
+    nav a:hover{ background:var(--hx-green); color:#000; border-radius:10px; }
+
+    /* Hero */
+    .hero{ padding:2rem 1rem; background:linear-gradient(135deg,#111,#000); }
+    .hero h1{ font-size:1.9rem; margin:.2rem 0 .6rem; }
+    .hero p{ color:#d4ffd9; max-width:900px; margin:0 auto; }
+
+    /* Secciones / Burbujas estilo Cursos */
+    .features{ display:flex; flex-direction:column; align-items:center; padding:1rem; }
+    .features > div{ width:90%; max-width:980px; margin:1rem auto; padding:1rem; border:2px solid var(--hx-green); border-radius:10px; box-shadow:0 0 10px var(--hx-green); }
+    .burbuja{
+      margin-top:1rem; padding:1rem; border:1px solid var(--hx-green); border-radius:10px;
+      background:#111; box-shadow:0 0 10px var(--hx-green); max-width:800px; margin-left:auto; margin-right:auto; color:#d4ffd9;
     }
-    table {
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-family: monospace;
+    .burbuja h3{ color:var(--hx-green); margin-top:.2rem; }
+
+    /* Listas dentro de burbuja */
+    .burbuja ul{ text-align:left; max-width:680px; margin:0 auto; padding-left:1rem; }
+    .burbuja li{ margin:.35rem 0; color:#dfffe9; }
+
+    /* Tabla comparativa de alta calidad (responsive) */
+    .table-wrap{ width:100%; overflow-x:auto; margin-top:1rem; }
+    table{ border-collapse:separate; border-spacing:0; min-width:720px; width:100%; font-family:monospace; }
+    thead th{
+      position:sticky; top:0; background:#07150f; color:var(--hx-green);
+      border-bottom:2px solid var(--hx-green); padding:.8rem; text-align:center;
     }
-    th, td {
-      padding: 0.5rem;
-      text-align: center;
-      border: 1px solid #00ff88;
-      color: #00ff88;
-    }
-    .features {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 1rem;
-    }
-    .features > div {
-      width: 90%;
-      max-width: 900px;
-      margin: 1rem auto;
-      padding: 1rem;
-      border: 2px solid #00ff88;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #00ff88;
-    }
-    .burbuja {
-      margin-top: 1rem;
-      padding: 1rem;
-      border: 1px solid #00ff88;
-      border-radius: 10px;
-      background-color: #111;
-      box-shadow: 0 0 10px #00ff88;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      color:#d4ffd9;
-    }
+    tbody td{ padding:.7rem .6rem; text-align:center; color:#b6ffd9; border-bottom:1px dashed rgba(0,255,136,.25); }
+    tbody tr:nth-child(odd){ background:rgba(0,255,136,.04); }
+    tbody tr:hover{ background:rgba(0,255,136,.08); }
+    .yes{ color:#00ff88; font-weight:bold; }
+    .no{ color:#ff6b6b; }
+    .tag{ display:inline-block; padding:.15rem .45rem; border-radius:999px; border:1px solid rgba(0,255,136,.35); color:#00ff88; background:rgba(0,255,136,.06); font-weight:bold; }
+
+    /* Footer */
+    footer{ border-top:1px solid rgba(0,255,136,.25); padding:2rem 0; color:#b6ffd9; }
   </style>
 </head>
 <body>
-  <!-- HEADER/menú idéntico al que quieres -->
-  <header style="background-color: #000; padding: 0.5rem 0;">
-    <div class="logo" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-      <img src="assets/cicada-logo.png" alt="Cicada Logo" style="height: 50px; width: 50px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 8px #00ff88;">
-      <span style="color:#00ff88; font-weight: bold; font-family: monospace; font-size: 1.8rem;">HacksinCodigos<span class="blink">_</span></span>
+  <!-- Header / menú -->
+  <header>
+    <div class="logo">
+      <img src="assets/cicada-logo.png" alt="Cicada Logo">
+      <span>HacksinCodigos<span class="blink">_</span></span>
     </div>
     <nav>
-      <ul style="display: flex; justify-content: center; list-style: none; margin: 0; padding: 0; background-color: #000;">
+      <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="servicios.html">Paginas Web y Servicios</a></li>
         <li><a href="mantenimiento.html">Planes de Mantenimiento Web</a></li>
         <li><a href="disenoyredes.html">Diseño y Redes Sociales</a></li>
         <li><a href="cursos.html">Cursos</a></li>
-        <li><a href="potafolio.html">Portafolio</a></li>
+        <li><a href="portafolio.html">Portafolio</a></li>
         <li><a href="testimonios.html">Clientes</a></li>
         <li><a href="noticias.html">Noticias</a></li>
         <li><a href="contacto.html">Contacto</a></li>
@@ -95,79 +91,117 @@
     </nav>
   </header>
 
-  <!-- Hero corto como el de servicios -->
+  <!-- Hero -->
   <section class="hero">
     <h1>Planes de Mantenimiento Web</h1>
-    <p>Mantené tu sitio <strong>rápido, seguro y actualizado</strong>. Actualizaciones, seguridad, backups y cambios mensuales en USD.</p>
-    <a href="https://wa.me/50689840662?text=Hola%2C%20quiero%20un%20plan%20de%20mantenimiento%20web" class="buy-button">Cotizar por WhatsApp</a>
+    <p>Mantené tu sitio <strong>rápido, seguro y actualizado</strong>. Actualizaciones, seguridad, backups, monitoreo y cambios mensuales. Precios en USD.</p>
+    <a class="buy-button" href="https://wa.me/50689840662?text=Hola%2C%20quiero%20un%20plan%20de%20mantenimiento%20web" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
   </section>
 
-  <!-- Contenido principal en el mismo formato de “features/burbuja” -->
+  <!-- Planes en burbujas (mismo estilo que Cursos) -->
   <section class="features">
     <div>
       <h2>Planes en USD</h2>
-      <p>Los cambios no utilizados <strong>no se acumulan</strong> entre meses. Podés pagar en CRC al tipo de cambio del día.</p>
+      <p style="color:#d4ffd9">Los cambios no utilizados <strong>no se acumulan</strong> entre meses. Podés pagar en CRC al tipo de cambio del día.</p>
 
       <div class="burbuja">
         <h3>Básico — $39/mes</h3>
         <ul>
           <li>Actualizaciones de WordPress y plugins</li>
-          <li>Hasta 5 cambios de contenido al mes</li>
+          <li>Hasta <strong>5 cambios</strong> de contenido/mes</li>
           <li>Monitoreo de uptime + alertas</li>
           <li>Backup semanal</li>
           <li>Seguridad básica (headers/CSP ligera)</li>
           <li>Soporte por WhatsApp</li>
         </ul>
-        <a href="https://wa.me/50689840662?text=Quiero%20el%20Plan%20B%C3%A1sico%20de%20Mantenimiento%20($39%2Fmes)" class="buy-button">Elegir Básico</a>
+        <a class="buy-button" href="https://wa.me/50689840662?text=Quiero%20el%20Plan%20B%C3%A1sico%20de%20Mantenimiento%20($39%2Fmes)" target="_blank" rel="noopener">Elegir Básico</a>
       </div>
 
       <div class="burbuja">
         <h3>Pro — $69/mes</h3>
         <ul>
           <li>Todo lo del Básico</li>
-          <li>Hasta 20 cambios al mes</li>
+          <li>Hasta <strong>20 cambios</strong> al mes</li>
           <li>Firewall web + bloqueo de IPs</li>
           <li>Backups diarios (retención 7 días)</li>
-          <li>Autenticación de 2 factores para admin</li>
+          <li>2-Factor para admin</li>
           <li>Reporte mensual</li>
         </ul>
-        <a href="https://wa.me/50689840662?text=Quiero%20el%20Plan%20Pro%20de%20Mantenimiento%20($69%2Fmes)" class="buy-button">Elegir Pro</a>
+        <a class="buy-button" href="https://wa.me/50689840662?text=Quiero%20el%20Plan%20Pro%20de%20Mantenimiento%20($69%2Fmes)" target="_blank" rel="noopener">Elegir Pro</a>
       </div>
 
       <div class="burbuja">
         <h3>Corporativo — $99/mes</h3>
         <ul>
           <li>Todo lo del Pro</li>
-          <li>Hasta 40 cambios al mes</li>
+          <li>Hasta <strong>40 cambios</strong> al mes</li>
           <li>Monitoreo en tiempo real 24/7</li>
           <li>“Murallita” (hardening avanzado)</li>
           <li>Soporte prioritario (SLA 4h hábiles)</li>
           <li>Restauración express ante incidentes</li>
         </ul>
-        <a href="https://wa.me/50689840662?text=Quiero%20el%20Plan%20Corporativo%20de%20Mantenimiento%20($99%2Fmes)" class="buy-button">Elegir Corporativo</a>
+        <a class="buy-button" href="https://wa.me/50689840662?text=Quiero%20el%20Plan%20Corporativo%20de%20Mantenimiento%20($99%2Fmes)" target="_blank" rel="noopener">Elegir Corporativo</a>
       </div>
     </div>
 
+    <!-- Comparativa moderna y responsive -->
     <div>
       <h2>Comparativa rápida</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Incluye</th>
-            <th>Básico</th>
-            <th>Pro</th>
-            <th>Corporativo</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Actualizaciones WP + Plugins</td><td>✔</td><td>✔</td><td>✔</td></tr>
-          <tr><td>Cambios de contenido</td><td>5</td><td>20</td><td>40</td></tr>
-          <tr><td>Backups</td><td>Semanal</td><td>Diario</td><td>Diario + restore</td></tr>
-          <tr><td>Firewall / WAF</td><td>—</td><td>✔</td><td>✔ (avanzado)</td></tr>
-          <tr><td>Monitoreo 24/7</td><td>—</td><td>—</td><td>✔</td></tr>
-          <tr><td>SLA (respuesta hábil)</td><td>24h</td><td>8h</td><td>4h</td></tr>
-        </tbody>
-      </table>
+      <div class="table-wrap">
+        <table aria-label="Comparativa de planes de mantenimiento">
+          <thead>
+            <tr>
+              <th>Incluye</th>
+              <th>Básico</th>
+              <th>Pro</th>
+              <th>Corporativo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Actualizaciones WP + Plugins</td>
+              <td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td>
+            </tr>
+            <tr>
+              <td>Cambios de contenido / mes</td>
+              <td><span class="tag">5</span></td>
+              <td><span class="tag">20</span></td>
+              <td><span class="tag">40</span></td>
+            </tr>
+            <tr>
+              <td>Backups</td>
+              <td>Semanal</td>
+              <td>Diario (7 días)</td>
+              <td>Diario + restore</td>
+            </tr>
+            <tr>
+              <td>Firewall / WAF</td>
+              <td class="no">—</td>
+              <td class="yes">✔</td>
+              <td class="yes">✔ (avanzado)</td>
+            </tr>
+            <tr>
+              <td>Monitoreo</td>
+              <td>Uptime + alertas</td>
+              <td>Uptime + alertas</td>
+              <td><span class="yes">Tiempo real 24/7</span></td>
+            </tr>
+            <tr>
+              <td>SLA respuesta hábil</td>
+              <td>24h</td>
+              <td>8h</td>
+              <td><span class="tag">4h</span></td>
+            </tr>
+            <tr>
+              <td>Hardening (“Murallita”)</td>
+              <td class="no">—</td>
+              <td class="no">—</td>
+              <td class="yes">✔</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.8rem;color:#d4ffd9">* Precios en USD. Cancelás cuando quieras. Cambios no utilizados no se acumulan.</p>
     </div>
   </section>
 
@@ -175,7 +209,7 @@
     <p>&copy; 2025 HacksinCodigos | Todos los derechos reservados</p>
   </footer>
 
-  <!-- (Opcional) audio como en otras páginas -->
+  <!-- (Opcional) Audio de fondo como en otras páginas -->
   <audio autoplay loop>
     <source src="assets/bg-music.mp3" type="audio/mpeg">
     Tu navegador no soporta audio HTML5.

@@ -2,140 +2,52 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self';">
+  <!-- HABILITAMOS inline JS para que el listado se renderice -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cursos Online - HacksinCodigos</title>
   <link rel="icon" href="assets/cicada-logo.png">
   <style>
-    :root {
-      --hx-green:#00ff88;
-      --hx-violet:#9d00ff;
-      --hx-bg:#000;
-      --hx-ink:#d4ffd9;
-    }
+    :root{--hx-green:#00ff88;--hx-violet:#9d00ff;--hx-bg:#000;--hx-ink:#d4ffd9}
+    body{background:var(--hx-bg);color:var(--hx-ink);font-family:monospace;margin:0;text-align:center}
 
-    body {
-      background: var(--hx-bg);
-      color: var(--hx-ink);
-      font-family: monospace;
-      margin: 0;
-      text-align: center;
-    }
+    /* Header igual al resto de tus páginas */
+    header{background:#000;padding:.5rem 0}
+    .logo{display:flex;align-items:center;justify-content:center;gap:10px}
+    .logo img{height:50px;width:50px;border-radius:50%;object-fit:cover;box-shadow:0 0 8px var(--hx-green)}
+    .logo span{color:var(--hx-green);font-size:1.8rem}
+    nav ul{display:flex;justify-content:center;list-style:none;margin:0;padding:0;background:#000;flex-wrap:wrap}
+    nav a{color:var(--hx-green);text-decoration:none;padding:1rem 1.5rem;display:inline-block}
+    nav a:hover{text-decoration:underline;color:var(--hx-green)}
 
-    header {
-      background:#000; padding:0.5rem 0;
-    }
-    .logo {
-      display:flex; align-items:center; justify-content:center; gap:10px;
-    }
-    .logo img {
-      height:50px; width:50px; border-radius:50%;
-      object-fit:cover; box-shadow:0 0 8px var(--hx-green);
-    }
-    .logo span {
-      color:var(--hx-green); font-size:1.8rem; font-weight:normal;
-    }
-    nav ul {
-      display:flex; justify-content:center; list-style:none;
-      margin:0; padding:0; background:#000; flex-wrap:wrap;
-    }
-    nav a {
-      color:var(--hx-green); text-decoration:none;
-      padding:1rem 1.5rem; display:inline-block;
-      font-weight:normal;
-    }
-    nav a:hover {
-      text-decoration:underline; color:var(--hx-green);
-    }
+    .hero{padding:60px 20px;background:radial-gradient(circle at top,rgba(0,255,136,.1),transparent)}
+    .hero h1{color:var(--hx-green);font-size:2.2rem;margin-bottom:10px}
+    .hero p{color:#e8fff5;font-size:1.1rem;max-width:800px;margin:0 auto 20px}
 
-    .hero {
-      padding:60px 20px;
-      background:radial-gradient(circle at top,rgba(0,255,136,.1),transparent);
-    }
-    .hero h1 {
-      color:var(--hx-green); font-size:2.2rem; margin-bottom:10px;
-    }
-    .hero p {
-      color:#e8fff5; font-size:1.1rem; max-width:800px; margin:0 auto 20px;
-    }
+    .buy-button{display:inline-block;margin-top:1rem;background:linear-gradient(135deg,#00ff88,#12ffa0);color:#000;padding:.7rem 1.5rem;border-radius:50px;text-decoration:none;font-weight:bold;font-size:1rem;border:2px solid var(--hx-violet);box-shadow:0 0 12px rgba(0,255,136,.5);transition:.3s}
+    .buy-button:hover{transform:scale(1.05);box-shadow:0 0 16px var(--hx-violet),0 0 20px var(--hx-green)}
 
-    .buy-button {
-      display:inline-block; margin-top:1rem;
-      background:linear-gradient(135deg,#00ff88,#12ffa0);
-      color:#000; padding:.7rem 1.5rem; border-radius:50px;
-      text-decoration:none; font-weight:bold; font-size:1rem;
-      border:2px solid var(--hx-violet);
-      box-shadow:0 0 12px rgba(0,255,136,.5);
-      transition:.3s;
-    }
-    .buy-button:hover { transform:scale(1.05); box-shadow:0 0 16px var(--hx-violet),0 0 20px var(--hx-green); }
+    .features{display:flex;flex-direction:column;align-items:center;padding:1rem}
+    .burbuja{margin-top:1rem;padding:1rem;border:1px solid var(--hx-green);border-radius:10px;background:#111;box-shadow:0 0 10px var(--hx-green);max-width:800px;margin-left:auto;margin-right:auto;text-align:left}
 
-    .features {
-      display:flex; flex-direction:column; align-items:center; padding:1rem;
-    }
-    .burbuja {
-      margin-top:1rem; padding:1rem; border:1px solid var(--hx-green);
-      border-radius:10px; background-color:#111;
-      box-shadow:0 0 10px var(--hx-green);
-      max-width:800px; margin-left:auto; margin-right:auto; text-align:left;
-    }
+    .curso-header{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+    .curso-info small{color:var(--hx-green)}
+    .cupos{margin-top:8px}
+    .barra-cupos{background:#333;border-radius:8px;height:10px;width:100%;margin-top:5px;overflow:hidden}
+    .barra-cupos span{display:block;height:100%;background:var(--hx-green);transition:width .4s ease-in-out}
 
-    .curso-header {
-      display:flex; justify-content:space-between; align-items:center;
-      flex-wrap:wrap;
-    }
-    .curso-info small { color:var(--hx-green); }
+    footer{text-align:center;padding:40px 0;color:#b6ffd9;border-top:1px solid rgba(0,255,136,.2)}
 
-    .cupos {
-      margin-top:8px;
-    }
-    .barra-cupos {
-      background:#333; border-radius:8px; height:10px;
-      width:100%; margin-top:5px; overflow:hidden;
-    }
-    .barra-cupos span {
-      display:block; height:100%; background:var(--hx-green);
-      transition:width .4s ease-in-out;
-    }
-
-    footer {
-      text-align:center; padding:40px 0; color:#b6ffd9;
-      border-top:1px solid rgba(0,255,136,0.2);
-    }
-
-    /* Modal formulario */
-    .modal {
-      display:none; position:fixed; top:0; left:0; width:100%; height:100%;
-      background:rgba(0,0,0,0.8); z-index:9999;
-      align-items:center; justify-content:center;
-    }
-    .modal-content {
-      background:#111; border:1px solid var(--hx-green);
-      border-radius:10px; padding:20px; width:90%; max-width:400px;
-      color:#e8fff5; text-align:left; box-shadow:0 0 15px var(--hx-green);
-    }
-    .modal-content h3 { text-align:center; color:var(--hx-green); }
-    .modal-content label { display:block; margin-top:10px; color:var(--hx-green); }
-    .modal-content input {
-      width:100%; padding:8px; border-radius:5px; border:1px solid var(--hx-green);
-      background:#000; color:#fff;
-    }
-    .modal-content button {
-      margin-top:15px; width:100%; padding:10px;
-      background:var(--hx-green); border:none; color:#000;
-      font-weight:bold; border-radius:5px; cursor:pointer;
-    }
-    .modal-content button:hover { background:#12ffa0; }
-
-    .close-btn {
-      position:absolute; top:20px; right:20px; font-size:1.4rem;
-      color:var(--hx-green); cursor:pointer;
-    }
-
-    .mensaje-pago {
-      text-align:center; color:#b6ffd9; margin-top:15px;
-      border:1px solid var(--hx-green); padding:10px; border-radius:8px;
-    }
+    /* Modal */
+    .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:9999;align-items:center;justify-content:center}
+    .modal-content{background:#111;border:1px solid var(--hx-green);border-radius:10px;padding:20px;width:90%;max-width:420px;color:#e8fff5;text-align:left;box-shadow:0 0 15px var(--hx-green);position:relative}
+    .modal-content h3{text-align:center;color:var(--hx-green);margin:0 0 10px}
+    .modal-content label{display:block;margin-top:10px;color:var(--hx-green)}
+    .modal-content input{width:100%;padding:8px;border-radius:5px;border:1px solid var(--hx-green);background:#000;color:#fff}
+    .modal-content button{margin-top:15px;width:100%;padding:10px;background:var(--hx-green);border:none;color:#000;font-weight:bold;border-radius:5px;cursor:pointer}
+    .modal-content button:hover{background:#12ffa0}
+    .close-btn{position:absolute;top:10px;right:12px;font-size:1.4rem;color:var(--hx-green);cursor:pointer}
+    .mensaje-pago{text-align:center;color:#b6ffd9;margin-top:15px;border:1px solid var(--hx-green);padding:10px;border-radius:8px}
   </style>
 </head>
 <body>
@@ -166,15 +78,14 @@
     <p>Cursos virtuales exclusivos (máximo 5 estudiantes). Asesoría personalizada, materiales descargables y certificado digital.</p>
   </section>
 
-  <section class="features" id="lista-cursos">
-    <!-- Los cursos se generan con JS -->
-  </section>
+  <!-- AQUI SE INYECTAN LOS CURSOS -->
+  <section class="features" id="lista-cursos"></section>
 
   <footer>
     <p>&copy; 2025 HacksinCodigos | Todos los derechos reservados</p>
   </footer>
 
-  <!-- MODAL DE FORMULARIO -->
+  <!-- MODAL -->
   <div class="modal" id="modalForm">
     <div class="modal-content">
       <span class="close-btn" onclick="cerrarModal()">&times;</span>
@@ -182,13 +93,10 @@
       <form id="formCurso">
         <label>Nombre completo:</label>
         <input type="text" id="nombre" required>
-
         <label>Correo electrónico:</label>
         <input type="email" id="correo" required>
-
         <label>Teléfono (WhatsApp):</label>
         <input type="tel" id="telefono" required>
-
         <button type="submit">Enviar matrícula</button>
       </form>
       <div class="mensaje-pago" id="mensajePago" style="display:none;">
@@ -202,6 +110,7 @@
   </div>
 
   <script>
+    // Datos de cursos (mismo orden que tu página)
     const cursos = [
       "Diseño Web con WordPress y WooCommerce",
       "ChatGPT para Publicidad e Imágenes",
@@ -218,29 +127,37 @@
     ];
 
     const lista = document.getElementById('lista-cursos');
+
+    // Fecha base: Lunes dentro de 22 días
     const hoy = new Date();
-    const baseFecha = new Date(hoy);
-    baseFecha.setDate(hoy.getDate() + 22);
+    let base = new Date(hoy);
+    base.setDate(hoy.getDate() + 22);
+    // mover base al próximo lunes
+    while (base.getDay() !== 1) { base.setDate(base.getDate() + 1); }
 
-    cursos.forEach((nombre, i) => {
-      const fecha = new Date(baseFecha);
-      fecha.setDate(baseFecha.getDate() + i);
-      const fechaStr = fecha.toLocaleDateString('es-CR', {weekday:'long', day:'numeric', month:'long'});
+    const precio = (nombre) => {
+      if (nombre.includes('Security+') || nombre.includes('CySA+')) return 150;
+      return 100;
+    };
 
-      const inscritos = Math.floor(1 + Math.random() * 4); // entre 1 y 4
+    cursos.forEach((nombre, idx) => {
+      const fecha = new Date(base); fecha.setDate(base.getDate() + idx); // lunes, martes, miércoles…
+      const fechaStr = fecha.toLocaleDateString('es-CR',{weekday:'long', day:'numeric', month:'long'});
+
       const max = 5;
-      const porcentaje = (inscritos / max) * 100;
+      const inscritos = Math.floor(1 + Math.random()*4); // 1-4
+      const porcentaje = (inscritos/max)*100;
 
       const div = document.createElement('div');
       div.className = 'burbuja';
       div.innerHTML = `
         <div class="curso-header">
           <div class="curso-info">
-            <h3>${nombre} – $100</h3>
-            <small>Inicio: <strong>${fechaStr}</strong></small><br>
+            <h3>${nombre} – $${precio(nombre)}</h3>
+            <small>Inicio: <strong>${fechaStr}</strong></small>
             <div class="cupos">
               <small>👥 ${inscritos} de ${max} cupos ocupados</small>
-              <div class="barra-cupos"><span style="width:${porcentaje}%;"></span></div>
+              <div class="barra-cupos"><span style="width:${porcentaje}%"></span></div>
             </div>
           </div>
           <div>
@@ -251,23 +168,31 @@
       lista.appendChild(div);
     });
 
+    // Modal
     const modal = document.getElementById('modalForm');
     const form = document.getElementById('formCurso');
     const msg = document.getElementById('mensajePago');
 
-    function abrirModal(nombreCurso) {
-      modal.style.display = 'flex';
+    function abrirModal(nombreCurso){
+      modal.style.display='flex';
       form.dataset.curso = nombreCurso;
-      form.style.display = 'block';
-      msg.style.display = 'none';
+      form.style.display='block';
+      msg.style.display='none';
     }
-    function cerrarModal() { modal.style.display = 'none'; }
+    function cerrarModal(){ modal.style.display='none'; }
+    window.cerrarModal = cerrarModal;
+    window.abrirModal = abrirModal;
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', (e)=>{
       e.preventDefault();
-      form.style.display = 'none';
-      msg.style.display = 'block';
+      // Aquí podrías enviar a tu backend si querés guardar los datos
+      form.style.display='none';
+      msg.style.display='block';
     });
   </script>
+
+  <noscript style="color:#ff8">
+    Necesitas habilitar JavaScript para ver la lista de cursos y matricularte.
+  </noscript>
 </body>
 </html>

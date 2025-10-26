@@ -5,68 +5,149 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self';">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cursos Online - HacksinCodigos</title>
-  <link rel="stylesheet" href="style.css">
   <link rel="icon" href="assets/cicada-logo.png">
   <style>
-    .buy-button {
-      display: inline-block;
-      margin-top: 1rem;
-      background: linear-gradient(135deg, #00ff88, #12ffa0);
-      color: #9d00ff;
-      padding: 0.7rem 1.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
+    :root {
+      --hx-green:#00ff88;
+      --hx-violet:#9d00ff;
+      --hx-bg:#000;
+      --hx-ink:#d4ffd9;
+    }
+
+    body {
+      background: var(--hx-bg);
+      color: var(--hx-ink);
       font-family: monospace;
-      font-size: 1rem;
-      box-shadow: 0 0 12px rgba(0, 255, 136, 0.5);
-      transition: all 0.3s ease-in-out;
-      border: 2px solid #9d00ff;
-      text-shadow: 0 0 6px #9d00ff;
+      margin: 0;
+      text-align: center;
     }
-    .buy-button:hover {
-      background: #0aff7e;
-      color: #000000;
-      box-shadow: 0 0 16px #9d00ff, 0 0 20px #00ff88;
-      transform: scale(1.05);
+
+    header {
+      background:#000; padding:0.5rem 0;
     }
+    .logo {
+      display:flex; align-items:center; justify-content:center; gap:10px;
+    }
+    .logo img {
+      height:50px; width:50px; border-radius:50%;
+      object-fit:cover; box-shadow:0 0 8px var(--hx-green);
+    }
+    .logo span {
+      color:var(--hx-green); font-size:1.8rem; font-weight:normal;
+    }
+    nav ul {
+      display:flex; justify-content:center; list-style:none;
+      margin:0; padding:0; background:#000; flex-wrap:wrap;
+    }
+    nav a {
+      color:var(--hx-green); text-decoration:none;
+      padding:1rem 1.5rem; display:inline-block;
+      font-weight:normal;
+    }
+    nav a:hover {
+      text-decoration:underline; color:var(--hx-green);
+    }
+
+    .hero {
+      padding:60px 20px;
+      background:radial-gradient(circle at top,rgba(0,255,136,.1),transparent);
+    }
+    .hero h1 {
+      color:var(--hx-green); font-size:2.2rem; margin-bottom:10px;
+    }
+    .hero p {
+      color:#e8fff5; font-size:1.1rem; max-width:800px; margin:0 auto 20px;
+    }
+
+    .buy-button {
+      display:inline-block; margin-top:1rem;
+      background:linear-gradient(135deg,#00ff88,#12ffa0);
+      color:#000; padding:.7rem 1.5rem; border-radius:50px;
+      text-decoration:none; font-weight:bold; font-size:1rem;
+      border:2px solid var(--hx-violet);
+      box-shadow:0 0 12px rgba(0,255,136,.5);
+      transition:.3s;
+    }
+    .buy-button:hover { transform:scale(1.05); box-shadow:0 0 16px var(--hx-violet),0 0 20px var(--hx-green); }
+
     .features {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 1rem;
-    }
-    .features > div {
-      width: 90%;
-      max-width: 900px;
-      margin: 1rem auto;
-      padding: 1rem;
-      border: 2px solid #00ff88;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #00ff88;
+      display:flex; flex-direction:column; align-items:center; padding:1rem;
     }
     .burbuja {
-      margin-top: 1rem;
-      padding: 1rem;
-      border: 1px solid #00ff88;
-      border-radius: 10px;
-      background-color: #111;
-      box-shadow: 0 0 10px #00ff88;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-top:1rem; padding:1rem; border:1px solid var(--hx-green);
+      border-radius:10px; background-color:#111;
+      box-shadow:0 0 10px var(--hx-green);
+      max-width:800px; margin-left:auto; margin-right:auto; text-align:left;
+    }
+
+    .curso-header {
+      display:flex; justify-content:space-between; align-items:center;
+      flex-wrap:wrap;
+    }
+    .curso-info small { color:var(--hx-green); }
+
+    .cupos {
+      margin-top:8px;
+    }
+    .barra-cupos {
+      background:#333; border-radius:8px; height:10px;
+      width:100%; margin-top:5px; overflow:hidden;
+    }
+    .barra-cupos span {
+      display:block; height:100%; background:var(--hx-green);
+      transition:width .4s ease-in-out;
+    }
+
+    footer {
+      text-align:center; padding:40px 0; color:#b6ffd9;
+      border-top:1px solid rgba(0,255,136,0.2);
+    }
+
+    /* Modal formulario */
+    .modal {
+      display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+      background:rgba(0,0,0,0.8); z-index:9999;
+      align-items:center; justify-content:center;
+    }
+    .modal-content {
+      background:#111; border:1px solid var(--hx-green);
+      border-radius:10px; padding:20px; width:90%; max-width:400px;
+      color:#e8fff5; text-align:left; box-shadow:0 0 15px var(--hx-green);
+    }
+    .modal-content h3 { text-align:center; color:var(--hx-green); }
+    .modal-content label { display:block; margin-top:10px; color:var(--hx-green); }
+    .modal-content input {
+      width:100%; padding:8px; border-radius:5px; border:1px solid var(--hx-green);
+      background:#000; color:#fff;
+    }
+    .modal-content button {
+      margin-top:15px; width:100%; padding:10px;
+      background:var(--hx-green); border:none; color:#000;
+      font-weight:bold; border-radius:5px; cursor:pointer;
+    }
+    .modal-content button:hover { background:#12ffa0; }
+
+    .close-btn {
+      position:absolute; top:20px; right:20px; font-size:1.4rem;
+      color:var(--hx-green); cursor:pointer;
+    }
+
+    .mensaje-pago {
+      text-align:center; color:#b6ffd9; margin-top:15px;
+      border:1px solid var(--hx-green); padding:10px; border-radius:8px;
     }
   </style>
 </head>
 <body>
-  <header style="background-color: #000; padding: 0.5rem 0;">
-  <div class="logo" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-    <img src="assets/cicada-logo.png" alt="Cicada Logo" style="height: 50px; width: 50px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 8px #00ff88;">
-    <span style="color:#00ff88; font-weight: bold; font-family: monospace; font-size: 1.8rem;">HacksinCodigos<span class="blink">_</span></span>
-  </div>
-  <nav>
-    <ul style="display: flex; justify-content: center; list-style: none; margin: 0; padding: 0; background-color: #000;">
-      <li><a href="index.html">Inicio</a></li>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="assets/cicada-logo.png" alt="Cicada Logo">
+      <span>HacksinCodigos<span class="blink">_</span></span>
+    </div>
+    <nav>
+      <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="servicios.html">Paginas Web y Servicios</a></li>
         <li><a href="mantenimiento.html">Planes de Mantenimiento Web</a></li>
@@ -76,162 +157,117 @@
         <li><a href="testimonios.html">Clientes</a></li>
         <li><a href="noticias.html">Noticias</a></li>
         <li><a href="contacto.html">Contacto</a></li>
-    </ul>
-  </nav>
-</header>
-
-
+      </ul>
+    </nav>
+  </header>
 
   <section class="hero">
     <h1>Cursos Online</h1>
-    <p>Cursos 100% virtuales con acceso flexible, asesoría personalizada, materiales descargables y certificado digital. Enfocados en tecnología, seguridad y herramientas digitales para emprendedores y profesionales.</p>
-    <a href="https://wa.me/50689840662" class="buy-button">Solicitar más información</a>
+    <p>Cursos virtuales exclusivos (máximo 5 estudiantes). Asesoría personalizada, materiales descargables y certificado digital.</p>
   </section>
 
-  <section class="features">
-    <div class="burbuja">
-      <h3>Curso de diseno de páginas Web con carrito de compras utilizando WordPress y WooCommerce – $100</h3>
-      <ul>
-        <li>Instalación en InfinityFree</li>
-        <li>Diseño profesional con Elementor</li>
-        <li>Creación de tiendas online con WooCommerce</li>
-        <li>Configuración de productos, formularios y pagos</li>
-      </ul>
-      <p><strong>Precio grupo (hasta 10):</strong> $500</p>
-      <a href="curso-wordpress.html" class="buy-button">Ver Curso</a>
-    </div>
-
-    <div class="burbuja">
-      <h3>Curso de ChatGPT para Publicidad e Imágenes – $100</h3>
-      <ul>
-        <li>Redacción con IA</li>
-        <li>Generación de imágenes para redes</li>
-        <li>Automatización con prompts</li>
-      </ul>
-      <p><strong>Precio grupo (hasta 10):</strong> $500</p>
-      <a href="curso-chatgpt.html" class="buy-button">Ver Curso</a>
-    </div>
-
-    <div class="burbuja">
-      <h3>Curso de Ciberseguridad Básica – $100</h3>
-      <ul>
-        <li>Protección de información personal</li>
-        <li>Buenas prácticas en contraseñas y navegación</li>
-        <li>Prevención de fraudes y amenazas</li>
-      </ul>
-      <p><strong>Precio grupo (hasta 10):</strong> $500</p>
-      <a href="curso-ciberseguridad-basica.html" class="buy-button">Ver Curso</a>
-    </div>
-
-    <div class="burbuja">
-      <h3>Curso de Linux desde Cero – $100</h3>
-      <ul>
-        <li>Comandos y terminal</li>
-        <li>Archivos, permisos, paquetes</li>
-        <li>GUI y distros populares</li>
-      </ul>
-      <p><strong>Precio grupo (hasta 10):</strong> $500</p>
-      <a href="curso-linux.html" class="buy-button">Ver Curso</a>
-    </div>
-
-    <div class="burbuja">
-      <h3>Curso de Formateo e Instalación de Sistemas Operativos – $100</h3>
-      <ul>
-        <li>Formateo desde cero</li>
-        <li>Instalación de Windows y Linux</li>
-        <li>USB booteable, particiones y software básico</li>
-      </ul>
-      <p><strong>Precio grupo (hasta 10):</strong> $500</p>
-      <a href="curso-instalacion-so.html" class="buy-button">Ver Curso</a>
-    </div>
-
-    <div class="burbuja">
-      <h3>Curso de Ethical Hacking con HTB y TryHackMe – $100</h3>
-      <ul>
-        <li>Introducción al hacking ético</li>
-        <li>Plataformas reales: HTB y TryHackMe</li>
-        <li>Nmap, Wireshark, Metasploit, Burp Suite</li>
-      </ul>
-      <p><strong>Precio grupo (hasta 10):</strong> $400</p>
-      <a href="curso-ethical-hacking.html" class="buy-button">Ver Curso</a>
-    </div>
-
-    <div class="burbuja">
-      <h3>Curso CompTIA Security+ (SY0-701) – $150</h3>
-      <ul>
-        <li>Fundamentos, riesgos, criptografía, continuidad</li>
-        <li>Simulacros, materiales y guía oficial</li>
-      </ul>
-      <p><strong>Precio grupo (hasta 10):</strong> $500</p>
-      <a href="curso-securityplus.html" class="buy-button">Ver Curso</a>
-    </div>
-
-    <div class="burbuja">
-  <h3>Curso Pensando como un Hacker – $100</h3>
-  <ul>
-    <li>Cómo piensan y actúan los hackers reales</li>
-    <li>Phishing, malware, ingeniería social</li>
-    <li>Casos reales, prevención y protección diaria</li>
-  </ul>
-  <p><strong>Precio grupo (hasta 10):</strong> $400</p>
-  <a href="curso-hacker-vida-real.html" class="buy-button">Ver Curso</a>
-</div>
-
-    <div class="burbuja">
-  <h3>Curso instalacion de Firewall Virtual Marca Juniper SRX – $100</h3>
-  <ul>
-    <li>Aprende a configurar desde cero un Firewall Juniper SRX y obten la certificacion Juniper JNCIA</li>
-    <li>Aprende lo basico del deployment e instalacion de un Firewall Virtual</li>
-    <li>Instalacion desde cero y configuracion basica</li>
-  </ul>
-  <p><strong>Precio grupo (hasta 10):</strong> $400</p>
-  <a href="junipersrxjncia.html" class="buy-button">Ver Curso</a>
-</div>
-
-
-    <div class="burbuja">
-      <h3>Curso CompTIA CySA+ (CS0-003) – $150</h3>
-      <ul>
-        <li>Análisis de amenazas, SIEM y hardening</li>
-        <li>Laboratorios y prácticas de monitoreo</li>
-      </ul>
-      <p><strong>Precio grupo (hasta 10):</strong> $500</p>
-      <a href="curso-cysa.html" class="buy-button">Ver Curso</a>
-    </div>
-
-    <div class="burbuja">
-      <h3>Curso de Seguridad en Redes, Firewalls y Cloud – $100</h3>
-      <ul>
-        <li>LAN, Wi-Fi, dispositivos</li>
-        <li>Firewalls (Fortinet, Palo Alto, pfSense)</li>
-        <li>Seguridad en la nube</li>
-      </ul>
-      <p><strong>Precio grupo:</strong> $400</p>
-      <a href="curso-redes-firewall-cloud.html" class="buy-button">Ver Curso</a>
-    </div>
-
-    <div class="burbuja">
-      <h3>Curso de Seguridad Cibernética Aplicada – $100</h3>
-      <ul>
-        <li>Phishing, malware, ingeniería social</li>
-        <li>Herramientas gratuitas y prevención real</li>
-      </ul>
-      <p><strong>Precio grupo:</strong> $400</p>
-      <a href="curso-ciberseguridad-aplicada.html" class="buy-button">Ver Curso</a>
-    </div>
-
-    <div class="burbuja">
-      <p><strong>Todos los cursos incluyen:</strong> Clases virtuales (en vivo o grabadas), materiales descargables, asesoría personalizada y certificado digital. Se pueden adaptar al branding y estructura de tu empresa o institución.</p>
-    </div>
+  <section class="features" id="lista-cursos">
+    <!-- Los cursos se generan con JS -->
   </section>
 
   <footer>
     <p>&copy; 2025 HacksinCodigos | Todos los derechos reservados</p>
   </footer>
 
-  <audio autoplay loop>
-    <source src="assets/bg-music.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio HTML5.
-  </audio>
+  <!-- MODAL DE FORMULARIO -->
+  <div class="modal" id="modalForm">
+    <div class="modal-content">
+      <span class="close-btn" onclick="cerrarModal()">&times;</span>
+      <h3>Matricularme</h3>
+      <form id="formCurso">
+        <label>Nombre completo:</label>
+        <input type="text" id="nombre" required>
+
+        <label>Correo electrónico:</label>
+        <input type="email" id="correo" required>
+
+        <label>Teléfono (WhatsApp):</label>
+        <input type="tel" id="telefono" required>
+
+        <button type="submit">Enviar matrícula</button>
+      </form>
+      <div class="mensaje-pago" id="mensajePago" style="display:none;">
+        <p>✅ ¡Formulario enviado!</p>
+        <p>Realiza el pago por <strong>SINPE MÓVIL</strong> al número:</p>
+        <h3 style="color:#00ff88;">+506 8984 0662</h3>
+        <p>Envía tu comprobante por WhatsApp o al correo:</p>
+        <strong>administrador@hacksincodigos.com</strong>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const cursos = [
+      "Diseño Web con WordPress y WooCommerce",
+      "ChatGPT para Publicidad e Imágenes",
+      "Ciberseguridad Básica",
+      "Linux desde Cero",
+      "Formateo e Instalación de Sistemas",
+      "Ethical Hacking con HTB y TryHackMe",
+      "CompTIA Security+ (SY0-701)",
+      "Pensando como un Hacker",
+      "Instalación de Firewall Juniper SRX",
+      "CompTIA CySA+ (CS0-003)",
+      "Seguridad en Redes, Firewalls y Cloud",
+      "Seguridad Cibernética Aplicada"
+    ];
+
+    const lista = document.getElementById('lista-cursos');
+    const hoy = new Date();
+    const baseFecha = new Date(hoy);
+    baseFecha.setDate(hoy.getDate() + 22);
+
+    cursos.forEach((nombre, i) => {
+      const fecha = new Date(baseFecha);
+      fecha.setDate(baseFecha.getDate() + i);
+      const fechaStr = fecha.toLocaleDateString('es-CR', {weekday:'long', day:'numeric', month:'long'});
+
+      const inscritos = Math.floor(1 + Math.random() * 4); // entre 1 y 4
+      const max = 5;
+      const porcentaje = (inscritos / max) * 100;
+
+      const div = document.createElement('div');
+      div.className = 'burbuja';
+      div.innerHTML = `
+        <div class="curso-header">
+          <div class="curso-info">
+            <h3>${nombre} – $100</h3>
+            <small>Inicio: <strong>${fechaStr}</strong></small><br>
+            <div class="cupos">
+              <small>👥 ${inscritos} de ${max} cupos ocupados</small>
+              <div class="barra-cupos"><span style="width:${porcentaje}%;"></span></div>
+            </div>
+          </div>
+          <div>
+            <button class="buy-button" onclick="abrirModal('${nombre}')">Matricularme</button>
+          </div>
+        </div>
+      `;
+      lista.appendChild(div);
+    });
+
+    const modal = document.getElementById('modalForm');
+    const form = document.getElementById('formCurso');
+    const msg = document.getElementById('mensajePago');
+
+    function abrirModal(nombreCurso) {
+      modal.style.display = 'flex';
+      form.dataset.curso = nombreCurso;
+      form.style.display = 'block';
+      msg.style.display = 'none';
+    }
+    function cerrarModal() { modal.style.display = 'none'; }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      form.style.display = 'none';
+      msg.style.display = 'block';
+    });
+  </script>
 </body>
 </html>

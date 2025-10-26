@@ -15,6 +15,7 @@
       --hx-ink:#d4ffd9;
       --hx-bg:#000;
     }
+
     /* Base igual al resto de tu sitio */
     body{background:#000;color:var(--hx-green);font-family:monospace;margin:0;text-align:center}
 
@@ -29,15 +30,24 @@
     }
     .buy-button:hover{background:#0aff7e;color:#000;box-shadow:0 0 16px var(--hx-violet),0 0 20px var(--hx-green);transform:scale(1.05)}
 
-    /* Header EXACTO al look que quieres (sin fondo en hover) */
-    header{background:#000;padding:.5rem 0}
-    .logo{display:flex;align-items:center;justify-content:center;gap:10px}
-    .logo img{height:50px;width:50px;border-radius:50%;object-fit:cover;box-shadow:0 0 8px var(--hx-green)}
-    .logo span{color:var(--hx-green);font-weight:bold;font-family:monospace;font-size:1.8rem}
+    /* BLOQUE PARA UNIFICAR EL HEADER AL DE 'disenoyredes.html' */
+    /* (Aunque el header lleva inline styles, esto garantiza el mismo hover plano) */
     nav ul{display:flex;justify-content:center;list-style:none;margin:0;padding:0;background:#000;flex-wrap:wrap}
-    nav a{color:var(--hx-green);text-decoration:none;font-weight:bold;padding:1rem 1.5rem}
-    /* Override para que NO cambie fondo al hover (como en index/cursos) */
-    nav a:hover{color:var(--hx-green);background:transparent;border-radius:0}
+    nav ul li{margin:0}
+    nav ul li a{
+      color:var(--hx-green);
+      text-decoration:none;
+      font-weight:bold;
+      padding:1rem 1.5rem;
+      display:inline-block;
+    }
+    /* Hover plano (sin fondos ni cajas) */
+    nav ul li a:hover{
+      color:var(--hx-green);
+      background:transparent;
+      border-radius:0;
+      text-decoration:underline; /* quita esta línea si no querés subrayado */
+    }
 
     /* Hero */
     .hero{padding:2rem 1rem;background:linear-gradient(135deg,#111,#000)}
@@ -91,14 +101,14 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <div class="logo">
-      <img src="assets/cicada-logo.png" alt="Cicada Logo">
-      <span>HacksinCodigos<span class="blink">_</span></span>
+  <!-- Header con INLINE STYLES idénticos a 'disenoyredes.html' -->
+  <header style="background-color: #000; padding: 0.5rem 0;">
+    <div class="logo" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+      <img src="assets/cicada-logo.png" alt="Cicada Logo" style="height: 50px; width: 50px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 8px #00ff88;">
+      <span style="color:#00ff88; font-weight: bold; font-family: monospace; font-size: 1.8rem;">HacksinCodigos<span class="blink">_</span></span>
     </div>
     <nav>
-      <ul>
+      <ul style="display: flex; justify-content: center; list-style: none; margin: 0; padding: 0; background-color: #000;">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="servicios.html">Paginas Web y Servicios</a></li>
         <li><a href="mantenimiento.html">Planes de Mantenimiento Web</a></li>

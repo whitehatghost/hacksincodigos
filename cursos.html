@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <!-- HABILITAMOS inline JS para que el listado se renderice -->
+  <!-- HABILITAMOS inline JS para renderizar y abrir el modal -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cursos Online - HacksinCodigos</title>
@@ -11,7 +11,7 @@
     :root{--hx-green:#00ff88;--hx-violet:#9d00ff;--hx-bg:#000;--hx-ink:#d4ffd9}
     body{background:var(--hx-bg);color:var(--hx-ink);font-family:monospace;margin:0;text-align:center}
 
-    /* Header igual al resto de tus páginas */
+    /* Header (igual al resto: hover plano subrayado) */
     header{background:#000;padding:.5rem 0}
     .logo{display:flex;align-items:center;justify-content:center;gap:10px}
     .logo img{height:50px;width:50px;border-radius:50%;object-fit:cover;box-shadow:0 0 8px var(--hx-green)}
@@ -22,19 +22,19 @@
 
     .hero{padding:60px 20px;background:radial-gradient(circle at top,rgba(0,255,136,.1),transparent)}
     .hero h1{color:var(--hx-green);font-size:2.2rem;margin-bottom:10px}
-    .hero p{color:#e8fff5;font-size:1.1rem;max-width:800px;margin:0 auto 20px}
-
-    .buy-button{display:inline-block;margin-top:1rem;background:linear-gradient(135deg,#00ff88,#12ffa0);color:#000;padding:.7rem 1.5rem;border-radius:50px;text-decoration:none;font-weight:bold;font-size:1rem;border:2px solid var(--hx-violet);box-shadow:0 0 12px rgba(0,255,136,.5);transition:.3s}
-    .buy-button:hover{transform:scale(1.05);box-shadow:0 0 16px var(--hx-violet),0 0 20px var(--hx-green)}
+    .hero p{color:#e8fff5;font-size:1.05rem;max-width:900px;margin:0 auto 20px}
 
     .features{display:flex;flex-direction:column;align-items:center;padding:1rem}
-    .burbuja{margin-top:1rem;padding:1rem;border:1px solid var(--hx-green);border-radius:10px;background:#111;box-shadow:0 0 10px var(--hx-green);max-width:800px;margin-left:auto;margin-right:auto;text-align:left}
+    .burbuja{margin-top:1rem;padding:1rem;border:1px solid var(--hx-green);border-radius:10px;background:#111;box-shadow:0 0 10px var(--hx-green);max-width:900px;margin-left:auto;margin-right:auto;text-align:left}
 
     .curso-header{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
     .curso-info small{color:var(--hx-green)}
     .cupos{margin-top:8px}
     .barra-cupos{background:#333;border-radius:8px;height:10px;width:100%;margin-top:5px;overflow:hidden}
     .barra-cupos span{display:block;height:100%;background:var(--hx-green);transition:width .4s ease-in-out}
+
+    .buy-button{display:inline-block;margin-top:.6rem;background:linear-gradient(135deg,#00ff88,#12ffa0);color:#000;padding:.65rem 1.3rem;border-radius:50px;text-decoration:none;font-weight:bold;font-size:1rem;border:2px solid var(--hx-violet);box-shadow:0 0 12px rgba(0,255,136,.5);transition:.25s}
+    .buy-button:hover{transform:scale(1.05);box-shadow:0 0 16px var(--hx-violet),0 0 20px var(--hx-green)}
 
     footer{text-align:center;padding:40px 0;color:#b6ffd9;border-top:1px solid rgba(0,255,136,.2)}
 
@@ -44,10 +44,13 @@
     .modal-content h3{text-align:center;color:var(--hx-green);margin:0 0 10px}
     .modal-content label{display:block;margin-top:10px;color:var(--hx-green)}
     .modal-content input{width:100%;padding:8px;border-radius:5px;border:1px solid var(--hx-green);background:#000;color:#fff}
-    .modal-content button{margin-top:15px;width:100%;padding:10px;background:var(--hx-green);border:none;color:#000;font-weight:bold;border-radius:5px;cursor:pointer}
-    .modal-content button:hover{background:#12ffa0}
+    .modal-content .btn{margin-top:15px;width:100%;padding:10px;background:var(--hx-green);border:none;color:#000;font-weight:bold;border-radius:5px;cursor:pointer}
+    .modal-content .btn:hover{background:#12ffa0}
     .close-btn{position:absolute;top:10px;right:12px;font-size:1.4rem;color:var(--hx-green);cursor:pointer}
     .mensaje-pago{text-align:center;color:#b6ffd9;margin-top:15px;border:1px solid var(--hx-green);padding:10px;border-radius:8px}
+    .acciones{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+    .acciones a{border:1px solid var(--hx-green);padding:8px 12px;border-radius:8px;color:#000;background:var(--hx-green);text-decoration:none;font-weight:bold}
+    .acciones a:hover{background:#12ffa0}
   </style>
 </head>
 <body>
@@ -75,10 +78,10 @@
 
   <section class="hero">
     <h1>Cursos Online</h1>
-    <p>Cursos virtuales exclusivos (máximo 5 estudiantes). Asesoría personalizada, materiales descargables y certificado digital.</p>
+    <p>Cursos virtuales exclusivos (máximo <strong>5 estudiantes</strong>). Asesoría personalizada, materiales descargables y certificado digital.</p>
   </section>
 
-  <!-- AQUI SE INYECTAN LOS CURSOS -->
+  <!-- Aquí se inyectan los cursos -->
   <section class="features" id="lista-cursos"></section>
 
   <footer>
@@ -89,7 +92,7 @@
   <div class="modal" id="modalForm">
     <div class="modal-content">
       <span class="close-btn" onclick="cerrarModal()">&times;</span>
-      <h3>Matricularme</h3>
+      <h3 id="tituloModal">Matricularme</h3>
       <form id="formCurso">
         <label>Nombre completo:</label>
         <input type="text" id="nombre" required>
@@ -97,95 +100,123 @@
         <input type="email" id="correo" required>
         <label>Teléfono (WhatsApp):</label>
         <input type="tel" id="telefono" required>
-        <button type="submit">Enviar matrícula</button>
+        <button type="submit" class="btn">Enviar matrícula</button>
       </form>
       <div class="mensaje-pago" id="mensajePago" style="display:none;">
-        <p>✅ ¡Formulario enviado!</p>
-        <p>Realiza el pago por <strong>SINPE MÓVIL</strong> al número:</p>
+        <p>✅ ¡Datos recibidos!</p>
+        <p>Realiza el pago por <strong>SINPE MÓVIL</strong> al:</p>
         <h3 style="color:#00ff88;">+506 8984 0662</h3>
-        <p>Envía tu comprobante por WhatsApp o al correo:</p>
+        <p>Envía el comprobante por WhatsApp o correo:</p>
         <strong>administrador@hacksincodigos.com</strong>
+        <div class="acciones" id="accionesPago"></div>
       </div>
     </div>
   </div>
 
   <script>
-    // Datos de cursos (mismo orden que tu página)
+    // === Configuración de cursos (nombre + precio en USD) ===
     const cursos = [
-  { nombre: "Diseño Web con WordPress y WooCommerce", precio: 350 },
-  { nombre: "ChatGPT para Publicidad e Imágenes", precio: 100 },
-  { nombre: "Ciberseguridad Básica", precio: 200 },
-  { nombre: "Linux desde Cero", precio: 200 },
-  { nombre: "Formateo e Instalación de Sistemas", precio: 200 },
-  { nombre: "Ethical Hacking con HTB y TryHackMe", precio: 400 },
-  { nombre: "CompTIA Security+ (SY0-701)", precio: 350 },
-  { nombre: "Instalación de Firewall Juniper SRX", precio: 300 },
-  { nombre: "CompTIA CySA+ (CS0-003)", precio: 350 },
-];
-
+      { nombre: "Diseño Web con WordPress y WooCommerce", precio: 350 },
+      { nombre: "ChatGPT para Publicidad e Imágenes", precio: 100 },
+      { nombre: "Ciberseguridad Básica", precio: 200 },
+      { nombre: "Linux desde Cero", precio: 200 },
+      { nombre: "Formateo e Instalación de Sistemas", precio: 200 },
+      { nombre: "Ethical Hacking con HTB y TryHackMe", precio: 400 },
+      { nombre: "CompTIA Security+ (SY0-701)", precio: 350 },
+      { nombre: "Instalación de Firewall Juniper SRX", precio: 300 },
+      { nombre: "CompTIA CySA+ (CS0-003)", precio: 350 },
+    ];
 
     const lista = document.getElementById('lista-cursos');
 
-    // Fecha base: Lunes dentro de 22 días
+    // === Fechas: primer inicio LUNES dentro de 22 días, los demás en días consecutivos ===
     const hoy = new Date();
-    let base = new Date(hoy);
+    const base = new Date(hoy);
     base.setDate(hoy.getDate() + 22);
-    // mover base al próximo lunes
-    while (base.getDay() !== 1) { base.setDate(base.getDate() + 1); }
+    while (base.getDay() !== 1) base.setDate(base.getDate() + 1); // 1 = lunes
 
-    const precio = (nombre) => {
-      if (nombre.includes('Security+') || nombre.includes('CySA+')) return 150;
-      return 100;
-    };
+    const fmtFecha = (d) =>
+      d.toLocaleDateString('es-CR', { weekday:'long', day:'numeric', month:'long' });
 
-    cursos.forEach((nombre, idx) => {
-      const fecha = new Date(base); fecha.setDate(base.getDate() + idx); // lunes, martes, miércoles…
-      const fechaStr = fecha.toLocaleDateString('es-CR',{weekday:'long', day:'numeric', month:'long'});
+    // === Render ===
+    const MAX_CUPOS = 5;
 
-      const max = 5;
-      const inscritos = Math.floor(1 + Math.random()*4); // 1-4
-      const porcentaje = (inscritos/max)*100;
+    cursos.forEach((curso, idx) => {
+      const fecha = new Date(base); fecha.setDate(base.getDate() + idx);
+      const fechaStr = fmtFecha(fecha);
+
+      const inscritos = Math.floor(1 + Math.random() * 4); // 1 a 4
+      const quedan = MAX_CUPOS - inscritos;
+      const porcentaje = (inscritos / MAX_CUPOS) * 100;
 
       const div = document.createElement('div');
       div.className = 'burbuja';
       div.innerHTML = `
         <div class="curso-header">
           <div class="curso-info">
-            <h3>${nombre} – $${precio(nombre)}</h3>
-            <small>Inicio: <strong>${fechaStr}</strong></small>
+            <h3>${curso.nombre} – $${curso.precio}</h3>
+            <small>Inicio: <strong>${fechaStr}</strong></small><br>
+            <small>👥 ${inscritos} de ${MAX_CUPOS} cupos ocupados · <strong>${quedan} cupo(s) disponible(s)</strong></small>
             <div class="cupos">
-              <small>👥 ${inscritos} de ${max} cupos ocupados</small>
-              <div class="barra-cupos"><span style="width:${porcentaje}%"></span></div>
+              <div class="barra-cupos"><span style="width:${porcentaje}%;"></span></div>
             </div>
           </div>
           <div>
-            <button class="buy-button" onclick="abrirModal('${nombre}')">Matricularme</button>
+            <button class="buy-button" onclick="abrirModal('${curso.nombre}', ${curso.precio})">Matricularme</button>
           </div>
         </div>
       `;
       lista.appendChild(div);
     });
 
-    // Modal
+    // === Modal / Form ===
     const modal = document.getElementById('modalForm');
     const form = document.getElementById('formCurso');
     const msg = document.getElementById('mensajePago');
+    const tituloModal = document.getElementById('tituloModal');
+    const accionesPago = document.getElementById('accionesPago');
 
-    function abrirModal(nombreCurso){
+    let cursoActual = { nombre: "", precio: 0 };
+
+    function abrirModal(nombreCurso, precioCurso){
+      cursoActual = { nombre: nombreCurso, precio: precioCurso };
+      tituloModal.textContent = `Matricularme: ${nombreCurso} – $${precioCurso}`;
       modal.style.display='flex';
-      form.dataset.curso = nombreCurso;
+      form.reset();
       form.style.display='block';
       msg.style.display='none';
+      accionesPago.innerHTML = '';
     }
     function cerrarModal(){ modal.style.display='none'; }
-    window.cerrarModal = cerrarModal;
     window.abrirModal = abrirModal;
+    window.cerrarModal = cerrarModal;
 
     form.addEventListener('submit', (e)=>{
       e.preventDefault();
-      // Aquí podrías enviar a tu backend si querés guardar los datos
+      const nombre = document.getElementById('nombre').value.trim();
+      const correo = document.getElementById('correo').value.trim();
+      const tel = document.getElementById('telefono').value.trim();
+
       form.style.display='none';
       msg.style.display='block';
+
+      // Acciones rápidas: WhatsApp y correo con mensaje prellenado
+      const texto = encodeURIComponent(
+        `Hola, soy ${nombre}. Quiero matricular el curso: ${cursoActual.nombre} ($${cursoActual.precio}).\n` +
+        `Mi correo: ${correo}\nWhatsApp: ${tel}\nYa realicé el pago por SINPE MÓVIL al +50689840662, adjunto comprobante.`
+      );
+      const wa = `https://wa.me/50689840662?text=${texto}`;
+      const mail = `mailto:administrador@hacksincodigos.com?subject=Matricula%20${encodeURIComponent(cursoActual.nombre)}&body=${texto}`;
+
+      accionesPago.innerHTML = `
+        <a href="${wa}" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+        <a href="${mail}">Enviar por Correo</a>
+      `;
+    });
+
+    // Cierra modal al clickear fuera del contenido
+    window.addEventListener('click', (e)=>{
+      if(e.target === modal) cerrarModal();
     });
   </script>
 

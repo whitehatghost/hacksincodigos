@@ -8,6 +8,8 @@
   <meta name="description" content="Noticias actualizadas sobre ciberseguridad, vulnerabilidades, ataques y amenazas globales." />
   <link rel="icon" href="assets/cicada-logo.png" />
   <style>
+    /* NADA de estilos para header/nav: se dejan 100% inline como en tus otras páginas */
+
     :root { --hx-green:#00ff88; --hx-bg:#000; --hx-muted:#b6ffd9; }
 
     body{
@@ -17,9 +19,6 @@
       margin:0; padding:0; text-align:center;
     }
 
-    /* NO hay estilos para header/nav/hover: se respeta 100% el inline del header */
-
-    /* Hero */
     .hero{
       text-align:center; padding:60px 20px;
       background:radial-gradient(circle at top, rgba(0,255,136,0.1), transparent);
@@ -27,7 +26,6 @@
     .hero h1{ color:var(--hx-green); font-size:2.3rem; margin-bottom:10px; }
     .hero p{ color:#e8fff5; font-size:1.1rem; max-width:800px; margin:0 auto; }
 
-    /* Contenedor RSS */
     .rss-container{
       max-width:1080px; width:95%; margin:2rem auto; padding:1rem;
       background-color:#111; border:1px solid var(--hx-green); border-radius:10px;
@@ -40,10 +38,8 @@
     .rss-item a:hover{ text-decoration:underline; }
     .rss-time{ font-size:0.85rem; color:#aaa; margin-top:0.3rem; }
 
-    /* Footer */
     footer{ text-align:center; padding:40px 0; border-top:1px solid rgba(0,255,136,0.2); color:var(--hx-muted); }
 
-    /* Botones flotantes (mismo tamaño y efecto que usas) */
     .whatsapp-float, .instagram-button{ position:fixed; right:20px; z-index:1000; }
     .whatsapp-float{ bottom:120px; }
     .instagram-button{ bottom:50px; }
@@ -53,7 +49,6 @@
     }
     .whatsapp-float img:hover, .instagram-button img:hover{ transform:scale(1.1); }
 
-    /* Animación “Cargando...” */
     #loading .dots::after{ content:'...'; animation:blink 1.3s steps(4,end) infinite; }
     @keyframes blink{
       0%{content:''} 33%{content:'.'} 66%{content:'..'} 100%{content:'...'}
@@ -62,7 +57,7 @@
 </head>
 
 <body>
-  <!-- HEADER *idéntico* a tus otras páginas (solo inline styles, sin CSS global que lo altere) -->
+  <!-- HEADER idéntico al que usas en las otras páginas (inline, mismo tamaño de logo, mismas fuentes y sin hover distinto) -->
   <header style="background-color: #000; padding: 0.5rem 0;">
     <div class="logo" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
       <img src="assets/cicada-logo.png" alt="Cicada Logo" style="height: 50px; width: 50px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 8px #00ff88;">

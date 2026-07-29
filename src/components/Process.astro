@@ -1,0 +1,20 @@
+---
+import { process } from '../data/content';
+---
+<section id="proceso" aria-label="Cómo trabajamos">
+  <div class="container">
+    <h2 class="section-title fade-up" data-i18n="proceso_title">Cómo Creamos tu Página Web</h2>
+    <p class="section-subtitle fade-up" data-i18n="proceso_sub">Un proceso claro y transparente desde el primer mensaje</p>
+    <div class="proceso-grid">
+      {process.map((p) => (
+        <div class="proceso-step fade-up">
+          <div class="proceso-num">{p.num}</div>
+          <div class="proceso-content">
+            <h3 data-i18n={`${p.i18n}_title`}>{p.title}</h3>
+            <p data-i18n={`${p.i18n}_desc`}>{p.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

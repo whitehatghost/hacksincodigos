@@ -1,0 +1,68 @@
+---
+import { mainNav } from '../data/site';
+import Logo from './Logo.astro';
+---
+<header>
+  <nav id="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="HacksinCodigos — Inicio">
+        <Logo size={34} />
+        <span class="nav-logo-text">
+          <span class="nav-logo-hack">HackSin</span>
+          <span class="nav-logo-codigos">Codigos</span>
+        </span>
+      </a>
+      <ul class="nav-links" role="list">
+        {mainNav.map((item) => (
+          <li><a href={item.href} data-i18n={item.i18n}>{item.label}</a></li>
+        ))}
+      </ul>
+      <div class="lang-selector">
+        <button class="lang-btn" id="langBtn" aria-label="Seleccionar idioma" aria-haspopup="true" aria-expanded="false">
+          <span class="lang-flag" id="langFlag">🇨🇷</span>
+          <span class="lang-code" id="langCode">ES</span>
+          <svg class="lang-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 5l3 3 3-3"/></svg>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+          <button class="lang-option" data-lang="es-CR" data-flag="🇨🇷"><span class="lang-opt-flag">🇨🇷</span> Español</button>
+          <button class="lang-option" data-lang="en" data-flag="🇺🇸"><span class="lang-opt-flag">🇺🇸</span> English</button>
+          <button class="lang-option" data-lang="fr" data-flag="🇫🇷"><span class="lang-opt-flag">🇫🇷</span> Français</button>
+          <button class="lang-option" data-lang="pt" data-flag="🇧🇷"><span class="lang-opt-flag">🇧🇷</span> Português</button>
+          <button class="lang-option" data-lang="de" data-flag="🇩🇪"><span class="lang-opt-flag">🇩🇪</span> Deutsch</button>
+          <button class="lang-option" data-lang="ja" data-flag="🇯🇵"><span class="lang-opt-flag">🇯🇵</span> 日本語</button>
+          <button class="lang-option" data-lang="zh" data-flag="🇨🇳"><span class="lang-opt-flag">🇨🇳</span> 中文</button>
+          <button class="lang-option" data-lang="ru" data-flag="🇷🇺"><span class="lang-opt-flag">🇷🇺</span> Русский</button>
+          <button class="lang-option" data-lang="zh-TW" data-flag="🇹🇼"><span class="lang-opt-flag">🇹🇼</span> 繁體中文</button>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<div id="mobile-menu" role="dialog" aria-label="Menú móvil" aria-modal="true">
+  <div class="menu-inner">
+    <div class="menu-label" data-i18n="menu_label">// Navegación · hacksincodigos.com</div>
+    {mainNav.map((item, i) => (
+      <a href={item.href} class="menu-item">
+        <span class="menu-item-num">{String(i + 1).padStart(2, '0')}</span>
+        <span class="menu-item-text" data-i18n={item.i18n}>{item.label}</span>
+        <span class="menu-item-arrow" aria-hidden="true">→</span>
+      </a>
+    ))}
+    <a href="https://wa.me/50689840662" target="_blank" rel="noopener" class="menu-item">
+      <span class="menu-item-num" aria-hidden="true">↗</span>
+      <span class="menu-item-text">WhatsApp</span>
+      <span class="menu-item-arrow" aria-hidden="true">↗</span>
+    </a>
+  </div>
+  <div class="menu-footer">
+    <span class="menu-status" data-i18n="menu_status">● SISTEMA ACTIVO · Costa Rica</span>
+    <div class="menu-social">
+      <a href="https://instagram.com/hacksincodigos" target="_blank" rel="noopener" data-i18n="menu_instagram">Instagram</a>
+      <a href="/" data-i18n="menu_web">Web</a>
+    </div>
+  </div>
+</div>

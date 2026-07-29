@@ -1,0 +1,41 @@
+---
+import { services, iconWrapStyle, h3Style } from '../data/services';
+import { wa } from '../data/site';
+---
+<section id="servicios" aria-label="Servicios">
+  <div class="container">
+    <h2 class="section-title fade-up" data-i18n="servicios_title">Nuestros Servicios en Costa Rica</h2>
+    <p class="section-subtitle fade-up" data-i18n="servicios_sub">Tecnología completa para hacer crecer tu negocio — desde páginas web hasta agentes de IA</p>
+    <div class="services-grid">
+      {services.map((s, i) => (
+        <article class="service-card fade-up" data-tilt style={`--i:${i}`}>
+          <div class="service-card-bg" style={`background: ${s.cardBg};`}></div>
+          <div class="service-card-inner">
+            <div class:list={['service-icon-wrap', s.iconClass]} style={iconWrapStyle(s)}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" set:html={s.icon} />
+            </div>
+            <h3 style={h3Style(s)} data-i18n={`${s.i18n}_title`}>{s.title}</h3>
+            <p data-i18n={`${s.i18n}_desc`}>{s.desc}</p>
+            <ul class="service-benefits">
+              {s.benefits.map((b, bi) => <li data-i18n={`${s.i18n}_b${bi + 1}`}>{b}</li>)}
+            </ul>
+            <div class="service-card-actions">
+              <a
+                href={wa(s.waText)}
+                target="_blank"
+                rel="noopener"
+                class="btn-consult"
+                style={s.consultStyle}
+                aria-label={`Consultar ${s.title} por WhatsApp`}
+                data-i18n={`${s.i18n}_btn`}
+              >Consultar →</a>
+              {s.page && (
+                <a class="service-more" href={s.page} aria-label={`Más sobre ${s.title}`}>Más información</a>
+              )}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

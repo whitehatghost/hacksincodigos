@@ -1,0 +1,68 @@
+---
+import { site, wa } from '../data/site';
+import { services } from '../data/services';
+import WhatsAppIcon from './WhatsAppIcon.astro';
+---
+<section id="contacto" aria-label="Contacto">
+  <div class="contact-grid container">
+    <div class="contact-info fade-up">
+      <h2 data-i18n="contact_title">¿Listo para crecer?</h2>
+      <p data-i18n="contact_desc">Cuéntanos tu proyecto y te respondemos en menos de 24 horas. Sin compromisos, sin letra pequeña.</p>
+      <div class="contact-item">
+        <WhatsAppIcon />
+        <a href={wa()} target="_blank" rel="noopener">{site.phone}</a>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        <a href={site.instagram} target="_blank" rel="noopener">{site.instagramHandle}</a>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span data-i18n="contact_hours">{site.hours}</span>
+      </div>
+      <a href={wa('Hola HacksinCodigos, vengo desde su página web')} target="_blank" rel="noopener" class="btn-wa-big" aria-label="Abrir WhatsApp">
+        <WhatsAppIcon size={22} />
+        Abrir WhatsApp
+      </a>
+    </div>
+    <div class="fade-up">
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="form-group">
+          <label for="nombre" data-i18n="form_name_label">Nombre completo *</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" autocomplete="name" required data-i18n="form_name_ph" />
+          <span class="form-error" id="err-nombre" role="alert"></span>
+        </div>
+        <div class="form-group">
+          <label for="empresa" data-i18n="form_empresa_label">Empresa (opcional)</label>
+          <input type="text" id="empresa" name="empresa" placeholder="Tu empresa" autocomplete="organization" data-i18n="form_empresa_ph" />
+        </div>
+        <div class="form-group">
+          <label for="email" data-i18n="form_email_label">Correo electrónico *</label>
+          <input type="email" id="email" name="email" placeholder="tu@email.com" autocomplete="email" required data-i18n="form_email_ph" />
+          <span class="form-error" id="err-email" role="alert"></span>
+        </div>
+        <div class="form-group">
+          <label for="telefono" data-i18n="form_tel_label">Teléfono *</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="+506 8888 8888" autocomplete="tel" required data-i18n="form_tel_ph" />
+          <span class="form-error" id="err-telefono" role="alert"></span>
+        </div>
+        <div class="form-group">
+          <label for="servicio" data-i18n="form_servicio_label">Servicio de interés *</label>
+          <select id="servicio" name="servicio" required>
+            <option value="" data-i18n="form_servicio_ph">Selecciona un servicio</option>
+            {services.map((s) => (
+              <option value={s.title} data-i18n={`${s.i18n}_title`}>{s.title}</option>
+            ))}
+          </select>
+          <span class="form-error" id="err-servicio" role="alert"></span>
+        </div>
+        <div class="form-group">
+          <label for="mensaje" data-i18n="form_msg_label">Mensaje *</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tu proyecto..." required data-i18n="form_msg_ph"></textarea>
+          <span class="form-error" id="err-mensaje" role="alert"></span>
+        </div>
+        <button type="submit" class="btn-submit" aria-label="Enviar por WhatsApp" data-i18n="contact_btn">Enviar por WhatsApp →</button>
+      </form>
+    </div>
+  </div>
+</section>

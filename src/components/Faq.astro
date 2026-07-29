@@ -1,0 +1,35 @@
+---
+import { faqs } from '../data/content';
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  /** Subconjunto de preguntas por índice; por defecto muestra todas. */
+  only?: number[];
+}
+
+const {
+  title = 'Preguntas Frecuentes sobre Páginas Web en Costa Rica',
+  subtitle = 'Todo lo que necesitas saber antes de crear tu sitio web',
+  only,
+} = Astro.props;
+
+const items = only ? only.map((i) => faqs[i]).filter(Boolean) : faqs;
+---
+<section id="faq" aria-label="Preguntas Frecuentes">
+  <div class="container">
+    <h2 class="section-title fade-up" data-i18n="faq_title">{title}</h2>
+    <p class="section-subtitle fade-up" data-i18n="faq_sub">{subtitle}</p>
+    <div class="faq-list">
+      {items.map((f) => (
+        <div class="faq-item fade-up">
+          <button class="faq-question" aria-expanded="false">
+            <span data-i18n={f.i18nQ}>{f.q}</span>
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer"><p data-i18n={f.i18nA}>{f.a}</p></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

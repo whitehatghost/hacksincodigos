@@ -1,0 +1,75 @@
+---
+import { site, mainNav } from '../data/site';
+import Logo from './Logo.astro';
+import WhatsAppIcon from './WhatsAppIcon.astro';
+
+const year = new Date().getFullYear();
+
+/** Landings de servicio: enlazado interno hacia las páginas SEO principales. */
+const serviceLinks = [
+  { href: '/paginas-web-costa-rica/', label: 'Páginas web Costa Rica' },
+  { href: '/diseno-web-costa-rica/', label: 'Diseño web Costa Rica' },
+  { href: '/desarrollo-web-costa-rica/', label: 'Desarrollo web Costa Rica' },
+  { href: '/tiendas-online-costa-rica/', label: 'Tiendas online Costa Rica' },
+  { href: '/agentes-ia-costa-rica/', label: 'Agentes IA Costa Rica' },
+  { href: '/seo-costa-rica/', label: 'SEO Costa Rica' },
+];
+---
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">
+          <Logo size={32} />
+          <span class="nav-logo-text">
+            <span class="nav-logo-hack">HackSin</span>
+            <span class="nav-logo-codigos">Codigos</span>
+          </span>
+        </div>
+        <div class="footer-tagline" data-i18n="footer_tagline">Páginas web, IA y ciberseguridad en Costa Rica</div>
+        <address class="footer-nap">
+          <a href={`tel:${site.phoneE164}`}>{site.phone}</a><br />
+          <span>{site.hours}</span><br />
+          <span>{site.countryName}</span>
+        </address>
+      </div>
+
+      <nav class="footer-cols" aria-label="Enlaces del pie de página">
+        <div class="footer-col">
+          <h2 class="footer-col-title">Navegación</h2>
+          <ul class="footer-links" role="list">
+            {mainNav.map((item) => (
+              <li><a href={item.href} data-i18n={item.i18n}>{item.label}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-col-title">Servicios</h2>
+          <ul class="footer-links" role="list">
+            {serviceLinks.map((l) => (
+              <li><a href={l.href}>{l.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+
+      <div class="footer-socials">
+        <a href={`https://wa.me/${site.whatsappNumber}`} target="_blank" rel="noopener" class="footer-social" aria-label="WhatsApp">
+          <WhatsAppIcon />
+          <span data-i18n="footer_whatsapp">WhatsApp</span>
+        </a>
+        <a href={site.instagram} target="_blank" rel="noopener" class="footer-social" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          <span data-i18n="footer_instagram">Instagram</span>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>
+        <span data-i18n="footer_copyright">© {year} HacksinCodigos · Hecho con 💚 en Costa Rica</span> &nbsp;|&nbsp;
+        <a href="/politica-de-privacidad/" data-i18n="footer_privacy">Política de privacidad</a> ·
+        <a href="/terminos-de-servicio/" data-i18n="footer_terms">Términos de servicio</a>
+      </p>
+    </div>
+  </div>
+</footer>

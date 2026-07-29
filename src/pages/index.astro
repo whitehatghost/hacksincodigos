@@ -1,0 +1,45 @@
+﻿---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Stats from '../components/Stats.astro';
+import Services from '../components/Services.astro';
+import Process from '../components/Process.astro';
+import Portfolio from '../components/Portfolio.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Faq from '../components/Faq.astro';
+import BlogTeasers from '../components/BlogTeasers.astro';
+import Contact from '../components/Contact.astro';
+import { faqs } from '../data/content';
+import { services } from '../data/services';
+import { faqSchema, webPageSchema, serviceSchema } from '../lib/schema';
+
+const title = 'Páginas Web Costa Rica | Desarrollo Web y Agentes IA — HacksinCodigos';
+const description =
+  'Creamos páginas web profesionales en Costa Rica con SEO incluido, agentes de IA para WhatsApp, tiendas online y soporte IT remoto. Cotización sin compromiso.';
+
+const schemas = [
+  webPageSchema({ path: '/', name: title, description }),
+  faqSchema(faqs.map((f) => ({ q: f.q, a: f.a }))),
+  ...services
+    .filter((s) => s.page)
+    .map((s) =>
+      serviceSchema({
+        name: s.title,
+        description: s.desc,
+        path: s.page!,
+        serviceType: s.title,
+      })
+    ),
+];
+---
+<Base title={title} description={description} path="/" schemas={schemas} heroEffects>
+  <Hero />
+  <Stats />
+  <Services />
+  <Process />
+  <Portfolio />
+  <Testimonials />
+  <Faq />
+  <BlogTeasers />
+  <Contact />
+</Base>

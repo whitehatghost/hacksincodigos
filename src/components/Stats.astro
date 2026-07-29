@@ -1,0 +1,22 @@
+---
+import { stats } from '../data/content';
+---
+<section id="stats" class="scanlines" aria-label="Estadísticas">
+  <div class="stats-grid container fade-up">
+    {stats.map((s) => (
+      <div class="stat-item">
+        {'special' in s && s.special ? (
+          <div class="stat-number" data-special={s.special}>{s.special}</div>
+        ) : (
+          <div
+            class="stat-number"
+            data-target={String(s.target)}
+            data-prefix={s.prefix}
+            data-suffix={s.suffix}
+          >0</div>
+        )}
+        <div class="stat-label" data-i18n={s.i18n}>{s.label}</div>
+      </div>
+    ))}
+  </div>
+</section>

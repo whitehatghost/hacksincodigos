@@ -1,0 +1,93 @@
+---
+import { wa } from '../data/site';
+import WhatsAppIcon from './WhatsAppIcon.astro';
+
+/**
+ * H1: se usa el mismo texto que el motor i18n ya renderiza para es-CR en el sitio
+ * actual, de modo que el HTML servido coincida con lo que ve el usuario (antes el
+ * HTML traía un texto y el JS lo reemplazaba por otro al cargar).
+ */
+const h1 = 'Páginas Web Costa Rica — Soluciones Digitales que Posicionan tu Negocio';
+---
+<section id="hero" aria-label="Inicio">
+  <div id="tsparticles" aria-hidden="true"></div>
+  <div id="hero-spotlight" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <div class="hero-left fade-up">
+      <div class="hero-badge" data-i18n="hero_badge">// Costa Rica · IT &amp; Ciberseguridad</div>
+      <h1 class="hero-h1 glitch" data-text={h1} data-i18n="hero_title">{h1}</h1>
+      <p class="hero-typewriter" aria-live="polite">
+        <span id="typewriter-text"></span><span class="tw-cursor" aria-hidden="true">|</span>
+      </p>
+      <div class="hero-btns">
+        <a href="#servicios" class="btn btn-outline" aria-label="Ver nuestros servicios" data-i18n="hero_btn1">Ver Servicios</a>
+        <a href={wa()} class="btn btn-solid wa-btn" target="_blank" rel="noopener" aria-label="Hablar por WhatsApp">
+          <WhatsAppIcon size={18} />
+          <span data-i18n="hero_btn2">Hablar por WhatsApp</span>
+        </a>
+      </div>
+      <div class="scroll-indicator" aria-hidden="true">
+        <span data-i18n="scroll_label">Explorar</span>
+        <svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+
+    <div class="hero-card fade-up" style="transition-delay:.15s" aria-label="Agente de ciberseguridad interactivo 3D">
+      <svg class="hero-card-spotlight animate-spotlight" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3787 2842" fill="none" aria-hidden="true">
+        <g filter="url(#hcsf)">
+          <ellipse cx="1924.71" cy="273.501" rx="1924.71" ry="273.501" transform="matrix(-0.822377 -0.568943 -0.568943 0.822377 3631.88 2291.09)" fill="white" fill-opacity="0.21"/>
+        </g>
+        <defs>
+          <filter id="hcsf" x="0.86" y="0.84" width="3785.16" height="2840.26" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feGaussianBlur stdDeviation="151" result="effect1_foregroundBlur"/>
+          </filter>
+        </defs>
+      </svg>
+
+      <div class="card-scan-line" aria-hidden="true"></div>
+
+      <div class="hero-card-inner">
+        <div class="hero-card-left">
+          <div class="hero-card-tag" data-i18n="card_tag">// HacksinCodigos · Costa Rica</div>
+          <h2 class="hero-card-h2" data-i18n="card_title">Páginas Web &amp;<br>Agentes IA</h2>
+          <p class="hero-card-desc" data-i18n="card_desc">
+            Creamos tu página web profesional, diseñamos tu identidad visual e integramos agentes de IA con WhatsApp para automatizar tus ventas.
+          </p>
+          <div class="hero-card-badges">
+            <div class="cyber-badge">
+              <span class="cyber-badge-dot"></span>
+              <span data-i18n="card_badge1">Diseño de Páginas Web Profesionales</span>
+            </div>
+            <div class="cyber-badge">
+              <span class="cyber-badge-dot amber"></span>
+              <span data-i18n="card_badge2">Agentes IA &amp; Chatbots WhatsApp</span>
+            </div>
+            <div class="cyber-badge">
+              <span class="cyber-badge-dot blue"></span>
+              <span data-i18n="card_badge3">Creación de Logos e Identidad Visual</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card-right">
+          <div class="spline-loader" id="spline-loader">
+            <div class="loader-ring"></div>
+            <span class="loader-text">Cargando agente...</span>
+          </div>
+          <spline-viewer
+            id="spline-scene"
+            url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+            loading-anim-type="none"
+          ></spline-viewer>
+        </div>
+      </div>
+
+      <div class="card-cyber-label" aria-hidden="true">
+        <span id="cyber-status">● SISTEMA ACTIVO · hacksincodigos.com</span>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,138 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import WhatsAppIcon from '../../components/WhatsAppIcon.astro';
+import { products, productsOrdered, type Product } from '../../data/products';
+import { wa } from '../../data/site';
+import { webPageSchema, breadcrumbSchema, productSchema } from '../../lib/schema';
+
+export function getStaticPaths() {
+  return products.map((p) => ({ params: { slug: p.slug }, props: { product: p } }));
+}
+
+interface Props { product: Product }
+const { product } = Astro.props;
+const path = `/product/${product.slug}/`;
+
+const crumbs = [
+  { name: 'Inicio', path: '/' },
+  { name: 'Tienda', path: '/shop/' },
+  { name: product.title, path },
+];
+
+const related = productsOrdered.filter((p) => p.slug !== product.slug).slice(0, 4);
+
+const schemas = [
+  webPageSchema({ path, name: product.metaTitle, description: product.metaDesc, type: 'ItemPage' }),
+  breadcrumbSchema(crumbs),
+  productSchema({
+    name: product.title,
+    description: product.shortDesc || product.title,
+    path,
+    price: product.price,
+    sku: product.sku || undefined,
+    image: product.image,
+  }),
+];
+
+const waMessage = `Hola, me interesa "${product.title}"${product.price ? ` ($${product.price})` : ''}. ¿Me das más información?`;
+---
+<Base
+  title={product.metaTitle}
+  description={product.metaDesc}
+  path={path}
+  image={product.image}
+  type="product"
+  schemas={schemas}
+>
+  <div class="page-wrap">
+    <Breadcrumbs items={crumbs} />
+
+    <section class="section-block">
+      <div class="section-inner">
+        <div class="product-layout">
+          <div class="product-gallery">
+            <img
+              src={product.image}
+              alt={product.title}
+              width="800"
+              height="800"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+
+          <div class="product-summary">
+            {product.onSale && <span class="badge-sale">Oferta</span>}
+            <h1>{product.title}</h1>
+
+            {product.price && (
+              <div class="price">
+                <span class="price-now">${product.price}</span>
+                {product.onSale && product.regularPrice && (
+                  <span class="price-was">${product.regularPrice}</span>
+                )}
+                <span class="price-note">USD</span>
+              </div>
+            )}
+
+            {product.shortDesc && <p class="page-lead" style="text-align:left;margin:0 0 1.25rem">{product.shortDesc}</p>}
+
+            <div class="page-cta-row" style="justify-content:flex-start;margin-top:1.25rem">
+              <a href={wa(waMessage)} class="btn btn-solid wa-btn" target="_blank" rel="noopener">
+                <WhatsAppIcon size={18} />
+                <span>Pedir por WhatsApp</span>
+              </a>
+              <a href="/shop/" class="btn btn-outline">Ver toda la tienda</a>
+            </div>
+
+            <div class="product-order-note">
+              Confirmamos el alcance por WhatsApp y te enviamos el enlace de pago
+              (tarjeta de crédito/débito o PayPal). Los precios se cobran en dólares
+              estadounidenses; el monto en colones es solo referencia.
+            </div>
+
+            <dl class="product-meta">
+              {product.sku && <div><dt style="display:inline">SKU:</dt> <dd style="display:inline">{product.sku}</dd></div>}
+              <div><dt style="display:inline">Categoría:</dt> <dd style="display:inline"><a href="/shop/" style="color:var(--accent-green);text-decoration:none">Servicios digitales</a></dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {product.descHtml && (
+      <section class="section-block alt">
+        <div class="section-inner narrow">
+          <h2 class="block-title">Descripción</h2>
+          <div class="prose" set:html={product.descHtml} />
+        </div>
+      </section>
+    )}
+
+    <section class="section-block">
+      <div class="section-inner">
+        <h2 class="block-title">Otros servicios</h2>
+        <p class="block-sub">Más opciones de la <a href="/shop/" style="color:var(--accent-green);text-decoration:none">tienda</a>.</p>
+        <div class="shop-grid">
+          {related.map((p) => (
+            <article class="product-card">
+              <a href={`/product/${p.slug}/`} class="product-card-media" tabindex="-1" aria-hidden="true">
+                <img src={p.imageSmall} alt="" width="400" height="400" loading="lazy" decoding="async" />
+              </a>
+              <div class="product-card-body">
+                <h3><a href={`/product/${p.slug}/`}>{p.title}</a></h3>
+                {p.price && (
+                  <div class="price"><span class="price-now">${p.price}</span></div>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CtaBand waText={waMessage} />
+  </div>
+</Base>

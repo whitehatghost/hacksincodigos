@@ -1,0 +1,106 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { productsOrdered } from '../../data/products';
+import { webPageSchema, breadcrumbSchema } from '../../lib/schema';
+
+const title = 'Tienda — Servicios digitales con precio en Costa Rica | HacksinCodigos';
+const description =
+  'Precios claros de páginas web, tiendas online, mantenimiento, correo empresarial, menús QR, diseño e imágenes publicitarias. Servicios digitales en Costa Rica.';
+
+const crumbs = [
+  { name: 'Inicio', path: '/' },
+  { name: 'Tienda', path: '/shop/' },
+];
+
+const schemas = [
+  webPageSchema({ path: '/shop/', name: title, description, type: 'CollectionPage' }),
+  breadcrumbSchema(crumbs),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Servicios digitales de HacksinCodigos',
+    numberOfItems: productsOrdered.length,
+    itemListElement: productsOrdered.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: p.title,
+      url: `https://hacksincodigos.com/product/${p.slug}/`,
+    })),
+  },
+];
+---
+<Base title={title} description={description} path="/shop/" schemas={schemas}>
+  <div class="page-wrap">
+    <Breadcrumbs items={crumbs} />
+
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <span class="page-eyebrow">Precios públicos</span>
+        <h1 class="page-h1">Tienda de servicios digitales</h1>
+        <p class="page-lead">
+          Estos son los servicios con precio fijo y alcance definido. Si tu proyecto necesita algo
+          distinto, escribinos y armamos una propuesta a la medida — también hacemos
+          <a href="/desarrollo-web-costa-rica/">desarrollo web</a>,
+          <a href="/agentes-ia-costa-rica/">agentes de IA</a> y
+          <a href="/tiendas-online-costa-rica/">tiendas online</a> completas.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-inner">
+        <div class="shop-grid">
+          {productsOrdered.map((p) => (
+            <article class="product-card">
+              <a href={`/product/${p.slug}/`} class="product-card-media" tabindex="-1" aria-hidden="true">
+                <img
+                  src={p.imageSmall}
+                  alt=""
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <div class="product-card-body">
+                {p.onSale && <span class="badge-sale">Oferta</span>}
+                <h3><a href={`/product/${p.slug}/`}>{p.title}</a></h3>
+                <p class="product-card-desc">{p.shortDesc}</p>
+                {p.price && (
+                  <div class="price">
+                    <span class="price-now">${p.price}</span>
+                    {p.onSale && p.regularPrice && <span class="price-was">${p.regularPrice}</span>}
+                  </div>
+                )}
+                <span class="price-note">Precio en USD</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block alt">
+      <div class="section-inner narrow prose">
+        <h2>Cómo se hace un pedido</h2>
+        <p>
+          Escribinos por WhatsApp indicando el servicio que te interesa. Confirmamos el alcance,
+          te enviamos el enlace de pago y arrancamos. Los precios están en dólares
+          estadounidenses; el monto en colones que veas es solo referencia.
+        </p>
+        <p>
+          ¿No sabés cuál te sirve? Contanos qué necesita tu negocio en la
+          <a href="/#contacto">sección de contacto</a> y te recomendamos la opción adecuada.
+        </p>
+      </div>
+    </section>
+
+    <CtaBand
+      title="¿Necesitás algo que no está en la lista?"
+      text="Desarrollo a medida, integraciones, sistemas internos. Contanos el caso y te decimos si podemos ayudarte."
+      waText="Hola, vi la tienda y necesito un servicio a la medida"
+    />
+  </div>
+</Base>

@@ -1,0 +1,403 @@
+/* ==========================================================================
+   Estilos añadidos en la migración.
+   Reutilizan los mismos tokens que site.css (colores, radios, tipografías) para
+   que las páginas nuevas se vean como una extensión natural del sitio actual,
+   no como algo pegado encima.
+   ========================================================================== */
+
+/* ── NAV: con "Tienda" son 7 enlaces; se ajusta el gap para que no se apriete
+      en el rango 1024–1200px. Por encima de 1200px queda igual que antes. ── */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .nav-links { gap: 1.35rem; }
+  .nav-links a { font-size: .88rem; }
+}
+
+/* ── MENÚ MÓVIL ──────────────────────────────────────────────────────────────
+   En el sitio original la animación de entrada solo estaba declarada para
+   `.menu-item:nth-child(2)` a `nth-child(4)`. Como el primer hijo de .menu-inner
+   es la etiqueta `// Navegación`, eso significaba que solo los tres primeros
+   enlaces llegaban a `opacity: 1`: del cuarto en adelante quedaban invisibles
+   para siempre y el menú móvil era inutilizable a partir de "Portafolio".
+   Acá se cubren todos los ítems y se mantiene el mismo escalonado de 70 ms. */
+#mobile-menu.open .menu-item {
+  opacity: 1;
+  transform: translateX(0);
+}
+#mobile-menu.open .menu-item:nth-child(2)  { transition-delay: .15s; }
+#mobile-menu.open .menu-item:nth-child(3)  { transition-delay: .22s; }
+#mobile-menu.open .menu-item:nth-child(4)  { transition-delay: .29s; }
+#mobile-menu.open .menu-item:nth-child(5)  { transition-delay: .36s; }
+#mobile-menu.open .menu-item:nth-child(6)  { transition-delay: .43s; }
+#mobile-menu.open .menu-item:nth-child(7)  { transition-delay: .50s; }
+#mobile-menu.open .menu-item:nth-child(8)  { transition-delay: .57s; }
+#mobile-menu.open .menu-item:nth-child(9)  { transition-delay: .64s; }
+#mobile-menu.open .menu-item:nth-child(10) { transition-delay: .71s; }
+#mobile-menu.open .menu-item:nth-child(11) { transition-delay: .78s; }
+#mobile-menu.open .menu-item:nth-child(12) { transition-delay: .85s; }
+
+/* En pantallas bajas el menú tiene que poder desplazarse; con `overflow: hidden`
+   los últimos enlaces quedaban fuera de alcance. */
+#mobile-menu { overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+@media (max-height: 700px) {
+  .menu-inner { padding-top: 4.5rem; }
+  .menu-item { padding: .85rem 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #mobile-menu.open .menu-item,
+  #mobile-menu.open .menu-label,
+  #mobile-menu.open .menu-footer { transition-delay: 0s; }
+}
+
+/* ── SERVICIOS: enlace secundario hacia la landing del servicio ── */
+.service-card-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem 1rem;
+}
+.service-more {
+  font-size: .8rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: color var(--transition), border-color var(--transition);
+}
+.service-more:hover { color: var(--accent-green); border-bottom-color: var(--border-glow); }
+
+/* ── PORTAFOLIO: caso interno + sitio del cliente ── */
+.portfolio-actions { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem 1rem; }
+.portfolio-live {
+  font-size: .8rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 500;
+  transition: color var(--transition);
+}
+.portfolio-live:hover { color: var(--accent-blue); }
+.portfolio-footer { display: flex; justify-content: center; margin-top: 2.5rem; padding: 0 1.25rem; }
+
+/* ── BLOG (reemplaza los estilos inline del sitio original, mismos valores) ── */
+.blog-section { background: var(--bg-secondary); }
+.blog-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+.blog-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: var(--radius);
+  padding: 1.75rem 1.5rem;
+}
+.blog-tag {
+  font-size: .7rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+.blog-card h3 { font-size: 1.15rem; margin: .5rem 0; font-family: var(--font-display); }
+.blog-card p { color: var(--text-secondary); font-size: .9rem; line-height: 1.6; }
+.blog-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  margin-top: .75rem;
+  font-size: .9rem;
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 600;
+  transition: gap var(--transition);
+}
+.blog-cta:hover { gap: .7rem; }
+
+/* ── FOOTER ampliado ── */
+.footer-cols { display: flex; flex-wrap: wrap; gap: 2.5rem; justify-content: center; }
+.footer-col-title {
+  font-size: .72rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--text-secondary);
+  margin-bottom: .85rem;
+  font-weight: 500;
+}
+.footer-col .footer-links { flex-direction: column; gap: .55rem; align-items: center; }
+.footer-nap {
+  font-style: normal;
+  margin-top: .9rem;
+  font-size: .85rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+.footer-nap a { color: var(--text-secondary); text-decoration: none; }
+.footer-nap a:hover { color: var(--accent-green); }
+@media (min-width: 768px) {
+  .footer-cols { justify-content: flex-start; }
+  .footer-col .footer-links { align-items: flex-start; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   PÁGINAS INTERNAS
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.page-wrap { padding-top: 5.5rem; }
+
+.breadcrumbs {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem;
+  font-size: .78rem;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+}
+.breadcrumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: .4rem; }
+.breadcrumbs a { color: var(--text-secondary); text-decoration: none; }
+.breadcrumbs a:hover { color: var(--accent-green); }
+.breadcrumbs li[aria-current="page"] { color: var(--accent-green); }
+
+.page-hero { padding: 2rem 1.25rem 3rem; }
+.page-hero-inner { max-width: 860px; margin: 0 auto; text-align: center; }
+.page-eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent-green);
+  border: 1px solid var(--border-glow);
+  border-radius: 999px;
+  padding: .35rem .9rem;
+  margin-bottom: 1.25rem;
+}
+.page-h1 {
+  font-size: clamp(1.9rem, 5.5vw, 3rem);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.page-lead {
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  max-width: 680px;
+  margin: 0 auto;
+}
+.page-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .85rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Bloques de contenido */
+.section-block { padding: 3rem 1.25rem; }
+.section-block.alt { background: var(--bg-secondary); }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-inner.narrow { max-width: 780px; }
+.block-title {
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  margin-bottom: .6rem;
+}
+.block-sub { color: var(--text-secondary); margin-bottom: 2rem; font-size: .98rem; }
+
+.prose { color: var(--text-secondary); font-size: 1rem; line-height: 1.8; }
+.prose h2 {
+  color: var(--text-primary);
+  font-size: clamp(1.35rem, 3.2vw, 1.8rem);
+  margin: 2.25rem 0 .85rem;
+}
+.prose h3 { color: var(--text-primary); font-size: 1.12rem; margin: 1.6rem 0 .6rem; }
+.prose p { margin-bottom: 1rem; }
+.prose ul, .prose ol { margin: 0 0 1.25rem 1.15rem; }
+.prose li { margin-bottom: .5rem; }
+.prose strong { color: var(--text-primary); }
+.prose a { color: var(--accent-green); text-decoration: none; border-bottom: 1px solid var(--border-glow); }
+.prose a:hover { border-bottom-color: var(--accent-green); }
+
+/* Tarjetas genéricas reutilizables */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 640px) { .card-grid.cols-2, .card-grid.cols-3 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); } }
+
+.info-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: border-color var(--transition), transform var(--transition);
+}
+@media (hover: hover) { .info-card:hover { border-color: var(--accent-green); transform: translateY(-3px); } }
+.info-card h3 { font-size: 1.05rem; margin-bottom: .5rem; }
+.info-card p { color: var(--text-secondary); font-size: .9rem; line-height: 1.65; }
+.info-card-num {
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  color: var(--accent-green);
+  letter-spacing: .1em;
+  display: block;
+  margin-bottom: .5rem;
+}
+a.info-card { display: block; text-decoration: none; color: inherit; }
+
+.pill-row { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0 0; }
+
+/* ── CTA de cierre ── */
+.cta-band {
+  background: var(--bg-card);
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  padding: 3rem 1.25rem;
+  text-align: center;
+}
+.cta-band h2 { font-size: clamp(1.4rem, 3.5vw, 2rem); margin-bottom: .6rem; }
+.cta-band p { color: var(--text-secondary); max-width: 560px; margin: 0 auto 1.75rem; }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   TIENDA
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color var(--transition), transform var(--transition);
+}
+@media (hover: hover) { .product-card:hover { border-color: var(--accent-green); transform: translateY(-4px); } }
+.product-card-media {
+  aspect-ratio: 1 / 1;
+  background: var(--bg-secondary);
+  overflow: hidden;
+}
+.product-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.product-card-body { padding: 1.1rem 1.15rem 1.25rem; display: flex; flex-direction: column; flex: 1; gap: .5rem; }
+.product-card-body h3 { font-size: .98rem; line-height: 1.35; }
+.product-card-body h3 a { color: var(--text-primary); text-decoration: none; }
+.product-card-body h3 a:hover { color: var(--accent-green); }
+.product-card-desc { color: var(--text-secondary); font-size: .85rem; line-height: 1.55; flex: 1; }
+
+.price { display: flex; align-items: baseline; gap: .5rem; font-family: var(--font-display); }
+.price-now { font-size: 1.15rem; font-weight: 700; color: var(--accent-green); }
+.price-was { font-size: .85rem; color: var(--text-secondary); text-decoration: line-through; }
+.price-note { font-size: .7rem; color: var(--text-secondary); font-family: var(--font-mono); }
+.badge-sale {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: .65rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #000;
+  background: var(--accent-amber);
+  border-radius: 999px;
+  padding: .18rem .5rem;
+}
+
+/* Ficha de producto */
+.product-layout { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+@media (min-width: 900px) { .product-layout { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 3rem; align-items: start; } }
+.product-gallery {
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.product-gallery img { width: 100%; height: auto; display: block; }
+.product-summary h1 { font-size: clamp(1.5rem, 4vw, 2.15rem); line-height: 1.2; margin-bottom: .85rem; }
+.product-summary .price { margin-bottom: 1rem; }
+.product-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  color: var(--text-secondary);
+  margin: 1.25rem 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+.product-order-note {
+  background: rgba(0,255,136,.05);
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius);
+  padding: 1rem 1.15rem;
+  font-size: .85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-top: 1.25rem;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   PROYECTOS
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.project-hero-thumb {
+  height: 180px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: .95rem;
+  color: rgba(255,255,255,.55);
+  border: 1px solid rgba(255,255,255,.07);
+  margin-bottom: 2rem;
+}
+.project-facts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+@media (min-width: 640px) { .project-facts { grid-template-columns: repeat(3, 1fr); } }
+.project-fact {
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--radius);
+  padding: 1rem 1.15rem;
+}
+.project-fact dt {
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: .35rem;
+}
+.project-fact dd { font-size: .92rem; color: var(--text-primary); }
+
+.attribution {
+  margin-top: 2.5rem;
+  padding: 1.15rem 1.25rem;
+  border-left: 3px solid var(--accent-green);
+  background: rgba(0,255,136,.04);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: .92rem;
+  color: var(--text-secondary);
+}
+.attribution a { color: var(--accent-green); text-decoration: none; }
+.attribution a:hover { text-decoration: underline; }
+
+/* ── 404 ── */
+.notfound { text-align: center; padding: 7rem 1.25rem 5rem; }
+.notfound-code {
+  font-family: var(--font-mono);
+  font-size: clamp(3rem, 12vw, 6rem);
+  color: var(--accent-green);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+/* ── Impresión: quitar efectos que no aportan en papel ── */
+@media print {
+  #cursor, #wa-float, #tsparticles, #hero-spotlight, .hamburger, .lang-selector { display: none !important; }
+  body { background: #fff; color: #000; cursor: auto; }
+}

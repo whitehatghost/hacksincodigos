@@ -146,6 +146,28 @@ test('las cabeceras de seguridad están declaradas', { skip: !hasDist }, () => {
   }
 });
 
+// ── Portabilidad de los scripts a Linux ─────────────────────────────────────
+
+test('los scripts resuelven rutas con fileURLToPath, no manipulando el pathname', () => {
+  // `new URL(import.meta.url).pathname.slice(1)` funciona en Windows (queda
+  // "C:/ruta") pero en Linux convierte una ruta absoluta en relativa. La build de
+  // Cloudflare corre en Linux: este patrón la rompe.
+  const dir = path.join(ROOT, 'scripts');
+  for (const f of fs.readdirSync(dir).filter((n) => n.endsWith('.mjs'))) {
+    const body = fs.readFileSync(path.join(dir, f), 'utf8');
+    assert.ok(
+      !/new URL\(import\.meta\.url\)\.pathname/.test(body),
+      `scripts/${f} manipula pathname a mano; usá fileURLToPath(import.meta.url)`
+    );
+    if (body.includes('import.meta.url')) {
+      assert.ok(
+        body.includes('fileURLToPath'),
+        `scripts/${f} usa import.meta.url sin fileURLToPath`
+      );
+    }
+  }
+});
+
 // ── Enlaces externos a clientes ─────────────────────────────────────────────
 
 test('todo enlace externo abre con rel="noopener"', { skip: !hasDist }, () => {

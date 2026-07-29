@@ -9,12 +9,20 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname.slice(1)), '..');
+// `fileURLToPath` es la única forma correcta de pasar de file:// a ruta del sistema.
+// Manipular `new URL(...).pathname` a mano funciona en Windows (donde queda
+// "/C:/ruta") pero en Linux convierte una ruta absoluta en relativa, y la build de
+// Cloudflare falla buscando dist/ en el directorio equivocado.
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = path.join(ROOT, 'dist');
 
 if (!fs.existsSync(DIST)) {
-  console.error('No existe dist/. Ejecutá `npm run build` primero.');
+  console.error(`No se encontró la carpeta de build.
+  Buscada en : ${DIST}
+  cwd        : ${process.cwd()}
+Ejecutá \`npm run build\` primero.`);
   process.exit(1);
 }
 

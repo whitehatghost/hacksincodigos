@@ -9,9 +9,10 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 
-const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname.slice(1)), '..');
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = path.join(ROOT, '_migracion', 'mirror', 'wp-content', 'uploads');
 const OUT_IMG = path.join(ROOT, 'public', 'images');
 const OUT_PROD = path.join(OUT_IMG, 'productos');

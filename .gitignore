@@ -1,0 +1,42 @@
+# Build
+dist/
+.astro/
+.output/
+.vercel/
+.netlify/
+.wrangler/
+
+# Dependencias
+node_modules/
+.pnp
+.pnp.js
+
+# Secretos — NUNCA subir
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+.dev.vars
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+npm-install.log
+*.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+
+# Material de referencia de la migración (pesado, no se despliega)
+_migracion/mirror/

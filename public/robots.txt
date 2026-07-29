@@ -1,0 +1,17 @@
+# robots.txt — hacksincodigos.com
+# Sitio estático servido desde Cloudflare Pages. Todo el contenido público es rastreable.
+
+User-agent: *
+Allow: /
+
+# Rutas que ya no existen tras la migración desde WordPress. Se bloquean para que
+# los rastreadores no gasten presupuesto en URLs que solo devuelven redirecciones.
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /wp-json/
+Disallow: /xmlrpc.php
+Disallow: /?s=
+Disallow: /*?add-to-cart=
+
+Sitemap: https://hacksincodigos.com/sitemap-index.xml

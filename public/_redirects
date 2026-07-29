@@ -1,0 +1,71 @@
+# Redirecciones para Cloudflare Pages — https://developers.cloudflare.com/pages/configuration/redirects/
+# Gana la primera regla que coincida, así que el orden importa.
+#
+# Objetivo: que ninguna URL que Google ya conoce de la versión WordPress termine en 404.
+# El mapa completo, con el porqué de cada línea, está en URL-MAP.md.
+
+# ── Sitemaps de Rank Math -> sitemap generado por Astro ──────────────────────
+/sitemap_index.xml        /sitemap-index.xml        301
+/sitemap.xml              /sitemap-index.xml        301
+/page-sitemap.xml         /sitemap-index.xml        301
+/product-sitemap.xml      /sitemap-index.xml        301
+/main-sitemap.xsl         /sitemap-index.xml        301
+
+# ── Taxonomía y paginación de WooCommerce ───────────────────────────────────
+# Los 17 productos ahora caben en una sola página, así que la paginación sobra.
+/shop/page/*                        /shop/          301
+/product-category/uncategorized/*   /shop/          301
+/product-category/*                 /shop/          301
+/product-tag/*                      /shop/          301
+
+# ── Rutas de WooCommerce que en el sitio WordPress ya devolvían 404 ─────────
+# Se mandan a la tienda para no perder a nadie que tenga el enlace guardado.
+/cart/                    /shop/                    301
+/carrito/                 /shop/                    301
+/checkout/                /shop/                    301
+/finalizar-compra/        /shop/                    301
+/my-account/              /shop/                    301
+/mi-cuenta/               /shop/                    301
+/tienda/                  /shop/                    301
+
+# ── Restos de WordPress ─────────────────────────────────────────────────────
+/wp-admin/*               /                         301
+/wp-login.php             /                         301
+/wp-content/*             /                         301
+/wp-includes/*            /                         301
+/wp-json/*                /                         301
+/xmlrpc.php               /                         301
+/feed/                    /blog/                    301
+/comments/feed/           /blog/                    301
+/author/*                 /                         301
+/category/*               /blog/                    301
+/tag/*                    /blog/                    301
+
+# ── Selector de idioma antiguo: eran enlaces rotos (404) en el sitio actual ──
+# El idioma ahora se cambia en el sitio sin cambiar de URL.
+/en/*                     /                         301
+/fr/*                     /                         301
+/pt/*                     /                         301
+/de/*                     /                         301
+/ja/*                     /                         301
+/zh/*                     /                         301
+/ru/*                     /                         301
+/zh-tw/*                  /                         301
+
+# ── Rutas en español que la gente escribe a mano ─────────────────────────────
+/servicios/               /paginas-web-costa-rica/  301
+/portafolio/              /proyectos/               301
+/proyecto/*               /proyectos/               301
+/contacto/                /#contacto                301
+/faq/                     /#faq                     301
+/precios/                 /shop/                    301
+/paginas-web/             /paginas-web-costa-rica/  301
+/diseno-web/              /diseno-web-costa-rica/   301
+/desarrollo-web/          /desarrollo-web-costa-rica/ 301
+/tiendas-online/          /tiendas-online-costa-rica/ 301
+/seo/                     /seo-costa-rica/          301
+/agentes-ia/              /agentes-ia-costa-rica/   301
+/chatbots/                /agentes-ia-costa-rica/   301
+
+# ── Imagen Open Graph que el sitio WordPress referenciaba y devolvía 404 ─────
+/og-image.jpg             /images/og-hacksincodigos.png  301

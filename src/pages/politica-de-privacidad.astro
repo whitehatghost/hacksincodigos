@@ -1,0 +1,119 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { site } from '../data/site';
+import { webPageSchema, breadcrumbSchema } from '../lib/schema';
+
+const path = '/politica-de-privacidad/';
+const title = 'Política de privacidad | HacksinCodigos';
+const description =
+  'Cómo HacksinCodigos trata los datos personales que recibe a través de su sitio web y por WhatsApp, y qué derechos tenés sobre esa información.';
+
+const crumbs = [
+  { name: 'Inicio', path: '/' },
+  { name: 'Política de privacidad', path },
+];
+
+const updated = '28 de julio de 2026';
+---
+<Base
+  title={title}
+  description={description}
+  path={path}
+  schemas={[webPageSchema({ path, name: title, description }), breadcrumbSchema(crumbs)]}
+>
+  <div class="page-wrap">
+    <Breadcrumbs items={crumbs} />
+    <section class="section-block">
+      <div class="section-inner narrow">
+        <h1 class="page-h1" style="text-align:left">Política de privacidad</h1>
+        <p style="color:var(--text-secondary);font-family:var(--font-mono);font-size:.78rem;margin-bottom:2rem">
+          Última actualización: {updated}
+        </p>
+
+        <div class="prose">
+          <h2>Quiénes somos</h2>
+          <p>
+            {site.name} es un negocio costarricense de desarrollo web, diseño, agentes de
+            inteligencia artificial y servicios de tecnología. Este sitio es
+            <a href={site.url}>{site.url}</a>.
+          </p>
+
+          <h2>Qué datos recogemos</h2>
+          <p>Solo los que vos nos das voluntariamente:</p>
+          <ul>
+            <li>
+              <strong>Formulario de contacto:</strong> nombre, empresa (opcional), correo
+              electrónico, teléfono, servicio de interés y el mensaje que escribís.
+            </li>
+            <li>
+              <strong>WhatsApp:</strong> cuando escribís a nuestro número, la conversación queda
+              en tu cuenta de WhatsApp y en la nuestra, bajo los términos de WhatsApp.
+            </li>
+          </ul>
+          <p>
+            El formulario de este sitio no envía los datos a un servidor nuestro: abre WhatsApp
+            con el mensaje ya escrito para que vos lo mandés. Es decir, la información viaja por
+            WhatsApp, no por una base de datos de este sitio.
+          </p>
+
+          <h2>Para qué los usamos</h2>
+          <ul>
+            <li>Responder tu consulta y preparar una propuesta.</li>
+            <li>Dar seguimiento a un proyecto en curso.</li>
+            <li>Cumplir obligaciones legales o contables cuando corresponde.</li>
+          </ul>
+          <p>No vendemos, alquilamos ni cedemos tus datos a terceros con fines comerciales.</p>
+
+          <h2>Cookies y medición</h2>
+          <p>
+            Este sitio no instala cookies de publicidad ni de seguimiento entre sitios. Se usa el
+            almacenamiento local del navegador para una sola cosa: recordar el idioma que
+            elegiste. Esa información se queda en tu dispositivo y podés borrarla desde la
+            configuración del navegador.
+          </p>
+
+          <h2>Servicios de terceros</h2>
+          <p>
+            Algunas partes del sitio cargan recursos desde proveedores externos, que por su
+            naturaleza reciben tu dirección IP al servirlos:
+          </p>
+          <ul>
+            <li><strong>Cloudflare</strong> — alojamiento y red de distribución del sitio.</li>
+            <li><strong>Spline</strong> — la escena tridimensional de la portada.</li>
+            <li><strong>jsDelivr / unpkg</strong> — librerías de animación de la portada.</li>
+            <li><strong>WhatsApp (Meta)</strong> — cuando abrís un enlace de WhatsApp.</li>
+          </ul>
+
+          <h2>Cuánto tiempo conservamos la información</h2>
+          <p>
+            Las conversaciones y los datos de un proyecto se conservan mientras dure la relación
+            comercial y el plazo que exija la normativa contable. Después se eliminan.
+          </p>
+
+          <h2>Tus derechos</h2>
+          <p>
+            De acuerdo con la Ley N.º 8968 de Protección de la Persona frente al tratamiento de
+            sus datos personales, podés pedirnos acceder a tus datos, corregirlos o eliminarlos.
+            Escribinos a nuestro
+            <a href={`https://wa.me/${site.whatsappNumber}`} target="_blank" rel="noopener">WhatsApp</a>
+            ({site.phone}) y lo resolvemos.
+          </p>
+
+          <h2>Seguridad</h2>
+          <p>
+            El sitio se sirve siempre por HTTPS y con cabeceras de seguridad configuradas. Aun
+            así, ningún medio en internet es totalmente infalible: no envíes por estos canales
+            contraseñas ni datos de tarjetas.
+          </p>
+
+          <h2>Cambios a esta política</h2>
+          <p>
+            Si actualizamos esta política, cambiamos la fecha del encabezado. Los cambios rigen
+            desde su publicación.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</Base>

@@ -1,0 +1,102 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { articles, type Article } from '../../data/articles';
+import { site } from '../../data/site';
+import { webPageSchema, breadcrumbSchema } from '../../lib/schema';
+
+export function getStaticPaths() {
+  return articles.map((a) => ({ params: { slug: a.slug }, props: { article: a } }));
+}
+
+interface Props { article: Article }
+const { article } = Astro.props;
+const path = `/blog/${article.slug}/`;
+
+const crumbs = [
+  { name: 'Inicio', path: '/' },
+  { name: 'Blog', path: '/blog/' },
+  { name: article.title, path },
+];
+
+const others = articles.filter((a) => a.slug !== article.slug);
+
+const schemas = [
+  webPageSchema({ path, name: article.metaTitle, description: article.metaDesc }),
+  breadcrumbSchema(crumbs),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    '@id': `${site.url}${path}#article`,
+    headline: article.title,
+    description: article.metaDesc,
+    datePublished: article.published,
+    dateModified: article.updated,
+    inLanguage: 'es-CR',
+    author: { '@id': `${site.url}/#organization` },
+    publisher: { '@id': `${site.url}/#organization` },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${site.url}${path}` },
+    image: new URL(site.ogImage, site.url).href,
+  },
+];
+
+const fmt = new Intl.DateTimeFormat('es-CR', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+<Base
+  title={article.metaTitle}
+  description={article.metaDesc}
+  path={path}
+  type="article"
+  schemas={schemas}
+>
+  <div class="page-wrap">
+    <Breadcrumbs items={crumbs} />
+
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <span class="page-eyebrow">{article.tag}</span>
+        <h1 class="page-h1">{article.title}</h1>
+        <p class="page-lead">{article.excerpt}</p>
+        <p style="margin-top:1.25rem;font-family:var(--font-mono);font-size:.75rem;color:var(--text-secondary)">
+          Publicado el <time datetime={article.published}>{fmt.format(new Date(article.published))}</time>
+          · Actualizado el <time datetime={article.updated}>{fmt.format(new Date(article.updated))}</time>
+          · {article.readingMinutes} min de lectura
+        </p>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-inner narrow">
+        <article class="prose" set:html={article.bodyHtml} />
+
+        <p class="attribution">
+          Escrito por el equipo de <a href="/">HacksinCodigos</a>. Trabajamos en
+          {article.relatedServices.map((s, i) => (
+            <>
+              {i > 0 && (i === article.relatedServices.length - 1 ? ' y ' : ', ')}
+              <a href={s.href}>{s.label}</a>
+            </>
+          ))} desde Costa Rica.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-block alt">
+      <div class="section-inner">
+        <h2 class="block-title">Otros artículos</h2>
+        <div class="card-grid cols-3">
+          {others.map((a) => (
+            <a class="info-card" href={`/blog/${a.slug}/`}>
+              <span class="blog-tag" style={`color:${a.tagColor}`}>{a.tag}</span>
+              <h3 style="margin-top:.5rem">{a.title}</h3>
+              <p>{a.excerpt}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CtaBand waText={`Hola, leí "${article.title}" y quiero consultar sobre mi proyecto`} />
+  </div>
+</Base>

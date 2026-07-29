@@ -1,0 +1,124 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { site } from '../data/site';
+import { webPageSchema, breadcrumbSchema } from '../lib/schema';
+
+const path = '/terminos-de-servicio/';
+const title = 'Términos de servicio | HacksinCodigos';
+const description =
+  'Condiciones bajo las que HacksinCodigos presta sus servicios de desarrollo web, diseño, agentes de IA y soporte técnico en Costa Rica.';
+
+const crumbs = [
+  { name: 'Inicio', path: '/' },
+  { name: 'Términos de servicio', path },
+];
+
+const updated = '28 de julio de 2026';
+---
+<Base
+  title={title}
+  description={description}
+  path={path}
+  schemas={[webPageSchema({ path, name: title, description }), breadcrumbSchema(crumbs)]}
+>
+  <div class="page-wrap">
+    <Breadcrumbs items={crumbs} />
+    <section class="section-block">
+      <div class="section-inner narrow">
+        <h1 class="page-h1" style="text-align:left">Términos de servicio</h1>
+        <p style="color:var(--text-secondary);font-family:var(--font-mono);font-size:.78rem;margin-bottom:2rem">
+          Última actualización: {updated}
+        </p>
+
+        <div class="prose">
+          <h2>1. Alcance</h2>
+          <p>
+            Estos términos aplican a los servicios que {site.name} presta a través de este sitio:
+            desarrollo web, diseño, agentes de inteligencia artificial, soporte técnico remoto,
+            publicidad digital y los servicios publicados en la <a href="/shop/">tienda</a>.
+          </p>
+
+          <h2>2. Cotizaciones y alcance del trabajo</h2>
+          <p>
+            Los precios publicados corresponden al alcance descrito en cada servicio. Antes de
+            arrancar confirmamos por escrito qué incluye y qué no incluye el proyecto. Cualquier
+            trabajo fuera de ese alcance se cotiza aparte.
+          </p>
+
+          <h2>3. Precios y pagos</h2>
+          <ul>
+            <li>Los precios están expresados en dólares estadounidenses (USD).</li>
+            <li>El monto en colones que se muestre es solo referencia y depende del tipo de cambio del día.</li>
+            <li>Se paga con tarjeta de crédito o débito, PayPal, o los medios que se acuerden.</li>
+            <li>Los proyectos de desarrollo normalmente llevan un adelanto para iniciar y el saldo contra entrega.</li>
+            <li>Los servicios mensuales se cobran por adelantado y se pueden cancelar avisando antes del siguiente ciclo.</li>
+          </ul>
+
+          <h2>4. Plazos</h2>
+          <p>
+            Los plazos estimados dependen de que el cliente entregue a tiempo los materiales
+            necesarios (textos, imágenes, logo, accesos). Si esos materiales se atrasan, el plazo
+            se corre en la misma medida.
+          </p>
+
+          <h2>5. Responsabilidades del cliente</h2>
+          <ul>
+            <li>Entregar contenido del que tenga los derechos de uso.</li>
+            <li>Dar los accesos necesarios (dominio, hosting, redes) cuando el trabajo los requiera.</li>
+            <li>Revisar y aprobar las entregas en los tiempos acordados.</li>
+          </ul>
+
+          <h2>6. Propiedad y entrega</h2>
+          <p>
+            Al completarse el pago, el sitio, el dominio y los accesos quedan a nombre del
+            cliente. Nos reservamos el derecho de mostrar el trabajo en nuestro
+            <a href="/proyectos/">portafolio</a>, salvo que se acuerde lo contrario por escrito.
+          </p>
+
+          <h2>7. Garantía y soporte</h2>
+          <p>
+            Corregimos sin costo los defectos atribuibles a nuestro trabajo que se reporten dentro
+            de los 30 días posteriores a la entrega. No cubre cambios de alcance, fallas causadas
+            por modificaciones hechas por terceros, ni caídas de servicios externos. El soporte
+            continuo se cubre con los planes de mantenimiento.
+          </p>
+
+          <h2>8. Servicios de terceros</h2>
+          <p>
+            Algunos servicios dependen de proveedores externos (hosting, pasarelas de pago,
+            plataformas de mensajería, proveedores de IA). Sus condiciones, disponibilidad y
+            precios los define cada proveedor y pueden cambiar sin que dependa de nosotros.
+          </p>
+
+          <h2>9. Sobre resultados en Google y publicidad</h2>
+          <p>
+            Aplicamos las buenas prácticas técnicas y de contenido documentadas, pero el
+            posicionamiento en buscadores y el rendimiento de las campañas dependen de factores
+            fuera de nuestro control. No garantizamos posiciones específicas ni volúmenes de
+            ventas.
+          </p>
+
+          <h2>10. Cancelación</h2>
+          <p>
+            Si el proyecto se cancela una vez iniciado, se cobra el trabajo efectivamente
+            realizado hasta ese momento. Los adelantos correspondientes a ese trabajo no son
+            reembolsables.
+          </p>
+
+          <h2>11. Ley aplicable</h2>
+          <p>
+            Estos términos se rigen por la legislación de la República de Costa Rica.
+          </p>
+
+          <h2>12. Contacto</h2>
+          <p>
+            Cualquier consulta sobre estos términos, escribinos por
+            <a href={`https://wa.me/${site.whatsappNumber}`} target="_blank" rel="noopener">WhatsApp</a>
+            al {site.phone}.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</Base>

@@ -1,0 +1,39 @@
+---
+import { blogTeasers } from '../data/content';
+import { articles } from '../data/articles';
+import { wa } from '../data/site';
+
+/** El teaser N de la home corresponde al artículo completo N del blog. */
+const withArticle = blogTeasers.map((b, i) => ({ ...b, article: articles[i] }));
+---
+<section id="blog" class="blog-section" aria-label="Blog">
+  <div class="container">
+    <h2 class="section-title fade-up" data-i18n="blog_title">Guías y Consejos para tu Negocio en Costa Rica</h2>
+    <p class="section-subtitle fade-up" data-i18n="blog_sub">Aprende cómo mejorar tu presencia digital en Costa Rica con estos artículos</p>
+    <div class="blog-grid">
+      {withArticle.map((b) => (
+        <article class="blog-card fade-up">
+          <span class="blog-tag" style={`color:${b.tagColor}`} data-i18n={`${b.i18n}_tag`}>{b.tag}</span>
+          <h3 data-i18n={`${b.i18n}_title`}>{b.title}</h3>
+          <p data-i18n={`${b.i18n}_text`} set:html={b.html} />
+          <div class="service-card-actions">
+            <a
+              class="blog-cta"
+              style={`color:${b.tagColor}`}
+              href={b.ctaHref ?? wa(b.ctaWa)}
+              target={b.ctaHref ? undefined : '_blank'}
+              rel={b.ctaHref ? undefined : 'noopener'}
+              data-i18n={`${b.i18n}_btn`}
+            >{b.ctaLabel}</a>
+            {b.article && (
+              <a class="service-more" href={`/blog/${b.article.slug}/`}>Leer el artículo completo</a>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+    <div class="portfolio-footer fade-up">
+      <a href="/blog/" class="btn btn-outline">Ver todos los artículos</a>
+    </div>
+  </div>
+</section>

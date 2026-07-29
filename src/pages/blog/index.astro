@@ -1,0 +1,89 @@
+﻿---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { articles } from '../../data/articles';
+import { webPageSchema, breadcrumbSchema } from '../../lib/schema';
+
+const path = '/blog/';
+const title = 'Blog — Web, SEO e IA para negocios en Costa Rica | HacksinCodigos';
+const description =
+  'Guías prácticas sobre páginas web, precios, SEO local y agentes de IA para negocios en Costa Rica. Sin humo y sin promesas que nadie puede cumplir.';
+
+const crumbs = [
+  { name: 'Inicio', path: '/' },
+  { name: 'Blog', path },
+];
+
+const sorted = [...articles].sort((a, b) => b.published.localeCompare(a.published));
+
+const schemas = [
+  webPageSchema({ path, name: title, description, type: 'CollectionPage' }),
+  breadcrumbSchema(crumbs),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    '@id': 'https://hacksincodigos.com/blog/#blog',
+    name: 'Blog de HacksinCodigos',
+    description,
+    inLanguage: 'es-CR',
+    publisher: { '@id': 'https://hacksincodigos.com/#organization' },
+    blogPost: sorted.map((a) => ({
+      '@type': 'BlogPosting',
+      headline: a.title,
+      url: `https://hacksincodigos.com/blog/${a.slug}/`,
+      datePublished: a.published,
+      dateModified: a.updated,
+    })),
+  },
+];
+
+const fmt = new Intl.DateTimeFormat('es-CR', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+<Base title={title} description={description} path={path} schemas={schemas}>
+  <div class="page-wrap">
+    <Breadcrumbs items={crumbs} />
+
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <span class="page-eyebrow">Blog</span>
+        <h1 class="page-h1">Guías para tu negocio en Costa Rica</h1>
+        <p class="page-lead">
+          Lo que nos preguntan todos los días, escrito con calma: cuánto cuesta un sitio web, cómo
+          aparecer en Google y cómo automatizar la atención por WhatsApp.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-inner">
+        <div class="card-grid cols-3">
+          {sorted.map((a) => (
+            <a class="info-card" href={`/blog/${a.slug}/`}>
+              <span class="blog-tag" style={`color:${a.tagColor}`}>{a.tag}</span>
+              <h3 style="margin-top:.5rem">{a.title}</h3>
+              <p>{a.excerpt}</p>
+              <p style="margin-top:.85rem;font-family:var(--font-mono);font-size:.72rem;color:var(--text-secondary)">
+                <time datetime={a.published}>{fmt.format(new Date(a.published))}</time> · {a.readingMinutes} min
+              </p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block alt">
+      <div class="section-inner narrow prose">
+        <h2>¿Buscabas algo más concreto?</h2>
+        <ul>
+          <li><a href="/paginas-web-costa-rica/">Páginas web en Costa Rica</a> — qué hacemos, para quién y a qué precio.</li>
+          <li><a href="/seo-costa-rica/">SEO en Costa Rica</a> — cómo trabajamos el posicionamiento.</li>
+          <li><a href="/shop/">Tienda</a> — servicios con precio publicado.</li>
+          <li><a href="/proyectos/">Portafolio</a> — sitios que ya están en producción.</li>
+        </ul>
+      </div>
+    </section>
+
+    <CtaBand waText="Hola, leí el blog y quiero consultar sobre mi proyecto" />
+  </div>
+</Base>

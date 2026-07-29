@@ -1,0 +1,98 @@
+﻿---
+import ServiceLanding from '../layouts/ServiceLanding.astro';
+
+const path = '/agentes-ia-costa-rica/';
+
+const faqs = [
+  {
+    q: '¿Qué es un agente de IA para WhatsApp?',
+    a: 'Es un asistente que atiende los mensajes de tu WhatsApp de negocio automáticamente: responde preguntas frecuentes, toma pedidos, agenda citas y filtra a quién vale la pena pasarle a una persona. Funciona las 24 horas.',
+  },
+  {
+    q: '¿El cliente se da cuenta de que habla con un bot?',
+    a: 'Configuramos el agente para que se presente con claridad y para que pase la conversación a una persona cuando la consulta se sale de lo que sabe responder. Engañar al cliente sale caro; ser útil no.',
+  },
+  {
+    q: '¿Lo administro yo o ustedes?',
+    a: 'Las dos opciones existen. En el modo gestionado nosotros mantenemos el agente y ajustamos las respuestas. En el autogestionado te entregamos el panel y vos editás lo que responde.',
+  },
+  {
+    q: '¿Funciona con Instagram y Messenger?',
+    a: 'Sí, además de WhatsApp se puede conectar a Messenger e Instagram para que todas las conversaciones lleguen al mismo lugar.',
+  },
+  {
+    q: '¿Qué necesito para empezar?',
+    a: 'Un número de WhatsApp para el negocio y la información que el agente debe manejar: servicios, precios, horarios, ubicación y las preguntas que más te hacen. Con eso armamos la primera versión.',
+  },
+];
+---
+<ServiceLanding
+  path={path}
+  title="Agentes de IA para WhatsApp en Costa Rica | HacksinCodigos"
+  description="Chatbots con inteligencia artificial para WhatsApp, Instagram y Messenger en Costa Rica. Atienden, toman pedidos y agendan citas 24/7, con panel de conversaciones."
+  eyebrow="Costa Rica · Inteligencia artificial"
+  h1="Agentes de IA para WhatsApp en Costa Rica"
+  lead="Un asistente que contesta tu WhatsApp de negocio a cualquier hora: responde consultas, toma pedidos, agenda citas y te pasa solo lo que necesita una persona."
+  crumbLabel="Agentes IA Costa Rica"
+  serviceName="Agentes de IA y chatbots para WhatsApp en Costa Rica"
+  serviceType="Automatización con inteligencia artificial"
+  faqs={faqs}
+  waText="Hola, quiero información sobre agentes IA para WhatsApp"
+  ctaTitle="¿Probamos un agente para tu negocio?"
+>
+  <section class="section-block alt">
+    <div class="section-inner narrow prose">
+      <h2>El problema que resuelve</h2>
+      <p>
+        La mayoría de los negocios en Costa Rica recibe sus consultas por WhatsApp. El problema no
+        es la falta de mensajes: es que llegan a las 9 de la noche, un domingo, o mientras estás
+        atendiendo a otro cliente. El que no recibe respuesta en minutos se va con el siguiente.
+      </p>
+
+      <h2>Qué hace el agente</h2>
+      <ul>
+        <li><strong>Responde al instante</strong> las preguntas de siempre: precios, horarios, ubicación, formas de pago.</li>
+        <li><strong>Toma pedidos</strong> y los registra con los datos del cliente.</li>
+        <li><strong>Agenda citas</strong> según la disponibilidad que le definas.</li>
+        <li><strong>Califica al interesado</strong> y te avisa cuando vale la pena que entres vos.</li>
+        <li><strong>Nunca deja un mensaje sin leer</strong>, ni de madrugada ni en feriado.</li>
+      </ul>
+
+      <h2>Panel de control y reportes</h2>
+      <p>
+        Viene con un panel web donde ves todas las conversaciones en tiempo real, podés
+        intervenir cuando querás y consultás estadísticas: cuántas consultas llegaron, de qué
+        preguntaron y cuántas terminaron en venta.
+      </p>
+
+      <h2>Gestionado o autogestionado</h2>
+      <p>
+        Si preferís no ocuparte, lo mantenemos nosotros y ajustamos las respuestas según lo que
+        vaya pasando. Si querés control total, te entregamos el panel y lo manejás vos. El precio
+        cambia según la opción.
+      </p>
+
+      <h2>Se integra con tu sitio</h2>
+      <p>
+        El agente funciona solo, pero rinde más conectado al sitio web: el visitante que llega
+        desde Google entra a tu <a href="/paginas-web-costa-rica/">página web</a>, y si tiene una
+        duda la resuelve en WhatsApp sin esperar. Si además vendés en línea, se conecta con tu
+        <a href="/tiendas-online-costa-rica/">tienda online</a> para tomar pedidos.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-inner">
+      <h2 class="block-title">Para qué tipo de negocio sirve</h2>
+      <div class="card-grid cols-3">
+        <div class="info-card"><h3>Restaurantes y cafeterías</h3><p>Toma pedidos, comparte el menú y responde horarios sin sacar a nadie de la cocina.</p></div>
+        <div class="info-card"><h3>Clínicas y consultorios</h3><p>Agenda citas, explica tratamientos y recuerda la cita al paciente.</p></div>
+        <div class="info-card"><h3>Tiendas y e-commerce</h3><p>Responde sobre stock, tallas, envíos y estado del pedido.</p></div>
+        <div class="info-card"><h3>Inmobiliarias</h3><p>Filtra interesados por presupuesto y zona antes de que el agente invierta tiempo.</p></div>
+        <div class="info-card"><h3>Servicios profesionales</h3><p>Recibe la consulta inicial, la clasifica y agenda la reunión.</p></div>
+        <div class="info-card"><h3>Talleres y servicios técnicos</h3><p>Recibe la descripción del problema y arma la cola de trabajo del día.</p></div>
+      </div>
+    </div>
+  </section>
+</ServiceLanding>

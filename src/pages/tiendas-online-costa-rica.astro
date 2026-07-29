@@ -1,0 +1,93 @@
+﻿---
+import ServiceLanding from '../layouts/ServiceLanding.astro';
+import { projects } from '../data/projects';
+import { getProduct } from '../data/products';
+
+const path = '/tiendas-online-costa-rica/';
+const tienda = getProduct('pagina-web-tienda-online-con-carrito');
+
+const faqs = [
+  {
+    q: '¿Cuánto cuesta una tienda online en Costa Rica?',
+    a: tienda
+      ? `Nuestro paquete de tienda online cuesta $${tienda.price} USD e incluye la configuración inicial con hasta 50 productos. Catálogos más grandes o integraciones especiales se cotizan aparte.`
+      : 'El paquete de tienda online incluye la configuración inicial con catálogo y carrito. Catálogos más grandes o integraciones especiales se cotizan aparte.',
+  },
+  {
+    q: '¿Qué formas de pago se pueden aceptar?',
+    a: 'Se puede recibir tarjeta de crédito y débito a través de una pasarela de pago, además de transferencia y SINPE Móvil como opciones manuales. La pasarela que se use depende del banco o proveedor con el que trabaje el negocio.',
+  },
+  {
+    q: '¿Yo puedo agregar productos después?',
+    a: 'Sí. Te entregamos el panel de administración y te enseñamos a cargar productos, cambiar precios y ver los pedidos. Si preferís no ocuparte, lo cubrimos con un plan de mantenimiento.',
+  },
+  {
+    q: '¿Sirve para vender por WhatsApp también?',
+    a: 'Sí. La tienda puede tener botón de WhatsApp en cada producto, que es como compra buena parte de los clientes en Costa Rica. Y si querés automatizar esa atención, se integra con un agente de IA.',
+  },
+];
+
+const proyectosTienda = projects.filter((p) => p.relatedServices.includes(path));
+---
+<ServiceLanding
+  path={path}
+  title="Tiendas Online en Costa Rica — E-commerce y Pagos | HacksinCodigos"
+  description="Creamos tiendas online en Costa Rica con catálogo, carrito, pagos con tarjeta y WhatsApp integrado. Desde $850 USD con hasta 50 productos configurados."
+  eyebrow="Costa Rica · E-commerce"
+  h1="Tiendas online en Costa Rica que cobran de verdad"
+  lead="Catálogo, carrito, pagos con tarjeta y pedidos por WhatsApp. Para dejar de vender contestando mensajes uno por uno y que la tienda trabaje mientras dormís."
+  crumbLabel="Tiendas online Costa Rica"
+  serviceName="Desarrollo de tiendas online en Costa Rica"
+  serviceType="Desarrollo de comercio electrónico"
+  faqs={faqs}
+  waText="Hola, me interesa una tienda online para mi negocio"
+  ctaTitle="¿Listo para vender en línea?"
+>
+  <section class="section-block alt">
+    <div class="section-inner narrow prose">
+      <h2>Qué incluye una tienda</h2>
+      <ul>
+        <li><strong>Catálogo organizado</strong> por categorías, con buscador y filtros.</li>
+        <li><strong>Ficha de producto</strong> con fotos, descripción, precio y variantes (talla, color, presentación).</li>
+        <li><strong>Carrito y checkout</strong> optimizado para celular, que es donde se compra.</li>
+        <li><strong>Pagos en línea</strong> con tarjeta a través de pasarela, más transferencia y SINPE Móvil.</li>
+        <li><strong>Gestión de pedidos</strong> desde un panel: qué se vendió, a quién y en qué estado va.</li>
+        <li><strong>Botón de WhatsApp</strong> por producto, para el cliente que prefiere preguntar antes de comprar.</li>
+      </ul>
+
+      <h2>Lo que hay que resolver antes de arrancar</h2>
+      <p>
+        Una tienda no es solo la web. Antes de publicar conviene tener claro: cómo se cobra, cómo
+        se entrega, cuánto cuesta el envío por zona, y quién actualiza el inventario. Eso lo
+        definimos juntos en la etapa de propuesta.
+      </p>
+
+      <h2>Después del lanzamiento</h2>
+      <p>
+        Una tienda necesita mantenimiento: actualizaciones de seguridad, backups y revisión de que
+        los pagos sigan funcionando. Los planes están en la <a href="/shop/">tienda</a>. Y para
+        que la gente la encuentre, hay trabajo de <a href="/seo-costa-rica/">SEO</a>.
+      </p>
+      <p>
+        Si todavía no estás seguro de necesitar carrito, quizá te sirva más un
+        <a href="/paginas-web-costa-rica/">sitio de negocio</a> con catálogo y contacto por WhatsApp.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-inner">
+      <h2 class="block-title">Tiendas que desarrollamos</h2>
+      <p class="block-sub">E-commerce en producción de clientes costarricenses.</p>
+      <div class="card-grid cols-3">
+        {proyectosTienda.map((p) => (
+          <a class="info-card" href={`/proyectos/${p.slug}/`}>
+            <span class="info-card-num">{p.domain}</span>
+            <h3>{p.name}</h3>
+            <p>{p.summary}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</ServiceLanding>

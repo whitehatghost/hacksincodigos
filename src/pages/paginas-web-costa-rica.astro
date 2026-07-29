@@ -1,0 +1,290 @@
+﻿---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Faq from '../components/Faq.astro';
+import { projects } from '../data/projects';
+import { getProduct } from '../data/products';
+import { faqs, process } from '../data/content';
+import { areasServed } from '../data/site';
+import { webPageSchema, breadcrumbSchema, serviceSchema, faqSchema } from '../lib/schema';
+
+const path = '/paginas-web-costa-rica/';
+const title = 'Páginas Web en Costa Rica — Diseño y Desarrollo | HacksinCodigos';
+const description =
+  'Creamos páginas web profesionales en Costa Rica: diseño responsive, SEO técnico, WhatsApp integrado y tiendas online. Precios desde $450. Cotización sin compromiso.';
+
+const crumbs = [
+  { name: 'Inicio', path: '/' },
+  { name: 'Páginas web Costa Rica', path },
+];
+
+const webSimple = getProduct('pagina-web-profesional-sin-carrito-de-compras');
+const webTienda = getProduct('pagina-web-tienda-online-con-carrito');
+const mantenimiento = getProduct('mantenimiento-web-basico-mensual');
+
+/** FAQ de esta página: las que responden intención de compra de sitio web. */
+const pageFaqs = [faqs[0], faqs[1], faqs[2], faqs[5], faqs[6]].filter(Boolean);
+
+const tiposDeSitio = [
+  {
+    n: '01',
+    t: 'Sitio web de negocio',
+    d: 'La página que necesita un negocio de servicios: quién sos, qué ofrecés y cómo te contactan. Con botón de WhatsApp y formulario.',
+  },
+  {
+    n: '02',
+    t: 'Tienda online',
+    d: 'Catálogo, carrito y pagos en línea. Para vender productos sin depender solo de mensajes por redes sociales.',
+    href: '/tiendas-online-costa-rica/',
+  },
+  {
+    n: '03',
+    t: 'Landing de campaña',
+    d: 'Una sola página enfocada en convertir tráfico de Meta Ads o Google Ads en consultas reales.',
+  },
+  {
+    n: '04',
+    t: 'Sitio institucional',
+    d: 'Para empresas con varias líneas de servicio o sedes, con estructura de contenido más amplia.',
+  },
+  {
+    n: '05',
+    t: 'Plataforma a medida',
+    d: 'Membresías, reservas, paneles internos. Cuando lo que necesitás no cabe en una plantilla.',
+  },
+  {
+    n: '06',
+    t: 'Menú digital QR',
+    d: 'Para restaurantes y cafeterías: carta siempre actualizada sin reimprimir nada.',
+    href: '/product/menu-qr-interactivo/',
+  },
+];
+
+const ventajas = [
+  {
+    t: 'Rápida de verdad',
+    d: 'Construimos sitios livianos y medimos Core Web Vitals. Una página lenta pierde visitas antes de que carguen.',
+  },
+  {
+    t: 'Pensada para el celular',
+    d: 'En Costa Rica la mayoría del tráfico llega desde el teléfono. El diseño arranca ahí, no al revés.',
+  },
+  {
+    t: 'Lista para Google',
+    d: 'Estructura semántica, metadatos únicos por página, Schema.org, sitemap y URLs limpias desde el primer día.',
+  },
+  {
+    t: 'Con un camino claro al contacto',
+    d: 'WhatsApp integrado y formularios que llegan a donde tienen que llegar. Una web bonita que nadie contacta no sirve.',
+  },
+  {
+    t: 'Tuya, sin ataduras',
+    d: 'Te entregamos el sitio, el dominio y los accesos. Podés seguir con nosotros o con quien quieras.',
+  },
+  {
+    t: 'Con soporte después',
+    d: 'El lanzamiento no es el final. Tenemos planes de mantenimiento mensual con backups y actualizaciones.',
+  },
+];
+
+const schemas = [
+  webPageSchema({ path, name: title, description }),
+  breadcrumbSchema(crumbs),
+  serviceSchema({
+    name: 'Diseño y desarrollo de páginas web en Costa Rica',
+    description,
+    path,
+    serviceType: 'Diseño y desarrollo web',
+  }),
+  faqSchema(pageFaqs.map((f) => ({ q: f.q, a: f.a }))),
+];
+---
+<Base title={title} description={description} path={path} schemas={schemas}>
+  <div class="page-wrap">
+    <Breadcrumbs items={crumbs} />
+
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <span class="page-eyebrow">Costa Rica · Desarrollo web</span>
+        <h1 class="page-h1">Páginas web en Costa Rica que trabajan para tu negocio</h1>
+        <p class="page-lead">
+          Diseñamos y programamos sitios web profesionales para empresas y emprendimientos
+          costarricenses. Rápidos, listos para Google y con WhatsApp integrado para que las
+          consultas te lleguen de una vez.
+        </p>
+        <div class="page-cta-row">
+          <a href="/#contacto" class="btn btn-solid">Pedir cotización</a>
+          <a href="/proyectos/" class="btn btn-outline">Ver proyectos</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block alt">
+      <div class="section-inner narrow prose">
+        <h2>Qué hacemos exactamente</h2>
+        <p>
+          Nos encargamos del sitio completo: la estructura del contenido, el diseño, la
+          programación, la configuración del dominio y el hosting, y la parte técnica de SEO que
+          hace que Google entienda de qué trata tu negocio. Si ya tenés un sitio, también lo
+          rehacemos o lo migramos.
+        </p>
+        <p>
+          Trabajamos con negocios de todo el país. Todo el proceso es remoto — no hace falta
+          reunirse en persona — y cubrimos {areasServed.join(', ')}.
+        </p>
+
+        <h2>Para quién es</h2>
+        <ul>
+          <li><strong>Negocios de servicios</strong> que hoy solo tienen Instagram o Facebook y pierden clientes que buscan en Google.</li>
+          <li><strong>Comercios</strong> que quieren vender en línea sin depender de responder mensajes uno por uno.</li>
+          <li><strong>Profesionales independientes</strong> — clínicas, bufetes, consultores — que necesitan verse serios desde el primer clic.</li>
+          <li><strong>Empresas</strong> con un sitio viejo, lento o que no aparece en Google.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-inner">
+        <h2 class="block-title">Tipos de sitio que desarrollamos</h2>
+        <p class="block-sub">Cada proyecto arranca definiendo cuál de estos necesitás realmente.</p>
+        <div class="card-grid cols-3">
+          {tiposDeSitio.map((t) =>
+            t.href ? (
+              <a class="info-card" href={t.href}>
+                <span class="info-card-num">{t.n}</span>
+                <h3>{t.t}</h3>
+                <p>{t.d}</p>
+              </a>
+            ) : (
+              <div class="info-card">
+                <span class="info-card-num">{t.n}</span>
+                <h3>{t.t}</h3>
+                <p>{t.d}</p>
+              </div>
+            )
+          )}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block alt">
+      <div class="section-inner">
+        <h2 class="block-title">Cómo trabajamos</h2>
+        <p class="block-sub">Tres etapas, sin sorpresas en el camino.</p>
+        <div class="card-grid cols-3">
+          {process.map((p) => (
+            <div class="info-card">
+              <span class="info-card-num">{p.num}</span>
+              <h3>{p.title}</h3>
+              <p>{p.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-inner narrow prose">
+        <h2>Con qué lo construimos</h2>
+        <p>
+          Elegimos la tecnología según lo que el proyecto necesita, no al revés. Para sitios que
+          el cliente va a editar seguido usamos <strong>WordPress</strong> con un tema propio.
+          Para sitios donde la velocidad y el SEO mandan, usamos generadores estáticos como
+          <strong>Astro</strong> desplegados en <strong>Cloudflare Pages</strong>, que sirven HTML
+          ya construido desde una red global. Para tiendas, <strong>WooCommerce</strong> con
+          pasarela de pago.
+        </p>
+        <p>
+          Este mismo sitio que estás viendo es un ejemplo: HTML estático servido desde Cloudflare,
+          sin base de datos que consultar en cada visita.
+        </p>
+
+        <h2>Precios</h2>
+        <p>
+          Estos son los precios publicados hoy. El alcance exacto se confirma antes de arrancar.
+        </p>
+        <ul>
+          {webSimple && (
+            <li>
+              <a href={`/product/${webSimple.slug}/`}>{webSimple.title}</a> — desde
+              <strong> ${webSimple.price} USD</strong>.
+            </li>
+          )}
+          {webTienda && (
+            <li>
+              <a href={`/product/${webTienda.slug}/`}>{webTienda.title}</a> — desde
+              <strong> ${webTienda.price} USD</strong>, incluye hasta 50 productos.
+            </li>
+          )}
+          {mantenimiento && (
+            <li>
+              <a href={`/product/${mantenimiento.slug}/`}>{mantenimiento.title}</a> — desde
+              <strong> ${mantenimiento.price} USD al mes</strong>.
+            </li>
+          )}
+        </ul>
+        <p>
+          Los proyectos a medida se cotizan según alcance. Podés ver todos los servicios con
+          precio en la <a href="/shop/">tienda</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-block alt">
+      <div class="section-inner">
+        <h2 class="block-title">Por qué con nosotros</h2>
+        <div class="card-grid cols-3">
+          {ventajas.map((v) => (
+            <div class="info-card">
+              <h3>{v.t}</h3>
+              <p>{v.d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-inner">
+        <h2 class="block-title">Proyectos que hicimos</h2>
+        <p class="block-sub">Sitios en producción de clientes costarricenses.</p>
+        <div class="card-grid cols-3">
+          {projects.slice(0, 6).map((p) => (
+            <a class="info-card" href={`/proyectos/${p.slug}/`}>
+              <span class="info-card-num">{p.domain}</span>
+              <h3>{p.name}</h3>
+              <p>{p.summary}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <div class="section-block alt" style="padding-bottom:0">
+      <Faq
+        title="Preguntas frecuentes sobre páginas web en Costa Rica"
+        subtitle="Lo que más nos preguntan antes de arrancar un proyecto"
+        only={[0, 1, 2, 5, 6]}
+      />
+    </div>
+
+    <section class="section-block">
+      <div class="section-inner narrow prose">
+        <h2>Seguí leyendo</h2>
+        <ul>
+          <li><a href="/diseno-web-costa-rica/">Diseño web en Costa Rica</a> — la parte visual y de marca.</li>
+          <li><a href="/desarrollo-web-costa-rica/">Desarrollo web en Costa Rica</a> — proyectos a medida y sistemas.</li>
+          <li><a href="/tiendas-online-costa-rica/">Tiendas online en Costa Rica</a> — vender por internet.</li>
+          <li><a href="/seo-costa-rica/">SEO en Costa Rica</a> — aparecer en Google.</li>
+          <li><a href="/agentes-ia-costa-rica/">Agentes de IA para WhatsApp</a> — atender 24/7.</li>
+        </ul>
+      </div>
+    </section>
+
+    <CtaBand
+      title="Contanos qué necesita tu negocio"
+      waText="Hola, quiero una cotización de página web"
+    />
+  </div>
+</Base>

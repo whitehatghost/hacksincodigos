@@ -1,0 +1,88 @@
+---
+import Base from './Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { webPageSchema, breadcrumbSchema, serviceSchema, faqSchema } from '../lib/schema';
+
+export interface Props {
+  path: string;
+  title: string;
+  description: string;
+  eyebrow: string;
+  h1: string;
+  lead: string;
+  crumbLabel: string;
+  serviceName: string;
+  serviceType: string;
+  faqs?: { q: string; a: string }[];
+  waText: string;
+  ctaTitle?: string;
+}
+
+const {
+  path,
+  title,
+  description,
+  eyebrow,
+  h1,
+  lead,
+  crumbLabel,
+  serviceName,
+  serviceType,
+  faqs = [],
+  waText,
+  ctaTitle,
+} = Astro.props;
+
+const crumbs = [
+  { name: 'Inicio', path: '/' },
+  { name: crumbLabel, path },
+];
+
+const schemas = [
+  webPageSchema({ path, name: title, description }),
+  breadcrumbSchema(crumbs),
+  serviceSchema({ name: serviceName, description, path, serviceType }),
+  ...(faqs.length ? [faqSchema(faqs)] : []),
+];
+---
+<Base title={title} description={description} path={path} schemas={schemas}>
+  <div class="page-wrap">
+    <Breadcrumbs items={crumbs} />
+
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <span class="page-eyebrow">{eyebrow}</span>
+        <h1 class="page-h1">{h1}</h1>
+        <p class="page-lead">{lead}</p>
+        <div class="page-cta-row">
+          <a href="/#contacto" class="btn btn-solid">Pedir cotización</a>
+          <a href="/proyectos/" class="btn btn-outline">Ver proyectos</a>
+        </div>
+      </div>
+    </section>
+
+    <slot />
+
+    {faqs.length > 0 && (
+      <section class="section-block alt">
+        <div class="section-inner narrow">
+          <h2 class="block-title">Preguntas frecuentes</h2>
+          <div class="faq-list" style="margin-top:1.5rem">
+            {faqs.map((f) => (
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span>{f.q}</span>
+                  <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
+                <div class="faq-answer"><p>{f.a}</p></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <CtaBand title={ctaTitle} waText={waText} />
+  </div>
+</Base>

@@ -1,0 +1,102 @@
+﻿---
+import ServiceLanding from '../layouts/ServiceLanding.astro';
+import { areasServed } from '../data/site';
+
+const path = '/seo-costa-rica/';
+
+const faqs = [
+  {
+    q: '¿En cuánto tiempo se ven resultados en Google?',
+    a: 'El SEO no es inmediato. Los arreglos técnicos y el perfil de Google Business pueden mover cosas en semanas; posicionar términos competitivos suele tomar de tres a seis meses de trabajo sostenido. Cualquiera que te prometa el primer lugar en dos semanas te está vendiendo humo.',
+  },
+  {
+    q: '¿Garantizan la primera posición en Google?',
+    a: 'No, y nadie serio puede garantizarla: el ranking lo decide Google, no el proveedor. Lo que sí garantizamos es el trabajo técnico correcto, contenido honesto y reportes de lo que se hizo.',
+  },
+  {
+    q: '¿Sirve si mi negocio es solo local?',
+    a: 'Sirve más todavía. El SEO local —perfil de Google Business, datos de contacto consistentes, contenido con menciones geográficas— es lo que hace que aparezcas cuando alguien busca tu servicio cerca.',
+  },
+  {
+    q: '¿Hacen link building?',
+    a: 'Solo enlaces legítimos: menciones reales, directorios de negocios costarricenses, atribución en los sitios de clientes que desarrollamos. No compramos enlaces ni participamos en redes de sitios; eso es lo que hace que Google te penalice.',
+  },
+];
+---
+<ServiceLanding
+  path={path}
+  title="SEO en Costa Rica — Posicionamiento en Google | HacksinCodigos"
+  description="SEO técnico y local en Costa Rica: que tu negocio aparezca en Google cuando alguien busca tu servicio. Auditoría, estructura, contenido y Google Business Profile."
+  eyebrow="Costa Rica · Posicionamiento"
+  h1="SEO en Costa Rica: que te encuentren cuando te buscan"
+  lead="Trabajo técnico y de contenido para que Google entienda qué hace tu negocio, dónde lo hace y por qué debería mostrarte. Sin trucos que después cuestan caro."
+  crumbLabel="SEO Costa Rica"
+  serviceName="Posicionamiento SEO en Costa Rica"
+  serviceType="Optimización para motores de búsqueda"
+  faqs={faqs}
+  waText="Hola, quiero mejorar el SEO de mi sitio web"
+  ctaTitle="¿Revisamos por qué no aparecés en Google?"
+>
+  <section class="section-block alt">
+    <div class="section-inner narrow prose">
+      <h2>Las tres partes del trabajo</h2>
+
+      <h3>1. SEO técnico</h3>
+      <p>
+        Es la base y es donde más sitios fallan. Incluye: velocidad de carga y Core Web Vitals,
+        estructura de encabezados, metadatos únicos por página, URLs limpias, canonical correcto,
+        datos estructurados de Schema.org, sitemap XML, robots.txt y redirecciones bien hechas
+        cuando algo cambia de dirección.
+      </p>
+
+      <h3>2. SEO local</h3>
+      <p>
+        Lo que hace que aparezcas en el mapa y en las búsquedas con intención geográfica. Perfil
+        de Google Business completo y verificado, datos de contacto idénticos en todos lados,
+        presencia en directorios costarricenses y contenido que menciona las zonas donde
+        realmente trabajás: {areasServed.join(', ')}.
+      </p>
+
+      <h3>3. Contenido</h3>
+      <p>
+        Páginas que responden lo que la gente escribe en el buscador. Una página por intención de
+        búsqueda, escrita para que se entienda, no para repetir la palabra clave veinte veces.
+        Google lleva años detectando eso y castigándolo.
+      </p>
+
+      <h2>Qué no hacemos</h2>
+      <p>
+        Ni compra de enlaces, ni redes privadas de sitios, ni texto escondido, ni reseñas
+        inventadas, ni datos estructurados con información falsa. Todo eso funciona un rato y
+        después hunde el dominio. Si lo que buscás es eso, no somos el proveedor.
+      </p>
+
+      <h2>Cómo empezamos</h2>
+      <p>
+        Con una auditoría: qué está indexado, qué errores técnicos hay, cómo está el perfil de
+        Google Business, qué términos tienen sentido para tu negocio y qué están haciendo los que
+        aparecen arriba. De ahí sale un plan con prioridades.
+      </p>
+      <p>
+        Si tu sitio es viejo o lento, a veces sale más a cuenta rehacerlo que parcharlo — eso lo
+        vemos en <a href="/desarrollo-web-costa-rica/">desarrollo web</a>. Todos los sitios que
+        hacemos en <a href="/paginas-web-costa-rica/">páginas web Costa Rica</a> salen con el SEO
+        técnico ya resuelto.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-inner">
+      <h2 class="block-title">Qué incluye una auditoría SEO</h2>
+      <div class="card-grid cols-3">
+        <div class="info-card"><span class="info-card-num">01</span><h3>Indexación</h3><p>Qué páginas conoce Google, cuáles ignora y por qué.</p></div>
+        <div class="info-card"><span class="info-card-num">02</span><h3>Rendimiento</h3><p>Core Web Vitals reales en celular y escritorio.</p></div>
+        <div class="info-card"><span class="info-card-num">03</span><h3>Estructura</h3><p>Encabezados, enlazado interno y arquitectura de URLs.</p></div>
+        <div class="info-card"><span class="info-card-num">04</span><h3>Metadatos</h3><p>Títulos y descripciones duplicados, ausentes o mal escritos.</p></div>
+        <div class="info-card"><span class="info-card-num">05</span><h3>Datos estructurados</h3><p>Schema.org presente, válido y con información real.</p></div>
+        <div class="info-card"><span class="info-card-num">06</span><h3>Presencia local</h3><p>Google Business, consistencia de datos y directorios.</p></div>
+      </div>
+    </div>
+  </section>
+</ServiceLanding>

@@ -1,0 +1,103 @@
+﻿---
+import ServiceLanding from '../layouts/ServiceLanding.astro';
+import { projects } from '../data/projects';
+import { getProduct } from '../data/products';
+
+const path = '/desarrollo-web-costa-rica/';
+const webSimple = getProduct('pagina-web-profesional-sin-carrito-de-compras');
+
+const faqs = [
+  {
+    q: '¿Con qué tecnologías trabajan?',
+    a: 'Depende del proyecto. WordPress cuando el cliente necesita editar contenido a diario; Astro y sitios estáticos sobre Cloudflare Pages cuando la prioridad es velocidad y SEO; WooCommerce para tiendas; y APIs REST propias cuando hay que integrar sistemas.',
+  },
+  {
+    q: '¿Me entregan el código?',
+    a: 'Sí. El código, el dominio y los accesos al hosting quedan a nombre del cliente. No trabajamos con esquemas donde el sitio queda secuestrado si te vas.',
+  },
+  {
+    q: '¿Pueden integrar el sitio con sistemas que ya uso?',
+    a: 'Sí, ese es justamente el trabajo de backend: conectar el sitio con pasarelas de pago, CRMs, sistemas de inventario o servicios de terceros mediante APIs.',
+  },
+  {
+    q: '¿Hacen mantenimiento después del lanzamiento?',
+    a: 'Sí, con planes mensuales que incluyen actualizaciones, backups y un número de cambios al mes. Los precios están publicados en la tienda.',
+  },
+];
+
+const proyectosDev = projects.filter((p) => p.relatedServices.includes(path));
+---
+<ServiceLanding
+  path={path}
+  title="Desarrollo Web en Costa Rica — Sitios y APIs | HacksinCodigos"
+  description="Desarrollo web profesional en Costa Rica: sitios a medida, plataformas, integraciones y APIs seguras. Código propio, entregado al cliente, listo para escalar."
+  eyebrow="Costa Rica · Desarrollo"
+  h1="Desarrollo web en Costa Rica para lo que una plantilla no resuelve"
+  lead="Programamos sitios, plataformas e integraciones a medida. Cuando lo que necesitás tiene lógica propia —reservas, membresías, inventario, conexión con otro sistema— esto es lo que hace falta."
+  crumbLabel="Desarrollo web Costa Rica"
+  serviceName="Desarrollo web a medida en Costa Rica"
+  serviceType="Desarrollo de software web"
+  faqs={faqs}
+  waText="Hola, me interesa el servicio de Desarrollo Web"
+  ctaTitle="¿Tenés un proyecto con requisitos propios?"
+>
+  <section class="section-block alt">
+    <div class="section-inner narrow prose">
+      <h2>Qué desarrollamos</h2>
+      <ul>
+        <li><strong>Sitios web a medida:</strong> desde el sitio de un negocio hasta un portal con muchas secciones.</li>
+        <li><strong>Plataformas web:</strong> áreas privadas, membresías, gestión de usuarios y contenido restringido.</li>
+        <li><strong>Sistemas internos:</strong> CRM, control de inventario, paneles de gestión adaptados al proceso real de la empresa.</li>
+        <li><strong>APIs y backend:</strong> servicios REST con autenticación y cifrado, e integraciones con proveedores externos.</li>
+        <li><strong>Migraciones:</strong> mover un sitio existente a una arquitectura más rápida sin perder el posicionamiento.</li>
+      </ul>
+
+      <h2>Cómo decidimos la arquitectura</h2>
+      <p>
+        No empezamos por la herramienta. Primero vemos quién va a editar el contenido, con qué
+        frecuencia, cuánto tráfico se espera y con qué otros sistemas hay que hablar. De ahí sale
+        la decisión.
+      </p>
+      <p>
+        Un sitio que casi no cambia y necesita velocidad va como sitio estático sobre una red de
+        distribución global: no hay base de datos que consultar, así que carga rápido y hay mucha
+        menos superficie de ataque. Un sitio con contenido que cambia todos los días necesita un
+        gestor. Una tienda necesita catálogo, carrito y pagos — eso lo cubrimos en
+        <a href="/tiendas-online-costa-rica/">tiendas online</a>.
+      </p>
+
+      <h2>Seguridad desde el inicio</h2>
+      <p>
+        Venimos del lado de la ciberseguridad, así que lo damos por sentado: HTTPS obligatorio,
+        cabeceras de seguridad configuradas, dependencias actualizadas, nada de credenciales
+        dentro del código y backups automáticos en los planes de mantenimiento.
+      </p>
+
+      <h2>Precios</h2>
+      <p>
+        Los proyectos a medida se cotizan por alcance. Si lo que necesitás es un sitio de negocio
+        estándar, el precio ya está publicado:
+        {webSimple && (
+          <> <a href={`/product/${webSimple.slug}/`}>{webSimple.title}</a> desde <strong>${webSimple.price} USD</strong>.</>
+        )}
+        Todo lo demás está en la <a href="/shop/">tienda</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-inner">
+      <h2 class="block-title">Proyectos desarrollados</h2>
+      <p class="block-sub">Sitios en producción que construimos.</p>
+      <div class="card-grid cols-3">
+        {proyectosDev.map((p) => (
+          <a class="info-card" href={`/proyectos/${p.slug}/`}>
+            <span class="info-card-num">{p.domain}</span>
+            <h3>{p.name}</h3>
+            <p>{p.summary}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</ServiceLanding>

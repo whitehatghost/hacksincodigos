@@ -1,0 +1,98 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { projects } from '../../data/projects';
+import { webPageSchema, breadcrumbSchema } from '../../lib/schema';
+
+const title = 'Portafolio — Proyectos web hechos en Costa Rica | HacksinCodigos';
+const description =
+  'Casos reales de páginas web y tiendas online que desarrollamos para empresas costarricenses: construcción, retail, salud, bienes raíces y educación en línea.';
+
+const crumbs = [
+  { name: 'Inicio', path: '/' },
+  { name: 'Portafolio', path: '/proyectos/' },
+];
+
+const schemas = [
+  webPageSchema({ path: '/proyectos/', name: title, description, type: 'CollectionPage' }),
+  breadcrumbSchema(crumbs),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Portafolio de HacksinCodigos',
+    numberOfItems: projects.length,
+    itemListElement: projects.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: p.name,
+      url: `https://hacksincodigos.com/proyectos/${p.slug}/`,
+    })),
+  },
+];
+---
+<Base title={title} description={description} path="/proyectos/" schemas={schemas}>
+  <div class="page-wrap">
+    <Breadcrumbs items={crumbs} />
+
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <span class="page-eyebrow">Portafolio</span>
+        <h1 class="page-h1">Proyectos reales de empresas costarricenses</h1>
+        <p class="page-lead">
+          Cada uno de estos sitios está en producción y lo desarrollamos nosotros. Entrá a cada
+          caso para ver qué se construyó y con qué tecnologías.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-inner">
+        <div class="card-grid cols-3">
+          {projects.map((p) => (
+            <article class="info-card">
+              <div
+                class="project-hero-thumb"
+                style={`${p.thumbGradient ? `background:${p.thumbGradient};` : 'background:linear-gradient(135deg,#0d1117,#111827);'}height:120px;margin-bottom:1.15rem`}
+              >{p.domain}</div>
+              <div class="pill-row" style="margin:0 0 .75rem">
+                {p.tags.map((t) => <span class="tag-pill">{t}</span>)}
+              </div>
+              <h3><a href={`/proyectos/${p.slug}/`} style="color:inherit;text-decoration:none">{p.name}</a></h3>
+              <p>{p.summary}</p>
+              <div class="portfolio-actions" style="margin-top:1rem">
+                <a href={`/proyectos/${p.slug}/`} class="btn-portfolio">Ver caso →</a>
+                {p.liveUrl && (
+                  <a href={p.liveUrl} target="_blank" rel="noopener" class="portfolio-live">Visitar sitio ↗</a>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block alt">
+      <div class="section-inner narrow prose">
+        <h2>Qué tienen en común estos proyectos</h2>
+        <p>
+          Todos se construyeron pensando primero en el celular, con la estructura técnica que
+          Google necesita para indexarlos y con un camino claro para que el visitante contacte al
+          negocio. Es el mismo enfoque que aplicamos en
+          <a href="/desarrollo-web-costa-rica/">desarrollo web</a>,
+          <a href="/tiendas-online-costa-rica/">tiendas online</a> y
+          <a href="/seo-costa-rica/">posicionamiento en Google</a>.
+        </p>
+        <p>
+          Si querés ver precios y alcances cerrados, están en la
+          <a href="/shop/">tienda</a>. Si tu proyecto es a medida, empecemos por una conversación.
+        </p>
+      </div>
+    </section>
+
+    <CtaBand
+      title="¿Tu negocio es el próximo?"
+      waText="Hola, vi el portafolio y quiero una página web para mi negocio"
+    />
+  </div>
+</Base>

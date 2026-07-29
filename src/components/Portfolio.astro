@@ -1,0 +1,40 @@
+---
+import { projects } from '../data/projects';
+---
+<section id="portafolio" aria-label="Portafolio">
+  <div class="container">
+    <h2 class="section-title fade-up" data-i18n="portfolio_title">Proyectos que hablan por nosotros</h2>
+    <p class="section-subtitle fade-up" data-i18n="portfolio_sub">Sitios reales, resultados reales para empresas costarricenses</p>
+  </div>
+  <div class="portfolio-scroll" id="portfolio-scroll" role="list">
+    {projects.map((p, i) => (
+      <article class="portfolio-card" role="listitem">
+        <div class="portfolio-thumb" style={p.thumbGradient ? `background:${p.thumbGradient}` : undefined}>
+          <span class="portfolio-thumb-label">{p.domain}</span>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-tags">
+            {p.tags.map((t) => <span class="tag-pill">{t}</span>)}
+          </div>
+          <h3>{p.name}</h3>
+          <p data-i18n={`pf${i + 1}_desc`}>{p.summary}</p>
+          <div class="portfolio-actions">
+            <a href={`/proyectos/${p.slug}/`} class="btn-portfolio" aria-label={`Ver el caso de ${p.name}`}>Ver caso →</a>
+            {p.liveUrl && (
+              <a
+                href={p.liveUrl}
+                target="_blank"
+                rel="noopener"
+                class="portfolio-live"
+                aria-label={`Visitar el sitio web de ${p.name}`}
+              >Visitar sitio ↗</a>
+            )}
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+  <div class="container portfolio-footer fade-up">
+    <a href="/proyectos/" class="btn btn-outline">Ver todo el portafolio</a>
+  </div>
+</section>

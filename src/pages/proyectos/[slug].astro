@@ -1,0 +1,135 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { projects, type Project } from '../../data/projects';
+import { webPageSchema, breadcrumbSchema, creativeWorkSchema } from '../../lib/schema';
+
+export function getStaticPaths() {
+  return projects.map((p) => ({ params: { slug: p.slug }, props: { project: p } }));
+}
+
+interface Props { project: Project }
+const { project } = Astro.props;
+const path = `/proyectos/${project.slug}/`;
+
+const crumbs = [
+  { name: 'Inicio', path: '/' },
+  { name: 'Portafolio', path: '/proyectos/' },
+  { name: project.name, path },
+];
+
+const others = projects.filter((p) => p.slug !== project.slug).slice(0, 3);
+
+const serviceLabels: Record<string, string> = {
+  '/desarrollo-web-costa-rica/': 'desarrollo web a medida',
+  '/tiendas-online-costa-rica/': 'tiendas online',
+  '/diseno-web-costa-rica/': 'diseño web',
+  '/seo-costa-rica/': 'posicionamiento SEO',
+  '/agentes-ia-costa-rica/': 'agentes de IA para WhatsApp',
+  '/paginas-web-costa-rica/': 'páginas web en Costa Rica',
+};
+
+const schemas = [
+  webPageSchema({ path, name: project.metaTitle, description: project.metaDesc, type: 'ItemPage' }),
+  breadcrumbSchema(crumbs),
+  creativeWorkSchema({
+    name: project.name,
+    description: project.summary,
+    path,
+    clientUrl: project.liveUrl,
+    industry: project.industry,
+  }),
+];
+---
+<Base title={project.metaTitle} description={project.metaDesc} path={path} schemas={schemas}>
+  <div class="page-wrap">
+    <Breadcrumbs items={crumbs} />
+
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <span class="page-eyebrow">Caso de proyecto</span>
+        <h1 class="page-h1">{project.name}</h1>
+        <p class="page-lead">{project.summary}</p>
+        {project.liveUrl && (
+          <div class="page-cta-row">
+            <a href={project.liveUrl} class="btn btn-solid" target="_blank" rel="noopener">Visitar sitio web ↗</a>
+            <a href="/proyectos/" class="btn btn-outline">Ver más proyectos</a>
+          </div>
+        )}
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-inner narrow">
+        <div
+          class="project-hero-thumb"
+          style={project.thumbGradient ? `background:${project.thumbGradient}` : 'background:linear-gradient(135deg,#0d1117,#111827)'}
+        >{project.domain}</div>
+
+        <dl class="project-facts">
+          <div class="project-fact">
+            <dt>Cliente</dt>
+            <dd>{project.name}</dd>
+          </div>
+          <div class="project-fact">
+            <dt>Industria</dt>
+            <dd>{project.industry}</dd>
+          </div>
+          <div class="project-fact">
+            <dt>Sitio</dt>
+            <dd>{project.liveUrl ? <a href={project.liveUrl} target="_blank" rel="noopener" style="color:var(--accent-green);text-decoration:none">{project.domain}</a> : project.domain}</dd>
+          </div>
+        </dl>
+
+        <div class="prose">
+          <h2>El objetivo</h2>
+          <p>{project.objective}</p>
+
+          <h2>Qué construimos</h2>
+          <ul>
+            {project.scope.map((s) => <li>{s}</li>)}
+          </ul>
+
+          <h2>Tecnologías</h2>
+          <div class="pill-row">
+            {project.tech.map((t) => <span class="tag-pill">{t}</span>)}
+          </div>
+
+          <h2>Servicios relacionados</h2>
+          <p>
+            Este proyecto combina {project.relatedServices.map((s, i) => (
+              <>
+                {i > 0 && (i === project.relatedServices.length - 1 ? ' y ' : ', ')}
+                <a href={s}>{serviceLabels[s] ?? s}</a>
+              </>
+            ))}. Si tu negocio necesita algo parecido, podemos partir de aquí.
+          </p>
+        </div>
+
+        <p class="attribution">
+          Sitio web desarrollado por <a href="/">HacksinCodigos</a>, empresa de
+          <a href="/desarrollo-web-costa-rica/">desarrollo web en Costa Rica</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-block alt">
+      <div class="section-inner">
+        <h2 class="block-title">Otros proyectos</h2>
+        <p class="block-sub">Más trabajos del <a href="/proyectos/" style="color:var(--accent-green);text-decoration:none">portafolio</a>.</p>
+        <div class="card-grid cols-3">
+          {others.map((p) => (
+            <a class="info-card" href={`/proyectos/${p.slug}/`}>
+              <span class="info-card-num">{p.domain}</span>
+              <h3>{p.name}</h3>
+              <p>{p.summary}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CtaBand waText={`Hola, vi el caso de ${project.name} y quiero algo parecido para mi negocio`} />
+  </div>
+</Base>

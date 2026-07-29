@@ -1,0 +1,175 @@
+/**
+ * Proyectos reales del portafolio.
+ *
+ * REGLA: aquí solo va información verificable — nombre del cliente, sector, el tipo de
+ * sitio que se construyó y las funcionalidades observables en el sitio publicado.
+ * NO se incluyen métricas, porcentajes de aumento de ventas, ni testimonios inventados.
+ * `liveUrl` se deja en null cuando el dominio no respondió en la última verificación.
+ */
+
+export interface Project {
+  slug: string;
+  name: string;
+  domain: string;
+  /** null = el dominio no respondió al verificar; no se enlaza para no dejar links rotos. */
+  liveUrl: string | null;
+  industry: string;
+  tags: string[];
+  /** Resumen corto — es el texto que ya usaba la home. */
+  summary: string;
+  objective: string;
+  /** Qué se construyó. Hechos observables, no resultados. */
+  scope: string[];
+  tech: string[];
+  /** Servicios de HacksinCodigos relacionados, para enlazado interno. */
+  relatedServices: string[];
+  /** Gradiente del thumb, tal como en la home actual. */
+  thumbGradient?: string;
+  metaTitle: string;
+  metaDesc: string;
+}
+
+export const projects: Project[] = [
+  {
+    slug: 'grupo-novo',
+    name: 'Grupo Novo',
+    domain: 'gruponovocr.com',
+    liveUrl: 'https://gruponovocr.com',
+    industry: 'Materiales y productos de construcción',
+    tags: ['E-commerce', 'Construcción', 'WooCommerce'],
+    summary: 'E-commerce industrial con catálogo completo de productos de construcción.',
+    objective:
+      'Llevar el catálogo de productos de construcción de Grupo Novo a internet y permitir que sus clientes consulten y pidan en línea, sin depender del teléfono o de visitas al local.',
+    scope: [
+      'Tienda en línea con catálogo de productos organizados por categoría',
+      'Fichas de producto con imágenes y descripciones',
+      'Diseño responsive orientado a consulta desde el celular en obra',
+      'Estructura preparada para búsqueda en Google',
+    ],
+    tech: ['WordPress', 'WooCommerce', 'Diseño responsive'],
+    relatedServices: ['/tiendas-online-costa-rica/', '/desarrollo-web-costa-rica/'],
+    metaTitle: 'Grupo Novo — E-commerce de construcción en Costa Rica | HacksinCodigos',
+    metaDesc:
+      'Caso de proyecto: tienda en línea con catálogo de productos de construcción para Grupo Novo, desarrollada por HacksinCodigos en Costa Rica.',
+  },
+  {
+    slug: 'la-casita-del-bebe',
+    name: 'La Casita del Bebé',
+    domain: 'lacasitadelbebecr.com',
+    liveUrl: 'https://lacasitadelbebecr.com',
+    industry: 'Retail — productos para bebé',
+    tags: ['E-commerce', 'Tienda', 'Pagos online'],
+    summary: 'Tienda online especializada en productos para bebés con pagos integrados.',
+    objective:
+      'Abrir un canal de venta en línea para una tienda de productos de bebé, con carrito y pagos, además de su punto de venta físico.',
+    scope: [
+      'Tienda en línea con carrito de compras',
+      'Integración de pagos en línea',
+      'Catálogo por categorías de producto',
+      'Diseño mobile-first para compra desde el celular',
+    ],
+    tech: ['WordPress', 'WooCommerce', 'Pasarela de pagos'],
+    relatedServices: ['/tiendas-online-costa-rica/', '/desarrollo-web-costa-rica/'],
+    thumbGradient: 'linear-gradient(135deg,#1a0a2e,#0d1117)',
+    metaTitle: 'La Casita del Bebé — Tienda online en Costa Rica | HacksinCodigos',
+    metaDesc:
+      'Caso de proyecto: tienda en línea con carrito y pagos para La Casita del Bebé, desarrollada por HacksinCodigos en Costa Rica.',
+  },
+  {
+    slug: 'efecto-poker',
+    name: 'Efecto Poker',
+    domain: 'efectopoker.com',
+    // Verificado el 2026-07-28: el dominio no respondió. No se enlaza para no dejar un link roto.
+    liveUrl: null,
+    industry: 'Educación en línea',
+    tags: ['Cursos', 'Membresías', 'Videoteca'],
+    summary: 'Plataforma de cursos con sistema de membresías y videoteca completa.',
+    objective:
+      'Construir una plataforma donde los estudiantes accedan a contenido en video mediante una membresía, con el material organizado por módulos.',
+    scope: [
+      'Plataforma de cursos con acceso restringido por membresía',
+      'Videoteca organizada por módulos y lecciones',
+      'Registro y gestión de usuarios',
+      'Área privada para estudiantes',
+    ],
+    tech: ['WordPress', 'Sistema de membresías', 'Video hosting'],
+    relatedServices: ['/desarrollo-web-costa-rica/'],
+    thumbGradient: 'linear-gradient(135deg,#0a1a0a,#0d1117)',
+    metaTitle: 'Efecto Poker — Plataforma de cursos con membresías | HacksinCodigos',
+    metaDesc:
+      'Caso de proyecto: plataforma de cursos en línea con membresías y videoteca, desarrollada por HacksinCodigos.',
+  },
+  {
+    slug: 'carlouis',
+    name: 'Carlouis',
+    domain: 'carlouis.net',
+    liveUrl: 'https://carlouis.net',
+    industry: 'Alimentos gourmet artesanales',
+    tags: ['E-commerce', 'Gourmet', 'Artesanal'],
+    summary: 'Tienda de productos gourmet artesanales con experiencia premium.',
+    objective:
+      'Dar a una marca de salsas artesanales costarricenses una tienda en línea que transmita el carácter premium del producto.',
+    scope: [
+      'Tienda en línea de productos gourmet',
+      'Diseño de marca aplicado a la experiencia de compra',
+      'Fichas de producto con fotografía de producto',
+      'Diseño responsive',
+    ],
+    tech: ['WordPress', 'WooCommerce', 'Diseño responsive'],
+    relatedServices: ['/tiendas-online-costa-rica/', '/diseno-web-costa-rica/'],
+    thumbGradient: 'linear-gradient(135deg,#1a0f00,#0d1117)',
+    metaTitle: 'Carlouis — Tienda de salsas artesanales gourmet | HacksinCodigos',
+    metaDesc:
+      'Caso de proyecto: tienda en línea de salsas artesanales gourmet en Costa Rica, desarrollada por HacksinCodigos.',
+  },
+  {
+    slug: 'costa-rica-realty-pro',
+    name: 'Costa Rica Realty PRO',
+    domain: 'costaricarealtypro.com',
+    liveUrl: 'https://costaricarealtypro.com',
+    industry: 'Bienes raíces',
+    tags: ['Real Estate', 'Inversión', 'Consultoría'],
+    summary: 'Portal inmobiliario de alto nivel para inversión en bienes raíces.',
+    objective:
+      'Presentar propiedades y servicios de asesoría inmobiliaria a un público internacional interesado en invertir en Costa Rica.',
+    scope: [
+      'Portal inmobiliario con listado de propiedades',
+      'Fichas de propiedad con galería de imágenes',
+      'Formularios de contacto para consultas de inversión',
+      'Diseño orientado a público internacional',
+    ],
+    tech: ['WordPress', 'Listados de propiedades', 'Diseño responsive'],
+    relatedServices: ['/desarrollo-web-costa-rica/', '/seo-costa-rica/'],
+    thumbGradient: 'linear-gradient(135deg,#001a0f,#0d1117)',
+    metaTitle: 'Costa Rica Realty PRO — Portal inmobiliario | HacksinCodigos',
+    metaDesc:
+      'Caso de proyecto: portal inmobiliario para inversión en bienes raíces en Costa Rica, desarrollado por HacksinCodigos.',
+  },
+  {
+    slug: 'ryv-dental',
+    name: 'RyV Dental',
+    domain: 'ryvdental.com',
+    liveUrl: 'https://ryvdental.com',
+    industry: 'Salud — clínica dental',
+    tags: ['Salud', 'Dental', 'Invisalign'],
+    summary: 'Clínica dental premium con presencia digital profesional y agenda online.',
+    objective:
+      'Dar a una clínica dental una presencia digital profesional que explique sus tratamientos y facilite que los pacientes soliciten una cita.',
+    scope: [
+      'Sitio web de clínica dental con sus tratamientos',
+      'Solicitud de cita en línea',
+      'Secciones de servicios y casos',
+      'Diseño responsive y enfocado en conversión',
+    ],
+    tech: ['WordPress', 'Elementor', 'Diseño responsive'],
+    relatedServices: ['/diseno-web-costa-rica/', '/desarrollo-web-costa-rica/'],
+    thumbGradient: 'linear-gradient(135deg,#0a001a,#0d1117)',
+    metaTitle: 'RyV Dental — Sitio web para clínica dental | HacksinCodigos',
+    metaDesc:
+      'Caso de proyecto: sitio web con solicitud de cita en línea para la clínica RyV Dental, desarrollado por HacksinCodigos en Costa Rica.',
+  },
+];
+
+export function getProject(slug: string): Project | undefined {
+  return projects.find((p) => p.slug === slug);
+}

@@ -1,0 +1,26 @@
+---
+import { wa } from '../data/site';
+import WhatsAppIcon from './WhatsAppIcon.astro';
+
+export interface Props {
+  title?: string;
+  text?: string;
+  waText?: string;
+}
+const {
+  title = '¿Hablamos de tu proyecto?',
+  text = 'Contanos qué necesitás y te damos una propuesta clara, sin compromiso. Respondemos en menos de 24 horas.',
+  waText = 'Hola HacksinCodigos, vengo desde su página web',
+} = Astro.props;
+---
+<section class="cta-band">
+  <h2>{title}</h2>
+  <p>{text}</p>
+  <div class="page-cta-row">
+    <a href={wa(waText)} class="btn btn-solid wa-btn" target="_blank" rel="noopener">
+      <WhatsAppIcon size={18} />
+      <span>Escribir por WhatsApp</span>
+    </a>
+    <a href="/#contacto" class="btn btn-outline">Enviar el formulario</a>
+  </div>
+</section>

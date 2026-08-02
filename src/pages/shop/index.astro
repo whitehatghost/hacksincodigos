@@ -2,17 +2,24 @@
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
-import { productsOrdered } from '../../data/products';
+import WhatsAppIcon from '../../components/WhatsAppIcon.astro';
+import { categories } from '../../data/shop';
+import { products, productsOf } from '../../data/products';
+import { wa } from '../../data/site';
 import { webPageSchema, breadcrumbSchema } from '../../lib/schema';
 
-const title = 'Tienda — Servicios digitales con precio en Costa Rica | HacksinCodigos';
+const title = 'Precios de Páginas Web en Costa Rica';
 const description =
-  'Precios claros de páginas web, tiendas online, mantenimiento, correo empresarial, menús QR, diseño e imágenes publicitarias. Servicios digitales en Costa Rica.';
+  'Precios claros y sin letra pequeña: página web profesional desde $450, tienda online desde $850, mantenimiento mensual, correo empresarial y contenido para redes.';
 
 const crumbs = [
   { name: 'Inicio', path: '/' },
-  { name: 'Tienda', path: '/shop/' },
+  { name: 'Precios', path: '/shop/' },
 ];
+
+const featured = categories.find((c) => c.layout === 'featured')!;
+const featuredItems = productsOf(featured.id);
+const rest = categories.filter((c) => c.layout !== 'featured');
 
 const schemas = [
   webPageSchema({ path: '/shop/', name: title, description, type: 'CollectionPage' }),
@@ -20,9 +27,9 @@ const schemas = [
   {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Servicios digitales de HacksinCodigos',
-    numberOfItems: productsOrdered.length,
-    itemListElement: productsOrdered.map((p, i) => ({
+    name: 'Servicios de HacksinCodigos',
+    numberOfItems: products.length,
+    itemListElement: products.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: p.title,
@@ -30,51 +37,50 @@ const schemas = [
     })),
   },
 ];
+
+const waMsg = (p: { title: string; priceLabel: string }) =>
+  `Hola, me interesa ${p.title} (${p.priceLabel} USD). ¿Me das más información?`;
 ---
-<Base title={title} description={description} path="/shop/" schemas={schemas}>
+<Base title={`${title} | HacksinCodigos`} description={description} path="/shop/" schemas={schemas}>
   <div class="page-wrap">
     <Breadcrumbs items={crumbs} />
 
     <section class="page-hero">
       <div class="page-hero-inner">
         <span class="page-eyebrow">Precios públicos</span>
-        <h1 class="page-h1">Tienda de servicios digitales</h1>
+        <h1 class="page-h1">Precios claros, sin letra pequeña</h1>
         <p class="page-lead">
-          Estos son los servicios con precio fijo y alcance definido. Si tu proyecto necesita algo
-          distinto, escribinos y armamos una propuesta a la medida — también hacemos
-          <a href="/desarrollo-web-costa-rica/">desarrollo web</a>,
-          <a href="/agentes-ia-costa-rica/">agentes de IA</a> y
-          <a href="/tiendas-online-costa-rica/">tiendas online</a> completas.
+          Esto es lo que cuesta cada servicio y qué incluye exactamente. Si tu proyecto necesita
+          algo distinto, lo cotizamos a la medida — escribinos y lo vemos.
         </p>
       </div>
     </section>
 
-    <section class="section-block">
+    <!-- ═══ Páginas web: las dos opciones principales ═══ -->
+    <section class="section-block" id={featured.id}>
       <div class="section-inner">
-        <div class="shop-grid">
-          {productsOrdered.map((p) => (
-            <article class="product-card">
-              <a href={`/product/${p.slug}/`} class="product-card-media" tabindex="-1" aria-hidden="true">
-                <img
-                  src={p.imageSmall}
-                  alt=""
-                  width="400"
-                  height="400"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
-              <div class="product-card-body">
-                {p.onSale && <span class="badge-sale">Oferta</span>}
-                <h3><a href={`/product/${p.slug}/`}>{p.title}</a></h3>
-                <p class="product-card-desc">{p.shortDesc}</p>
-                {p.price && (
-                  <div class="price">
-                    <span class="price-now">${p.price}</span>
-                    {p.onSale && p.regularPrice && <span class="price-was">${p.regularPrice}</span>}
-                  </div>
-                )}
-                <span class="price-note">Precio en USD</span>
+        <h2 class="block-title">{featured.title}</h2>
+        <p class="block-sub">{featured.intro}</p>
+
+        <div class="plan-duo">
+          {featuredItems.map((p) => (
+            <article class:list={['plan-card', p.recommended && 'is-recommended']}>
+              {p.recommended && <span class="plan-flag">Más pedido</span>}
+              <h3 class="plan-name">{p.title}</h3>
+              <p class="plan-tagline">{p.tagline}</p>
+              <p class="plan-price">
+                <span class="plan-price-amount">${p.price}</span>
+                <span class="plan-price-unit">USD</span>
+              </p>
+              <ul class="plan-features" role="list">
+                {p.highlights.map((h) => <li>{h}</li>)}
+              </ul>
+              <div class="plan-actions">
+                <a href={wa(waMsg(p))} class="btn btn-solid wa-btn" target="_blank" rel="noopener">
+                  <WhatsAppIcon size={17} />
+                  <span>Lo quiero</span>
+                </a>
+                <a href={`/product/${p.slug}/`} class="plan-detail">Ver qué incluye →</a>
               </div>
             </article>
           ))}
@@ -82,17 +88,68 @@ const schemas = [
       </div>
     </section>
 
-    <section class="section-block alt">
+    <!-- ═══ Resto de categorías ═══ -->
+    {rest.map((cat, idx) => {
+      const list = productsOf(cat.id);
+      if (!list.length) return null;
+      const isPlans = cat.layout === 'plans';
+      return (
+        <section class:list={['section-block', idx % 2 === 0 && 'alt']} id={cat.id}>
+          <div class="section-inner">
+            <h2 class="block-title">{cat.title}</h2>
+            <p class="block-sub">{cat.intro}</p>
+
+            <div class:list={[isPlans ? 'plan-row' : 'catalog-grid']}>
+              {list.map((p) => (
+                <article class:list={[isPlans ? 'plan-card compact' : 'catalog-card', p.recommended && isPlans && 'is-recommended']}>
+                  {p.recommended && isPlans && <span class="plan-flag">Recomendado</span>}
+
+                  {!isPlans && (
+                    <a href={`/product/${p.slug}/`} class="catalog-media" tabindex="-1" aria-hidden="true">
+                      <img src={p.imageSmall} alt="" width="400" height="400" loading="lazy" decoding="async" />
+                    </a>
+                  )}
+
+                  <div class="catalog-body">
+                    <h3 class={isPlans ? 'plan-name' : undefined}>
+                      <a href={`/product/${p.slug}/`}>{p.title}</a>
+                    </h3>
+                    <p class={isPlans ? 'plan-tagline' : 'catalog-tagline'}>{p.tagline}</p>
+                    <p class="plan-price small">
+                      <span class="plan-price-amount">${p.price}</span>
+                      <span class="plan-price-unit">{p.unit === 'month' ? 'USD / mes' : 'USD'}</span>
+                    </p>
+                    <div class="catalog-actions">
+                      <a href={wa(waMsg(p))} class="btn-consult" target="_blank" rel="noopener">Pedir →</a>
+                      <a href={`/product/${p.slug}/`} class="service-more">Detalles</a>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    })}
+
+    <section class="section-block">
       <div class="section-inner narrow prose">
         <h2>Cómo se hace un pedido</h2>
+        <ol>
+          <li>Escribinos por WhatsApp diciendo qué servicio te interesa.</li>
+          <li>Confirmamos el alcance y, si hace falta, ajustamos la propuesta.</li>
+          <li>Te enviamos el enlace de pago — tarjeta de crédito, débito o PayPal.</li>
+          <li>Arrancamos.</li>
+        </ol>
         <p>
-          Escribinos por WhatsApp indicando el servicio que te interesa. Confirmamos el alcance,
-          te enviamos el enlace de pago y arrancamos. Los precios están en dólares
-          estadounidenses; el monto en colones que veas es solo referencia.
+          Los precios están en dólares estadounidenses. El monto en colones que veas en cualquier
+          lado es solo referencia y depende del tipo de cambio del día.
         </p>
         <p>
-          ¿No sabés cuál te sirve? Contanos qué necesita tu negocio en la
-          <a href="/#contacto">sección de contacto</a> y te recomendamos la opción adecuada.
+          ¿No sabés cuál te sirve? Contanos qué necesita tu negocio y te decimos cuál conviene —
+          también hacemos <a href="/desarrollo-web-costa-rica/">desarrollo a medida</a>,
+          <a href="/agentes-ia-costa-rica/">agentes de IA para WhatsApp</a> y
+          <a href="/seo-costa-rica/">posicionamiento en Google</a>, que se cotizan por proyecto.
         </p>
       </div>
     </section>
@@ -100,7 +157,7 @@ const schemas = [
     <CtaBand
       title="¿Necesitás algo que no está en la lista?"
       text="Desarrollo a medida, integraciones, sistemas internos. Contanos el caso y te decimos si podemos ayudarte."
-      waText="Hola, vi la tienda y necesito un servicio a la medida"
+      waText="Hola, vi los precios y necesito un servicio a la medida"
     />
   </div>
 </Base>

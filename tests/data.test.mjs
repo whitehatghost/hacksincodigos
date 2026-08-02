@@ -18,6 +18,14 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = path.join(ROOT, 'dist');
 const products = JSON.parse(fs.readFileSync(path.join(ROOT, 'src', 'data', 'products.json'), 'utf8'));
 
+/** Configuración editable de la tienda: precios, categorías y qué sigue activo. */
+const shopSrc = fs.readFileSync(path.join(ROOT, 'src', 'data', 'shop.ts'), 'utf8');
+const shopItems = [...shopSrc.matchAll(/slug:\s*'([^']+)',\s*category:\s*'([^']+)',\s*price:\s*(\d+)[\s\S]*?active:\s*(true|false)/g)].map(
+  (m) => ({ slug: m[1], category: m[2], price: Number(m[3]), active: m[4] === 'true' })
+);
+const activeItems = shopItems.filter((i) => i.active);
+const retiredItems = shopItems.filter((i) => !i.active);
+
 const hasDist = fs.existsSync(DIST);
 
 function read(rel) {
@@ -42,21 +50,43 @@ function jsonLdBlocks(html) {
 
 // ── Catálogo ────────────────────────────────────────────────────────────────
 
-test('el catálogo conserva los 17 productos reales', () => {
-  assert.equal(products.length, 17);
-});
-
-test('todo producto tiene título y precio', () => {
+test('shop.ts cubre los 17 servicios extraídos de WooCommerce', () => {
+  assert.equal(shopItems.length, 17, 'shop.ts debe listar los 17 servicios, activos o no');
   for (const p of products) {
-    assert.ok(p.title && p.title.length > 3, `${p.slug} sin título`);
-    assert.ok(p.price, `${p.slug} sin precio`);
-    assert.match(p.price, /^[\d,]+(\.\d{2})?$/, `${p.slug} tiene un precio con formato raro: ${p.price}`);
+    assert.ok(
+      shopItems.some((i) => i.slug === p.slug),
+      `${p.slug} está en products.json pero no en shop.ts`
+    );
   }
 });
 
-test('los productos en oferta tienen precio rebajado menor al regular', () => {
-  for (const p of products.filter((x) => x.onSale)) {
-    assert.ok(Number(p.regularPrice) > Number(p.price), `${p.slug}: la oferta no es menor al precio regular`);
+test('todo servicio activo tiene precio positivo y categoría', () => {
+  for (const i of activeItems) {
+    assert.ok(Number.isFinite(i.price) && i.price > 0, `${i.slug} sin precio válido`);
+    assert.ok(i.category.length > 2, `${i.slug} sin categoría`);
+  }
+});
+
+test('los precios de los dos paquetes web son los publicados', () => {
+  const web = activeItems.find((i) => i.slug === 'pagina-web-profesional-sin-carrito-de-compras');
+  const tienda = activeItems.find((i) => i.slug === 'pagina-web-tienda-online-con-carrito');
+  assert.equal(web?.price, 450, 'la página web profesional debe costar $450');
+  assert.equal(tienda?.price, 850, 'la tienda online debe costar $850');
+});
+
+test('cada servicio retirado tiene su redirección 301', { skip: !hasDist }, () => {
+  const redirects = read('_redirects');
+  for (const i of retiredItems) {
+    assert.ok(
+      redirects.includes(`/product/${i.slug}/`),
+      `${i.slug} está inactivo pero su URL no redirige: quedaría en 404`
+    );
+  }
+});
+
+test('no se genera página para los servicios retirados', { skip: !hasDist }, () => {
+  for (const i of retiredItems) {
+    assert.ok(!exists(`product/${i.slug}/index.html`), `${i.slug} está inactivo pero su página sigue generándose`);
   }
 });
 
@@ -90,20 +120,33 @@ test('todo el JSON-LD es válido y declara @context', { skip: !hasDist }, () => 
 
 // ── Preservación de URLs indexadas ──────────────────────────────────────────
 
-test('las URLs que WordPress tenía indexadas siguen existiendo', { skip: !hasDist }, () => {
-  const indexadas = ['index.html', 'shop/index.html', ...products.map((p) => `product/${p.slug}/index.html`)];
-  for (const rel of indexadas) {
-    assert.ok(exists(rel), `falta ${rel}: se perdería una URL ya indexada por Google`);
+test('las URLs que WordPress tenía indexadas siguen resolviendo', { skip: !hasDist }, () => {
+  assert.ok(exists('index.html'));
+  assert.ok(exists('shop/index.html'));
+  const redirects = read('_redirects');
+  for (const p of products) {
+    const tienePagina = exists(`product/${p.slug}/index.html`);
+    const tieneRedirect = redirects.includes(`/product/${p.slug}/`);
+    assert.ok(
+      tienePagina || tieneRedirect,
+      `/product/${p.slug}/ no tiene página ni redirección: quedaría en 404`
+    );
   }
 });
 
-test('cada producto tiene su página con precio e imagen', { skip: !hasDist }, () => {
-  for (const p of products) {
-    const html = read(`product/${p.slug}/index.html`);
-    assert.ok(html.includes(`$${p.price}`), `${p.slug}: la página no muestra el precio`);
-    assert.ok(html.includes(`/images/productos/${p.slug}.webp`), `${p.slug}: la página no referencia su imagen`);
-    assert.ok(exists(`images/productos/${p.slug}.webp`), `${p.slug}: falta el archivo de imagen`);
+test('cada servicio activo tiene su página con precio e imagen', { skip: !hasDist }, () => {
+  for (const i of activeItems) {
+    const html = read(`product/${i.slug}/index.html`);
+    assert.ok(html.includes(`$${i.price}`), `${i.slug}: la página no muestra el precio $${i.price}`);
+    assert.ok(html.includes(`/images/productos/${i.slug}.webp`), `${i.slug}: la página no referencia su imagen`);
+    assert.ok(exists(`images/productos/${i.slug}.webp`), `${i.slug}: falta el archivo de imagen`);
   }
+});
+
+test('la tienda no muestra descuentos permanentes', { skip: !hasDist }, () => {
+  const html = read('shop/index.html');
+  assert.ok(!/text-decoration:\s*line-through/.test(html), 'quedó un precio tachado en la tienda');
+  assert.ok(!/price-was|badge-sale/.test(html), 'quedó marcado de oferta permanente en la tienda');
 });
 
 // ── Archivos de despliegue ──────────────────────────────────────────────────

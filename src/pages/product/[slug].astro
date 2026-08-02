@@ -3,7 +3,8 @@ import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import WhatsAppIcon from '../../components/WhatsAppIcon.astro';
-import { products, productsOrdered, type Product } from '../../data/products';
+import { products, productsOf, type Product } from '../../data/products';
+import { categories } from '../../data/shop';
 import { wa } from '../../data/site';
 import { webPageSchema, breadcrumbSchema, productSchema } from '../../lib/schema';
 
@@ -17,11 +18,12 @@ const path = `/product/${product.slug}/`;
 
 const crumbs = [
   { name: 'Inicio', path: '/' },
-  { name: 'Tienda', path: '/shop/' },
+  { name: 'Precios', path: '/shop/' },
   { name: product.title, path },
 ];
 
-const related = productsOrdered.filter((p) => p.slug !== product.slug).slice(0, 4);
+const category = categories.find((c) => c.id === product.category);
+const related = productsOf(product.category).filter((p) => p.slug !== product.slug).slice(0, 4);
 
 const schemas = [
   webPageSchema({ path, name: product.metaTitle, description: product.metaDesc, type: 'ItemPage' }),
@@ -30,13 +32,13 @@ const schemas = [
     name: product.title,
     description: product.shortDesc || product.title,
     path,
-    price: product.price,
+    price: String(product.price),
     sku: product.sku || undefined,
     image: product.image,
   }),
 ];
 
-const waMessage = `Hola, me interesa "${product.title}"${product.price ? ` ($${product.price})` : ''}. ¿Me das más información?`;
+const waMessage = `Hola, me interesa ${product.title} (${product.priceLabel} USD). ¿Me das más información?`;
 ---
 <Base
   title={product.metaTitle}
@@ -64,27 +66,30 @@ const waMessage = `Hola, me interesa "${product.title}"${product.price ? ` ($${p
           </div>
 
           <div class="product-summary">
-            {product.onSale && <span class="badge-sale">Oferta</span>}
+            {category && <span class="page-eyebrow" style="margin-bottom:.9rem">{category.title}</span>}
             <h1>{product.title}</h1>
 
-            {product.price && (
-              <div class="price">
-                <span class="price-now">${product.price}</span>
-                {product.onSale && product.regularPrice && (
-                  <span class="price-was">${product.regularPrice}</span>
-                )}
-                <span class="price-note">USD</span>
-              </div>
+            <p class="plan-price">
+              <span class="plan-price-amount">${product.price}</span>
+              <span class="plan-price-unit">{product.unit === 'month' ? 'USD / mes' : 'USD'}</span>
+            </p>
+
+            {product.tagline && (
+              <p class="page-lead" style="text-align:left;margin:.35rem 0 1.25rem">{product.tagline}</p>
             )}
 
-            {product.shortDesc && <p class="page-lead" style="text-align:left;margin:0 0 1.25rem">{product.shortDesc}</p>}
+            {product.highlights.length > 0 && (
+              <ul class="plan-features" role="list" style="margin-bottom:1.25rem">
+                {product.highlights.map((h) => <li>{h}</li>)}
+              </ul>
+            )}
 
-            <div class="page-cta-row" style="justify-content:flex-start;margin-top:1.25rem">
+            <div class="page-cta-row" style="justify-content:flex-start;margin-top:0">
               <a href={wa(waMessage)} class="btn btn-solid wa-btn" target="_blank" rel="noopener">
                 <WhatsAppIcon size={18} />
                 <span>Pedir por WhatsApp</span>
               </a>
-              <a href="/shop/" class="btn btn-outline">Ver toda la tienda</a>
+              <a href="/shop/" class="btn btn-outline">Ver todos los precios</a>
             </div>
 
             <div class="product-order-note">
@@ -95,7 +100,14 @@ const waMessage = `Hola, me interesa "${product.title}"${product.price ? ` ($${p
 
             <dl class="product-meta">
               {product.sku && <div><dt style="display:inline">SKU:</dt> <dd style="display:inline">{product.sku}</dd></div>}
-              <div><dt style="display:inline">Categoría:</dt> <dd style="display:inline"><a href="/shop/" style="color:var(--accent-green);text-decoration:none">Servicios digitales</a></dd></div>
+              {category && (
+                <div>
+                  <dt style="display:inline">Categoría:</dt>{' '}
+                  <dd style="display:inline">
+                    <a href={`/shop/#${category.id}`} style="color:var(--accent-green);text-decoration:none">{category.title}</a>
+                  </dd>
+                </div>
+              )}
             </dl>
           </div>
         </div>
@@ -105,33 +117,36 @@ const waMessage = `Hola, me interesa "${product.title}"${product.price ? ` ($${p
     {product.descHtml && (
       <section class="section-block alt">
         <div class="section-inner narrow">
-          <h2 class="block-title">Descripción</h2>
+          <h2 class="block-title">Qué incluye</h2>
           <div class="prose" set:html={product.descHtml} />
         </div>
       </section>
     )}
 
-    <section class="section-block">
-      <div class="section-inner">
-        <h2 class="block-title">Otros servicios</h2>
-        <p class="block-sub">Más opciones de la <a href="/shop/" style="color:var(--accent-green);text-decoration:none">tienda</a>.</p>
-        <div class="shop-grid">
-          {related.map((p) => (
-            <article class="product-card">
-              <a href={`/product/${p.slug}/`} class="product-card-media" tabindex="-1" aria-hidden="true">
-                <img src={p.imageSmall} alt="" width="400" height="400" loading="lazy" decoding="async" />
-              </a>
-              <div class="product-card-body">
-                <h3><a href={`/product/${p.slug}/`}>{p.title}</a></h3>
-                {p.price && (
-                  <div class="price"><span class="price-now">${p.price}</span></div>
-                )}
-              </div>
-            </article>
-          ))}
+    {related.length > 0 && (
+      <section class="section-block">
+        <div class="section-inner">
+          <h2 class="block-title">{category ? category.title : 'Otros servicios'}</h2>
+          <p class="block-sub">Más opciones de la misma categoría.</p>
+          <div class="catalog-grid">
+            {related.map((p) => (
+              <article class="catalog-card">
+                <a href={`/product/${p.slug}/`} class="catalog-media" tabindex="-1" aria-hidden="true">
+                  <img src={p.imageSmall} alt="" width="400" height="400" loading="lazy" decoding="async" />
+                </a>
+                <div class="catalog-body">
+                  <h3><a href={`/product/${p.slug}/`}>{p.title}</a></h3>
+                  <p class="plan-price small">
+                    <span class="plan-price-amount">${p.price}</span>
+                    <span class="plan-price-unit">{p.unit === 'month' ? 'USD / mes' : 'USD'}</span>
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    )}
 
     <CtaBand waText={waMessage} />
   </div>

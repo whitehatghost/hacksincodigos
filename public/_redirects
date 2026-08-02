@@ -11,6 +11,11 @@
 /product-sitemap.xml      /sitemap-index.xml        301
 /main-sitemap.xsl         /sitemap-index.xml        301
 
+# ── Servicios retirados del catálogo ────────────────────────────────────────
+# Se dejaron de ofrecer, pero la URL estaba indexada: va a la tienda, no a un 404.
+# Al poner `active: false` en src/data/shop.ts hay que agregar la línea acá.
+/product/guia-pro-proteccion-total-de-instagram-y-facebook-2026/  /shop/  301
+
 # ── Taxonomía y paginación de WooCommerce ───────────────────────────────────
 # Los 17 productos ahora caben en una sola página, así que la paginación sobra.
 /shop/page/*                        /shop/          301

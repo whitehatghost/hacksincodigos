@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CtaBand from '../components/CtaBand.astro';
+import Partners from '../components/Partners.astro';
 import Faq from '../components/Faq.astro';
 import { projects } from '../data/projects';
 import { getProduct } from '../data/products';
@@ -199,7 +200,13 @@ const schemas = [
           Este mismo sitio que estás viendo es un ejemplo: HTML estático servido desde Cloudflare,
           sin base de datos que consultar en cada visita.
         </p>
+      </div>
+    </section>
 
+    <Partners alt />
+
+    <section class="section-block">
+      <div class="section-inner narrow prose">
         <h2>Precios</h2>
         <p>
           Estos son los precios publicados hoy. El alcance exacto se confirma antes de arrancar.

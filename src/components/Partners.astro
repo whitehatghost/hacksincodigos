@@ -1,0 +1,53 @@
+---
+import { partners, partnerIcon } from '../data/partners';
+
+export interface Props {
+  /** En páginas internas la sección va sobre el fondo secundario. */
+  alt?: boolean;
+}
+const { alt = false } = Astro.props;
+---
+<section id="tecnologias" class:list={['partners-section', alt && 'alt']} aria-label="Tecnologías y plataformas">
+  <div class="container">
+    <h2 class="section-title fade-up" data-i18n="partners_title">Con qué construimos tu proyecto</h2>
+    <p class="section-subtitle fade-up" data-i18n="partners_sub">
+      Las plataformas y herramientas que usamos todos los días para levantar, alojar y mantener sitios web
+    </p>
+
+    <ul class="partners-grid fade-up" role="list">
+      {partners.map((p) => {
+        const icon = partnerIcon(p);
+        return (
+          <li>
+            <a
+              class="partner-card"
+              href={p.url}
+              target="_blank"
+              rel="noopener nofollow"
+              style={icon ? `--brand:${icon.hex}` : `--brand:var(--accent-green)`}
+              aria-label={`${p.name} — ${p.role} (se abre en una pestaña nueva)`}
+            >
+              {icon ? (
+                <>
+                  <span class="partner-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" role="img" focusable="false"><path d={icon.path} /></svg>
+                  </span>
+                  <span class="partner-name">{p.name}</span>
+                </>
+              ) : (
+                /* Sin logo disponible, el nombre hace de logotipo: no se repite debajo. */
+                <span class="partner-wordmark" aria-hidden="true">{p.name}</span>
+              )}
+              {p.officialPartner && <span class="partner-badge">Partner oficial</span>}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+
+    <p class="partners-note fade-up" data-i18n="partners_note">
+      Elegimos la herramienta según lo que el proyecto necesita.
+      <a href="/desarrollo-web-costa-rica/">Contanos qué querés construir</a> y te decimos con qué conviene hacerlo.
+    </p>
+  </div>
+</section>

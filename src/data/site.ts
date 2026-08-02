@@ -25,6 +25,25 @@ export const site = {
   ogImage: '/images/og-hacksincodigos.png',
 } as const;
 
+/**
+ * Cómo cobra HacksinCodigos sus propios servicios.
+ *
+ * No confundir con las pasarelas de pago que se le pueden montar a un cliente en
+ * su tienda online: eso es una capacidad del servicio y se describe en
+ * /tiendas-online-costa-rica/. Esto de acá es cómo se paga a HacksinCodigos.
+ *
+ * Los textos del WooCommerce original decían "tarjeta de crédito/débito o PayPal",
+ * que no corresponde a la realidad del negocio.
+ */
+export const payment = {
+  methods: ['SINPE Móvil', 'transferencia bancaria'],
+  /** Frase lista para usar en la ficha de servicio y en la tienda. */
+  label: 'SINPE Móvil o transferencia bancaria',
+  currency: 'USD',
+  currencyNote:
+    'Los precios están en dólares estadounidenses. El monto en colones se calcula al tipo de cambio del día del pago.',
+} as const;
+
 /** Construye un enlace de WhatsApp con mensaje prellenado. */
 export function wa(text?: string): string {
   const base = `https://wa.me/${site.whatsappNumber}`;

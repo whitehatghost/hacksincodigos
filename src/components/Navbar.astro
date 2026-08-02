@@ -6,11 +6,7 @@ import Logo from './Logo.astro';
   <nav id="navbar" role="navigation" aria-label="Navegación principal">
     <div class="nav-inner">
       <a href="/" class="nav-logo" aria-label="HacksinCodigos — Inicio">
-        <Logo size={34} />
-        <span class="nav-logo-text">
-          <span class="nav-logo-hack">HackSin</span>
-          <span class="nav-logo-codigos">Codigos</span>
-        </span>
+        <Logo height={38} eager />
       </a>
       <ul class="nav-links" role="list">
         {mainNav.map((item) => (

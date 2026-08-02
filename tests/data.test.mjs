@@ -20,9 +20,16 @@ const products = JSON.parse(fs.readFileSync(path.join(ROOT, 'src', 'data', 'prod
 
 /** Configuración editable de la tienda: precios, categorías y qué sigue activo. */
 const shopSrc = fs.readFileSync(path.join(ROOT, 'src', 'data', 'shop.ts'), 'utf8');
-const shopItems = [...shopSrc.matchAll(/slug:\s*'([^']+)',\s*category:\s*'([^']+)',\s*price:\s*(\d+)[\s\S]*?active:\s*(true|false)/g)].map(
-  (m) => ({ slug: m[1], category: m[2], price: Number(m[3]), active: m[4] === 'true' })
-);
+const shopItems = [
+  ...shopSrc.matchAll(
+    /slug:\s*'([^']+)',\s*category:\s*'([^']+)',(?:[^}]*?)price:\s*(\d+|null)[\s\S]*?active:\s*(true|false)/g
+  ),
+].map((m) => ({
+  slug: m[1],
+  category: m[2],
+  price: m[3] === 'null' ? null : Number(m[3]),
+  active: m[4] === 'true',
+}));
 const activeItems = shopItems.filter((i) => i.active);
 const retiredItems = shopItems.filter((i) => !i.active);
 
@@ -50,8 +57,9 @@ function jsonLdBlocks(html) {
 
 // ── Catálogo ────────────────────────────────────────────────────────────────
 
-test('shop.ts cubre los 17 servicios extraídos de WooCommerce', () => {
-  assert.equal(shopItems.length, 17, 'shop.ts debe listar los 17 servicios, activos o no');
+test('shop.ts cubre todos los servicios de WooCommerce y los agregados después', () => {
+  // 17 heredados del WooCommerce original + los que se sumaron a mano.
+  assert.ok(shopItems.length >= 17, `shop.ts solo lista ${shopItems.length} servicios`);
   for (const p of products) {
     assert.ok(
       shopItems.some((i) => i.slug === p.slug),
@@ -60,10 +68,21 @@ test('shop.ts cubre los 17 servicios extraídos de WooCommerce', () => {
   }
 });
 
-test('todo servicio activo tiene precio positivo y categoría', () => {
+test('los servicios nuevos están en el catálogo', () => {
+  for (const slug of ['tarjetas-de-presentacion', 'invitaciones-para-eventos']) {
+    const item = shopItems.find((i) => i.slug === slug);
+    assert.ok(item, `falta ${slug} en shop.ts`);
+    assert.ok(item.active, `${slug} está inactivo`);
+  }
+});
+
+test('todo servicio activo tiene categoría y un precio válido o "a cotizar"', () => {
   for (const i of activeItems) {
-    assert.ok(Number.isFinite(i.price) && i.price > 0, `${i.slug} sin precio válido`);
     assert.ok(i.category.length > 2, `${i.slug} sin categoría`);
+    assert.ok(
+      i.price === null || (Number.isFinite(i.price) && i.price > 0),
+      `${i.slug} tiene un precio inválido: ${i.price}`
+    );
   }
 });
 
@@ -137,10 +156,27 @@ test('las URLs que WordPress tenía indexadas siguen resolviendo', { skip: !hasD
 test('cada servicio activo tiene su página con precio e imagen', { skip: !hasDist }, () => {
   for (const i of activeItems) {
     const html = read(`product/${i.slug}/index.html`);
-    assert.ok(html.includes(`$${i.price}`), `${i.slug}: la página no muestra el precio $${i.price}`);
+    if (i.price === null) {
+      assert.ok(html.includes('Consultar precio'), `${i.slug}: sin precio debería decir "Consultar precio"`);
+    } else {
+      assert.ok(html.includes(`$${i.price}`), `${i.slug}: la página no muestra el precio $${i.price}`);
+    }
     assert.ok(html.includes(`/images/productos/${i.slug}.webp`), `${i.slug}: la página no referencia su imagen`);
     assert.ok(exists(`images/productos/${i.slug}.webp`), `${i.slug}: falta el archivo de imagen`);
+    assert.ok(exists(`images/productos/${i.slug}-400.webp`), `${i.slug}: falta la imagen pequeña`);
   }
+});
+
+test('los medios de pago son los reales del negocio', { skip: !hasDist }, () => {
+  for (const rel of ['shop/index.html', 'terminos-de-servicio/index.html']) {
+    const html = read(rel);
+    assert.ok(!/PayPal/i.test(html), `${rel} todavía menciona PayPal`);
+    assert.ok(
+      !/tarjeta de cr[ée]dito(?![^<]*tienda)/i.test(html) || /SINPE/i.test(html),
+      `${rel} menciona cobro con tarjeta sin aclarar SINPE`
+    );
+  }
+  assert.ok(/SINPE M[óo]vil/i.test(read('shop/index.html')), 'la tienda no menciona SINPE Móvil');
 });
 
 test('la tienda no muestra descuentos permanentes', { skip: !hasDist }, () => {

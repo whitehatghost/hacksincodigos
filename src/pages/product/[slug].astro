@@ -5,7 +5,8 @@ import CtaBand from '../../components/CtaBand.astro';
 import WhatsAppIcon from '../../components/WhatsAppIcon.astro';
 import { products, productsOf, type Product } from '../../data/products';
 import { categories } from '../../data/shop';
-import { wa } from '../../data/site';
+import Price from '../../components/Price.astro';
+import { wa, payment } from '../../data/site';
 import { webPageSchema, breadcrumbSchema, productSchema } from '../../lib/schema';
 
 export function getStaticPaths() {
@@ -32,13 +33,18 @@ const schemas = [
     name: product.title,
     description: product.shortDesc || product.title,
     path,
-    price: String(product.price),
+    // Sin precio fijo no se emite `Offer`: publicar un precio inventado en el
+    // Schema es motivo de acción manual por parte de Google.
+    price: product.price === null ? null : String(product.price),
     sku: product.sku || undefined,
     image: product.image,
   }),
 ];
 
-const waMessage = `Hola, me interesa ${product.title} (${product.priceLabel} USD). ¿Me das más información?`;
+const waMessage =
+  product.price === null
+    ? `Hola, me interesa ${product.title}. ¿Me pasás una cotización?`
+    : `Hola, me interesa ${product.title} (${product.priceLabel} USD). ¿Me das más información?`;
 ---
 <Base
   title={product.metaTitle}
@@ -69,10 +75,7 @@ const waMessage = `Hola, me interesa ${product.title} (${product.priceLabel} USD
             {category && <span class="page-eyebrow" style="margin-bottom:.9rem">{category.title}</span>}
             <h1>{product.title}</h1>
 
-            <p class="plan-price">
-              <span class="plan-price-amount">${product.price}</span>
-              <span class="plan-price-unit">{product.unit === 'month' ? 'USD / mes' : 'USD'}</span>
-            </p>
+            <Price price={product.price} unit={product.unit} />
 
             {product.tagline && (
               <p class="page-lead" style="text-align:left;margin:.35rem 0 1.25rem">{product.tagline}</p>
@@ -93,9 +96,8 @@ const waMessage = `Hola, me interesa ${product.title} (${product.priceLabel} USD
             </div>
 
             <div class="product-order-note">
-              Confirmamos el alcance por WhatsApp y te enviamos el enlace de pago
-              (tarjeta de crédito/débito o PayPal). Los precios se cobran en dólares
-              estadounidenses; el monto en colones es solo referencia.
+              Conversamos el alcance por WhatsApp y te pasamos la cotización. El pago se hace
+              por <strong>{payment.label}</strong>. {payment.currencyNote}
             </div>
 
             <dl class="product-meta">
@@ -136,10 +138,7 @@ const waMessage = `Hola, me interesa ${product.title} (${product.priceLabel} USD
                 </a>
                 <div class="catalog-body">
                   <h3><a href={`/product/${p.slug}/`}>{p.title}</a></h3>
-                  <p class="plan-price small">
-                    <span class="plan-price-amount">${p.price}</span>
-                    <span class="plan-price-unit">{p.unit === 'month' ? 'USD / mes' : 'USD'}</span>
-                  </p>
+                  <Price price={p.price} unit={p.unit} size="sm" />
                 </div>
               </article>
             ))}

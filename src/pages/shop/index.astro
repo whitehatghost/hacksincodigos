@@ -5,7 +5,8 @@ import CtaBand from '../../components/CtaBand.astro';
 import WhatsAppIcon from '../../components/WhatsAppIcon.astro';
 import { categories } from '../../data/shop';
 import { products, productsOf } from '../../data/products';
-import { wa } from '../../data/site';
+import Price from '../../components/Price.astro';
+import { wa, payment } from '../../data/site';
 import { webPageSchema, breadcrumbSchema } from '../../lib/schema';
 
 const title = 'Precios de Páginas Web en Costa Rica';
@@ -38,8 +39,10 @@ const schemas = [
   },
 ];
 
-const waMsg = (p: { title: string; priceLabel: string }) =>
-  `Hola, me interesa ${p.title} (${p.priceLabel} USD). ¿Me das más información?`;
+const waMsg = (p: { title: string; price: number | null; priceLabel: string }) =>
+  p.price === null
+    ? `Hola, me interesa ${p.title}. ¿Me pasás una cotización?`
+    : `Hola, me interesa ${p.title} (${p.priceLabel} USD). ¿Me das más información?`;
 ---
 <Base title={`${title} | HacksinCodigos`} description={description} path="/shop/" schemas={schemas}>
   <div class="page-wrap">
@@ -68,10 +71,7 @@ const waMsg = (p: { title: string; priceLabel: string }) =>
               {p.recommended && <span class="plan-flag">Más pedido</span>}
               <h3 class="plan-name">{p.title}</h3>
               <p class="plan-tagline">{p.tagline}</p>
-              <p class="plan-price">
-                <span class="plan-price-amount">${p.price}</span>
-                <span class="plan-price-unit">USD</span>
-              </p>
+              <Price price={p.price} unit={p.unit} />
               <ul class="plan-features" role="list">
                 {p.highlights.map((h) => <li>{h}</li>)}
               </ul>
@@ -115,10 +115,7 @@ const waMsg = (p: { title: string; priceLabel: string }) =>
                       <a href={`/product/${p.slug}/`}>{p.title}</a>
                     </h3>
                     <p class={isPlans ? 'plan-tagline' : 'catalog-tagline'}>{p.tagline}</p>
-                    <p class="plan-price small">
-                      <span class="plan-price-amount">${p.price}</span>
-                      <span class="plan-price-unit">{p.unit === 'month' ? 'USD / mes' : 'USD'}</span>
-                    </p>
+                    <Price price={p.price} unit={p.unit} size="sm" />
                     <div class="catalog-actions">
                       <a href={wa(waMsg(p))} class="btn-consult" target="_blank" rel="noopener">Pedir →</a>
                       <a href={`/product/${p.slug}/`} class="service-more">Detalles</a>
@@ -136,15 +133,12 @@ const waMsg = (p: { title: string; priceLabel: string }) =>
       <div class="section-inner narrow prose">
         <h2>Cómo se hace un pedido</h2>
         <ol>
-          <li>Escribinos por WhatsApp diciendo qué servicio te interesa.</li>
-          <li>Confirmamos el alcance y, si hace falta, ajustamos la propuesta.</li>
-          <li>Te enviamos el enlace de pago — tarjeta de crédito, débito o PayPal.</li>
-          <li>Arrancamos.</li>
+          <li>Escribinos por WhatsApp y contanos qué necesitás.</li>
+          <li>Conversamos el alcance y te pasamos la cotización con lo que incluye y el plazo.</li>
+          <li>Pagás por <strong>{payment.label}</strong> y nos enviás el comprobante.</li>
+          <li>Arrancamos y te vamos mostrando avances hasta la entrega.</li>
         </ol>
-        <p>
-          Los precios están en dólares estadounidenses. El monto en colones que veas en cualquier
-          lado es solo referencia y depende del tipo de cambio del día.
-        </p>
+        <p>{payment.currencyNote}</p>
         <p>
           ¿No sabés cuál te sirve? Contanos qué necesita tu negocio y te decimos cuál conviene —
           también hacemos <a href="/desarrollo-web-costa-rica/">desarrollo a medida</a>,

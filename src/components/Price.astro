@@ -1,0 +1,22 @@
+---
+/**
+ * Precio de un servicio. Cuando no hay precio fijo muestra "Consultar precio"
+ * en vez de un número inventado.
+ */
+export interface Props {
+  price: number | null;
+  unit?: 'once' | 'month';
+  size?: 'lg' | 'sm';
+}
+const { price, unit = 'once', size = 'lg' } = Astro.props;
+---
+<p class:list={['plan-price', size === 'sm' && 'small']}>
+  {price === null ? (
+    <span class="plan-price-quote">Consultar precio</span>
+  ) : (
+    <>
+      <span class="plan-price-amount">${price}</span>
+      <span class="plan-price-unit">{unit === 'month' ? 'USD / mes' : 'USD'}</span>
+    </>
+  )}
+</p>

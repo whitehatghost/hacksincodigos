@@ -110,7 +110,12 @@ for (const file of htmlFiles) {
     if (src && src.startsWith('/') && !allFiles.has(src.split('?')[0])) {
       errors.push(`${url} — imagen inexistente: ${src}`);
     }
-    if (!/\balt=/.test(tag)) errors.push(`${url} — <img> sin atributo alt: ${src ?? tag.slice(0, 60)}`);
+    // Astro serializa `alt=""` como atributo vacío (`<img ... alt ...>`), que es
+    // HTML válido y significa exactamente lo mismo: imagen decorativa. Hay que
+    // aceptar las dos formas o el QA rechaza builds correctas.
+    if (!/\salt(?=[\s=>/])/.test(tag)) {
+      errors.push(`${url} — <img> sin atributo alt: ${src ?? tag.slice(0, 60)}`);
+    }
   }
 
   // ── JSON-LD ───────────────────────────────────────────────────────────────

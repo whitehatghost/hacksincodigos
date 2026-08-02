@@ -26,8 +26,11 @@ export interface ShopCategory {
 export interface ShopItem {
   slug: string;
   category: string;
-  /** Precio actual en USD. Es el único precio que se muestra. */
-  price: number;
+  /**
+   * Precio actual en USD. `null` muestra "Consultar precio" y manda a WhatsApp:
+   * sirve para servicios cuyo alcance cambia mucho de un pedido a otro.
+   */
+  price: number | null;
   /** `month` añade "/ mes" al precio. */
   unit?: 'once' | 'month';
   /** Frase corta propia para la tarjeta. Si falta, se usa la de products.json. */
@@ -38,6 +41,12 @@ export interface ShopItem {
   active: boolean;
   /** Marca la opción recomendada dentro de su categoría. */
   recommended?: boolean;
+
+  // ── Solo para servicios que NO vienen del WooCommerce original ──────────────
+  /** Nombre del servicio. Obligatorio si el slug no está en products.json. */
+  title?: string;
+  /** Descripción larga en HTML para la ficha. */
+  descHtml?: string;
 }
 
 export const categories: ShopCategory[] = [
@@ -156,6 +165,60 @@ export const items: ShopItem[] = [
     price: 30,
     active: true,
     tagline: 'Firma de correo con tu logo, compatible con Gmail y Outlook.',
+  },
+  {
+    slug: 'tarjetas-de-presentacion',
+    category: 'presencia',
+    // TODO: poner el precio real. Con `null` la tarjeta dice "Consultar precio"
+    // y manda a WhatsApp, así que el servicio ya se muestra y se puede pedir.
+    price: null,
+    active: true,
+    title: 'Tarjetas de Presentación',
+    tagline: 'Diseño de tarjeta de presentación listo para imprenta, con tu marca aplicada.',
+    descHtml: `
+      <p>Diseño de tarjeta de presentación a partir de tu identidad visual. Si todavía no
+      tenés logo, lo resolvemos antes para que todo salga coherente.</p>
+      <p><strong>Incluye</strong></p>
+      <ul>
+        <li>Diseño de frente y reverso</li>
+        <li>Archivo listo para imprenta en CMYK, con márgenes de corte y sangrado</li>
+        <li>Versión digital para compartir por WhatsApp o correo</li>
+        <li>Dos rondas de ajustes</li>
+      </ul>
+      <p><strong>Notas</strong></p>
+      <ul>
+        <li>El precio cubre el diseño. La impresión se cotiza aparte según cantidad y acabado.</li>
+        <li>Si preferís una tarjeta digital con QR en vez de impresa, mirá la
+        <a href="/product/tarjeta-de-presentacion-digital-para-eventos-con-qr/">tarjeta digital con QR</a>.</li>
+      </ul>`,
+  },
+  {
+    slug: 'invitaciones-para-eventos',
+    category: 'presencia',
+    // TODO: poner el precio real (o dejarlo en null si depende del evento).
+    price: null,
+    active: true,
+    title: 'Invitaciones para Eventos y Bodas',
+    tagline: 'Invitaciones digitales para bodas, cumpleaños y eventos de empresa, con RSVP por WhatsApp.',
+    descHtml: `
+      <p>Invitación digital diseñada para el evento: bodas, quinceaños, cumpleaños,
+      graduaciones y eventos de empresa. Se comparte por WhatsApp y se ve bien en
+      cualquier celular.</p>
+      <p><strong>Incluye</strong></p>
+      <ul>
+        <li>Diseño a medida según el estilo del evento</li>
+        <li>Datos completos: fecha, hora, lugar y código de vestimenta</li>
+        <li>Botón de confirmación de asistencia por WhatsApp</li>
+        <li>Enlace a la ubicación en Google Maps</li>
+        <li>Versión en imagen para compartir y versión en enlace</li>
+        <li>Dos rondas de ajustes</li>
+      </ul>
+      <p><strong>Opcional</strong></p>
+      <ul>
+        <li>Página web del evento con galería y lista de regalos</li>
+        <li>Código QR para las invitaciones impresas</li>
+        <li>Versión para imprenta</li>
+      </ul>`,
   },
 
   // ── Contenido publicitario ──────────────────────────────────────────────────

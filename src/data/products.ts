@@ -22,10 +22,10 @@ export interface Product {
   slug: string;
   title: string;
   sku: string;
-  /** Precio actual en USD, como número. */
-  price: number;
+  /** Precio actual en USD. `null` = se cotiza según el caso. */
+  price: number | null;
   unit: 'once' | 'month';
-  /** Etiqueta lista para mostrar: "$450" o "$38 / mes". */
+  /** Etiqueta lista para mostrar: "$450", "$38 / mes" o "a cotizar". */
   priceLabel: string;
   category: string;
   recommended: boolean;
@@ -53,13 +53,29 @@ const TITLE_FIXES: Record<string, string> = {
 };
 
 /**
+ * Frases de medio de pago que venían incrustadas en las descripciones de
+ * WooCommerce y que ya no corresponden: el cobro es por SINPE Móvil o
+ * transferencia, no con tarjeta ni PayPal. La información de pago vive ahora en
+ * un solo lugar (`payment` en site.ts) y se muestra en su propio bloque, así que
+ * acá simplemente se eliminan en vez de duplicarlas mal.
+ */
+const OBSOLETE_PAYMENT = [
+  /Se paga con\s*(?:<strong>)?\s*tarjeta[^.<]*(?:<\/strong>)?\s*\.?/gi,
+  /Pago (?:en USD )?con tarjeta(?: de cr[ée]dito)?(?:\/d[ée]bito)?(?: o PayPal)?\s*\.?/gi,
+  /Precio en USD\.\s*/gi,
+  /Pago con tarjeta o PayPal\.?/gi,
+];
+
+/**
  * Limpia el HTML que arrastra WooCommerce/Gutenberg: atributos `data-start` y
- * `data-end` del editor, párrafos vacíos y la nota de precios que ahora vive en
- * un bloque propio de la ficha.
+ * `data-end` del editor, párrafos vacíos y las frases de pago obsoletas.
  */
 function cleanHtml(html: string): string {
-  return html
-    .replace(/\sdata-(?:start|end)="[^"]*"/g, '')
+  let out = html.replace(/\sdata-(?:start|end)="[^"]*"/g, '');
+  for (const re of OBSOLETE_PAYMENT) out = out.replace(re, '');
+  return out
+    .replace(/<strong>\s*<\/strong>/g, '')
+    .replace(/<li>\s*(?:<p>\s*<\/p>\s*)?<\/li>/g, '')
     .replace(/<p>\s*<\/p>/g, '')
     .replace(/\s+/g, ' ')
     .trim();
@@ -72,7 +88,8 @@ function stripTags(html: string): string {
     .trim();
 }
 
-function priceLabel(price: number, unit: 'once' | 'month'): string {
+function priceLabel(price: number | null, unit: 'once' | 'month'): string {
+  if (price === null) return 'a cotizar';
   return unit === 'month' ? `$${price} / mes` : `$${price}`;
 }
 
@@ -84,26 +101,31 @@ function buildMetaTitle(title: string): string {
   return title;
 }
 
-function buildMetaDesc(title: string, shortDesc: string, label: string): string {
+function buildMetaDesc(title: string, shortDesc: string, price: number | null, label: string): string {
   const base = shortDesc.length > 20 ? shortDesc : `${title}.`;
-  let desc = `${base} Precio: ${label} USD. Servicio de HacksinCodigos en Costa Rica — pedilo por WhatsApp.`;
-  if (desc.length > 165) desc = `${base.slice(0, 95).trim()}… ${label} USD. HacksinCodigos Costa Rica.`;
+  const precio = price === null ? 'Cotización sin compromiso.' : `Precio: ${label} USD.`;
+  let desc = `${base} ${precio} Servicio de HacksinCodigos en Costa Rica — pedilo por WhatsApp.`;
+  if (desc.length > 165) desc = `${base.slice(0, 95).trim()}… ${precio} HacksinCodigos Costa Rica.`;
   return desc;
 }
 
 const rawBySlug = new Map((raw as any[]).map((p) => [p.slug, p]));
 
-function build(cfg: ShopItem): Product | null {
+/**
+ * Un servicio puede venir del WooCommerce original (`products.json`) o estar
+ * definido por completo en `shop.ts`. Lo segundo es el camino para los servicios
+ * nuevos: basta con darles `title` y `descHtml`.
+ */
+function build(cfg: ShopItem): Product {
   const p = rawBySlug.get(cfg.slug);
-  if (!p) return null;
-  const title = TITLE_FIXES[cfg.slug] ?? p.title;
-  const shortDesc = cfg.tagline ?? stripTags(p.shortDescHtml || '');
+  const title = cfg.title ?? TITLE_FIXES[cfg.slug] ?? p?.title ?? cfg.slug;
+  const shortDesc = cfg.tagline ?? stripTags(p?.shortDescHtml || '');
   const unit = cfg.unit ?? 'once';
   const label = priceLabel(cfg.price, unit);
   return {
     slug: cfg.slug,
     title,
-    sku: p.sku || '',
+    sku: p?.sku || '',
     price: cfg.price,
     unit,
     priceLabel: label,
@@ -114,17 +136,14 @@ function build(cfg: ShopItem): Product | null {
     image: `/images/productos/${cfg.slug}.webp`,
     imageSmall: `/images/productos/${cfg.slug}-400.webp`,
     shortDesc,
-    descHtml: cleanHtml(p.descHtml || p.shortDescHtml || ''),
+    descHtml: cleanHtml(cfg.descHtml ?? p?.descHtml ?? p?.shortDescHtml ?? ''),
     metaTitle: buildMetaTitle(title),
-    metaDesc: buildMetaDesc(title, shortDesc, label),
+    metaDesc: buildMetaDesc(title, shortDesc, cfg.price, label),
   };
 }
 
 /** Solo lo que se sigue ofreciendo, en el orden definido en shop.ts. */
-export const products: Product[] = shopItems
-  .filter((i) => i.active)
-  .map(build)
-  .filter((p): p is Product => p !== null);
+export const products: Product[] = shopItems.filter((i) => i.active).map(build);
 
 export function getProduct(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug);

@@ -1,10 +1,39 @@
 ---
+/**
+ * Logo real de HacksinCodigos.
+ *
+ * Antes esto era un candado genérico dibujado a mano en SVG que no se parecía a
+ * la marca. Ahora usa el archivo original: candado rojo con trazos de circuito y
+ * el logotipo en dos líneas, con el fondo negro ya recortado (ver
+ * scripts/prepare-assets.mjs) para que se apoye sobre cualquier fondo.
+ *
+ *   variant="lockup"  candado + texto — navbar y pie de página
+ *   variant="mark"    solo el candado — donde el texto no se leería
+ */
 export interface Props {
-  size?: number;
+  /** Altura en píxeles. El ancho se calcula con la proporción real del archivo. */
+  height?: number;
+  variant?: 'lockup' | 'mark';
+  class?: string;
+  /** El logo suele ir dentro de un enlace que ya se describe a sí mismo. */
+  alt?: string;
+  eager?: boolean;
 }
-const { size = 34 } = Astro.props;
+
+const RATIO = { lockup: 817 / 269, mark: 224 / 269 };
+
+const { height = 36, variant = 'lockup', class: className, alt = '', eager = false } = Astro.props;
+const src = variant === 'mark' ? '/images/logo-marca.png' : '/images/logo-hacksincodigos.png';
+const width = Math.round(height * RATIO[variant]);
 ---
-<svg width={size} height={size} viewBox="0 0 34 34" fill="none" aria-hidden="true">
-  <rect width="34" height="34" rx="7" fill="#b91c1c"/>
-  <path d="M17 7c-2.76 0-5 2.24-5 5v2.5H11a1.5 1.5 0 00-1.5 1.5v9A1.5 1.5 0 0011 26.5h12a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0023 14.5h-1V12c0-2.76-2.24-5-5-5zm0 2.5c1.38 0 2.5 1.12 2.5 2.5v2.5h-5V12c0-1.38 1.12-2.5 2.5-2.5zm0 8.5a2 2 0 110 4 2 2 0 010-4z" fill="white"/>
-</svg>
+<img
+  src={src}
+  alt={alt}
+  width={width}
+  height={height}
+  class:list={['brand-logo', className]}
+  decoding="async"
+  loading={eager ? 'eager' : 'lazy'}
+  fetchpriority={eager ? 'high' : undefined}
+  aria-hidden={alt === '' ? 'true' : undefined}
+/>

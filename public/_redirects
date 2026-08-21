@@ -4,6 +4,13 @@
 # Objetivo: que ninguna URL que Google ya conoce de la versión WordPress termine en 404.
 # El mapa completo, con el porqué de cada línea, está en URL-MAP.md.
 
+# ── Dominio canónico: www -> sin www ────────────────────────────────────────
+# Ambos hostnames servían el sitio con 200, o sea el mismo contenido en dos
+# direcciones. El canonical de cada página ya apunta a la versión sin www, así que
+# Google lo resolvía bien, pero el 301 lo deja sin ambigüedad y concentra las
+# señales en un solo hostname.
+https://www.hacksincodigos.com/*   https://hacksincodigos.com/:splat   301!
+
 # ── Sitemaps de Rank Math -> sitemap generado por Astro ──────────────────────
 /sitemap_index.xml        /sitemap-index.xml        301
 /sitemap.xml              /sitemap-index.xml        301

@@ -118,6 +118,25 @@ export const items: ShopItem[] = [
     unit: 'month',
     active: true,
     tagline: 'Actualizaciones, respaldos y soporte.',
+      descHtml: `
+      <p>El plan mínimo para que un sitio publicado no se degrade. Pensado para páginas
+      de negocio que cambian poco.</p>
+      <p><strong>Incluye cada mes</strong></p>
+      <ul>
+        <li>Actualización del gestor, del tema y de los plugins</li>
+        <li>Respaldo completo del sitio y de la base de datos</li>
+        <li>Revisión de que el sitio cargue y de que los formularios lleguen</li>
+        <li>Reporte de lo que se hizo</li>
+        <li>Soporte por WhatsApp para incidencias</li>
+      </ul>
+      <p><strong>No incluye</strong></p>
+      <ul>
+        <li>Cambios de diseño o secciones nuevas</li>
+        <li>Redacción de contenido</li>
+        <li>Hosting y dominio, que se pagan aparte</li>
+      </ul>
+      <p>Si necesitás cambios seguido, el
+      <a href="/product/mantenimiento-web-pro-mensual/">plan Pro</a> incluye 20 al mes.</p>`,
   },
   {
     slug: 'mantenimiento-web-pro-mensual',
@@ -127,6 +146,24 @@ export const items: ShopItem[] = [
     active: true,
     recommended: true,
     tagline: 'Firewall, respaldos diarios y 20 cambios al mes.',
+      descHtml: `
+      <p>Para sitios con tráfico real o que venden en línea, donde una caída o un ataque
+      cuesta plata.</p>
+      <p><strong>Incluye todo lo del plan Básico, más</strong></p>
+      <ul>
+        <li>Respaldos diarios en vez de mensuales</li>
+        <li>Firewall y bloqueo de intentos de acceso</li>
+        <li>Hasta 20 cambios de contenido al mes: textos, imágenes, precios</li>
+        <li>Monitoreo de caídas</li>
+        <li>Revisión de que la pasarela de pago siga funcionando</li>
+      </ul>
+      <p><strong>Qué cuenta como un cambio</strong></p>
+      <ul>
+        <li>Cambiar un texto, una foto o un precio</li>
+        <li>Publicar una entrada o un producto</li>
+        <li>Ajustar un dato de contacto o un horario</li>
+      </ul>
+      <p>Rediseñar una sección completa no entra: eso se cotiza como proyecto.</p>`,
   },
   {
     slug: 'mantenimiento-web-corporativo-mensual',
@@ -135,6 +172,20 @@ export const items: ShopItem[] = [
     unit: 'month',
     active: true,
     tagline: 'Prioridad de atención, hardening avanzado y 40 cambios al mes.',
+      descHtml: `
+      <p>Para empresas donde el sitio es parte de la operación y hay más de una persona
+      pidiendo cambios.</p>
+      <p><strong>Incluye todo lo del plan Pro, más</strong></p>
+      <ul>
+        <li>Prioridad de atención sobre el resto de la cola</li>
+        <li>Hardening avanzado: permisos, cabeceras de seguridad y accesos</li>
+        <li>Hasta 40 cambios de contenido al mes</li>
+        <li>Revisión periódica de rendimiento y Core Web Vitals</li>
+        <li>Revisión de errores en Google Search Console</li>
+      </ul>
+      <p>Si el sitio necesita desarrollo nuevo — una integración, un módulo, una sección
+      a medida — eso se cotiza aparte como
+      <a href="/desarrollo-web-costa-rica/">proyecto de desarrollo</a>.</p>`,
   },
 
   // ── Presencia digital ───────────────────────────────────────────────────────
@@ -144,6 +195,27 @@ export const items: ShopItem[] = [
     price: 150,
     active: true,
     tagline: 'Correo con tu dominio, configurado para que no caiga en spam.',
+      descHtml: `
+      <p>Correo con tu propio dominio, del tipo nombre@tuempresa.com, en vez de una
+      cuenta gratuita. Cambia cómo te ve un cliente y ayuda a que tus mensajes no caigan
+      en spam.</p>
+      <p><strong>Incluye</strong></p>
+      <ul>
+        <li>Creación de las cuentas de correo del dominio</li>
+        <li>Configuración de los registros DNS de autenticación: SPF, DKIM y DMARC,
+        según el proveedor</li>
+        <li>Configuración en el celular y en la computadora de cada usuario</li>
+        <li>Prueba de entregabilidad para confirmar que los correos llegan a la bandeja
+        de entrada</li>
+      </ul>
+      <p><strong>Notas</strong></p>
+      <ul>
+        <li>El precio cubre la configuración. La licencia mensual del proveedor de correo
+        se paga aparte y depende de cuántas cuentas necesités.</li>
+        <li>Si todavía no tenés dominio, se puede registrar como parte del trabajo.</li>
+      </ul>
+      <p>Se complementa con una
+      <a href="/product/firma-para-correo-electronico/">firma de correo</a> con tu marca.</p>`,
   },
   {
     slug: 'menu-qr-interactivo',
@@ -151,6 +223,24 @@ export const items: ShopItem[] = [
     price: 65,
     active: true,
     tagline: 'Carta digital para celular, con QR listo para imprimir.',
+      descHtml: `
+      <p>La carta de tu negocio en una página pensada para el celular, con un código QR
+      para poner en la mesa, en la ventana o en el empaque. Cuando cambia un precio lo
+      actualizás y listo: no hay que reimprimir nada.</p>
+      <p><strong>Incluye</strong></p>
+      <ul>
+        <li>Menú organizado por categorías, con foto, descripción y precio</li>
+        <li>Diseño aplicado a tu marca</li>
+        <li>Código QR en alta resolución, listo para imprimir</li>
+        <li>Botón de WhatsApp para pedidos</li>
+        <li>Carga rápida en datos móviles, sin instalar nada</li>
+      </ul>
+      <p><strong>Ideal para</strong></p>
+      <ul>
+        <li>Restaurantes, sodas y cafeterías</li>
+        <li>Bares y food trucks</li>
+        <li>Cualquier negocio con una lista de precios que cambia</li>
+      </ul>`,
   },
   {
     slug: 'tarjeta-de-presentacion-digital-para-eventos-con-qr',
@@ -228,6 +318,19 @@ export const items: ShopItem[] = [
     price: 130,
     active: true,
     tagline: 'Creativos profesionales para campañas.',
+      descHtml: `
+      <p>Veinte piezas: el paquete para negocios que publican seguido o que están
+      corriendo campañas pagadas y necesitan varias versiones para comparar cuál rinde
+      mejor.</p>
+      <p><strong>Incluye</strong></p>
+      <ul>
+        <li>20 diseños originales con tu marca aplicada</li>
+        <li>Todos los formatos: feed, historias, carrusel y portada</li>
+        <li>Variaciones de una misma pieza para probar en campañas</li>
+        <li>Archivos en JPG y PNG optimizados para redes</li>
+        <li>Una ronda de ajustes por pieza</li>
+      </ul>
+      <p>Es el mejor precio por imagen de los tres paquetes.</p>`,
   },
   {
     slug: 'paquete-emprendedor-10-imagenes',
@@ -235,6 +338,22 @@ export const items: ShopItem[] = [
     price: 90,
     active: true,
     tagline: '10 imágenes para impulsar ventas en redes.',
+      descHtml: `
+      <p>Diez piezas: suficiente para cubrir un mes de publicaciones sin repetir, o para
+      montar una campaña con varias versiones del mismo mensaje.</p>
+      <p><strong>Incluye</strong></p>
+      <ul>
+        <li>10 diseños originales con tu marca aplicada</li>
+        <li>Mezcla de formatos: feed, historias y carrusel</li>
+        <li>Archivos en JPG y PNG optimizados para redes</li>
+        <li>Una ronda de ajustes por pieza</li>
+      </ul>
+      <p><strong>Sirve para</strong></p>
+      <ul>
+        <li>Un mes de contenido planificado</li>
+        <li>Lanzar un producto con varias piezas de apoyo</li>
+        <li>Probar mensajes distintos en una campaña de Meta Ads</li>
+      </ul>`,
   },
   {
     slug: 'paquete-esencial-4-imagenes',
@@ -242,6 +361,19 @@ export const items: ShopItem[] = [
     price: 40,
     active: true,
     tagline: '4 creativos listos para publicar.',
+      descHtml: `
+      <p>Cuatro piezas para arrancar: lo mínimo para que un perfil no se vea abandonado y
+      tenga con qué publicar la primera semana.</p>
+      <p><strong>Incluye</strong></p>
+      <ul>
+        <li>4 diseños originales con tu marca aplicada</li>
+        <li>Formato a elegir por pieza: feed o historia</li>
+        <li>Archivos en JPG y PNG optimizados para redes</li>
+        <li>Una ronda de ajustes por pieza</li>
+      </ul>
+      <p>Si vas a publicar de forma sostenida, el
+      <a href="/product/paquete-emprendedor-10-imagenes/">paquete de 10</a> baja bastante
+      el precio por imagen.</p>`,
   },
   {
     slug: 'imagen-publicitaria-unica',
@@ -249,6 +381,20 @@ export const items: ShopItem[] = [
     price: 10,
     active: true,
     tagline: '1 diseño para feed o story.',
+      descHtml: `
+      <p>Un diseño listo para publicar, hecho para tu marca y para el objetivo que nos
+      digás: promocionar un producto, anunciar un horario o mover una oferta.</p>
+      <p><strong>Incluye</strong></p>
+      <ul>
+        <li>Un diseño original con tu logo, colores y tipografía</li>
+        <li>Formato a elegir: cuadrado para feed o vertical para historias y reels</li>
+        <li>Archivos en JPG y PNG optimizados para redes</li>
+        <li>Una ronda de ajustes</li>
+      </ul>
+      <p>Si necesitás varias piezas sale más a cuenta un paquete: el
+      <a href="/product/paquete-esencial-4-imagenes/">Esencial de 4</a>, el
+      <a href="/product/paquete-emprendedor-10-imagenes/">Emprendedor de 10</a> o el
+      <a href="/product/paquete-profesional-15-imagenes/">Profesional de 20</a>.</p>`,
   },
   {
     slug: 'video-publicitario-1-minuto',
@@ -256,6 +402,26 @@ export const items: ShopItem[] = [
     price: 50,
     active: true,
     tagline: 'Video de 1 minuto con estructura de venta.',
+      descHtml: `
+      <p>Un minuto da espacio para explicar un servicio con detalle, mostrar un proceso
+      completo o presentar la empresa. Es el formato para la portada de un sitio o para
+      una presentación.</p>
+      <p><strong>Incluye</strong></p>
+      <ul>
+        <li>Video de hasta 1 minuto</li>
+        <li>Guion trabajado con vos antes de editar</li>
+        <li>Formatos vertical, cuadrado y horizontal</li>
+        <li>Edición con tu marca: logo, colores y tipografía</li>
+        <li>Música de librería con licencia para uso comercial</li>
+        <li>Textos en pantalla y subtítulos</li>
+        <li>Archivo en MP4 listo para subir</li>
+        <li>Dos rondas de ajustes</li>
+      </ul>
+      <p><strong>Notas</strong></p>
+      <ul>
+        <li>Se edita con el material que aportés. La producción de grabación se cotiza
+        aparte.</li>
+      </ul>`,
   },
   {
     slug: 'video-publicitario-30-35-segundos',
@@ -263,6 +429,24 @@ export const items: ShopItem[] = [
     price: 35,
     active: true,
     tagline: 'Video de 30–35 s para campañas.',
+      descHtml: `
+      <p>Medio minuto alcanza para plantear un problema, mostrar la solución y cerrar con
+      una llamada a la acción. Es la duración estándar de un anuncio.</p>
+      <p><strong>Incluye</strong></p>
+      <ul>
+        <li>Video de 30 a 35 segundos con estructura de venta</li>
+        <li>Formato vertical 9:16 y una versión cuadrada para feed</li>
+        <li>Edición con tu marca: logo, colores y tipografía</li>
+        <li>Música de librería con licencia para uso comercial</li>
+        <li>Textos en pantalla y subtítulos</li>
+        <li>Archivo en MP4 listo para subir</li>
+        <li>Una ronda de ajustes</li>
+      </ul>
+      <p><strong>Notas</strong></p>
+      <ul>
+        <li>Se edita con el material que aportés. La producción de grabación se cotiza
+        aparte.</li>
+      </ul>`,
   },
   {
     slug: 'videos-3-productos',
@@ -270,6 +454,26 @@ export const items: ShopItem[] = [
     price: 20,
     active: true,
     tagline: 'Video de 15 s optimizado para reels y ads.',
+      descHtml: `
+      <p>Un video de 15 segundos, la duración que mejor funciona en reels y en anuncios:
+      lo bastante corto para que la gente lo vea completo.</p>
+      <p><strong>Incluye</strong></p>
+      <ul>
+        <li>Video de 15 segundos en formato vertical 9:16</li>
+        <li>Edición con tu marca: logo, colores y tipografía</li>
+        <li>Música de librería con licencia para uso comercial</li>
+        <li>Textos en pantalla</li>
+        <li>Archivo en MP4 listo para subir</li>
+        <li>Una ronda de ajustes</li>
+      </ul>
+      <p><strong>Notas</strong></p>
+      <ul>
+        <li>Se edita a partir del material que aportés, fotos o clips. Si hay que producir
+        la grabación, se cotiza aparte.</li>
+      </ul>
+      <p>Para contar algo más largo están las versiones de
+      <a href="/product/video-publicitario-30-35-segundos/">30 segundos</a> y de
+      <a href="/product/video-publicitario-1-minuto/">1 minuto</a>.</p>`,
   },
 
   // ── Retirados del catálogo ──────────────────────────────────────────────────

@@ -42,6 +42,45 @@ Creá una regla que redirija todo lo que llegue a `*.pages.dev` hacia `hacksinco
 
 ---
 
+## Paso 2b — Redirigir www al dominio sin www
+
+**Por qué:** hoy `www.hacksincodigos.com` y `hacksincodigos.com` devuelven las dos
+un 200 con el mismo contenido. El `canonical` de cada página ya apunta a la versión
+sin www — por eso Search Console lo reporta como *"Alternate page with proper
+canonical tag"* y no como error — pero repartir el sitio entre dos hostnames no
+suma nada.
+
+**Esto NO se puede hacer desde `_redirects`.** Cloudflare Pages solo acepta rutas
+que empiecen con `/` como origen y marca los redirects de dominio como no
+soportados. Se intentó y rompió el despliegue.
+
+**Dónde:** panel de Cloudflare → seleccioná el dominio `hacksincodigos.com`
+→ **Rules** → **Redirect Rules** → *Create rule*
+
+1. Nombre: `www a dominio sin www`
+2. **If** → *Custom filter expression*:
+   - Field: `Hostname`
+   - Operator: `equals`
+   - Value: `www.hacksincodigos.com`
+3. **Then** → *URL redirect*:
+   - Type: **Dynamic**
+   - Expression: `concat("https://hacksincodigos.com", http.request.uri.path)`
+   - Status code: **301**
+   - Marcá *Preserve query string*
+4. **Deploy**
+
+Toma un minuto y está incluido en el plan gratuito.
+
+**Para comprobar que quedó:**
+
+```bash
+curl -sI https://www.hacksincodigos.com/ | head -3
+```
+
+Tiene que responder `301` y un `location:` hacia `https://hacksincodigos.com/`.
+
+---
+
 ## Paso 3 — Revisar la vista previa antes de tocar el DNS
 
 Abrí la URL `.pages.dev` y comprobá con calma:

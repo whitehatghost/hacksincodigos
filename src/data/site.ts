@@ -66,7 +66,7 @@ export const mainNav = [
   { label: 'Servicios', href: '/#servicios', i18n: 'nav_services' },
   { label: 'Cómo trabajamos', href: '/#proceso', i18n: 'nav_process' },
   { label: 'Portafolio', href: '/proyectos/', i18n: 'nav_portfolio' },
-  { label: 'Precios', href: '/shop/', i18n: 'nav_shop' },
+  { label: 'Catálogo', href: '/shop/', i18n: 'nav_shop' },
   { label: 'Blog', href: '/blog/', i18n: 'nav_blog' },
   { label: 'FAQ', href: '/#faq', i18n: 'nav_faq' },
   { label: 'Contacto', href: '/#contacto', i18n: 'nav_contact' },

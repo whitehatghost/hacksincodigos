@@ -4,23 +4,17 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import WhatsAppIcon from '../../components/WhatsAppIcon.astro';
 import { categories } from '../../data/shop';
-import { products, productsOf } from '../../data/products';
-import Price from '../../components/Price.astro';
-import { wa, payment } from '../../data/site';
+import { products, productsOf, waFor } from '../../data/products';
 import { webPageSchema, breadcrumbSchema } from '../../lib/schema';
 
-const title = 'Precios de Páginas Web en Costa Rica';
+const title = 'Servicios de Desarrollo Web y Software en Costa Rica';
 const description =
-  'Precios claros y sin letra pequeña: página web profesional desde $450, tienda online desde $850, mantenimiento mensual, correo empresarial y contenido para redes.';
+  'Páginas web, tiendas online, software a la medida para PYMES, CRM empresarial, apps, mantenimiento y contenido para redes. Cotización sin compromiso por WhatsApp.';
 
 const crumbs = [
   { name: 'Inicio', path: '/' },
-  { name: 'Precios', path: '/shop/' },
+  { name: 'Servicios', path: '/shop/' },
 ];
-
-const featured = categories.find((c) => c.layout === 'featured')!;
-const featuredItems = productsOf(featured.id);
-const rest = categories.filter((c) => c.layout !== 'featured');
 
 const schemas = [
   webPageSchema({ path: '/shop/', name: title, description, type: 'CollectionPage' }),
@@ -38,11 +32,6 @@ const schemas = [
     })),
   },
 ];
-
-const waMsg = (p: { title: string; price: number | null; priceLabel: string }) =>
-  p.price === null
-    ? `Hola, me interesa ${p.title}. ¿Me pasás una cotización?`
-    : `Hola, me interesa ${p.title} (${p.priceLabel} USD). ¿Me das más información?`;
 ---
 <Base title={`${title} | HacksinCodigos`} description={description} path="/shop/" schemas={schemas}>
   <div class="page-wrap">
@@ -50,74 +39,73 @@ const waMsg = (p: { title: string; price: number | null; priceLabel: string }) =
 
     <section class="page-hero">
       <div class="page-hero-inner">
-        <span class="page-eyebrow">Precios públicos</span>
-        <h1 class="page-h1">Precios claros, sin letra pequeña</h1>
+        <span class="page-eyebrow">Catálogo de servicios</span>
+        <h1 class="page-h1">Todo lo que hacemos</h1>
         <p class="page-lead">
-          Esto es lo que cuesta cada servicio y qué incluye exactamente. Si tu proyecto necesita
-          algo distinto, lo cotizamos a la medida — escribinos y lo vemos.
+          Cada proyecto tiene un alcance distinto, así que cotizamos caso por caso en vez de
+          publicar una lista de precios que casi nunca calza. Escribinos por WhatsApp, nos contás
+          qué necesitás y te pasamos una propuesta con todo detallado — sin compromiso.
         </p>
-      </div>
-    </section>
-
-    <!-- ═══ Páginas web: las dos opciones principales ═══ -->
-    <section class="section-block" id={featured.id}>
-      <div class="section-inner">
-        <h2 class="block-title">{featured.title}</h2>
-        <p class="block-sub">{featured.intro}</p>
-
-        <div class="plan-duo">
-          {featuredItems.map((p) => (
-            <article class:list={['plan-card', p.recommended && 'is-recommended']}>
-              {p.recommended && <span class="plan-flag">Más pedido</span>}
-              <h3 class="plan-name">{p.title}</h3>
-              <p class="plan-tagline">{p.tagline}</p>
-              <Price price={p.price} unit={p.unit} />
-              <ul class="plan-features" role="list">
-                {p.highlights.map((h) => <li>{h}</li>)}
-              </ul>
-              <div class="plan-actions">
-                <a href={wa(waMsg(p))} class="btn btn-solid wa-btn" target="_blank" rel="noopener">
-                  <WhatsAppIcon size={17} />
-                  <span>Lo quiero</span>
-                </a>
-                <a href={`/product/${p.slug}/`} class="plan-detail">Ver qué incluye →</a>
-              </div>
-            </article>
-          ))}
+        <div class="page-cta-row">
+          <a
+            href={waFor('Hola, quiero cotizar un proyecto con ustedes')}
+            class="btn btn-solid wa-btn"
+            target="_blank"
+            rel="noopener"
+          >
+            <WhatsAppIcon size={18} />
+            <span>Pedir cotización</span>
+          </a>
+          <a href="/proyectos/" class="btn btn-outline">Ver proyectos</a>
         </div>
       </div>
     </section>
 
-    <!-- ═══ Resto de categorías ═══ -->
-    {rest.map((cat, idx) => {
+    {categories.map((cat, idx) => {
       const list = productsOf(cat.id);
       if (!list.length) return null;
-      const isPlans = cat.layout === 'plans';
+
+      // 'featured' y 'plans' muestran tarjetas grandes con lo que incluye cada opción;
+      // 'grid' es la cuadrícula compacta con imagen para los servicios más puntuales.
+      const big = cat.layout === 'featured' || cat.layout === 'plans';
+
       return (
-        <section class:list={['section-block', idx % 2 === 0 && 'alt']} id={cat.id}>
+        <section class:list={['section-block', idx % 2 === 1 && 'alt']} id={cat.id}>
           <div class="section-inner">
             <h2 class="block-title">{cat.title}</h2>
             <p class="block-sub">{cat.intro}</p>
 
-            <div class:list={[isPlans ? 'plan-row' : 'catalog-grid']}>
-              {list.map((p) => (
-                <article class:list={[isPlans ? 'plan-card compact' : 'catalog-card', p.recommended && isPlans && 'is-recommended']}>
-                  {p.recommended && isPlans && <span class="plan-flag">Recomendado</span>}
-
-                  {!isPlans && (
-                    <a href={`/product/${p.slug}/`} class="catalog-media" tabindex="-1" aria-hidden="true">
-                      <img src={p.imageSmall} alt="" width="400" height="400" loading="lazy" decoding="async" />
-                    </a>
+            <div class:list={[
+              cat.layout === 'featured' ? 'plan-duo' : cat.layout === 'plans' ? 'plan-row' : 'catalog-grid',
+            ]}>
+              {list.map((p) => big ? (
+                <article class:list={['plan-card', p.recommended && 'is-recommended']}>
+                  {p.recommended && <span class="plan-flag">Más pedido</span>}
+                  <h3 class="plan-name"><a href={`/product/${p.slug}/`}>{p.title}</a></h3>
+                  <p class="plan-tagline">{p.tagline}</p>
+                  {p.highlights.length > 0 && (
+                    <ul class="plan-features" role="list">
+                      {p.highlights.map((h) => <li>{h}</li>)}
+                    </ul>
                   )}
-
+                  <div class="plan-actions">
+                    <a href={waFor(p)} class="btn btn-solid wa-btn" target="_blank" rel="noopener">
+                      <WhatsAppIcon size={17} />
+                      <span>Cotizar</span>
+                    </a>
+                    <a href={`/product/${p.slug}/`} class="plan-detail">Ver qué incluye →</a>
+                  </div>
+                </article>
+              ) : (
+                <article class="catalog-card">
+                  <a href={`/product/${p.slug}/`} class="catalog-media" tabindex="-1" aria-hidden="true">
+                    <img src={p.imageSmall} alt="" width="400" height="400" loading="lazy" decoding="async" />
+                  </a>
                   <div class="catalog-body">
-                    <h3 class={isPlans ? 'plan-name' : undefined}>
-                      <a href={`/product/${p.slug}/`}>{p.title}</a>
-                    </h3>
-                    <p class={isPlans ? 'plan-tagline' : 'catalog-tagline'}>{p.tagline}</p>
-                    <Price price={p.price} unit={p.unit} size="sm" />
+                    <h3><a href={`/product/${p.slug}/`}>{p.title}</a></h3>
+                    <p class="catalog-tagline">{p.tagline}</p>
                     <div class="catalog-actions">
-                      <a href={wa(waMsg(p))} class="btn-consult" target="_blank" rel="noopener">Pedir →</a>
+                      <a href={waFor(p)} class="btn-consult" target="_blank" rel="noopener">Cotizar →</a>
                       <a href={`/product/${p.slug}/`} class="service-more">Detalles</a>
                     </div>
                   </div>
@@ -129,29 +117,45 @@ const waMsg = (p: { title: string; price: number | null; priceLabel: string }) =
       );
     })}
 
-    <section class="section-block">
+    <section class="section-block alt">
       <div class="section-inner narrow prose">
-        <h2>Cómo se hace un pedido</h2>
+        <h2>Cómo cotizamos</h2>
         <ol>
-          <li>Escribinos por WhatsApp y contanos qué necesitás.</li>
-          <li>Conversamos el alcance y te pasamos la cotización con lo que incluye y el plazo.</li>
-          <li>Pagás por <strong>{payment.label}</strong> y nos enviás el comprobante.</li>
-          <li>Arrancamos y te vamos mostrando avances hasta la entrega.</li>
+          <li>Escribinos por WhatsApp y contanos qué necesitás. No hace falta que lo tengás
+          todo definido — con la idea general alcanza para empezar.</li>
+          <li>Conversamos el alcance: qué entra, qué no, y qué conviene dejar para una
+          segunda etapa.</li>
+          <li>Te pasamos una propuesta por escrito con el detalle, el plazo y el precio
+          cerrado.</li>
+          <li>Si te calza, arrancamos. Si no, no pasa nada — la cotización no compromete
+          a nada.</li>
         </ol>
-        <p>{payment.currencyNote}</p>
+
+        <h2>Por qué no publicamos precios</h2>
         <p>
-          ¿No sabés cuál te sirve? Contanos qué necesita tu negocio y te decimos cuál conviene —
-          también hacemos <a href="/desarrollo-web-costa-rica/">desarrollo a medida</a>,
-          <a href="/agentes-ia-costa-rica/">agentes de IA para WhatsApp</a> y
-          <a href="/seo-costa-rica/">posicionamiento en Google</a>, que se cotizan por proyecto.
+          Porque el mismo servicio cuesta distinto según el caso. Una página web para un
+          negocio con cuatro secciones y textos listos no es el mismo trabajo que una con
+          treinta y contenido por redactar. Publicar un número obliga a inventar un promedio
+          que a unos les queda caro y a otros barato.
+        </p>
+        <p>
+          Preferimos mirar tu caso y darte un número que se sostenga. La cotización es
+          gratis y llega con todo desglosado.
+        </p>
+
+        <h2>Formas de pago</h2>
+        <p>
+          SINPE Móvil o transferencia bancaria. Los datos se envían junto con la
+          cotización. Los proyectos de desarrollo normalmente llevan un adelanto para
+          iniciar y el saldo contra entrega.
         </p>
       </div>
     </section>
 
     <CtaBand
-      title="¿Necesitás algo que no está en la lista?"
-      text="Desarrollo a medida, integraciones, sistemas internos. Contanos el caso y te decimos si podemos ayudarte."
-      waText="Hola, vi los precios y necesito un servicio a la medida"
+      title="¿Empezamos por tu caso?"
+      text="Contanos qué necesita tu negocio y te decimos qué conviene hacer — incluso si la respuesta es que necesitás menos de lo que pensabas."
+      waText="Hola, quiero cotizar un proyecto con ustedes"
     />
   </div>
 </Base>

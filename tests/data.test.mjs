@@ -76,21 +76,25 @@ test('los servicios nuevos están en el catálogo', () => {
   }
 });
 
-test('todo servicio activo tiene categoría y un precio válido o "a cotizar"', () => {
+test('todo servicio activo tiene categoría', () => {
   for (const i of activeItems) {
     assert.ok(i.category.length > 2, `${i.slug} sin categoría`);
-    assert.ok(
-      i.price === null || (Number.isFinite(i.price) && i.price > 0),
-      `${i.slug} tiene un precio inválido: ${i.price}`
-    );
   }
 });
 
-test('los precios de los dos paquetes web son los publicados', () => {
-  const web = activeItems.find((i) => i.slug === 'pagina-web-profesional-sin-carrito-de-compras');
-  const tienda = activeItems.find((i) => i.slug === 'pagina-web-tienda-online-con-carrito');
-  assert.equal(web?.price, 450, 'la página web profesional debe costar $450');
-  assert.equal(tienda?.price, 850, 'la tienda online debe costar $850');
+test('el catálogo no publica precios: todo se cotiza', () => {
+  for (const i of shopItems) {
+    assert.equal(i.price, null, `${i.slug} tiene precio publicado; el catálogo cotiza caso por caso`);
+  }
+});
+
+test('los servicios de software a la medida están en el catálogo', () => {
+  for (const slug of ['software-a-la-medida-pymes', 'crm-empresarial', 'aplicaciones-moviles-y-web']) {
+    const item = shopItems.find((i) => i.slug === slug);
+    assert.ok(item, `falta ${slug} en shop.ts`);
+    assert.ok(item.active, `${slug} está inactivo`);
+    assert.equal(item.category, 'software', `${slug} debería estar en la categoría software`);
+  }
 });
 
 test('cada servicio retirado tiene su redirección 301', { skip: !hasDist }, () => {
@@ -153,17 +157,23 @@ test('las URLs que WordPress tenía indexadas siguen resolviendo', { skip: !hasD
   }
 });
 
-test('cada servicio activo tiene su página con precio e imagen', { skip: !hasDist }, () => {
+test('cada servicio activo tiene su página, imagen y llamada a cotizar', { skip: !hasDist }, () => {
   for (const i of activeItems) {
     const html = read(`product/${i.slug}/index.html`);
-    if (i.price === null) {
-      assert.ok(html.includes('Consultar precio'), `${i.slug}: sin precio debería decir "Consultar precio"`);
-    } else {
-      assert.ok(html.includes(`$${i.price}`), `${i.slug}: la página no muestra el precio $${i.price}`);
-    }
+    assert.ok(/Cotizar por WhatsApp/.test(html), `${i.slug}: la ficha no invita a cotizar`);
+    assert.ok(/wa\.me\/50689840662/.test(html), `${i.slug}: la ficha no enlaza a WhatsApp`);
     assert.ok(html.includes(`/images/productos/${i.slug}.webp`), `${i.slug}: la página no referencia su imagen`);
     assert.ok(exists(`images/productos/${i.slug}.webp`), `${i.slug}: falta el archivo de imagen`);
     assert.ok(exists(`images/productos/${i.slug}-400.webp`), `${i.slug}: falta la imagen pequeña`);
+  }
+});
+
+test('ni el catálogo ni las fichas muestran montos en dólares', { skip: !hasDist }, () => {
+  const paginas = ['shop/index.html', ...activeItems.map((i) => `product/${i.slug}/index.html`)];
+  for (const rel of paginas) {
+    const cuerpo = read(rel).replace(/<script[\s\S]*?<\/script>/g, '');
+    const montos = cuerpo.match(/\$\s?\d{2,}/g);
+    assert.ok(!montos, `${rel} muestra un monto: ${montos && montos.join(', ')}`);
   }
 });
 
@@ -179,10 +189,10 @@ test('los medios de pago son los reales del negocio', { skip: !hasDist }, () => 
   assert.ok(/SINPE M[óo]vil/i.test(read('shop/index.html')), 'la tienda no menciona SINPE Móvil');
 });
 
-test('la tienda no muestra descuentos permanentes', { skip: !hasDist }, () => {
+test('el catálogo no muestra precios tachados ni ofertas', { skip: !hasDist }, () => {
   const html = read('shop/index.html');
-  assert.ok(!/text-decoration:\s*line-through/.test(html), 'quedó un precio tachado en la tienda');
-  assert.ok(!/price-was|badge-sale/.test(html), 'quedó marcado de oferta permanente en la tienda');
+  assert.ok(!/text-decoration:\s*line-through/.test(html), 'quedó un precio tachado en el catálogo');
+  assert.ok(!/price-was|badge-sale/.test(html), 'quedó marcado de oferta en el catálogo');
 });
 
 // ── Archivos de despliegue ──────────────────────────────────────────────────

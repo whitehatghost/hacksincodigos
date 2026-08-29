@@ -3,11 +3,10 @@ import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import WhatsAppIcon from '../../components/WhatsAppIcon.astro';
-import { products, productsOf, type Product } from '../../data/products';
+import { products, productsOf, waFor, type Product } from '../../data/products';
 import { categories } from '../../data/shop';
-import Price from '../../components/Price.astro';
-import { wa, payment } from '../../data/site';
-import { webPageSchema, breadcrumbSchema, productSchema } from '../../lib/schema';
+import { payment } from '../../data/site';
+import { webPageSchema, breadcrumbSchema, serviceSchema } from '../../lib/schema';
 
 export function getStaticPaths() {
   return products.map((p) => ({ params: { slug: p.slug }, props: { product: p } }));
@@ -19,7 +18,7 @@ const path = `/product/${product.slug}/`;
 
 const crumbs = [
   { name: 'Inicio', path: '/' },
-  { name: 'Precios', path: '/shop/' },
+  { name: 'Servicios', path: '/shop/' },
   { name: product.title, path },
 ];
 
@@ -29,22 +28,15 @@ const related = productsOf(product.category).filter((p) => p.slug !== product.sl
 const schemas = [
   webPageSchema({ path, name: product.metaTitle, description: product.metaDesc, type: 'ItemPage' }),
   breadcrumbSchema(crumbs),
-  productSchema({
+  serviceSchema({
     name: product.title,
     description: product.shortDesc || product.title,
     path,
-    // Sin precio fijo no se emite `Offer`: publicar un precio inventado en el
-    // Schema es motivo de acción manual por parte de Google.
-    price: product.price === null ? null : String(product.price),
-    sku: product.sku || undefined,
-    image: product.image,
+    serviceType: category ? category.title : 'Servicios digitales',
   }),
 ];
 
-const waMessage =
-  product.price === null
-    ? `Hola, me interesa ${product.title}. ¿Me pasás una cotización?`
-    : `Hola, me interesa ${product.title} (${product.priceLabel} USD). ¿Me das más información?`;
+const waHref = waFor(product);
 ---
 <Base
   title={product.metaTitle}
@@ -75,7 +67,6 @@ const waMessage =
             {category && <span class="page-eyebrow" style="margin-bottom:.9rem">{category.title}</span>}
             <h1>{product.title}</h1>
 
-            <Price price={product.price} unit={product.unit} />
 
             {product.tagline && (
               <p class="page-lead" style="text-align:left;margin:.35rem 0 1.25rem">{product.tagline}</p>
@@ -88,16 +79,17 @@ const waMessage =
             )}
 
             <div class="page-cta-row" style="justify-content:flex-start;margin-top:0">
-              <a href={wa(waMessage)} class="btn btn-solid wa-btn" target="_blank" rel="noopener">
+              <a href={waHref} class="btn btn-solid wa-btn" target="_blank" rel="noopener">
                 <WhatsAppIcon size={18} />
-                <span>Pedir por WhatsApp</span>
+                <span>Cotizar por WhatsApp</span>
               </a>
-              <a href="/shop/" class="btn btn-outline">Ver todos los precios</a>
+              <a href="/shop/" class="btn btn-outline">Ver todos los servicios</a>
             </div>
 
             <div class="product-order-note">
-              Conversamos el alcance por WhatsApp y te pasamos la cotización. El pago se hace
-              por <strong>{payment.label}</strong>. {payment.currencyNote}
+              Cotizamos caso por caso: contanos qué necesitás y te pasamos una propuesta con el
+              alcance, el plazo y el precio cerrado. Sin compromiso. El pago se hace por
+              <strong>{payment.label}</strong>.
             </div>
 
             <dl class="product-meta">
@@ -138,7 +130,7 @@ const waMessage =
                 </a>
                 <div class="catalog-body">
                   <h3><a href={`/product/${p.slug}/`}>{p.title}</a></h3>
-                  <Price price={p.price} unit={p.unit} size="sm" />
+                  <p class="catalog-tagline">{p.tagline}</p>
                 </div>
               </article>
             ))}
@@ -147,6 +139,6 @@ const waMessage =
       </section>
     )}
 
-    <CtaBand waText={waMessage} />
+    <CtaBand waText={`Hola, quiero cotizar ${product.title}`} />
   </div>
 </Base>

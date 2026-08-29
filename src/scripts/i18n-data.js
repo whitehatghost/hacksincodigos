@@ -71,7 +71,7 @@ export const i18nData = {
       form_name_label_raw: "Nombre", form_email_label_raw: "Email", form_tel_label_raw: "Teléfono", form_servicio_label_raw: "Servicio", form_msg_label_raw: "Mensaje", form_empresa_label_raw: "Empresa",
     },
     en: {
-      nav_shop: "Pricing",
+      nav_shop: "Catalog",
       partners_title: "What we build your project with",
       partners_sub: "The platforms and tools we use every day to build, host and maintain websites",
       partners_note: "We pick the tool the project actually needs. <a href=\"/desarrollo-web-costa-rica/\">Tell us what you want to build</a> and we'll tell you what to build it with.",
@@ -145,7 +145,7 @@ export const i18nData = {
       form_servicio_label: "Service *", form_servicio_ph: "Select a service",
     },
     fr: {
-      nav_shop: "Tarifs",
+      nav_shop: "Catalogue",
       partners_title: "Avec quoi nous construisons votre projet",
       partners_sub: "Les plateformes et outils que nous utilisons chaque jour pour créer, héberger et maintenir des sites web",
       partners_note: "Nous choisissons l'outil dont le projet a réellement besoin. <a href=\"/desarrollo-web-costa-rica/\">Dites-nous ce que vous voulez créer</a> et nous vous dirons avec quoi.",
@@ -202,7 +202,7 @@ export const i18nData = {
       form_name_label_raw: "Nom", form_email_label_raw: "Email", form_tel_label_raw: "Tél", form_servicio_label_raw: "Service", form_msg_label_raw: "Message", form_empresa_label_raw: "Entreprise",
     },
     pt: {
-      nav_shop: "Preços",
+      nav_shop: "Catálogo",
       partners_title: "Com o que construímos seu projeto",
       partners_sub: "As plataformas e ferramentas que usamos todos os dias para criar, hospedar e manter sites",
       partners_note: "Escolhemos a ferramenta que o projeto realmente precisa. <a href=\"/desarrollo-web-costa-rica/\">Conte-nos o que quer construir</a> e dizemos com o quê.",
@@ -259,7 +259,7 @@ export const i18nData = {
       form_name_label_raw: "Nome", form_email_label_raw: "Email", form_tel_label_raw: "Tel", form_servicio_label_raw: "Serviço", form_msg_label_raw: "Mensagem", form_empresa_label_raw: "Empresa",
     },
     de: {
-      nav_shop: "Preise",
+      nav_shop: "Katalog",
       partners_title: "Womit wir Ihr Projekt bauen",
       partners_sub: "Die Plattformen und Werkzeuge, mit denen wir täglich Websites erstellen, hosten und pflegen",
       partners_note: "Wir wählen das Werkzeug, das das Projekt wirklich braucht. <a href=\"/desarrollo-web-costa-rica/\">Sagen Sie uns, was Sie bauen möchten</a> und wir sagen Ihnen womit.",
@@ -316,7 +316,7 @@ export const i18nData = {
       form_name_label_raw: "Name", form_email_label_raw: "Email", form_tel_label_raw: "Tel", form_servicio_label_raw: "Service", form_msg_label_raw: "Nachricht", form_empresa_label_raw: "Firma",
     },
     ja: {
-      nav_shop: "料金",
+      nav_shop: "カタログ",
       partners_title: "プロジェクトを支える技術",
       partners_sub: "ウェブサイトの構築・ホスティング・保守に日々使用しているプラットフォームとツール",
       partners_note: "プロジェクトに本当に必要なツールを選びます。<a href=\"/desarrollo-web-costa-rica/\">作りたいものをお聞かせください</a>。最適な構成をご提案します。",
@@ -373,7 +373,7 @@ card_title: "Web制作 &<br>AIエージェント", card_desc: "プロサイト�
       form_name_label_raw: "名前", form_email_label_raw: "メール", form_tel_label_raw: "電話", form_servicio_label_raw: "サービス", form_msg_label_raw: "メッセージ", form_empresa_label_raw: "会社",
     },
     zh: {
-      nav_shop: "价格",
+      nav_shop: "服务目录",
       partners_title: "我们用什么构建您的项目",
       partners_sub: "我们每天用于构建、托管和维护网站的平台与工具",
       partners_note: "我们选择项目真正需要的工具。<a href=\"/desarrollo-web-costa-rica/\">告诉我们您想构建什么</a>，我们会告诉您用什么来实现。",
@@ -430,7 +430,7 @@ card_title: "网站制作 &<br>AI智能助手", card_desc: "专业网站和AI。
       form_name_label_raw: "姓名", form_email_label_raw: "邮箱", form_tel_label_raw: "电话", form_servicio_label_raw: "服务", form_msg_label_raw: "留言", form_empresa_label_raw: "公司",
     },
     ru: {
-      nav_shop: "Цены",
+      nav_shop: "Каталог",
       partners_title: "На чём мы строим ваш проект",
       partners_sub: "Платформы и инструменты, которыми мы каждый день создаём, размещаем и поддерживаем сайты",
       partners_note: "Мы выбираем инструмент, который действительно нужен проекту. <a href=\"/desarrollo-web-costa-rica/\">Расскажите, что хотите создать</a>, и мы подскажем, на чём.",
@@ -479,7 +479,7 @@ card_title: "网站制作 &<br>AI智能助手", card_desc: "专业网站和AI。
       form_name_label_raw: "Имя", form_email_label_raw: "Email", form_tel_label_raw: "Тел", form_servicio_label_raw: "Услуга", form_msg_label_raw: "Сообщение", form_empresa_label_raw: "Компания",
     },
     "zh-TW": {
-      nav_shop: "價格",
+      nav_shop: "服務目錄",
       partners_title: "我們用什麼打造您的專案",
       partners_sub: "我們每天用於打造、託管與維護網站的平台與工具",
       partners_note: "我們選擇專案真正需要的工具。<a href=\"/desarrollo-web-costa-rica/\">告訴我們您想打造什麼</a>，我們會告訴您用什麼來實現。",

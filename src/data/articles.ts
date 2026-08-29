@@ -53,11 +53,11 @@ export const articles: Article[] = [
 
 <h3>Página web de negocio — desde $350 (₡180,000)</h3>
 <p>Un sitio de una o varias secciones para un negocio de servicios: quién sos, qué ofrecés, portafolio o galería, y formulario de contacto con botón de WhatsApp. Es lo que necesita la mayoría de los negocios locales que hoy solo tienen Instagram.</p>
-<p>Nuestro paquete de <a href="/product/pagina-web-profesional-sin-carrito-de-compras/">página web profesional</a> está en $450 USD e incluye diseño responsive, las secciones esenciales, formulario, botón de WhatsApp y la base de SEO.</p>
+<p>Nuestra <a href="/product/pagina-web-profesional-sin-carrito-de-compras/">página web profesional</a> cae en ese rango e incluye diseño responsive, las secciones esenciales, formulario, botón de WhatsApp y la base de SEO. El número exacto depende de cuántas secciones lleve y de si los textos vienen listos.</p>
 
 <h3>Tienda online — de $800 a $2,500</h3>
 <p>Acá se suma catálogo, carrito, pasarela de pago, cálculo de envíos y panel de pedidos. El rango es amplio porque un catálogo de 20 productos y uno de 2,000 no cuestan lo mismo, ni tampoco integrarse con un sistema de inventario existente.</p>
-<p>Nuestro paquete de <a href="/product/pagina-web-tienda-online-con-carrito/">tienda online</a> está en $850 USD con hasta 50 productos configurados.</p>
+<p>Nuestra <a href="/product/pagina-web-tienda-online-con-carrito/">tienda online</a> se cotiza según el tamaño del catálogo y las integraciones que necesite.</p>
 
 <h3>Plataforma a medida — se cotiza por alcance</h3>
 <p>Membresías, reservas, áreas privadas, sistemas internos. Aquí no hay precio de lista porque el trabajo se define por los requisitos: cuántos tipos de usuario hay, qué tiene que hacer cada uno y con qué otros sistemas hay que hablar. Esto entra en <a href="/desarrollo-web-costa-rica/">desarrollo web a medida</a>.</p>
@@ -76,7 +76,7 @@ export const articles: Article[] = [
 <ul>
   <li><strong>Dominio:</strong> entre $10 y $40 al año según la extensión (.com, .cr).</li>
   <li><strong>Hosting:</strong> desde unos pocos dólares al mes. Un sitio estático puede alojarse gratis en plataformas como Cloudflare Pages; uno con WordPress necesita un servidor.</li>
-  <li><strong>Mantenimiento:</strong> actualizaciones de seguridad, backups y cambios menores. Nuestros planes arrancan en <a href="/product/mantenimiento-web-basico-mensual/">$38 USD al mes</a>.</li>
+  <li><strong>Mantenimiento:</strong> actualizaciones de seguridad, backups y cambios menores. Nuestros <a href="/product/mantenimiento-web-basico-mensual/">planes mensuales</a> parten de lo mínimo —actualizar y respaldar— y suben según cuántos cambios necesités al mes.</li>
   <li><strong>Comisiones de pasarela:</strong> si vendés en línea, el procesador de pagos cobra un porcentaje por transacción.</li>
 </ul>
 

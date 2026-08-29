@@ -1,11 +1,8 @@
 ﻿---
 import ServiceLanding from '../layouts/ServiceLanding.astro';
 import { projects } from '../data/projects';
-import { getProduct } from '../data/products';
 
 const path = '/desarrollo-web-costa-rica/';
-const webSimple = getProduct('pagina-web-profesional-sin-carrito-de-compras');
-
 const faqs = [
   {
     q: '¿Con qué tecnologías trabajan?',
@@ -73,14 +70,18 @@ const proyectosDev = projects.filter((p) => p.relatedServices.includes(path));
         dentro del código y backups automáticos en los planes de mantenimiento.
       </p>
 
-      <h2>Precios</h2>
+      <h2>Cuánto cuesta</h2>
       <p>
-        Los proyectos a medida se cotizan por alcance. Si lo que necesitás es un sitio de negocio
-        estándar, el precio ya está publicado:
-        {webSimple && (
-          <> <a href={`/product/${webSimple.slug}/`}>{webSimple.title}</a> desde <strong>${webSimple.price} USD</strong>.</>
-        )}
-        Todo lo demás está en la <a href="/shop/">tienda</a>.
+        Los proyectos a medida se cotizan por alcance, y no hay forma seria de hacerlo de
+        otra manera: el precio depende de cuántos tipos de usuario hay, qué tiene que hacer
+        cada uno y con qué sistemas hay que conectarse. Contanos el caso y te pasamos una
+        propuesta con todo desglosado, sin compromiso.
+      </p>
+      <p>
+        Un consejo antes de pedir cotización: si podés arrancar con un módulo pequeño en vez
+        del sistema completo, casi siempre conviene. Se entrega antes, cuesta menos y sobre
+        todo se aprende qué hacía falta de verdad. Todo lo que hacemos está en el
+        <a href="/shop/">catálogo</a>.
       </p>
     </div>
   </section>

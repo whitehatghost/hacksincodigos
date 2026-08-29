@@ -5,7 +5,6 @@ import CtaBand from '../components/CtaBand.astro';
 import Partners from '../components/Partners.astro';
 import Faq from '../components/Faq.astro';
 import { projects } from '../data/projects';
-import { getProduct } from '../data/products';
 import { faqs, process } from '../data/content';
 import { areasServed } from '../data/site';
 import { webPageSchema, breadcrumbSchema, serviceSchema, faqSchema } from '../lib/schema';
@@ -13,16 +12,12 @@ import { webPageSchema, breadcrumbSchema, serviceSchema, faqSchema } from '../li
 const path = '/paginas-web-costa-rica/';
 const title = 'Páginas Web en Costa Rica — Diseño y Desarrollo | HacksinCodigos';
 const description =
-  'Creamos páginas web profesionales en Costa Rica: diseño responsive, SEO técnico, WhatsApp integrado y tiendas online. Precios desde $450. Cotización sin compromiso.';
+  'Creamos páginas web profesionales en Costa Rica: diseño responsive, SEO técnico, WhatsApp integrado y tiendas online. Cotización sin compromiso por WhatsApp.';
 
 const crumbs = [
   { name: 'Inicio', path: '/' },
   { name: 'Páginas web Costa Rica', path },
 ];
-
-const webSimple = getProduct('pagina-web-profesional-sin-carrito-de-compras');
-const webTienda = getProduct('pagina-web-tienda-online-con-carrito');
-const mantenimiento = getProduct('mantenimiento-web-basico-mensual');
 
 /** FAQ de esta página: las que responden intención de compra de sitio web. */
 const pageFaqs = [faqs[0], faqs[1], faqs[2], faqs[5], faqs[6]].filter(Boolean);
@@ -207,33 +202,23 @@ const schemas = [
 
     <section class="section-block">
       <div class="section-inner narrow prose">
-        <h2>Precios</h2>
+        <h2>Cuánto cuesta</h2>
         <p>
-          Estos son los precios publicados hoy. El alcance exacto se confirma antes de arrancar.
+          No publicamos una lista de precios porque el mismo servicio cuesta distinto según
+          el caso. Un sitio de cuatro secciones con los textos listos no es el mismo trabajo
+          que uno de treinta con el contenido por redactar, y poner un número obliga a
+          inventar un promedio que a unos les queda caro y a otros barato.
         </p>
-        <ul>
-          {webSimple && (
-            <li>
-              <a href={`/product/${webSimple.slug}/`}>{webSimple.title}</a> — desde
-              <strong> ${webSimple.price} USD</strong>.
-            </li>
-          )}
-          {webTienda && (
-            <li>
-              <a href={`/product/${webTienda.slug}/`}>{webTienda.title}</a> — desde
-              <strong> ${webTienda.price} USD</strong>, incluye hasta 50 productos.
-            </li>
-          )}
-          {mantenimiento && (
-            <li>
-              <a href={`/product/${mantenimiento.slug}/`}>{mantenimiento.title}</a> — desde
-              <strong> ${mantenimiento.price} USD al mes</strong>.
-            </li>
-          )}
-        </ul>
         <p>
-          Los proyectos a medida se cotizan según alcance. Podés ver todos los servicios con
-          precio en la <a href="/shop/">tienda</a>.
+          Lo que sí podemos decirte de entrada: un sitio de negocio para una PYME arranca en
+          el orden de los cientos de dólares, y un e-commerce completo sube según el catálogo
+          y las integraciones. Para un número en firme necesitamos saber qué secciones
+          querés, si vendés en línea y si los textos y fotos ya existen.
+        </p>
+        <p>
+          Contanos tu caso por WhatsApp y te pasamos una propuesta con el alcance, el plazo y
+          el precio cerrado. La cotización es gratis y no compromete a nada. Todo lo que
+          hacemos está listado en el <a href="/shop/">catálogo</a>.
         </p>
       </div>
     </section>

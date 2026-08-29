@@ -58,10 +58,17 @@ export const categories: ShopCategory[] = [
     layout: 'featured',
   },
   {
+    id: 'software',
+    title: 'Software a la medida',
+    intro:
+      'Cuando lo que necesita tu negocio no cabe en una plantilla ni en un sistema comprado: se programa a medida, con tu proceso real adentro.',
+    layout: 'plans',
+  },
+  {
     id: 'mantenimiento',
     title: 'Mantenimiento mensual',
     intro:
-      'Un sitio publicado necesita actualizaciones de seguridad y respaldos. Estos planes cubren eso y un número de cambios al mes.',
+      'Un sitio o un sistema publicado necesita actualizaciones de seguridad y respaldos. Estos planes cubren eso y un número de cambios al mes.',
     layout: 'plans',
   },
   {
@@ -81,7 +88,7 @@ export const items: ShopItem[] = [
   {
     slug: 'pagina-web-profesional-sin-carrito-de-compras',
     category: 'paginas-web',
-    price: 450,
+    price: null,
     active: true,
     tagline:
       'El sitio que necesita un negocio de servicios: se ve profesional, carga rápido y las consultas te llegan por WhatsApp.',
@@ -96,7 +103,7 @@ export const items: ShopItem[] = [
   {
     slug: 'pagina-web-tienda-online-con-carrito',
     category: 'paginas-web',
-    price: 850,
+    price: null,
     active: true,
     recommended: true,
     tagline:
@@ -110,12 +117,165 @@ export const items: ShopItem[] = [
     ],
   },
 
+  // ── Software a la medida ────────────────────────────────────────────────────
+  {
+    slug: 'software-a-la-medida-pymes',
+    category: 'software',
+    price: null,
+    active: true,
+    recommended: true,
+    title: 'Software a la Medida para PYMES',
+    tagline:
+      'El sistema que tu negocio ya opera en Excel y WhatsApp, hecho software: con tu proceso real, no el de una plantilla.',
+    highlights: [
+      'Se diseña sobre cómo trabajás hoy',
+      'Reemplaza hojas de cálculo sueltas',
+      'Usuarios con permisos por rol',
+      'Reportes con tus propios números',
+      'El código queda a tu nombre',
+    ],
+    descHtml: `
+      <p>La mayoría de las PYMES termina operando entre hojas de cálculo, cuadernos y
+      conversaciones de WhatsApp. Funciona hasta que deja de funcionar: se pierde
+      información, dos personas editan versiones distintas del mismo archivo y nadie sabe
+      con certeza cuánto se vendió el mes pasado.</p>
+      <p>Un software a la medida resuelve eso partiendo de cómo trabaja tu negocio de
+      verdad, no de cómo cree un proveedor que debería trabajar.</p>
+
+      <p><strong>Qué se puede construir</strong></p>
+      <ul>
+        <li>Control de inventario y bodega</li>
+        <li>Facturación y cotizaciones</li>
+        <li>Gestión de pedidos y despachos</li>
+        <li>Agenda de citas y reservas</li>
+        <li>Control de proyectos y horas trabajadas</li>
+        <li>Paneles con los indicadores que a vos te importan</li>
+      </ul>
+
+      <p><strong>Cómo trabajamos el proyecto</strong></p>
+      <ul>
+        <li>Primero entendemos el proceso actual, paso por paso</li>
+        <li>Definimos qué se automatiza y qué conviene dejar manual</li>
+        <li>Se entrega por partes, no todo al final: ves avances desde temprano</li>
+        <li>Capacitación al equipo que lo va a usar</li>
+        <li>El código y los datos quedan a nombre del cliente</li>
+      </ul>
+
+      <p><strong>Notas</strong></p>
+      <ul>
+        <li>Cada proyecto se cotiza según alcance: no hay precio de lista porque no hay
+        dos negocios con el mismo proceso.</li>
+        <li>Se puede arrancar con un módulo pequeño y crecer desde ahí. Suele ser la
+        forma más sensata de empezar.</li>
+      </ul>
+      <p>Si además necesitás que el sistema converse con tu sitio o con otros servicios,
+      eso entra en <a href="/desarrollo-web-costa-rica/">desarrollo web y APIs</a>.</p>`,
+  },
+  {
+    slug: 'crm-empresarial',
+    category: 'software',
+    price: null,
+    active: true,
+    title: 'CRM Empresarial',
+    tagline:
+      'Todos tus clientes y oportunidades en un solo lugar, con seguimiento que no depende de que alguien se acuerde.',
+    highlights: [
+      'Base única de clientes y contactos',
+      'Embudo de ventas por etapas',
+      'Historial completo de cada cuenta',
+      'Recordatorios de seguimiento',
+      'Reportes de cierre por vendedor',
+    ],
+    descHtml: `
+      <p>Un CRM es donde vive la relación con cada cliente: quién es, qué le vendiste,
+      qué conversaron la última vez y qué sigue. Sin eso, esa información está repartida
+      entre el celular de cada vendedor y se va con ellos cuando se van.</p>
+
+      <p><strong>Qué incluye</strong></p>
+      <ul>
+        <li>Base única de clientes, contactos y empresas</li>
+        <li>Embudo de ventas con etapas configurables según tu proceso</li>
+        <li>Historial de cada cuenta: llamadas, correos, cotizaciones y notas</li>
+        <li>Recordatorios de seguimiento para que ninguna oportunidad se enfríe</li>
+        <li>Usuarios con permisos por rol: quién ve qué</li>
+        <li>Reportes de conversión y cierre por vendedor y por período</li>
+      </ul>
+
+      <p><strong>Integraciones frecuentes</strong></p>
+      <ul>
+        <li>WhatsApp, para que las conversaciones queden registradas en la ficha del cliente</li>
+        <li>Formularios del sitio web, que entran directo como oportunidad</li>
+        <li>Correo empresarial</li>
+        <li>Facturación</li>
+      </ul>
+
+      <p><strong>A medida o sobre una plataforma existente</strong></p>
+      <p>No siempre conviene programar un CRM desde cero. Si una plataforma establecida
+      cubre lo que necesitás, sale más a cuenta configurarla bien e integrarla con tus
+      sistemas. Eso lo evaluamos antes de proponer nada: la recomendación depende del
+      tamaño del equipo y de qué tan particular sea tu proceso de venta.</p>
+      <p>Se complementa con un
+      <a href="/agentes-ia-costa-rica/">agente de IA para WhatsApp</a> que califica al
+      interesado antes de que llegue a un vendedor.</p>`,
+  },
+  {
+    slug: 'aplicaciones-moviles-y-web',
+    category: 'software',
+    price: null,
+    active: true,
+    title: 'Aplicaciones Móviles y Web',
+    tagline:
+      'Una app para tus clientes o para tu equipo en calle, que funciona desde el celular y se conecta con tus sistemas.',
+    highlights: [
+      'Para Android, iOS y navegador',
+      'Funciona desde el celular en campo',
+      'Se conecta con tus sistemas por API',
+      'Notificaciones push',
+      'Publicación en las tiendas',
+    ],
+    descHtml: `
+      <p>Una aplicación tiene sentido cuando hay que hacer algo desde el celular que una
+      página web no resuelve bien: trabajar sin señal, usar la cámara o el GPS, o mandar
+      notificaciones que la gente realmente vea.</p>
+
+      <p><strong>Para tus clientes</strong></p>
+      <ul>
+        <li>Pedidos y reservas desde el teléfono</li>
+        <li>Seguimiento de estado en tiempo real</li>
+        <li>Programas de fidelidad y puntos</li>
+        <li>Notificaciones de promociones y recordatorios</li>
+      </ul>
+
+      <p><strong>Para tu equipo</strong></p>
+      <ul>
+        <li>Toma de pedidos en ruta</li>
+        <li>Registro de visitas con ubicación y fotos</li>
+        <li>Control de inventario en bodega</li>
+        <li>Reportes de campo que llegan al instante</li>
+      </ul>
+
+      <p><strong>Cómo se construye</strong></p>
+      <ul>
+        <li>Una sola base de código para Android e iOS, que abarata el desarrollo y el
+        mantenimiento frente a hacer dos apps separadas</li>
+        <li>Backend propio con APIs seguras, o conexión con los sistemas que ya usás</li>
+        <li>Acompañamiento en la publicación en Google Play y App Store</li>
+      </ul>
+
+      <p><strong>Notas</strong></p>
+      <ul>
+        <li>Las cuentas de desarrollador de Google Play y App Store las cobra cada
+        tienda y van a nombre del cliente.</li>
+        <li>Antes de proponer una app revisamos si un sitio web bien hecho no resuelve
+        el mismo problema por bastante menos. A veces sí.</li>
+      </ul>`,
+  },
+
   // ── Mantenimiento ───────────────────────────────────────────────────────────
   {
     slug: 'mantenimiento-web-basico-mensual',
     category: 'mantenimiento',
-    price: 38,
-    unit: 'month',
+    price: null,
     active: true,
     tagline: 'Actualizaciones, respaldos y soporte.',
       descHtml: `
@@ -141,8 +301,7 @@ export const items: ShopItem[] = [
   {
     slug: 'mantenimiento-web-pro-mensual',
     category: 'mantenimiento',
-    price: 68,
-    unit: 'month',
+    price: null,
     active: true,
     recommended: true,
     tagline: 'Firewall, respaldos diarios y 20 cambios al mes.',
@@ -168,8 +327,7 @@ export const items: ShopItem[] = [
   {
     slug: 'mantenimiento-web-corporativo-mensual',
     category: 'mantenimiento',
-    price: 97,
-    unit: 'month',
+    price: null,
     active: true,
     tagline: 'Prioridad de atención, hardening avanzado y 40 cambios al mes.',
       descHtml: `
@@ -192,7 +350,7 @@ export const items: ShopItem[] = [
   {
     slug: 'correo-empresarial-con-dominio',
     category: 'presencia',
-    price: 150,
+    price: null,
     active: true,
     tagline: 'Correo con tu dominio, configurado para que no caiga en spam.',
       descHtml: `
@@ -220,7 +378,7 @@ export const items: ShopItem[] = [
   {
     slug: 'menu-qr-interactivo',
     category: 'presencia',
-    price: 65,
+    price: null,
     active: true,
     tagline: 'Carta digital para celular, con QR listo para imprimir.',
       descHtml: `
@@ -245,14 +403,14 @@ export const items: ShopItem[] = [
   {
     slug: 'tarjeta-de-presentacion-digital-para-eventos-con-qr',
     category: 'presencia',
-    price: 100,
+    price: null,
     active: true,
     tagline: 'Tarjeta digital con QR para ferias y eventos.',
   },
   {
     slug: 'firma-para-correo-electronico',
     category: 'presencia',
-    price: 30,
+    price: null,
     active: true,
     tagline: 'Firma de correo con tu logo, compatible con Gmail y Outlook.',
   },
@@ -315,7 +473,7 @@ export const items: ShopItem[] = [
   {
     slug: 'paquete-profesional-15-imagenes',
     category: 'contenido',
-    price: 130,
+    price: null,
     active: true,
     tagline: 'Creativos profesionales para campañas.',
       descHtml: `
@@ -335,7 +493,7 @@ export const items: ShopItem[] = [
   {
     slug: 'paquete-emprendedor-10-imagenes',
     category: 'contenido',
-    price: 90,
+    price: null,
     active: true,
     tagline: '10 imágenes para impulsar ventas en redes.',
       descHtml: `
@@ -358,7 +516,7 @@ export const items: ShopItem[] = [
   {
     slug: 'paquete-esencial-4-imagenes',
     category: 'contenido',
-    price: 40,
+    price: null,
     active: true,
     tagline: '4 creativos listos para publicar.',
       descHtml: `
@@ -378,7 +536,7 @@ export const items: ShopItem[] = [
   {
     slug: 'imagen-publicitaria-unica',
     category: 'contenido',
-    price: 10,
+    price: null,
     active: true,
     tagline: '1 diseño para feed o story.',
       descHtml: `
@@ -399,7 +557,7 @@ export const items: ShopItem[] = [
   {
     slug: 'video-publicitario-1-minuto',
     category: 'contenido',
-    price: 50,
+    price: null,
     active: true,
     tagline: 'Video de 1 minuto con estructura de venta.',
       descHtml: `
@@ -426,7 +584,7 @@ export const items: ShopItem[] = [
   {
     slug: 'video-publicitario-30-35-segundos',
     category: 'contenido',
-    price: 35,
+    price: null,
     active: true,
     tagline: 'Video de 30–35 s para campañas.',
       descHtml: `
@@ -451,7 +609,7 @@ export const items: ShopItem[] = [
   {
     slug: 'videos-3-productos',
     category: 'contenido',
-    price: 20,
+    price: null,
     active: true,
     tagline: 'Video de 15 s optimizado para reels y ads.',
       descHtml: `
@@ -483,7 +641,7 @@ export const items: ShopItem[] = [
   {
     slug: 'guia-pro-proteccion-total-de-instagram-y-facebook-2026',
     category: 'presencia',
-    price: 10,
+    price: null,
     active: false,
   },
 ];

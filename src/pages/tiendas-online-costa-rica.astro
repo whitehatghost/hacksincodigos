@@ -1,17 +1,12 @@
 ﻿---
 import ServiceLanding from '../layouts/ServiceLanding.astro';
 import { projects } from '../data/projects';
-import { getProduct } from '../data/products';
 
 const path = '/tiendas-online-costa-rica/';
-const tienda = getProduct('pagina-web-tienda-online-con-carrito');
-
 const faqs = [
   {
     q: '¿Cuánto cuesta una tienda online en Costa Rica?',
-    a: tienda
-      ? `Nuestro paquete de tienda online cuesta $${tienda.price} USD e incluye la configuración inicial con hasta 50 productos. Catálogos más grandes o integraciones especiales se cotizan aparte.`
-      : 'El paquete de tienda online incluye la configuración inicial con catálogo y carrito. Catálogos más grandes o integraciones especiales se cotizan aparte.',
+    a: 'Depende del catálogo y de las integraciones. Una tienda con pocos productos y pagos estándar cuesta bastante menos que una con miles de referencias conectada a un sistema de inventario. Contanos tu caso por WhatsApp y te pasamos una cotización con el alcance detallado, sin compromiso.',
   },
   {
     q: '¿Qué formas de pago se pueden aceptar?',
@@ -32,7 +27,7 @@ const proyectosTienda = projects.filter((p) => p.relatedServices.includes(path))
 <ServiceLanding
   path={path}
   title="Tiendas Online en Costa Rica — E-commerce y Pagos | HacksinCodigos"
-  description="Creamos tiendas online en Costa Rica con catálogo, carrito, pagos con tarjeta y WhatsApp integrado. Desde $850 USD con hasta 50 productos configurados."
+  description="Creamos tiendas online en Costa Rica con catálogo, carrito, pagos con tarjeta y WhatsApp integrado. Cotización sin compromiso según tu catálogo."
   eyebrow="Costa Rica · E-commerce"
   h1="Tiendas online en Costa Rica que cobran de verdad"
   lead="Catálogo, carrito, pagos con tarjeta y pedidos por WhatsApp. Para dejar de vender contestando mensajes uno por uno y que la tienda trabaje mientras dormís."
@@ -65,7 +60,7 @@ const proyectosTienda = projects.filter((p) => p.relatedServices.includes(path))
       <h2>Después del lanzamiento</h2>
       <p>
         Una tienda necesita mantenimiento: actualizaciones de seguridad, backups y revisión de que
-        los pagos sigan funcionando. Los planes están en la <a href="/shop/">tienda</a>. Y para
+        los pagos sigan funcionando. Los planes están en el <a href="/shop/">catálogo</a>. Y para
         que la gente la encuentre, hay trabajo de <a href="/seo-costa-rica/">SEO</a>.
       </p>
       <p>

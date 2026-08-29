@@ -27,6 +27,7 @@ const S = 800; // lienzo base
 const ACCENT = {
   'paginas-web': '#00ff88',
   mantenimiento: '#00bfff',
+  software: '#06b6d4',
   presencia: '#a855f7',
   contenido: '#f59e0b',
 };
@@ -143,6 +144,36 @@ const ART = {
       <path d="M5.4 11.6 H7 L8.5 16.4 H15.4 L16.8 12.4 H7.6" />
       <circle cx="9.4" cy="18.2" r="0.85"/>
       <circle cx="14.6" cy="18.2" r="0.85"/>`,
+  },
+  'software-a-la-medida-pymes': {
+    label: 'SOFTWARE A MEDIDA',
+    glyph: `
+      <rect x="2.6" y="4.2" width="18.8" height="15.6" rx="2"/>
+      <path d="M2.6 8.4 H21.4" stroke-opacity="0.5"/>
+      <path d="M8.2 11.6 L6 13.8 L8.2 16"/>
+      <path d="M15.8 11.6 L18 13.8 L15.8 16"/>
+      <path d="M13.2 11 L10.8 16.6" stroke-opacity="0.7"/>`,
+  },
+  'crm-empresarial': {
+    label: 'CRM',
+    glyph: `
+      <circle cx="12" cy="7.6" r="2.6"/>
+      <path d="M7.4 15.4 c0-2.5 2.1-4 4.6-4 s4.6 1.5 4.6 4"/>
+      <circle cx="4.8" cy="16.4" r="1.9" stroke-opacity="0.6"/>
+      <circle cx="19.2" cy="16.4" r="1.9" stroke-opacity="0.6"/>
+      <path d="M2.4 21 c0-1.7 1.1-2.7 2.4-2.7 s2.4 1 2.4 2.7" stroke-opacity="0.6"/>
+      <path d="M16.8 21 c0-1.7 1.1-2.7 2.4-2.7 s2.4 1 2.4 2.7" stroke-opacity="0.6"/>`,
+  },
+  'aplicaciones-moviles-y-web': {
+    label: 'APPS',
+    glyph: `
+      <rect x="7.6" y="2.6" width="8.8" height="18.8" rx="2.2"/>
+      <path d="M10.6 5 H13.4" stroke-opacity="0.6"/>
+      <circle cx="12" cy="18.6" r="0.9" stroke-opacity="0.7"/>
+      <rect x="9.6" y="7.6" width="2.1" height="2.1" rx="0.5" stroke-opacity="0.85"/>
+      <rect x="12.6" y="7.6" width="2.1" height="2.1" rx="0.5" stroke-opacity="0.6"/>
+      <rect x="9.6" y="10.8" width="2.1" height="2.1" rx="0.5" stroke-opacity="0.6"/>
+      <rect x="12.6" y="10.8" width="2.1" height="2.1" rx="0.5" stroke-opacity="0.4"/>`,
   },
   'mantenimiento-web-basico-mensual': {
     label: 'MANTENIMIENTO',

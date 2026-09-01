@@ -1,0 +1,284 @@
+---
+/**
+ * Landing de servicio: software a la medida y CRM empresarial.
+ *
+ * Es la página que concentra la intención de búsqueda de "software a la medida
+ * Costa Rica", "CRM empresarial Costa Rica" y "sistema de gestión para PYMES".
+ * Enlaza al caso de Grupo Novo (proyecto + artículo) y a las fichas del catálogo.
+ *
+ * Nada de métricas ni resultados: los hechos que se afirman acá son los que el
+ * negocio puede sostener — qué se construyó y para quién.
+ */
+import ServiceLanding from '../layouts/ServiceLanding.astro';
+import Partners from '../components/Partners.astro';
+
+const path = '/software-a-la-medida-costa-rica/';
+
+const faqs = [
+  {
+    q: '¿Qué es un software a la medida?',
+    a: 'Es un sistema construido para el proceso de un negocio en particular, en lugar de una plataforma genérica a la que hay que adaptarse. Se parte de cómo trabaja la empresa hoy — qué se registra, quién aprueba qué, qué reportes hacen falta — y sobre eso se programa.',
+  },
+  {
+    q: '¿Qué es un CRM empresarial y para qué sirve?',
+    a: 'Un CRM (Customer Relationship Management) centraliza todo lo que pasa con cada cliente: quién es, qué pidió, qué se le cotizó, quién lo atendió y cuándo hay que darle seguimiento. Sirve para que la información deje de vivir en el celular de un vendedor y para que ninguna cotización se quede sin respuesta.',
+  },
+  {
+    q: '¿Conviene un CRM a medida o uno ya hecho?',
+    a: 'Depende. Si tu proceso comercial es estándar, configurar bien una plataforma establecida sale más a cuenta y se arranca más rápido. El desarrollo a medida se justifica cuando el proceso tiene reglas propias que ninguna plataforma cubre, cuando hay que integrarlo con sistemas que ya existen, o cuando el costo por usuario al mes deja de tener sentido. En el diagnóstico te decimos cuál de los dos caminos te conviene, aunque sea el que no nos contrata.',
+  },
+  {
+    q: '¿Cuánto cuesta desarrollar un software a la medida?',
+    a: 'Se cotiza por alcance. No hay precio de lista porque no hay dos negocios con el mismo proceso: el costo depende de cuántos módulos lleve, cuántos tipos de usuario haya y con qué otros sistemas tenga que conectarse. Casi siempre conviene arrancar con un módulo acotado y crecer desde ahí.',
+  },
+  {
+    q: '¿El código y los datos quedan míos?',
+    a: 'Sí. Al completarse el pago, el código, la base de datos y los accesos quedan a nombre del cliente. Podés seguir el mantenimiento con nosotros o con quien quieras.',
+  },
+  {
+    q: '¿Cuánto tarda un proyecto de este tipo?',
+    a: 'Un módulo acotado puede estar funcionando en semanas; un sistema con varios módulos y usuarios toma meses. Entregamos por partes en lugar de todo al final, para que el equipo empiece a usar lo primero mientras se construye lo siguiente.',
+  },
+  {
+    q: '¿Se puede usar desde el celular?',
+    a: 'Sí. Los sistemas se construyen para funcionar en navegador y adaptarse al teléfono, que es donde suele estar el vendedor, el técnico o el encargado de bodega. Cuando el caso lo pide, se desarrolla además una aplicación móvil.',
+  },
+];
+
+const soluciones = [
+  {
+    n: '01',
+    t: 'CRM empresarial',
+    d: 'Clientes, cotizaciones, seguimiento y responsables en un solo lugar. Para que nadie se quede sin respuesta y el historial no dependa de la memoria de quien atendió.',
+    href: '/product/crm-empresarial/',
+  },
+  {
+    n: '02',
+    t: 'Sistemas de gestión',
+    d: 'Inventario, bodega, facturación, pedidos y despachos. El reemplazo de las hojas de cálculo sueltas que hoy nadie sabe cuál es la buena.',
+    href: '/product/software-a-la-medida-pymes/',
+  },
+  {
+    n: '03',
+    t: 'Aplicaciones móviles y web',
+    d: 'Apps para Android, iOS y navegador cuando el trabajo pasa fuera del escritorio: en ruta, en obra o en el punto de venta.',
+    href: '/product/aplicaciones-moviles-y-web/',
+  },
+  {
+    n: '04',
+    t: 'Integraciones y APIs',
+    d: 'Conectar el sistema con lo que ya usás: la tienda en línea, la contabilidad, WhatsApp, la pasarela de pagos o el ERP del proveedor.',
+    href: '/desarrollo-web-costa-rica/',
+  },
+  {
+    n: '05',
+    t: 'Paneles y reportes',
+    d: 'Los números del negocio calculados solos, no armados a mano cada fin de mes. Con los indicadores que a la gerencia realmente le sirven.',
+  },
+  {
+    n: '06',
+    t: 'Portales para clientes',
+    d: 'Un área privada donde el cliente consulta su estado de cuenta, sus pedidos o sus documentos sin tener que llamar a preguntar.',
+  },
+];
+
+const etapas = [
+  {
+    n: '01',
+    t: 'Entender el proceso real',
+    d: 'Antes de programar nada nos sentamos a ver cómo trabaja el equipo hoy: qué se anota, dónde, quién lo revisa y en qué punto se pierde la información.',
+  },
+  {
+    n: '02',
+    t: 'Definir el alcance',
+    d: 'Se decide qué se automatiza y qué conviene dejar manual. Todo automatizado suena bien y sale caro; lo que importa es atacar el cuello de botella.',
+  },
+  {
+    n: '03',
+    t: 'Construir por módulos',
+    d: 'Se entrega por partes. El equipo empieza a usar el primer módulo mientras se desarrolla el siguiente, y ese uso corrige el rumbo antes de que salga caro corregirlo.',
+  },
+  {
+    n: '04',
+    t: 'Capacitar y acompañar',
+    d: 'Un sistema que nadie sabe usar no sirve. Se capacita al equipo, se ajusta lo que estorba y se acompaña las primeras semanas de operación.',
+  },
+];
+---
+<ServiceLanding
+  path={path}
+  title="Software a la Medida y CRM Empresarial en Costa Rica | HacksinCodigos"
+  description="Software a la medida y CRM empresarial para PYMES en Costa Rica: clientes, cotizaciones, inventario, reportes e integraciones. Cotización sin compromiso."
+  eyebrow="Costa Rica · Software empresarial"
+  h1="Software a la medida y CRM empresarial en Costa Rica"
+  lead="Sistemas construidos sobre el proceso real de tu negocio: clientes, cotizaciones, inventario y reportes en un solo lugar, en vez de repartidos entre Excel, cuadernos y WhatsApp."
+  crumbLabel="Software a la medida Costa Rica"
+  serviceName="Desarrollo de software a la medida y CRM empresarial en Costa Rica"
+  serviceType="Desarrollo de software empresarial"
+  faqs={faqs}
+  waText="Hola, me interesa un software a la medida / CRM para mi empresa"
+  ctaTitle="Contanos cómo opera hoy tu negocio"
+>
+  <section class="section-block alt">
+    <div class="section-inner narrow prose">
+      <h2>El problema que resuelve</h2>
+      <p>
+        Casi toda PYME costarricense que crece llega al mismo punto: la operación funciona,
+        pero funciona en pedazos. Los clientes están en la agenda del celular de un vendedor,
+        las cotizaciones en un Excel que alguien renombró <em>final_v3</em>, los pedidos en un
+        grupo de WhatsApp y el inventario en un cuaderno. Cada pieza sirve por separado y
+        ninguna habla con la otra.
+      </p>
+      <p>
+        Eso se aguanta un tiempo. Deja de aguantarse cuando entra más gente al equipo, cuando
+        un cliente reclama algo que nadie recuerda haberle prometido, o cuando la gerencia
+        pide un número que exige tres días de trabajo manual para armarlo.
+      </p>
+      <p>
+        Un sistema a la medida no es lujo de empresa grande: es el paso natural cuando el
+        volumen ya no cabe en las herramientas con las que se arrancó.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-inner">
+      <h2 class="block-title">Qué desarrollamos</h2>
+      <p class="block-sub">Todo se cotiza por alcance y se puede arrancar por un solo módulo.</p>
+      <div class="card-grid cols-3">
+        {soluciones.map((s) =>
+          s.href ? (
+            <a class="info-card" href={s.href}>
+              <span class="info-card-num">{s.n}</span>
+              <h3>{s.t}</h3>
+              <p>{s.d}</p>
+            </a>
+          ) : (
+            <div class="info-card">
+              <span class="info-card-num">{s.n}</span>
+              <h3>{s.t}</h3>
+              <p>{s.d}</p>
+            </div>
+          )
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block alt">
+    <div class="section-inner narrow prose">
+      <h2>CRM empresarial: qué es y qué resuelve</h2>
+      <p>
+        <strong>CRM</strong> son las siglas de <em>Customer Relationship Management</em>:
+        gestión de la relación con el cliente. En la práctica es el lugar donde vive todo lo
+        que pasa con cada cliente, desde que pregunta por primera vez hasta que vuelve a
+        comprar tres años después.
+      </p>
+      <p>Un CRM bien armado responde preguntas que hoy cuestan trabajo contestar:</p>
+      <ul>
+        <li><strong>¿Quién es este cliente y qué historia tiene con nosotros?</strong> Contactos, empresa, pedidos anteriores, lo que se le cotizó y a qué precio.</li>
+        <li><strong>¿En qué va cada oportunidad?</strong> Un embudo donde se ve qué cotizaciones están abiertas, cuáles se ganaron y cuáles se perdieron — y por qué.</li>
+        <li><strong>¿Quién tiene que hacer qué y cuándo?</strong> Seguimientos asignados con fecha, para que un interesado no se enfríe porque a nadie le tocaba llamarlo.</li>
+        <li><strong>¿Cómo vamos realmente?</strong> Reportes por vendedor, por producto y por período, calculados solos.</li>
+        <li><strong>¿Qué pasa si se va un vendedor?</strong> La cartera queda en la empresa, no en un teléfono.</li>
+      </ul>
+
+      <h2>A medida o de plantilla: la respuesta honesta</h2>
+      <p>
+        No siempre conviene programar un CRM desde cero. Si tu proceso comercial es estándar,
+        configurar bien una plataforma establecida cuesta menos y arranca antes. Lo decimos
+        aunque no nos convenga: hemos recomendado ese camino más de una vez.
+      </p>
+      <p>El desarrollo a medida se justifica cuando aparece alguna de estas tres cosas:</p>
+      <ul>
+        <li><strong>Reglas propias.</strong> Precios por volumen, listas por tipo de cliente, aprobaciones internas o cálculos que ninguna plataforma contempla.</li>
+        <li><strong>Integración con lo que ya existe.</strong> El sistema tiene que conversar con la tienda en línea, la facturación electrónica o el inventario, no vivir aparte.</li>
+        <li><strong>El costo por usuario.</strong> A partir de cierta cantidad de gente, la mensualidad de una plataforma supera lo que costaría tener el sistema propio.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-inner narrow prose">
+      <h2>Un caso real: el CRM de Grupo Novo</h2>
+      <p>
+        <a href="https://gruponovocr.com" target="_blank" rel="noopener">Grupo Novo</a> es una
+        empresa costarricense del sector de materiales y productos de construcción. Primero le
+        desarrollamos su <a href="/proyectos/grupo-novo/">tienda en línea</a> con el catálogo
+        completo de productos, y después un <strong>CRM</strong> para ordenar la parte que la
+        tienda no cubre: el trato con el cliente que llama, cotiza, compara y vuelve.
+      </p>
+      <p>
+        Es un buen ejemplo del orden en que suelen pasar estas cosas: primero el canal para
+        que te encuentren y te compren, después el sistema para sostener lo que ese canal
+        genera. Contamos el proceso completo en el artículo
+        <a href="/blog/crm-empresarial-caso-grupo-novo/">CRM empresarial: el caso de Grupo Novo</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-block alt">
+    <div class="section-inner">
+      <h2 class="block-title">Cómo llevamos el proyecto</h2>
+      <p class="block-sub">Cuatro etapas, con entregas parciales en vez de una entrega final.</p>
+      <div class="card-grid cols-4">
+        {etapas.map((e) => (
+          <div class="info-card">
+            <span class="info-card-num">{e.n}</span>
+            <h3>{e.t}</h3>
+            <p>{e.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-inner narrow prose">
+      <h2>Para qué sectores lo hemos hecho</h2>
+      <p>
+        Trabajamos con empresas costarricenses de distintos rubros — materiales de
+        construcción, comercio minorista, salud, bienes raíces y alimentos — además de
+        clientes fuera del país. Podés ver los proyectos publicados en el
+        <a href="/proyectos/">portafolio</a>.
+      </p>
+
+      <h2>Con qué lo construimos</h2>
+      <p>
+        La tecnología se elige según lo que el proyecto necesita, no al revés. Trabajamos con
+        aplicaciones web sobre base de datos relacional o documental según el tipo de
+        información, APIs propias para que los sistemas conversen entre sí, y automatizaciones
+        cuando hay tareas repetitivas que no justifican trabajo humano. Todo con control de
+        versiones, respaldos y accesos por rol desde el primer día.
+      </p>
+      <p>
+        Si el sistema tiene que exponerse en internet, se aplica el mismo criterio de
+        seguridad que en cualquier <a href="/desarrollo-web-costa-rica/">desarrollo web</a>:
+        cifrado, autenticación y control de permisos.
+      </p>
+
+      <h2>Cuándo conviene esperar</h2>
+      <p>
+        Si el negocio todavía está definiendo cómo trabaja, programar el proceso lo congela
+        antes de tiempo y sale más caro cambiarlo después. En ese caso conviene ordenar
+        primero con herramientas simples y desarrollar cuando el proceso ya se estabilizó.
+        También lo decimos cuando toca.
+      </p>
+    </div>
+  </section>
+
+  <Partners alt />
+
+  <section class="section-block">
+    <div class="section-inner narrow prose">
+      <h2>Seguí leyendo</h2>
+      <ul>
+        <li><a href="/blog/crm-empresarial-caso-grupo-novo/">CRM empresarial: el caso de Grupo Novo</a> — cómo se ordena la operación de un distribuidor.</li>
+        <li><a href="/desarrollo-web-costa-rica/">Desarrollo web en Costa Rica</a> — plataformas, APIs e integraciones.</li>
+        <li><a href="/tiendas-online-costa-rica/">Tiendas online en Costa Rica</a> — vender por internet.</li>
+        <li><a href="/agentes-ia-costa-rica/">Agentes de IA para WhatsApp</a> — automatizar la atención.</li>
+        <li><a href="/shop/">Catálogo completo</a> — todo lo que hacemos.</li>
+      </ul>
+    </div>
+  </section>
+</ServiceLanding>

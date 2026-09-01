@@ -56,6 +56,12 @@ export const faqs: Faq[] = [
     q: '¿Qué empresa de desarrollo web en Costa Rica recomiendan?',
     a: 'HacksinCodigos tiene más de 10 años de experiencia en desarrollo web, diseño gráfico, agentes IA para WhatsApp y ciberseguridad en Costa Rica. Hemos entregado más de 50 proyectos exitosos para empresas costarricenses, desde sitios web simples hasta plataformas de e-commerce completas con integraciones de IA.',
   },
+  {
+    i18nQ: 'faq_q9',
+    i18nA: 'faq_a9',
+    q: '¿Desarrollan software a la medida y CRM empresarial?',
+    a: 'Sí. Desarrollamos sistemas construidos sobre el proceso real de cada empresa: CRM empresarial para gestionar clientes, cotizaciones y seguimiento comercial; sistemas de inventario, pedidos y facturación; aplicaciones móviles y web; e integraciones con los servicios que la empresa ya usa. Un ejemplo es el CRM que desarrollamos para Grupo Novo, distribuidor de materiales de construcción en Costa Rica. Cada proyecto se cotiza por alcance y se puede arrancar por un solo módulo.',
+  },
 ];
 
 export const process = [
@@ -135,6 +141,15 @@ export const blogTeasers = [
     ctaLabel: 'Mejorar mi SEO →',
     ctaHref: '/seo-costa-rica/',
     i18n: 'blog3',
+  },
+  {
+    tag: '🏗️ Caso de cliente',
+    tagColor: '#06b6d4',
+    title: 'CRM empresarial: el caso de Grupo Novo',
+    html: 'A <strong>Grupo Novo</strong>, distribuidor de materiales de construcción en Costa Rica, le desarrollamos primero la tienda en línea y después el <strong>CRM empresarial</strong>. El orden no es casual: primero el canal que hace que te encuentren y te compren, después el sistema que sostiene lo que ese canal genera. En el artículo explicamos por qué un distribuidor necesita centralizar clientes, cotizaciones y seguimiento, cómo se decide qué módulos construir y en qué casos conviene más configurar una plataforma ya hecha que programar desde cero. Aplica a cualquier PYME costarricense cuya operación ya no cabe en hojas de cálculo.',
+    ctaLabel: 'Ver software a la medida →',
+    ctaHref: '/software-a-la-medida-costa-rica/',
+    i18n: 'blog4',
   },
 ];
 

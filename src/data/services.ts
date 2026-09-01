@@ -108,13 +108,14 @@ export const services: Service[] = [
   {
     id: 'apps-personalizadas',
     i18n: 'srv7',
-    title: 'Aplicaciones Personalizadas',
-    desc: 'Creamos software a la medida: sistemas de gestión, CRM, ERP, inventarios, plataformas web y apps empresariales.',
-    benefits: ['Sistemas CRM / ERP a medida', 'Plataformas web interactivas', 'Arquitectura escalable y segura'],
+    title: 'Software a la Medida & CRM Empresarial',
+    desc: 'Sistemas construidos sobre el proceso real de tu negocio: CRM empresarial, inventario, cotizaciones, reportes y apps.',
+    benefits: ['CRM empresarial a medida', 'Inventario, pedidos y facturación', 'Apps móviles y web para tu equipo'],
     gradient: ['#06b6d4', '#8b5cf6'],
     cardBg: 'linear-gradient(135deg, rgba(6,182,212,.15), rgba(139,92,246,.05))',
     iconColor: '#06b6d4',
-    waText: 'Hola, me interesa una aplicación personalizada',
+    waText: 'Hola, me interesa un software a la medida / CRM para mi empresa',
+    page: '/software-a-la-medida-costa-rica/',
     icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"/>',
   },
   {

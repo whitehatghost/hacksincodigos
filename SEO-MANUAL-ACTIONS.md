@@ -162,3 +162,23 @@ Para que no lo busqués:
 - ✅ Imágenes en WebP con `width`/`height` declarados (evita saltos de layout)
 - ✅ Accesibilidad: `alt` en todas las imágenes, foco visible, `aria-*` en menús y acordeones,
      cierre del menú móvil con Escape
+
+---
+
+## URLs nuevas para inspeccionar en Search Console
+
+Agregadas el 1 de setiembre de 2026 junto con el servicio de software a la medida.
+Pegalas en **Inspección de URLs → Solicitar indexación** (una por día alcanza; el
+sitemap hace el trabajo de fondo):
+
+```
+https://hacksincodigos.com/software-a-la-medida-costa-rica/
+https://hacksincodigos.com/blog/crm-empresarial-caso-grupo-novo/
+```
+
+También conviene volver a solicitar indexación de estas dos, porque cambiaron:
+
+```
+https://hacksincodigos.com/proyectos/grupo-novo/
+https://hacksincodigos.com/
+```

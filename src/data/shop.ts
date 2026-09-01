@@ -169,7 +169,9 @@ export const items: ShopItem[] = [
         forma más sensata de empezar.</li>
       </ul>
       <p>Si además necesitás que el sistema converse con tu sitio o con otros servicios,
-      eso entra en <a href="/desarrollo-web-costa-rica/">desarrollo web y APIs</a>.</p>`,
+      eso entra en <a href="/desarrollo-web-costa-rica/">desarrollo web y APIs</a>.</p>
+      <p>Más detalle del servicio en
+      <a href="/software-a-la-medida-costa-rica/">software a la medida y CRM empresarial</a>.</p>`,
   },
   {
     slug: 'crm-empresarial',
@@ -216,7 +218,12 @@ export const items: ShopItem[] = [
       tamaño del equipo y de qué tan particular sea tu proceso de venta.</p>
       <p>Se complementa con un
       <a href="/agentes-ia-costa-rica/">agente de IA para WhatsApp</a> que califica al
-      interesado antes de que llegue a un vendedor.</p>`,
+      interesado antes de que llegue a un vendedor.</p>
+      <p>Desarrollamos un CRM así para <strong>Grupo Novo</strong>, distribuidor de
+      materiales de construcción en Costa Rica. El proceso completo está contado en
+      <a href="/blog/crm-empresarial-caso-grupo-novo/">CRM empresarial: el caso de Grupo
+      Novo</a>, y el servicio en
+      <a href="/software-a-la-medida-costa-rica/">software a la medida y CRM</a>.</p>`,
   },
   {
     slug: 'aplicaciones-moviles-y-web',
@@ -268,7 +275,9 @@ export const items: ShopItem[] = [
         tienda y van a nombre del cliente.</li>
         <li>Antes de proponer una app revisamos si un sitio web bien hecho no resuelve
         el mismo problema por bastante menos. A veces sí.</li>
-      </ul>`,
+      </ul>
+      <p>Forma parte de nuestro servicio de
+      <a href="/software-a-la-medida-costa-rica/">software a la medida y CRM empresarial</a>.</p>`,
   },
 
   // ── Mantenimiento ───────────────────────────────────────────────────────────

@@ -113,6 +113,37 @@ test('no se genera página para los servicios retirados', { skip: !hasDist }, ()
   }
 });
 
+// ── Software a la medida y CRM ────────────────────────────────────
+
+test('la landing de software a la medida existe y cubre el CRM', { skip: !hasDist }, () => {
+  const html = read('software-a-la-medida-costa-rica/index.html');
+  assert.match(html, /CRM [Ee]mpresarial/, 'la landing no menciona CRM empresarial');
+  assert.ok(html.includes('/blog/crm-empresarial-caso-grupo-novo/'), 'no enlaza al caso de Grupo Novo');
+  assert.ok(html.includes('/proyectos/grupo-novo/'), 'no enlaza al proyecto de Grupo Novo');
+});
+
+test('el caso de Grupo Novo se publica y queda enlazado', { skip: !hasDist }, () => {
+  const art = read('blog/crm-empresarial-caso-grupo-novo/index.html');
+  assert.match(art, /Grupo Novo/, 'el artículo no menciona al cliente');
+  assert.ok(art.includes('https://gruponovocr.com'), 'el artículo no enlaza al sitio del cliente');
+  assert.ok(art.includes('/software-a-la-medida-costa-rica/'), 'el artículo no enlaza al servicio');
+  // El artículo entra al listado del blog y a la ficha del proyecto.
+  assert.ok(read('blog/index.html').includes('/blog/crm-empresarial-caso-grupo-novo/'));
+  assert.ok(read('proyectos/grupo-novo/index.html').includes('CRM'), 'la ficha del proyecto no menciona el CRM');
+});
+
+test('el caso de cliente no publica métricas de resultado', { skip: !hasDist }, () => {
+  // Nadie autorizó cifras de crecimiento: si aparece un porcentaje o un multiplicador
+  // en el artículo del caso, es invento y no puede salir a producción.
+  // Solo el cuerpo del artículo: fuera de ahí los "%" son escapes de URL en los
+  // enlaces de WhatsApp, no cifras.
+  const html = read('blog/crm-empresarial-caso-grupo-novo/index.html');
+  const cuerpo = (html.match(/<article class="prose">([\s\S]*?)<\/article>/) || ['', ''])[1];
+  assert.ok(cuerpo.length > 2000, 'no se pudo aislar el cuerpo del artículo');
+  const inventos = cuerpo.match(/\d+\s?%|aument[oó]\s+un\s+\d|x\d+\s+(?:m[aá]s|ventas)|triplic|duplic/gi);
+  assert.ok(!inventos, `el caso publica métricas sin respaldo: ${inventos && inventos.join(', ')}`);
+});
+
 // ── Nada de datos inventados ────────────────────────────────────────────────
 
 test('el Schema no declara reseñas, ratings, premios ni dirección postal', { skip: !hasDist }, () => {

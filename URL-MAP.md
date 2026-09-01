@@ -107,11 +107,12 @@ No sustituyen a ninguna anterior; amplían la cobertura de búsqueda.
 | `/desarrollo-web-costa-rica/` | "desarrollo web Costa Rica" — a medida, sistemas, APIs |
 | `/tiendas-online-costa-rica/` | "tiendas online Costa Rica" — e-commerce |
 | `/agentes-ia-costa-rica/` | "chatbot WhatsApp Costa Rica" — automatización |
+| `/software-a-la-medida-costa-rica/` | "software a la medida Costa Rica", "CRM empresarial Costa Rica" — sistemas para PYMES |
 | `/seo-costa-rica/` | "SEO Costa Rica" — posicionamiento |
 | `/proyectos/` | Navegación del portafolio |
 | `/proyectos/<slug>/` × 6 | Cada caso de cliente |
 | `/blog/` | Índice editorial |
-| `/blog/<slug>/` × 3 | Los tres artículos que estaban atrapados dentro de la portada |
+| `/blog/<slug>/` × 4 | Los tres artículos que estaban atrapados dentro de la portada, más el caso de Grupo Novo |
 | `/politica-de-privacidad/` | Reemplaza un `href="#"` roto |
 | `/terminos-de-servicio/` | Reemplaza un `href="#"` roto |
 | `/404/` | Página de error propia (`noindex`) |

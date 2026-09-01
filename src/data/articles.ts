@@ -199,82 +199,87 @@ export const articles: Article[] = [
 `,
   },
   {
-    // ─────────────────────────────────────────────────────────────────────────
-    // POR CONFIRMAR CON EL CLIENTE antes de dar por definitivo este artículo.
-    // Lo que se afirma acá sobre Grupo Novo es: (a) que es una empresa
-    // costarricense de materiales de construcción, (b) que HacksinCodigos le
-    // desarrolló la tienda en línea, (c) que después le desarrolló un CRM, y
-    // (d) el testimonio de Carlos Rodríguez, que ya está publicado en la home.
-    // NO hay métricas, porcentajes ni resultados inventados, y no debe agregarse
+    // ────────────────────────────────────────────────────────────────────────────────
+    // Caso de cliente. De dónde sale cada afirmación:
+    //   • Productos y modalidades (andamios, accesorios, alquiler, equipo nuevo
+    //     y usado): publicados en gruponovocr.com — verificables.
+    //   • Tienda en línea y CRM desarrollados por HacksinCodigos: confirmado
+    //     por el cliente.
+    //   • Testimonio de Carlos Rodríguez: ya publicado en la home del sitio.
+    // NO hay métricas, porcentajes ni resultados de venta, y no debe agregarse
     // ninguno que no venga del propio cliente por escrito.
-    // Si algún módulo del CRM descrito en "Qué se construyó" no corresponde a lo
-    // que realmente se entregó, corregirlo acá — es el único bloque con detalle
-    // específico del sistema.
-    // ─────────────────────────────────────────────────────────────────────────
+    // ────────────────────────────────────────────────────────────────────────────────
     slug: 'crm-empresarial-caso-grupo-novo',
-    title: 'CRM empresarial: el caso de Grupo Novo',
-    metaTitle: 'CRM empresarial en Costa Rica: el caso de Grupo Novo | HacksinCodigos',
+    title: 'CRM y tienda en línea: el caso de Grupo Novo',
+    metaTitle: 'CRM y tienda en línea: el caso de Grupo Novo | HacksinCodigos',
     metaDesc:
-      'Cómo un CRM a la medida ordena la operación de un distribuidor de materiales en Costa Rica: el caso de Grupo Novo, de la tienda en línea al sistema de gestión.',
+      'Cómo ayudamos a Grupo Novo a vender andamios y accesorios en línea en Costa Rica, y cómo un CRM a la medida ordena la operación de un distribuidor.',
     excerpt:
-      'Le desarrollamos a Grupo Novo primero la tienda en línea y después el CRM. Acá está el razonamiento completo: por qué un distribuidor de materiales necesita un sistema propio y cómo se decide qué construir.',
+      'Le desarrollamos a Grupo Novo la tienda en línea con la que venden andamios y accesorios, y después el CRM. Acá está el razonamiento: por qué un distribuidor necesita un sistema propio y cómo se decide qué construir.',
     tag: '🏗️ Caso de cliente',
     tagColor: '#06b6d4',
     published: '2026-08-31',
     updated: '2026-08-31',
-    readingMinutes: 8,
+    readingMinutes: 9,
     relatedServices: [
       { href: '/software-a-la-medida-costa-rica/', label: 'software a la medida y CRM' },
       { href: '/tiendas-online-costa-rica/', label: 'tiendas online' },
     ],
     bodyHtml: `
 <p>Casi todos los proyectos de software empiezan igual: alguien en la empresa dice "esto ya no se puede seguir llevando en Excel". Lo que viene después —qué se construye, en qué orden y hasta dónde— es donde se decide si el sistema sirve o queda como un gasto caro que nadie usa.</p>
-<p>Este es el caso de <a href="https://gruponovocr.com" target="_blank" rel="noopener">Grupo Novo</a>, una empresa costarricense del sector de materiales y productos de construcción, para la que desarrollamos primero su tienda en línea y después su CRM empresarial. Lo contamos porque el razonamiento se repite en casi cualquier distribuidor o comercializadora del país.</p>
+<p>Este es el caso de <a href="https://gruponovocr.com" target="_blank" rel="noopener">Grupo Novo</a>, empresa costarricense dedicada a la venta y el alquiler de andamios y accesorios para construcción, con la que trabajamos desde hace tiempo: primero les desarrollamos la tienda en línea con la que venden, y después implementamos con ellos un CRM empresarial. Lo contamos porque el razonamiento se repite en casi cualquier distribuidor del país.</p>
 
-<h2>Primero el canal, después el sistema</h2>
-<p>El trabajo con Grupo Novo arrancó por la <a href="/proyectos/grupo-novo/">tienda en línea</a>: llevar el catálogo completo de productos de construcción a internet, organizado por categoría, con fichas, imágenes y descripciones, y con un diseño pensado para que se consulte desde el celular —que es donde está el cliente de este sector, muchas veces parado en la obra.</p>
-<p>El objetivo era concreto: que los clientes pudieran consultar y pedir sin depender del teléfono ni de ir al local. Sobre ese trabajo, Carlos Rodríguez de Grupo Novo CR dejó publicado en nuestro sitio:</p>
+<h2>Qué vende Grupo Novo</h2>
+<p>Conviene entender el producto antes de hablar del sistema, porque el producto es el que manda. Grupo Novo trabaja andamios y todo lo que gira alrededor de ellos:</p>
+<ul>
+  <li><strong>Andamios</strong> — tipo box con pines de seguridad y con pin mariposa.</li>
+  <li><strong>Accesorios para andamios</strong> — crucetas y sus pines, bases ajustables o niveladores, acoples, ruedas niveladoras, barandas, plataformas con seguro y escaleras de peldaños.</li>
+  <li><strong>Puntales y formaletas</strong>, además de láminas de plywood fenólico.</li>
+  <li><strong>Materiales de obra</strong> — alambre de amarre galvanizado, mallas para gavión y geotextiles.</li>
+  <li><strong>Tres modalidades a la vez:</strong> venta de equipo nuevo, venta de equipo usado y alquiler.</li>
+</ul>
+<p>Esa última línea es la que define todo lo demás. Un negocio que vende, revende usado y alquila el mismo tipo de equipo no tiene un flujo comercial, tiene tres, y cada uno se comporta distinto.</p>
+
+<h2>Primero el canal: la tienda en línea</h2>
+<p>El trabajo arrancó por la <a href="/proyectos/grupo-novo/">tienda en línea</a>: llevar el catálogo completo a internet, organizado por categoría —andamios, accesorios, alambres, mallas—, con ficha, imagen y precio por producto, y con un diseño pensado para consultarse desde el celular. En este rubro el cliente no está en una oficina: está en la obra, con el teléfono en la mano, viendo qué le falta.</p>
+<p>Hay dos decisiones de esa tienda que vale la pena señalar, porque son las que la hacen funcionar en construcción y no solo en retail:</p>
+<ul>
+  <li><strong>Carrito y WhatsApp conviviendo.</strong> Cada producto tiene "Añadir al carrito" y también "Consultar por WhatsApp". El que ya sabe qué quiere compra; el que necesita preguntar por cantidades, disponibilidad o alquiler escribe. Obligar a todos por el mismo camino habría perdido a la mitad.</li>
+  <li><strong>El catálogo descargable.</strong> En este sector el comprador muchas veces tiene que pasarle la lista a un tercero —el ingeniero, el contratista, quien aprueba la compra—. Un PDF que se reenvía sirve para eso.</li>
+</ul>
+<p>Sobre ese trabajo, Carlos Rodríguez de Grupo Novo CR dejó publicado en nuestro sitio:</p>
 <blockquote>"HacksinCodigos nos hizo la página de Grupo Novo desde cero y quedamos encantados. El sitio se ve profesional, carga rápido y ya recibimos pedidos en línea desde la primera semana."</blockquote>
-<p>Y ahí aparece la segunda parte del problema, la que ninguna tienda en línea resuelve por sí sola: cuando el canal empieza a traer consultas y pedidos, alguien tiene que sostenerlos. Un carrito de compras atiende al cliente que ya sabe qué quiere y paga en el momento. En materiales de construcción, buena parte de la venta no funciona así.</p>
 
-<h2>Por qué un distribuidor de materiales necesita un CRM</h2>
-<p>La venta de materiales tiene particularidades que conviene nombrar, porque son las que explican el sistema:</p>
+<h2>Después el sistema: por qué siguió un CRM</h2>
+<p>Ahí aparece la segunda parte del problema, la que ninguna tienda en línea resuelve sola: cuando el canal empieza a traer consultas, alguien tiene que sostenerlas. Un carrito atiende al cliente que ya decidió y paga en el momento. En andamios, buena parte de la venta no funciona así.</p>
 <ul>
-  <li><strong>Se cotiza antes de comprar.</strong> El maestro de obras, el contratista o el ingeniero pide una lista de precios por cantidades, la compara con dos proveedores más y vuelve —o no— días después. Entre la consulta y la venta pasa tiempo.</li>
-  <li><strong>El mismo cliente vuelve muchas veces.</strong> Un contratista no compra una vez: compra durante todo el proyecto y en el siguiente también. Saber qué le vendiste antes y a qué precio no es un lujo, es la conversación.</li>
-  <li><strong>Los precios no son uno solo.</strong> Hay precio de mostrador, precio por volumen y precio para el cliente frecuente. Esa lógica vive en la cabeza de quien atiende.</li>
-  <li><strong>La venta pasa por WhatsApp.</strong> Y lo que pasa por WhatsApp queda en el teléfono de una persona, no en la empresa.</li>
+  <li><strong>Se cotiza antes de comprar.</strong> El contratista pide precios por cantidad, compara con otros proveedores y vuelve —o no— días después. Entre la consulta y la venta pasa tiempo.</li>
+  <li><strong>El alquiler es una relación, no una transacción.</strong> Hay equipo que sale, equipo que vuelve, plazos y estado del equipo al devolverse. Eso no cabe en un pedido de tienda.</li>
+  <li><strong>El mismo cliente vuelve muchas veces.</strong> Un contratista compra durante todo el proyecto y en el siguiente también. Saber qué se le vendió antes y a qué precio no es un lujo: es la conversación.</li>
+  <li><strong>Buena parte pasa por WhatsApp.</strong> Y lo que pasa por WhatsApp queda en el teléfono de una persona, no en la empresa.</li>
 </ul>
-<p>El resultado típico —y no es exclusivo de este sector— es que la información más valiosa del negocio está repartida: los clientes en agendas personales, las cotizaciones en archivos sueltos, los acuerdos en conversaciones. Funciona mientras el equipo es chico. Cuando entra gente nueva, cuando un cliente reclama un precio que se le prometió, o cuando la gerencia quiere saber cuántas cotizaciones se perdieron el trimestre pasado, se nota lo que falta.</p>
 
-<h2>Qué hace un CRM empresarial, concretamente</h2>
-<p>Un CRM —<em>Customer Relationship Management</em>, gestión de la relación con el cliente— es el lugar donde se centraliza esa información dispersa. En un negocio de este tipo, eso significa poder contestar sin esfuerzo:</p>
-<ul>
-  <li><strong>Quién es el cliente.</strong> Empresa, contactos, condiciones acordadas y todo lo que se le ha vendido.</li>
-  <li><strong>Qué se le cotizó y en qué quedó.</strong> Cada cotización registrada, con sus productos, cantidades y precios, y su desenlace: ganada, perdida o todavía abierta.</li>
-  <li><strong>A quién hay que darle seguimiento hoy.</strong> Asignado a una persona, con fecha. Una cotización sin seguimiento es una venta que se va al proveedor que sí llamó.</li>
-  <li><strong>Cómo va el equipo.</strong> Reportes por vendedor, por producto y por período, calculados por el sistema y no armados a mano cada fin de mes.</li>
-  <li><strong>Qué pasa si alguien se va.</strong> La cartera de clientes queda en la empresa.</li>
-</ul>
-<p>Ese es el núcleo. Todo lo demás —integraciones con inventario, facturación, la tienda en línea— se suma después, cuando el núcleo ya está en uso.</p>
+<h2>Qué resuelve un CRM en un negocio así</h2>
+<p>Un CRM —<em>Customer Relationship Management</em>, gestión de la relación con el cliente— es el lugar donde se centraliza esa información que hoy está repartida. En un distribuidor con venta y alquiler, eso significa poder contestar sin esfuerzo quién es el cliente y qué historia tiene, qué se le cotizó y en qué quedó, a quién hay que darle seguimiento esta semana y cómo va el equipo comercial. Y algo que se subestima hasta que pasa: que si alguien se va de la empresa, la cartera se queda.</p>
+<p>Ese es el núcleo. Todo lo demás —que converse con el inventario, con la facturación o con la propia tienda— se suma después, cuando el núcleo ya está en uso.</p>
 
 <h2>Cómo se decide qué construir</h2>
 <p>La parte que más determina el resultado no es técnica. Antes de escribir código hay que sentarse a ver cómo trabaja el equipo <em>hoy</em>: qué se anota, dónde, quién lo revisa y en qué punto exacto se pierde la información. Un sistema que automatiza un proceso mal entendido automatiza el problema.</p>
-<p>De ahí sale la segunda decisión: <strong>qué no se automatiza</strong>. Automatizar todo suena bien en una propuesta y sale caro en la realidad. Lo que se ataca primero es el cuello de botella —normalmente uno solo— y el resto se deja como está hasta que se justifique.</p>
-<p>Y la tercera: <strong>entregar por partes</strong>. El equipo empieza a usar el primer módulo mientras se construye el segundo. Eso hace que los errores de diseño aparezcan en la semana tres y no en el mes ocho, cuando corregirlos cuesta diez veces más. También hace que la gente adopte el sistema de a poco, que es la única forma en que lo adopta.</p>
+<p>De ahí sale la segunda decisión: <strong>qué no se automatiza</strong>. Automatizar todo suena bien en una propuesta y sale caro en la realidad. Se ataca el cuello de botella —normalmente uno solo— y el resto se deja como está hasta que se justifique.</p>
+<p>Y la tercera: <strong>entregar por partes</strong>. El equipo empieza a usar el primer módulo mientras se construye el siguiente. Así los errores de diseño aparecen en la semana tres y no en el mes ocho, cuando corregirlos cuesta diez veces más. También hace que la gente adopte el sistema de a poco, que es la única forma en que lo adopta.</p>
 
 <h2>¿A medida o una plataforma ya hecha?</h2>
 <p>Es la pregunta honesta y hay que hacérsela antes de cotizar nada. Si el proceso comercial de una empresa es estándar, configurar bien una plataforma establecida cuesta menos y arranca antes. Lo hemos recomendado más de una vez, aunque signifique no vender el desarrollo.</p>
 <p>El desarrollo a la medida se justifica cuando aparece alguna de estas tres cosas:</p>
 <ul>
-  <li><strong>Reglas propias</strong> que ninguna plataforma contempla: listas de precios por tipo de cliente, descuentos por volumen, aprobaciones internas.</li>
+  <li><strong>Reglas propias</strong> que ninguna plataforma contempla: precios por volumen, listas por tipo de cliente, o el ida y vuelta del equipo alquilado.</li>
   <li><strong>Integración con lo que ya existe</strong>: que el sistema converse con la tienda en línea, el inventario o la facturación en vez de vivir aparte.</li>
   <li><strong>El costo por usuario</strong>: a partir de cierta cantidad de gente, la mensualidad de una plataforma supera lo que costaría el sistema propio.</li>
 </ul>
 
-<h2>Lo que se lleva de este caso</h2>
-<p>El orden importa más de lo que parece. Primero el canal que hace que te encuentren y te compren —una <a href="/tiendas-online-costa-rica/">tienda en línea</a> o una <a href="/paginas-web-costa-rica/">página web</a> bien construida—, después el sistema que sostiene lo que ese canal genera. Al revés se construye un CRM impecable para una operación que todavía no tiene suficiente flujo que gestionar.</p>
-<p>Si tu empresa está en ese punto en que la operación ya no cabe en las hojas de cálculo, escribinos y conversamos sobre cómo trabajás hoy. De esa conversación sale si te conviene un <a href="/software-a-la-medida-costa-rica/">sistema a la medida</a>, una plataforma configurada, o esperar un poco más. Las tres respuestas son válidas y las tres las hemos dado.</p>
+<h2>La relación sigue abierta</h2>
+<p>Seguimos trabajando con Grupo Novo, y esa es la parte que más nos importa de este caso. Un sitio y un sistema no se entregan y se olvidan: el catálogo cambia, entran productos, la operación se ajusta y aparecen cosas nuevas que conviene ordenar. Queremos seguir ayudándoles a vender andamios y accesorios, que es de lo que se trata todo esto.</p>
+<p>Si tenés una empresa en un punto parecido —la operación ya no cabe en las hojas de cálculo, o todavía no vendés en línea lo que sí vendés por teléfono— escribinos y conversamos sobre cómo trabajás hoy. De esa conversación sale si te conviene una <a href="/tiendas-online-costa-rica/">tienda en línea</a>, un <a href="/software-a-la-medida-costa-rica/">sistema a la medida</a>, una plataforma configurada, o esperar un poco más. Las cuatro respuestas son válidas y las cuatro las hemos dado.</p>
 `,
   },
 ];

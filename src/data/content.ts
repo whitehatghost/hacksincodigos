@@ -145,8 +145,8 @@ export const blogTeasers = [
   {
     tag: '🏗️ Caso de cliente',
     tagColor: '#06b6d4',
-    title: 'CRM empresarial: el caso de Grupo Novo',
-    html: 'A <strong>Grupo Novo</strong>, distribuidor de materiales de construcción en Costa Rica, le desarrollamos primero la tienda en línea y después el <strong>CRM empresarial</strong>. El orden no es casual: primero el canal que hace que te encuentren y te compren, después el sistema que sostiene lo que ese canal genera. En el artículo explicamos por qué un distribuidor necesita centralizar clientes, cotizaciones y seguimiento, cómo se decide qué módulos construir y en qué casos conviene más configurar una plataforma ya hecha que programar desde cero. Aplica a cualquier PYME costarricense cuya operación ya no cabe en hojas de cálculo.',
+    title: 'CRM y tienda en línea: el caso de Grupo Novo',
+    html: 'A <strong>Grupo Novo</strong>, empresa costarricense de venta y alquiler de <strong>andamios y accesorios para construcción</strong>, le desarrollamos primero la tienda en línea con la que vende, y después implementamos con ellos el <strong>CRM empresarial</strong>. El orden no es casual: primero el canal que hace que te encuentren y te compren, después el sistema que sostiene lo que ese canal genera. En el artículo explicamos qué decisiones hicieron que esa tienda funcionara en construcción, por qué un distribuidor necesita centralizar clientes y cotizaciones, y en qué casos conviene más una plataforma ya hecha que programar desde cero. Seguimos trabajando con ellos.',
     ctaLabel: 'Ver software a la medida →',
     ctaHref: '/software-a-la-medida-costa-rica/',
     i18n: 'blog4',

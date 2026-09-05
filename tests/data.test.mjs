@@ -133,16 +133,25 @@ test('el caso de Grupo Novo se publica y queda enlazado', { skip: !hasDist }, ()
   assert.ok(read('proyectos/grupo-novo/index.html').includes('CRM'), 'la ficha del proyecto no menciona el CRM');
 });
 
-test('el caso de cliente no publica métricas de resultado', { skip: !hasDist }, () => {
-  // Nadie autorizó cifras de crecimiento: si aparece un porcentaje o un multiplicador
-  // en el artículo del caso, es invento y no puede salir a producción.
-  // Solo el cuerpo del artículo: fuera de ahí los "%" son escapes de URL en los
-  // enlaces de WhatsApp, no cifras.
-  const html = read('blog/crm-empresarial-caso-grupo-novo/index.html');
-  const cuerpo = (html.match(/<article class="prose">([\s\S]*?)<\/article>/) || ['', ''])[1];
-  assert.ok(cuerpo.length > 2000, 'no se pudo aislar el cuerpo del artículo');
-  const inventos = cuerpo.match(/\d+\s?%|aument[oó]\s+un\s+\d|x\d+\s+(?:m[aá]s|ventas)|triplic|duplic/gi);
-  assert.ok(!inventos, `el caso publica métricas sin respaldo: ${inventos && inventos.join(', ')}`);
+test('ningún caso de cliente publica métricas de resultado', { skip: !hasDist }, () => {
+  // Ningún cliente autorizó cifras de crecimiento por escrito. Si aparece un
+  // porcentaje o un multiplicador en el cuerpo de un caso, es invento.
+  //
+  // Se mira solo el TEXTO VISIBLE: dentro de los href hay URLs con escapes de
+  // porcentaje (%c2%b2 de un metro cuadrado, por ejemplo) que no son cifras.
+  const casos = fs
+    .readdirSync(path.join(DIST, 'blog'))
+    .filter((d) => d.startsWith('caso-') || d.includes('grupo-novo'));
+  assert.ok(casos.length >= 6, `solo se encontraron ${casos.length} casos de cliente`);
+
+  for (const caso of casos) {
+    const html = read(path.join('blog', caso, 'index.html'));
+    const cuerpo = (html.match(/<article class="prose">([\s\S]*?)<\/article>/) || ['', ''])[1];
+    assert.ok(cuerpo.length > 1500, `${caso}: no se pudo aislar el cuerpo del artículo`);
+    const visible = cuerpo.replace(/<[^>]+>/g, ' ');
+    const inventos = visible.match(/\d+\s?%|aument[oó]\s+un\s+\d|x\d+\s+(?:m[aá]s|ventas)|triplic|duplic/gi);
+    assert.ok(!inventos, `${caso} publica métricas sin respaldo: ${inventos && inventos.join(', ')}`);
+  }
 });
 
 // ── Nada de datos inventados ────────────────────────────────────────────────

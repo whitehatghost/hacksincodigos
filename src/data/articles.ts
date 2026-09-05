@@ -220,7 +220,7 @@ export const articles: Article[] = [
     tagColor: '#06b6d4',
     published: '2026-08-31',
     updated: '2026-08-31',
-    readingMinutes: 9,
+    readingMinutes: 11,
     relatedServices: [
       { href: '/software-a-la-medida-costa-rica/', label: 'software a la medida y CRM' },
       { href: '/tiendas-online-costa-rica/', label: 'tiendas online' },
@@ -277,9 +277,381 @@ export const articles: Article[] = [
   <li><strong>El costo por usuario</strong>: a partir de cierta cantidad de gente, la mensualidad de una plataforma supera lo que costaría el sistema propio.</li>
 </ul>
 
+<h2>El rediseño del sitio y la pelea por aparecer en Google</h2>
+<p>Al trabajo original le siguió un <strong>rediseño del sitio</strong> y un trabajo sostenido de indexación en <strong>Google Search Console</strong>. Van juntos y conviene explicar por qué.</p>
+<p>Un catálogo puede estar impecable y aun así ser invisible: si Google no tiene registradas las URLs de los productos, esas páginas no existen para nadie que busque. Search Console es donde eso se ve — qué páginas están indexadas, cuáles se rastrearon y se descartaron, y por qué.</p>
+<p>El trabajo consistió en enviar el sitemap, revisar página por página qué quedaba fuera y corregir la causa. En un catálogo de construcción eso importa mucho, porque cada producto es una búsqueda distinta: no es lo mismo quien busca <a href="https://gruponovocr.com/producto/andamio-tipo-box/" target="_blank" rel="noopener">andamio tipo box</a> que quien busca una <a href="https://gruponovocr.com/producto/cruceta-para-andamios/" target="_blank" rel="noopener">cruceta para andamios</a>, <a href="https://gruponovocr.com/producto/bases-ajustables-niveladores/" target="_blank" rel="noopener">bases ajustables</a>, <a href="https://gruponovocr.com/producto/ruedas-niveladoras/" target="_blank" rel="noopener">ruedas niveladoras</a> o <a href="https://gruponovocr.com/producto/barandas/" target="_blank" rel="noopener">barandas</a>.</p>
+<p>Y el catálogo no termina en andamios. También hay <a href="https://gruponovocr.com/producto/laminas-de-plywood-fenolico/" target="_blank" rel="noopener">láminas de plywood fenólico</a>, <a href="https://gruponovocr.com/producto/alambre-de-amarre-2-2mm-galvanizado-zn10al-por-kilo/" target="_blank" rel="noopener">alambre de amarre galvanizado</a>, <a href="https://gruponovocr.com/producto/malla-de-gavion-2-7mm-galvanizada-zn-10-al-top/" target="_blank" rel="noopener">malla de gavión</a> y <a href="https://gruponovocr.com/producto/geotextil-geomax-300-g-m%c2%b2-por-m%c2%b2/" target="_blank" rel="noopener">geotextil</a>. Cada uno con su ficha, su precio y su botón de consulta — que es lo que hace que una búsqueda específica termine en una consulta concreta y no en un rebote.</p>
+<p>El <a href="https://gruponovocr.com/shop/" target="_blank" rel="noopener">catálogo completo</a> funciona como índice de todo eso.</p>
+
 <h2>La relación sigue abierta</h2>
 <p>Seguimos trabajando con Grupo Novo, y esa es la parte que más nos importa de este caso. Un sitio y un sistema no se entregan y se olvidan: el catálogo cambia, entran productos, la operación se ajusta y aparecen cosas nuevas que conviene ordenar. Queremos seguir ayudándoles a vender andamios y accesorios, que es de lo que se trata todo esto.</p>
 <p>Si tenés una empresa en un punto parecido —la operación ya no cabe en las hojas de cálculo, o todavía no vendés en línea lo que sí vendés por teléfono— escribinos y conversamos sobre cómo trabajás hoy. De esa conversación sale si te conviene una <a href="/tiendas-online-costa-rica/">tienda en línea</a>, un <a href="/software-a-la-medida-costa-rica/">sistema a la medida</a>, una plataforma configurada, o esperar un poco más. Las cuatro respuestas son válidas y las cuatro las hemos dado.</p>
+`,
+  },
+  {
+    // Hechos verificables en ryvdental.com: ubicación, trayectoria, tratamientos,
+    // páginas por especialidad y por profesional. Servicios prestados según el
+    // cliente: lanzamiento del sitio y SEO. Sin cifras de resultado.
+    slug: 'caso-ryv-dental-sitio-web-clinica-dental',
+    title: 'RyV Dental: lanzamiento del sitio y SEO para una clínica dental en Palmares',
+    metaTitle: 'Caso RyV Dental — Sitio web y SEO para clínica dental | HacksinCodigos',
+    metaDesc:
+      'Cómo llevamos a internet a RyV Dental, clínica dental en Palmares, Alajuela: una página por tratamiento, otra por especialista y SEO local para aparecer en Google.',
+    excerpt:
+      'Una clínica con más de treinta años de trayectoria no se vendía sola en Google. Le lanzamos el sitio y armamos la estructura de SEO: una página por tratamiento, una por profesional.',
+    tag: '🦷 Caso de cliente',
+    tagColor: '#38bdf8',
+    published: '2026-09-05',
+    updated: '2026-09-05',
+    readingMinutes: 8,
+    relatedServices: [
+      { href: '/paginas-web-costa-rica/', label: 'páginas web en Costa Rica' },
+      { href: '/seo-costa-rica/', label: 'posicionamiento SEO' },
+    ],
+    bodyHtml: `
+<p>Hay negocios que en persona son impecables y en internet no existen. Ese era el punto de partida de <a href="https://ryvdental.com" target="_blank" rel="noopener">RyV Dental</a>, una clínica dental familiar en <strong>Palmares, Alajuela</strong>, dirigida por madre e hija, con más de treinta años atendiendo pacientes.</p>
+<p>La reputación la tenían hecha, y de boca en boca les funcionaba. El problema era el paciente nuevo: el que abre Google y busca "ortodoncia invisible en Alajuela" o "clínica dental en Palmares" sin conocer a nadie. Ese paciente encontraba a cualquiera menos a ellas.</p>
+
+<h2>Qué hicimos</h2>
+<p>Dos cosas, en este orden: <strong>lanzamos el sitio</strong> y después <strong>armamos la estructura de SEO</strong> para que Google entendiera qué se hace en esa clínica. Van juntas — un sitio bonito que Google no sabe leer no trae pacientes, y una estrategia de SEO sobre un sitio mal armado no tiene de dónde agarrarse.</p>
+
+<h2>La decisión de fondo: una página por intención de búsqueda</h2>
+<p>El error más común en sitios de clínicas es meter todos los tratamientos en una sola página de "Servicios". Se ve ordenado y no posiciona en nada, porque Google no sabe si esa página trata de endodoncia, de ortodoncia o de blanqueamiento.</p>
+<p>Cada tratamiento es una búsqueda distinta, hecha por una persona distinta, con una preocupación distinta. Así que cada tratamiento tiene su propia página:</p>
+<ul>
+  <li><a href="https://ryvdental.com/invisalign/" target="_blank" rel="noopener">Invisalign</a> — ortodoncia invisible, con el proceso completo explicado paso a paso.</li>
+  <li><a href="https://ryvdental.com/diseno-de-sonrisa/" target="_blank" rel="noopener">Diseño de sonrisa</a> — tratamientos estéticos para lograr una sonrisa armónica con el rostro.</li>
+  <li><a href="https://ryvdental.com/ortodoncia/" target="_blank" rel="noopener">Ortodoncia</a> — alineación dental y corrección de mordida.</li>
+  <li><a href="https://ryvdental.com/botox/" target="_blank" rel="noopener">Botox estético y para bruxismo</a> — aplicación con enfoque estético y también terapéutico.</li>
+  <li><a href="https://ryvdental.com/cirugia-maxilofacial/" target="_blank" rel="noopener">Cirugía maxilofacial</a> — procedimientos orales y maxilofaciales.</li>
+  <li><a href="https://ryvdental.com/endodoncia/" target="_blank" rel="noopener">Endodoncia</a> — tratamientos para conservar la pieza dental.</li>
+</ul>
+<p>Todas cuelgan de una página de <a href="https://ryvdental.com/especialidades/" target="_blank" rel="noopener">especialidades</a> que funciona como índice. El que busca un tratamiento concreto cae directo en él; el que llega sin saber qué necesita, navega.</p>
+
+<h2>Invisalign al frente, y por qué</h2>
+<p>De todo lo que ofrece la clínica, <strong>Invisalign</strong> es lo que más se busca y lo que más se compara antes de decidir. Por eso es lo primero que se ve al entrar, con el proceso desglosado en cuatro pasos: escaneo digital 3D, valoración profesional, planificación personalizada, e inicio con seguimiento.</p>
+<p>Ese detalle del <strong>escaneo digital 3D</strong> —que el paciente ve en pantalla cómo le va a quedar la sonrisa antes de empezar— es exactamente el tipo de cosa que hay que poner en el sitio. Es lo que le quita el miedo a alguien que está dudando, y lo que ninguna clínica genérica puede copiar sin tener el equipo.</p>
+
+<h2>Una página por cada profesional</h2>
+<p>El equipo de RyV Dental tiene una página propia por cada persona, además de la página conjunta de <a href="https://ryvdental.com/especialistas/" target="_blank" rel="noopener">especialistas</a>.</p>
+<p>Esto no es vanidad y tiene dos razones concretas. La primera es que muchos pacientes buscan por nombre — les recomendaron a alguien y quieren verificar quién es antes de pedir cita. Si ese nombre no está en ninguna página, la búsqueda muere. La segunda es que en salud, la confianza es el producto: ver la cara, la formación y la especialidad de quien te va a atender pesa más que cualquier texto de marketing.</p>
+<p>Lo mismo aplica a <a href="https://ryvdental.com/quienes-somos/" target="_blank" rel="noopener">la historia de la clínica</a>: que sea familiar, dirigida por madre e hija, con más de treinta años, es un dato que diferencia de verdad. Ninguna cadena puede decir lo mismo.</p>
+
+<h2>El SEO local: Palmares primero</h2>
+<p>Una clínica dental no compite contra todo el país. Compite contra las clínicas a las que un paciente está dispuesto a manejar. El trabajo de <a href="/seo-costa-rica/">SEO</a> se orientó a eso:</p>
+<ul>
+  <li><strong>Estructura semántica</strong> y metadatos únicos por página, para que cada tratamiento pueda posicionar por su cuenta.</li>
+  <li><strong>Schema.org</strong> declarando el negocio, su ubicación y sus servicios, para que Google los entienda sin adivinar.</li>
+  <li><strong>Menciones geográficas donde corresponde</strong> — Palmares y la zona de Alajuela — sin repetir la palabra hasta el ridículo, que es lo que hace que una página se lea mal y termine penalizada.</li>
+  <li><strong>Velocidad.</strong> El sitio es estático: HTML ya construido, sin base de datos que consultar en cada visita. Un sitio lento pierde al visitante antes de que cargue la primera imagen, y en móvil eso pasa todo el tiempo.</li>
+</ul>
+
+<h2>El camino al contacto, corto</h2>
+<p>Desde cualquier página se puede solicitar una valoración por WhatsApp. No hay formulario de doce campos ni "espere nuestra respuesta en 48 horas". En una decisión como esta, la persona quiere preguntar algo concreto —cuánto sale, cuánto dura, duele— y necesita que le contesten hoy.</p>
+
+<h2>Qué se lleva otro negocio de este caso</h2>
+<p>Tres cosas, y sirven para cualquier consultorio, taller o servicio profesional:</p>
+<ul>
+  <li><strong>Una página por servicio, no una lista.</strong> Si ofrecés seis cosas distintas, son seis páginas. Es más trabajo y es la única forma de aparecer en seis búsquedas.</li>
+  <li><strong>Lo que te hace distinto va arriba.</strong> El escaneo 3D, los treinta años, que sea familiar. Eso es lo que nadie más puede escribir.</li>
+  <li><strong>La confianza tiene cara.</strong> En servicios donde alguien te pone el cuerpo o la plata en las manos, mostrar quién sos vale más que cualquier adjetivo.</li>
+</ul>
+<p>¿Tenés un consultorio o un negocio de servicios que no aparece en Google? Contanos cómo trabajás y te decimos qué estructura necesita tu sitio. Podés ver el <a href="/proyectos/ryv-dental/">caso completo en el portafolio</a> o cómo trabajamos las <a href="/paginas-web-costa-rica/">páginas web en Costa Rica</a>.</p>
+`,
+  },
+  {
+    // Hechos verificables en redesdeportivascr.com: tipos de red, materiales,
+    // cobertura y modo de cotizar. Servicios prestados según el cliente: diseño
+    // de logo, sitio web y presencia de marca. Sin cifras de resultado.
+    slug: 'caso-redes-deportivas-cr-logo-sitio-y-presencia',
+    title: 'Redes Deportivas CR: logo, sitio y presencia para una fábrica nacional',
+    metaTitle: 'Caso Redes Deportivas CR — Logo, sitio y marca | HacksinCodigos',
+    metaDesc:
+      'Cómo le armamos la identidad y el sitio a una fábrica costarricense de redes deportivas y de protección, con una página por tipo de red.',
+    excerpt:
+      'Una fábrica que teje redes a la medida no vende "redes": vende redes de fútbol, de catamarán o de balcón, que son búsquedas distintas. Así armamos el logo, el sitio y la presencia.',
+    tag: '🥅 Caso de cliente',
+    tagColor: '#22c55e',
+    published: '2026-09-05',
+    updated: '2026-09-05',
+    readingMinutes: 8,
+    relatedServices: [
+      { href: '/diseno-web-costa-rica/', label: 'diseño y marca' },
+      { href: '/paginas-web-costa-rica/', label: 'páginas web en Costa Rica' },
+    ],
+    bodyHtml: `
+<p><a href="https://redesdeportivascr.com" target="_blank" rel="noopener">Redes Deportivas CR</a> es una fábrica nacional que teje redes a la medida: deportivas, de protección y de descanso. El producto es bueno y el oficio está. Lo que faltaba era todo lo demás — la marca, el sitio y la forma de que alguien que necesita una red los encuentre.</p>
+<p>Hicimos las tres cosas: <strong>diseño de logo, sitio web y presencia de marca</strong>.</p>
+
+<h2>Primero entender qué se vende</h2>
+<p>Este fue el punto que definió el proyecto entero. Redes Deportivas no vende "redes". Vende cosas que no tienen casi nada que ver entre sí:</p>
+<ul>
+  <li>Un club que necesita <a href="https://redesdeportivascr.com/redes-de-futbol/" target="_blank" rel="noopener">redes de fútbol</a> para sus marcos.</li>
+  <li>Un gimnasio que cambia las <a href="https://redesdeportivascr.com/redes-de-baloncesto/" target="_blank" rel="noopener">redes de baloncesto</a> desgastadas.</li>
+  <li>Una cancha que pone <a href="https://redesdeportivascr.com/redes-de-tenis/" target="_blank" rel="noopener">redes de tenis y pádel</a> con banda de lona y cable de acero.</li>
+  <li>Un colegio con <a href="https://redesdeportivascr.com/redes-de-voleibol/" target="_blank" rel="noopener">redes de voleibol</a> de sala o de playa.</li>
+  <li>Un driving range con <a href="https://redesdeportivascr.com/redes-de-golf/" target="_blank" rel="noopener">redes de golf</a> de impacto.</li>
+  <li>Un dueño de barco que necesita el trampolín, o sea <a href="https://redesdeportivascr.com/redes-de-catamaran/" target="_blank" rel="noopener">redes de catamarán</a> resistentes a salitre y sol.</li>
+  <li>Un papá que quiere <a href="https://redesdeportivascr.com/redes-de-proteccion-y-seguridad/" target="_blank" rel="noopener">redes de protección</a> para el balcón.</li>
+  <li>Un hotel que instala <a href="https://redesdeportivascr.com/redes-de-descanso/" target="_blank" rel="noopener">redes de descanso para glamping</a> sobre un mirador.</li>
+  <li>Un proyecto que necesita <a href="https://redesdeportivascr.com/redes-perimetrales/" target="_blank" rel="noopener">redes perimetrales</a> para que el balón no salga de la cancha.</li>
+  <li>Alguien que busca <a href="https://redesdeportivascr.com/redes-para-mascotas/" target="_blank" rel="noopener">redes para mascotas</a> para que el gato no se caiga.</li>
+</ul>
+<p>Diez productos, diez compradores distintos, diez búsquedas distintas en Google. Meter todo eso en una página de "Productos" habría sido perder las diez.</p>
+
+<h2>El sitio: una página por tipo de red</h2>
+<p>Cada tipo de red tiene su propia página, con lo que de verdad decide la compra: <strong>material, calibre y luz de malla</strong>. Porque una red de fútbol de nylon para cancha techada y una de polipropileno con tratamiento UV para intemperie no son la misma red, y el que compra necesita saber cuál le toca.</p>
+<p>Ese nivel de detalle técnico hace dos cosas a la vez. Le sirve al comprador que sabe lo que busca, y le sirve a Google, que necesita texto real para entender de qué trata una página. Es contenido honesto que además posiciona — no hay que elegir entre las dos cosas.</p>
+
+<h2>El logo y la presencia</h2>
+<p>La identidad tenía que aguantar dos usos que no se parecen: el sello en una factura y la marca sobre una foto de una cancha a pleno sol. Un logo con degradados y detalles finos se cae en el segundo caso.</p>
+<p>El trabajo de <a href="/diseno-web-costa-rica/">marca</a> se orientó a que funcione en tamaño chico, en una sola tinta y sobre fondos que no se controlan. Y de ahí bajó al sitio: tipografía, colores y tratamiento de fotografía consistentes, para que el conjunto se lea como una empresa formal y no como un taller improvisado. En fabricación eso importa: nadie le encarga una red de contención perimetral a alguien que parece que va a desaparecer.</p>
+
+<h2>Cotizar sin formularios</h2>
+<p>Cada página lleva a WhatsApp con el mensaje ya escrito. Esa decisión es deliberada.</p>
+<p>Una red a la medida no tiene precio de lista: depende del vano real, del material y de dónde va a estar instalada. Un formulario de "solicite cotización" obliga al cliente a adivinar qué datos dar, y obliga a la empresa a mandar un correo que quizás nadie abre. La conversación por WhatsApp resuelve en cinco mensajes lo que un formulario no resuelve nunca: cuánto mide, dónde va, sol o techado.</p>
+
+<h2>Los trabajos hechos, con fotos</h2>
+<p>El sitio incluye galería de proyectos instalados y una sección de proyectos con el detalle de cómo corre un trabajo de la medición a la entrega.</p>
+<p>En un producto que se fabrica a medida, la foto del trabajo terminado hace más que cualquier argumento. El que va a encargar una red de descanso sobre un mirador quiere ver una red de descanso sobre un mirador, con gente encima, sostenida sobre el vacío. Ahí se acaba la duda.</p>
+
+<h2>Qué se lleva otro fabricante de este caso</h2>
+<ul>
+  <li><strong>Si vendés diez cosas, necesitás diez páginas.</strong> Cada producto es una búsqueda propia y una página compartida no gana ninguna.</li>
+  <li><strong>Las especificaciones técnicas no espantan: venden.</strong> El que sabe lo que busca compra donde encuentra el dato; el que no sabe, aprende y confía.</li>
+  <li><strong>Mostrá el trabajo terminado.</strong> En fabricación a medida, la galería es el catálogo.</li>
+</ul>
+<p>¿Fabricás o instalás algo a medida y tu sitio no lo refleja? Contanos qué hacés y te proponemos la estructura. Mirá el <a href="/proyectos/redes-deportivas-cr/">caso en el portafolio</a> o cómo trabajamos las <a href="/paginas-web-costa-rica/">páginas web</a> y el <a href="/seo-costa-rica/">SEO</a>.</p>
+`,
+  },
+  {
+    // Categorías y estructura verificables en lacasitadelbebecr.com. Servicios
+    // prestados según el cliente: rediseño del sitio y producción de contenido
+    // de Instagram para el mes completo. Sin cifras de resultado.
+    slug: 'caso-la-casita-del-bebe-rediseno-y-contenido',
+    title: 'La Casita del Bebé: rediseño de la tienda y contenido de Instagram para todo el mes',
+    metaTitle: 'Caso La Casita del Bebé — Rediseño y contenido | HacksinCodigos',
+    metaDesc:
+      'Rediseño de la tienda en línea de La Casita del Bebé y producción del contenido de Instagram para el mes completo. Cómo se conectan una cosa con la otra.',
+    excerpt:
+      'Rediseñamos la tienda y le producimos el contenido de Instagram para todo el mes. Las dos cosas juntas, porque publicar sin dónde aterrizar es tirar el alcance a la basura.',
+    tag: '🍼 Caso de cliente',
+    tagColor: '#f472b6',
+    published: '2026-09-05',
+    updated: '2026-09-05',
+    readingMinutes: 7,
+    relatedServices: [
+      { href: '/tiendas-online-costa-rica/', label: 'tiendas online' },
+      { href: '/diseno-web-costa-rica/', label: 'diseño y contenido' },
+    ],
+    bodyHtml: `
+<p><a href="https://lacasitadelbebecr.com" target="_blank" rel="noopener">La Casita del Bebé</a> es una tienda costarricense de productos para bebé. Vende coches, sillas para carro, colechos y todo lo que se necesita cuando llega un hijo — con punto de venta físico y <a href="https://lacasitadelbebecr.com/tienda/" target="_blank" rel="noopener">tienda en línea</a>.</p>
+<p>Hicimos dos cosas: <strong>rediseñamos el sitio</strong> y <strong>producimos el contenido de Instagram para el mes completo</strong>. No son dos proyectos: es uno.</p>
+
+<h2>Por qué van juntas</h2>
+<p>Publicar en Instagram sin tener dónde aterrizar al que se interesa es regalar el alcance. La persona ve el coche, le gusta, entra al perfil, y se encuentra con un enlace que la deja en una página que carga lento o que no se entiende en el celular. Ahí se acabó.</p>
+<p>Y al revés también falla: una tienda impecable a la que nadie llega no vende. En productos de bebé el descubrimiento pasa por Instagram — es donde la mamá embarazada mira, compara y guarda cosas meses antes de comprar.</p>
+<p>Por eso el trabajo fue el circuito completo: contenido que trae gente, tienda que la convierte.</p>
+
+<h2>El rediseño: mobile primero, en serio</h2>
+<p>Casi todo el tráfico de esta tienda llega del celular, y buena parte llega de Instagram — o sea, dentro del navegador de la propia app, que es más lento y más angosto que Chrome. Ese es el escenario real, no el monitor del diseñador.</p>
+<p>El rediseño se ordenó alrededor de eso:</p>
+<ul>
+  <li><strong>Categorías claras desde el primer toque.</strong> <a href="https://lacasitadelbebecr.com/product-category/coches/" target="_blank" rel="noopener">Coches</a>, <a href="https://lacasitadelbebecr.com/product-category/sillas-para-carro/" target="_blank" rel="noopener">sillas para carro</a>, <a href="https://lacasitadelbebecr.com/product-category/colechos/" target="_blank" rel="noopener">colechos</a>, <a href="https://lacasitadelbebecr.com/product-category/mesedoras/" target="_blank" rel="noopener">mecedoras</a>, <a href="https://lacasitadelbebecr.com/product-category/sillas-de-comer/" target="_blank" rel="noopener">sillas de comer</a> y <a href="https://lacasitadelbebecr.com/product-category/accesorios/" target="_blank" rel="noopener">accesorios</a>. Cada una es una página propia, que es como la gente busca: nadie escribe "productos para bebé", escribe "silla para carro".</li>
+  <li><strong>Ficha de producto que responde antes de que pregunten.</strong> En esta categoría la duda es siempre la misma: medidas, edad recomendada, si cumple norma, si sirve para el carro que tengo.</li>
+  <li><strong>Carrito y pago sin fricción.</strong> Cada paso de más es gente que abandona con el bebé llorando de fondo.</li>
+</ul>
+
+<h2>El contenido: un mes completo, entregado de una vez</h2>
+<p>Lo que más frena a un negocio pequeño en redes no es la falta de ideas: es tener que inventar algo cada mañana mientras se atiende la tienda. Se publica tres días seguidos, se corta una semana, se vuelve. Y el alcance se cae.</p>
+<p>Por eso el contenido se produce <strong>para el mes entero, entregado de una sola vez</strong>: las piezas listas, con su texto, en el orden en que se publican. La dueña no decide qué subir hoy — ya está decidido.</p>
+<p>La mezcla que funciona en esta categoría no es todo producto:</p>
+<ul>
+  <li><strong>Producto</strong>, con la foto que sí muestra el detalle que importa.</li>
+  <li><strong>Utilidad</strong> — qué mirar antes de comprar una silla para carro, cómo se instala, hasta qué edad sirve. Es lo que la gente guarda y comparte.</li>
+  <li><strong>Confianza</strong> — la tienda, quién atiende, cómo se entrega. En productos para bebé nadie le compra a una marca anónima.</li>
+</ul>
+<p>Todo con la misma identidad visual del sitio, para que quien salta de Instagram a la tienda sienta que sigue en el mismo lugar. Cuando el salto se nota, se pierde la venta.</p>
+
+<h2>Lo que no hicimos</h2>
+<p>No prometimos publicar por ellos todos los días ni manejarles la cuenta. El contenido se entrega y la tienda lo publica. Es más barato, no genera dependencia, y el negocio conserva el control de su voz — que en una marca familiar vale más de lo que parece.</p>
+
+<h2>Qué se lleva otro comercio de este caso</h2>
+<ul>
+  <li><strong>El contenido y la tienda son una sola cosa.</strong> Invertir en uno sin el otro es tirar plata en la mitad del circuito.</li>
+  <li><strong>Producí en lote.</strong> Un mes de contenido resuelto de una vez se sostiene; improvisar cada día, no.</li>
+  <li><strong>Categorías con página propia.</strong> La gente busca el producto, no la tienda.</li>
+</ul>
+<p>¿Vendés productos y vivís de Instagram? Contanos qué publicás hoy y te decimos qué le falta a la tienda para aprovecharlo. Mirá el <a href="/proyectos/la-casita-del-bebe/">caso en el portafolio</a> o cómo trabajamos las <a href="/tiendas-online-costa-rica/">tiendas online en Costa Rica</a>.</p>
+`,
+  },
+  {
+    // Servicios y zonas verificables en ticoshomeremodeling.com. Servicios
+    // prestados según el cliente: logo, sitio web, SEO y presencia. El sitio
+    // está en inglés porque su mercado es Connecticut. Sin cifras de resultado.
+    slug: 'caso-ticos-home-remodeling-logo-sitio-y-seo',
+    title: "Tico's Home Remodeling: logo, sitio y SEO local para Connecticut",
+    metaTitle: "Caso Tico's Home Remodeling — Sitio y SEO local | HacksinCodigos",
+    metaDesc:
+      'Cómo le armamos la marca, el sitio y el SEO local a una empresa de remodelación y drywall en Connecticut, desde Costa Rica y con una página por servicio.',
+    excerpt:
+      'Una empresa de remodelación en Connecticut compite contra el que sale primero en Google al buscar "drywall repair near me". Le hicimos el logo, el sitio y el SEO local.',
+    tag: '🔨 Caso de cliente',
+    tagColor: '#f59e0b',
+    published: '2026-09-05',
+    updated: '2026-09-05',
+    readingMinutes: 8,
+    relatedServices: [
+      { href: '/seo-costa-rica/', label: 'posicionamiento SEO' },
+      { href: '/desarrollo-web-costa-rica/', label: 'desarrollo web' },
+    ],
+    bodyHtml: `
+<p><a href="https://ticoshomeremodeling.com" target="_blank" rel="noopener">Tico's Home Remodeling</a> es una empresa de remodelación y drywall que trabaja en Connecticut, Estados Unidos. Le hicimos <strong>el logo, el sitio, el SEO y la presencia de marca</strong> — el paquete completo, desde Costa Rica.</p>
+<p>Vale la pena aclarar eso último: el proyecto es en inglés y para un mercado estadounidense. Nada de esto exige oficina en el país del cliente. Todo el proceso fue remoto.</p>
+
+<h2>Contra quién se compite de verdad</h2>
+<p>En remodelación residencial en Estados Unidos, la búsqueda que decide es corta y con intención inmediata: <em>drywall repair near me</em>, <em>bathroom remodeling</em>, <em>ceiling repair</em>. El que la hace ya tiene el problema en la casa y va a llamar a uno de los tres primeros resultados.</p>
+<p>Contra eso no compite un sitio bonito. Compite un sitio que Google entiende, que carga rápido y que tiene una página específica para esa búsqueda específica.</p>
+
+<h2>Una página por servicio, y son muchos</h2>
+<p>Esta empresa hace más de veinte cosas distintas, y cada una es una búsqueda aparte. En vez de una página de "Services" con una lista, cada especialidad tiene la suya:</p>
+<ul>
+  <li>Drywall — <a href="https://ticoshomeremodeling.com/services/drywall-installation/" target="_blank" rel="noopener">instalación</a>, <a href="https://ticoshomeremodeling.com/services/drywall-repair/" target="_blank" rel="noopener">reparación</a>, <a href="https://ticoshomeremodeling.com/services/drywall-texturing/" target="_blank" rel="noopener">texturizado</a> y <a href="https://ticoshomeremodeling.com/services/ceiling-repair/" target="_blank" rel="noopener">reparación de cielo raso</a>.</li>
+  <li>Pintura — <a href="https://ticoshomeremodeling.com/services/interior-painting/" target="_blank" rel="noopener">interiores</a> y <a href="https://ticoshomeremodeling.com/services/deck-painting/" target="_blank" rel="noopener">decks</a>.</li>
+  <li>Pisos — <a href="https://ticoshomeremodeling.com/services/laminate-flooring-installation/" target="_blank" rel="noopener">laminado</a>, <a href="https://ticoshomeremodeling.com/services/vinyl-flooring-installation/" target="_blank" rel="noopener">vinílico</a> y <a href="https://ticoshomeremodeling.com/services/tile-flooring-installation/" target="_blank" rel="noopener">cerámica</a>.</li>
+  <li>Carpintería — <a href="https://ticoshomeremodeling.com/services/crown-molding-installation/" target="_blank" rel="noopener">molduras de corona</a> y <a href="https://ticoshomeremodeling.com/services/trim-installation/" target="_blank" rel="noopener">acabados</a>.</li>
+  <li>Remodelación — <a href="https://ticoshomeremodeling.com/services/bathroom-remodeling/" target="_blank" rel="noopener">baños</a>, <a href="https://ticoshomeremodeling.com/services/water-damage-repair/" target="_blank" rel="noopener">daños por agua</a>, <a href="https://ticoshomeremodeling.com/services/deck-repair/" target="_blank" rel="noopener">decks</a> y <a href="https://ticoshomeremodeling.com/services/porch-repair/" target="_blank" rel="noopener">porches</a>.</li>
+</ul>
+<p>Es mucho más trabajo que una página sola. Y es la diferencia entre aparecer en una búsqueda o en veinte.</p>
+
+<h2>Las zonas también son páginas</h2>
+<p>En SEO local, la geografía pesa tanto como el servicio. El sitio tiene una sección de <a href="https://ticoshomeremodeling.com/service-areas/" target="_blank" rel="noopener">zonas de servicio</a> que declara dónde trabajan realmente.</p>
+<p>El subrayado importa: <strong>realmente</strong>. Listar cincuenta ciudades donde no se pisa nunca es una técnica vieja que hoy no funciona y que además genera llamadas que hay que rechazar. Se listan las zonas que se cubren, y punto.</p>
+
+<h2>Galería, reseñas y preguntas</h2>
+<p>En remodelación, el que contrata está entregando la llave de su casa a un desconocido. Tres piezas atacan esa desconfianza:</p>
+<ul>
+  <li>La <a href="https://ticoshomeremodeling.com/gallery/" target="_blank" rel="noopener">galería</a> de trabajos terminados: en este oficio, el antes y el después es el argumento.</li>
+  <li>Las <a href="https://ticoshomeremodeling.com/reviews/" target="_blank" rel="noopener">reseñas</a> de clientes.</li>
+  <li>Las <a href="https://ticoshomeremodeling.com/faq/" target="_blank" rel="noopener">preguntas frecuentes</a>, que resuelven las dudas que si no se resuelven ahí, se convierten en un cliente que no llama.</li>
+</ul>
+
+<h2>El logo y la marca</h2>
+<p>La identidad de una empresa de remodelación tiene que aguantar el rótulo de la camioneta, la camisa del equipo y el encabezado de un presupuesto. Son tres soportes muy distintos y ninguno perdona un logo delicado.</p>
+<p>El <a href="/diseno-web-costa-rica/">trabajo de marca</a> apuntó a eso: que se lea a distancia, que funcione en una sola tinta y que transmita oficio y formalidad. En un mercado donde abunda el contratista informal, verse serio es parte del producto.</p>
+
+<h2>Rápido porque es estático</h2>
+<p>El sitio es estático: HTML ya construido, servido desde una red global, sin base de datos que consultar en cada visita. Alguien que busca "drywall repair" desde el celular, parado frente al hueco en la pared, no espera cuatro segundos. Se va al siguiente resultado.</p>
+
+<h2>Qué se lleva otro contratista de este caso</h2>
+<ul>
+  <li><strong>Cada servicio es una búsqueda.</strong> Una página con la lista de todo no gana ninguna.</li>
+  <li><strong>Decí dónde trabajás de verdad.</strong> Inflar la cobertura ya no engaña a Google y te llena la agenda de llamadas inútiles.</li>
+  <li><strong>Mostrá trabajo terminado.</strong> En oficios, la foto vale más que el adjetivo.</li>
+  <li><strong>La distancia no importa.</strong> Este proyecto se hizo desde Costa Rica para Connecticut, todo remoto.</li>
+</ul>
+<p>¿Tenés una empresa de servicios y no aparecés cuando te buscan? Contanos qué hacés y en qué zonas. Mirá el <a href="/proyectos/ticos-home-remodeling/">caso en el portafolio</a> o cómo trabajamos el <a href="/seo-costa-rica/">SEO</a>.</p>
+`,
+  },
+  {
+    // Secciones y materiales verificables en carlouis.net. El alcance del
+    // trabajo es el que ya estaba publicado en nuestro portafolio desde la
+    // migración. Sin cifras de resultado.
+    slug: 'caso-carlouis-tienda-de-salsas-artesanales',
+    title: 'Carlouis: vender salsas artesanales cuando el producto se prueba antes de comprarse',
+    metaTitle: 'Caso Carlouis — Tienda de salsas artesanales gourmet | HacksinCodigos',
+    metaDesc:
+      'Cómo llevamos a internet una marca costarricense de salsas artesanales gourmet: tienda, recetarios descargables y presencia en ferias. El caso de Carlouis.',
+    excerpt:
+      'Una salsa artesanal se vende probándola. Llevar eso a una pantalla es el problema real de este proyecto, y se resuelve con contenido, no con un carrito más bonito.',
+    tag: '🌶️ Caso de cliente',
+    tagColor: '#ef4444',
+    published: '2026-09-05',
+    updated: '2026-09-05',
+    readingMinutes: 6,
+    relatedServices: [
+      { href: '/tiendas-online-costa-rica/', label: 'tiendas online' },
+      { href: '/diseno-web-costa-rica/', label: 'diseño y marca' },
+    ],
+    bodyHtml: `
+<p><a href="https://carlouis.net" target="_blank" rel="noopener">Carlouis</a> es una marca costarricense de salsas artesanales gourmet. Le desarrollamos la tienda en línea y aplicamos su identidad a toda la experiencia de compra.</p>
+<p>El reto de este proyecto no es técnico. Es que <strong>una salsa se vende cuando la probás</strong>, y en una pantalla no se puede probar nada.</p>
+
+<h2>El problema de vender sabor por internet</h2>
+<p>En una feria, el producto se defiende solo: alguien pasa, prueba, compra. En línea hay que reemplazar esa prueba por otra cosa que genere la misma confianza — y no es el botón de "Añadir al carrito".</p>
+<p>Lo que la reemplaza es <strong>saber qué hacer con el producto</strong>. Quien duda entre una salsa artesanal de ocho mil colones y una industrial de dos mil no está comparando precio: está preguntándose si la va a usar o si se le va a quedar en la refrigeradora. Contestale esa pregunta y la venta se cae de madura.</p>
+
+<h2>Los recetarios</h2>
+<p>Por eso el sitio incluye recetarios descargables: un <a href="https://carlouis.net/assets/recetario-carlouis.pdf" target="_blank" rel="noopener">recetario general</a> y otro <a href="https://carlouis.net/assets/recetario-bocadillos-carlouis.pdf" target="_blank" rel="noopener">de bocadillos</a>.</p>
+<p>Un PDF de recetas hace tres cosas a la vez, y por eso rinde tanto en alimentos:</p>
+<ul>
+  <li><strong>Quita la objeción.</strong> Ya sabés qué vas a cocinar con eso.</li>
+  <li><strong>Se comparte.</strong> Sale del sitio y llega a gente que nunca oyó la marca.</li>
+  <li><strong>Se queda.</strong> Vive en el teléfono del cliente y vuelve a aparecer cada vez que abre la carpeta de descargas.</li>
+</ul>
+
+<h2>La tienda y la marca</h2>
+<p>En gourmet, el diseño no es decoración: es parte del argumento de precio. Un producto artesanal presentado con la estética de un supermercado se percibe como caro; el mismo producto con una presentación cuidada se percibe como que vale lo que cuesta.</p>
+<p>El <a href="https://carlouis.net/productos" target="_blank" rel="noopener">catálogo de productos</a> se armó alrededor de la fotografía, con la identidad de la marca aplicada de forma consistente en toda la experiencia de compra. La <a href="/diseno-web-costa-rica/">parte de diseño</a> acá no es un extra: es lo que sostiene el posicionamiento premium.</p>
+
+<h2>Lo físico y lo digital, conectados</h2>
+<p>La marca no vive solo en internet, y el sitio lo refleja: hay una sección de <a href="https://carlouis.net/encuentranos" target="_blank" rel="noopener">dónde encontrarlos</a>, otra de <a href="https://carlouis.net/eventos" target="_blank" rel="noopener">eventos</a> y una de <a href="https://carlouis.net/cobertura" target="_blank" rel="noopener">cobertura de entrega</a>.</p>
+<p>Ese circuito importa: el que prueba en una feria busca la marca después en el teléfono, y el que ve el sitio quiere saber si puede probarla en algún lado. Si el sitio ignora lo físico, se rompe la mitad del recorrido.</p>
+
+<h2>Qué se lleva otra marca de alimentos de este caso</h2>
+<ul>
+  <li><strong>Vendé el uso, no el frasco.</strong> Recetas, maridajes, ideas: eso convierte más que la descripción del producto.</li>
+  <li><strong>Regalá algo que se quede.</strong> Un PDF útil sigue trabajando meses después de la visita.</li>
+  <li><strong>Conectá la feria con el sitio.</strong> Dónde encontrarte y a dónde entregás cierra el circuito.</li>
+</ul>
+<p>¿Tenés un producto artesanal y no sabés cómo llevarlo a internet? Contanos qué vendés. Mirá el <a href="/proyectos/carlouis/">caso en el portafolio</a> o cómo trabajamos las <a href="/tiendas-online-costa-rica/">tiendas online</a>.</p>
+`,
+  },
+  {
+    // El alcance del trabajo es el que ya estaba publicado en nuestro portafolio
+    // desde la migración. Sin cifras de resultado.
+    slug: 'caso-costa-rica-realty-pro-portal-inmobiliario',
+    title: 'Costa Rica Realty PRO: un portal inmobiliario para un comprador que está afuera',
+    metaTitle: 'Caso Costa Rica Realty PRO — Portal inmobiliario | HacksinCodigos',
+    metaDesc:
+      'Cómo se arma un portal inmobiliario para inversión en Costa Rica cuando el comprador vive en otro país y decide a distancia. El caso de Costa Rica Realty PRO.',
+    excerpt:
+      'Cuando el que compra vive en otro país, el sitio no acompaña la venta: la empieza. Así se armó el portal de Costa Rica Realty PRO.',
+    tag: '🏝️ Caso de cliente',
+    tagColor: '#14b8a6',
+    published: '2026-09-05',
+    updated: '2026-09-05',
+    readingMinutes: 6,
+    relatedServices: [
+      { href: '/desarrollo-web-costa-rica/', label: 'desarrollo web' },
+      { href: '/seo-costa-rica/', label: 'posicionamiento SEO' },
+    ],
+    bodyHtml: `
+<p><a href="https://costaricarealtypro.com" target="_blank" rel="noopener">Costa Rica Realty PRO</a> es una empresa de bienes raíces enfocada en inversión inmobiliaria en Costa Rica. Le desarrollamos el portal con el listado de propiedades y la estructura para captar consultas.</p>
+
+<h2>El comprador no puede pasar a ver</h2>
+<p>Esto define todo lo demás. En bienes raíces local, el sitio acompaña una venta que se cierra visitando la propiedad. En inversión desde el exterior, el sitio <strong>es</strong> la primera visita — y muchas veces la única antes de que alguien decida invertir una suma seria.</p>
+<p>Eso sube el estándar de tres cosas: las fotos, la información y la vía de contacto.</p>
+
+<h2>Fichas de propiedad que aguanten una decisión a distancia</h2>
+<p>El listado se armó con ficha propia por propiedad y galería de imágenes. Cuando no se puede visitar, la galería no es adorno: es el sustituto de estar parado en el lugar. Fotos pocas o malas equivalen a una propiedad que no existe.</p>
+<p>Y la información tiene que anticipar lo que un extranjero no sabe y no se atreve a preguntar todavía: cómo funciona la titulación, qué zona es, qué implica mantener eso a distancia.</p>
+
+<h2>Un público internacional</h2>
+<p>El diseño y el contenido se orientaron a alguien que no vive acá y que está comparando Costa Rica con otros destinos de inversión. No es el mismo lector que busca casa en Heredia, y hablarle igual no funciona.</p>
+<p>Esa diferencia se nota en el tono y en qué se pone primero: en un portal local manda el precio; en inversión internacional mandan la seguridad jurídica, la zona y el retorno.</p>
+
+<h2>El contacto, sin trámite</h2>
+<p>El sitio lleva formularios de consulta para asesoría. En inversión, la conversación es larga y consultiva — nadie compra apretando un botón. Lo que tiene que lograr el sitio es que esa conversación <em>empiece</em>, y por eso la vía de contacto está donde el interesado termina de leer, no escondida en una página aparte.</p>
+
+<h2>Qué se lleva otro negocio de este caso</h2>
+<ul>
+  <li><strong>Si tu comprador no puede venir, el sitio es la visita.</strong> Fotos e información pasan de "importantes" a "todo lo que hay".</li>
+  <li><strong>Escribí para el que no conoce el contexto.</strong> Lo obvio para vos no lo es para alguien a cinco mil kilómetros.</li>
+  <li><strong>Ventas largas necesitan un primer paso corto.</strong> El sitio no cierra: abre la conversación.</li>
+</ul>
+<p>¿Vendés algo a gente que está en otro país? Contanos el caso. Mirá el <a href="/proyectos/costa-rica-realty-pro/">caso en el portafolio</a> o cómo trabajamos el <a href="/desarrollo-web-costa-rica/">desarrollo web</a>.</p>
 `,
   },
 ];

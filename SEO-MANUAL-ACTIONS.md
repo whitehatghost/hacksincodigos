@@ -182,3 +182,39 @@ También conviene volver a solicitar indexación de estas dos, porque cambiaron:
 https://hacksincodigos.com/proyectos/grupo-novo/
 https://hacksincodigos.com/
 ```
+
+---
+
+## Casos de cliente — URLs para Search Console
+
+Publicados el 5 de setiembre de 2026. Pegalas en **Inspección de URLs →
+Solicitar indexación**, una por día:
+
+```
+https://hacksincodigos.com/blog/caso-ryv-dental-sitio-web-clinica-dental/
+https://hacksincodigos.com/blog/caso-redes-deportivas-cr-logo-sitio-y-presencia/
+https://hacksincodigos.com/blog/caso-la-casita-del-bebe-rediseno-y-contenido/
+https://hacksincodigos.com/blog/caso-ticos-home-remodeling-logo-sitio-y-seo/
+https://hacksincodigos.com/blog/caso-carlouis-tienda-de-salsas-artesanales/
+https://hacksincodigos.com/blog/caso-costa-rica-realty-pro-portal-inmobiliario/
+https://hacksincodigos.com/proyectos/redes-deportivas-cr/
+https://hacksincodigos.com/proyectos/grupo-novo-crm/
+```
+
+Y volver a pedir indexación de estas dos, que cambiaron:
+
+```
+https://hacksincodigos.com/blog/crm-empresarial-caso-grupo-novo/
+https://hacksincodigos.com/proyectos/ryv-dental/
+```
+
+> **Sobre los enlaces a los sitios de los clientes.** Cada caso enlaza a las
+> páginas concretas del cliente usando como texto ancla el término por el que esa
+> página compite — "redes de catamarán", "cruceta para andamios", "drywall
+> repair". Eso es enlazado editorial normal y Google lo entiende como una señal
+> legítima: hay un artículo con contenido real que explica el trabajo.
+>
+> Lo que **no** hay que hacer nunca, aunque tiente: páginas vacías creadas solo
+> para colar palabras clave, intercambios de enlaces pactados, ni repetir la
+> misma frase hasta que suene raro. Eso sí se penaliza, y el castigo cae también
+> sobre el dominio del cliente.

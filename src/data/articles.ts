@@ -297,14 +297,14 @@ export const articles: Article[] = [
     title: 'RyV Dental: lanzamiento del sitio y SEO para una clínica dental en Palmares',
     metaTitle: 'Caso RyV Dental — Sitio web y SEO para clínica dental | HacksinCodigos',
     metaDesc:
-      'Cómo llevamos a internet a RyV Dental, clínica dental en Palmares, Alajuela: una página por tratamiento, otra por especialista y SEO local para aparecer en Google.',
+      'Cómo llevamos a internet a RyV Dental, clínica dental en Palmares: una página por tratamiento, otra por especialista, SEO local y contenido de blog.',
     excerpt:
-      'Una clínica con más de treinta años de trayectoria no se vendía sola en Google. Le lanzamos el sitio y armamos la estructura de SEO: una página por tratamiento, una por profesional.',
+      'Una clínica con más de treinta años de trayectoria no se vendía sola en Google. Le lanzamos el sitio, armamos la estructura de SEO y escribimos parte del blog.',
     tag: '🦷 Caso de cliente',
     tagColor: '#38bdf8',
     published: '2026-09-05',
     updated: '2026-09-05',
-    readingMinutes: 8,
+    readingMinutes: 10,
     relatedServices: [
       { href: '/paginas-web-costa-rica/', label: 'páginas web en Costa Rica' },
       { href: '/seo-costa-rica/', label: 'posicionamiento SEO' },
@@ -346,6 +346,14 @@ export const articles: Article[] = [
   <li><strong>Menciones geográficas donde corresponde</strong> — Palmares y la zona de Alajuela — sin repetir la palabra hasta el ridículo, que es lo que hace que una página se lea mal y termine penalizada.</li>
   <li><strong>Velocidad.</strong> El sitio es estático: HTML ya construido, sin base de datos que consultar en cada visita. Un sitio lento pierde al visitante antes de que cargue la primera imagen, y en móvil eso pasa todo el tiempo.</li>
 </ul>
+
+<h2>El blog: la búsqueda que ocurre antes de buscar clínica</h2>
+<p>Además del sitio y el SEO, escribimos parte del contenido del <a href="https://ryvdental.com/blog/" target="_blank" rel="noopener">blog de la clínica</a>.</p>
+<p>El blog no está para "publicar seguido", que es la razón por la que casi todos los blogs de empresa se abandonan a los tres meses. Está para captar la búsqueda que pasa <em>antes</em> de que alguien busque una clínica.</p>
+<p>Porque el recorrido real es este: primero la persona busca si el tratamiento le sirve, cuánto dura o si duele. Solo después busca dónde hacérselo. Una página de servicio contesta la segunda pregunta; el blog contesta la primera, cuando todavía no hay ninguna clínica en la cabeza del paciente.</p>
+<p>Un ejemplo de cómo se aterriza eso es el artículo sobre <a href="https://ryvdental.com/blog/alineadores-invisalign-en-occidente/" target="_blank" rel="noopener">alineadores Invisalign en Occidente</a>. Junta las dos cosas que hay que juntar: el tratamiento que la gente investiga y la zona donde la clínica trabaja. Quien busca "Invisalign" a secas compite contra el mundo; quien busca alineadores en su región es un paciente que puede llegar de verdad a Palmares.</p>
+<p>El otro artículo publicado es la <a href="https://ryvdental.com/blog/bienvenidos-al-blog-de-ryv-dental/" target="_blank" rel="noopener">presentación del blog</a>, que fija el tono: explicar, no vender.</p>
+<p>Es la misma lógica de nuestra <a href="/blog/guia-seo-negocios-locales-costa-rica/">guía de SEO local</a> — el contenido tiene que servirle a alguien que todavía no está listo para contratar.</p>
 
 <h2>El camino al contacto, corto</h2>
 <p>Desde cualquier página se puede solicitar una valoración por WhatsApp. No hay formulario de doce campos ni "espere nuestra respuesta en 48 horas". En una decisión como esta, la persona quiere preguntar algo concreto —cuánto sale, cuánto dura, duele— y necesita que le contesten hoy.</p>
@@ -559,53 +567,61 @@ export const articles: Article[] = [
     // trabajo es el que ya estaba publicado en nuestro portafolio desde la
     // migración. Sin cifras de resultado.
     slug: 'caso-carlouis-tienda-de-salsas-artesanales',
-    title: 'Carlouis: vender salsas artesanales cuando el producto se prueba antes de comprarse',
-    metaTitle: 'Caso Carlouis — Tienda de salsas artesanales gourmet | HacksinCodigos',
+    title: 'Carlouis: rediseño, fotografía y contenido para una marca de salsas artesanales',
+    metaTitle: 'Caso Carlouis — Rediseño, imágenes y contenido | HacksinCodigos',
     metaDesc:
-      'Cómo llevamos a internet una marca costarricense de salsas artesanales gourmet: tienda, recetarios descargables y presencia en ferias. El caso de Carlouis.',
+      'Rediseño del sitio, producción de imágenes y contenido para Carlouis, marca costarricense de salsas artesanales gourmet. Cómo se vende sabor sin poder probarlo.',
     excerpt:
-      'Una salsa artesanal se vende probándola. Llevar eso a una pantalla es el problema real de este proyecto, y se resuelve con contenido, no con un carrito más bonito.',
+      'Una salsa artesanal se vende probándola, y en una pantalla no se prueba nada. Le rediseñamos el sitio, le produjimos las imágenes y escribimos parte del contenido.',
     tag: '🌶️ Caso de cliente',
     tagColor: '#ef4444',
     published: '2026-09-05',
     updated: '2026-09-05',
-    readingMinutes: 6,
+    readingMinutes: 8,
     relatedServices: [
+      { href: '/diseno-web-costa-rica/', label: 'diseño y contenido' },
       { href: '/tiendas-online-costa-rica/', label: 'tiendas online' },
-      { href: '/diseno-web-costa-rica/', label: 'diseño y marca' },
     ],
     bodyHtml: `
-<p><a href="https://carlouis.net" target="_blank" rel="noopener">Carlouis</a> es una marca costarricense de salsas artesanales gourmet. Le desarrollamos la tienda en línea y aplicamos su identidad a toda la experiencia de compra.</p>
-<p>El reto de este proyecto no es técnico. Es que <strong>una salsa se vende cuando la probás</strong>, y en una pantalla no se puede probar nada.</p>
+<p><a href="https://www.carlouis.net/" target="_blank" rel="noopener">Carlouis</a> es una marca costarricense de salsas artesanales gourmet. Le hicimos <strong>el rediseño del sitio</strong>, <strong>la producción de imágenes</strong> y <strong>parte del contenido</strong>.</p>
+<p>Las tres cosas atacan el mismo problema, que no es técnico: <strong>una salsa se vende cuando la probás</strong>, y en una pantalla no se puede probar nada.</p>
 
 <h2>El problema de vender sabor por internet</h2>
-<p>En una feria, el producto se defiende solo: alguien pasa, prueba, compra. En línea hay que reemplazar esa prueba por otra cosa que genere la misma confianza — y no es el botón de "Añadir al carrito".</p>
-<p>Lo que la reemplaza es <strong>saber qué hacer con el producto</strong>. Quien duda entre una salsa artesanal de ocho mil colones y una industrial de dos mil no está comparando precio: está preguntándose si la va a usar o si se le va a quedar en la refrigeradora. Contestale esa pregunta y la venta se cae de madura.</p>
+<p>En una feria el producto se defiende solo: alguien pasa, prueba y compra. En línea hay que reemplazar esa prueba por otra cosa que genere la misma confianza — y no es el botón de "Añadir al carrito".</p>
+<p>Quien duda entre una salsa artesanal y una industrial que cuesta la cuarta parte no está comparando precio. Se está preguntando <em>si la va a usar</em> o si se le va a quedar en la refrigeradora hasta que venza. Contestale esa pregunta y la venta se cae de madura.</p>
+<p>Todo el trabajo salió de ahí.</p>
 
-<h2>Los recetarios</h2>
-<p>Por eso el sitio incluye recetarios descargables: un <a href="https://carlouis.net/assets/recetario-carlouis.pdf" target="_blank" rel="noopener">recetario general</a> y otro <a href="https://carlouis.net/assets/recetario-bocadillos-carlouis.pdf" target="_blank" rel="noopener">de bocadillos</a>.</p>
-<p>Un PDF de recetas hace tres cosas a la vez, y por eso rinde tanto en alimentos:</p>
+<h2>Las imágenes: el trabajo que más pesa</h2>
+<p>En alimentos, la fotografía no ilustra el producto: <strong>es el producto</strong>. Es lo único que puede transmitir textura, color y densidad a alguien que nunca destapó el frasco.</p>
+<p>Y hay una diferencia grande entre fotografiar un frasco y fotografiar lo que ese frasco hace. La foto del envase sobre fondo blanco sirve para el catálogo y no despierta hambre a nadie. La que vende es la que muestra la salsa <em>en uso</em> — sobre la comida, con la textura visible.</p>
+<p>Esa distinción también sostiene el precio. En gourmet, la presentación es parte del argumento: el mismo producto fotografiado con criterio de supermercado se percibe caro, y fotografiado con criterio de marca se percibe como que vale lo que cuesta.</p>
+
+<h2>El rediseño</h2>
+<p>El sitio se rearmó alrededor de esas imágenes y de la identidad de la marca, aplicada de forma consistente en toda la experiencia. El <a href="https://www.carlouis.net/productos.html" target="_blank" rel="noopener">catálogo de productos</a> quedó como el centro, con la fotografía llevando el peso y el texto apoyando, no al revés.</p>
+<p>Es un sitio liviano y estático, sin base de datos que consultar en cada visita — lo que importa cuando buena parte del tráfico llega del celular, muchas veces desde el navegador de una red social, que es más lento que Chrome.</p>
+
+<h2>El contenido: los recetarios</h2>
+<p>La pieza de contenido que más rinde en esta categoría no es una descripción de producto. Son los recetarios descargables: uno <a href="https://www.carlouis.net/assets/recetario-carlouis.pdf" target="_blank" rel="noopener">general</a> y otro <a href="https://www.carlouis.net/assets/recetario-bocadillos-carlouis.pdf" target="_blank" rel="noopener">de bocadillos</a>.</p>
+<p>Un PDF de recetas hace tres cosas al mismo tiempo:</p>
 <ul>
-  <li><strong>Quita la objeción.</strong> Ya sabés qué vas a cocinar con eso.</li>
-  <li><strong>Se comparte.</strong> Sale del sitio y llega a gente que nunca oyó la marca.</li>
-  <li><strong>Se queda.</strong> Vive en el teléfono del cliente y vuelve a aparecer cada vez que abre la carpeta de descargas.</li>
+  <li><strong>Quita la objeción.</strong> Ya sabés qué vas a cocinar con eso, así que deja de ser un frasco que se puede quedar guardado.</li>
+  <li><strong>Se comparte.</strong> Sale del sitio por WhatsApp y llega a gente que nunca oyó la marca. Es la pieza que trabaja sola.</li>
+  <li><strong>Se queda.</strong> Vive en el teléfono del cliente y reaparece cada vez que abre las descargas. Una publicación de redes dura horas; esto dura meses.</li>
 </ul>
 
-<h2>La tienda y la marca</h2>
-<p>En gourmet, el diseño no es decoración: es parte del argumento de precio. Un producto artesanal presentado con la estética de un supermercado se percibe como caro; el mismo producto con una presentación cuidada se percibe como que vale lo que cuesta.</p>
-<p>El <a href="https://carlouis.net/productos" target="_blank" rel="noopener">catálogo de productos</a> se armó alrededor de la fotografía, con la identidad de la marca aplicada de forma consistente en toda la experiencia de compra. La <a href="/diseno-web-costa-rica/">parte de diseño</a> acá no es un extra: es lo que sostiene el posicionamiento premium.</p>
-
 <h2>Lo físico y lo digital, conectados</h2>
-<p>La marca no vive solo en internet, y el sitio lo refleja: hay una sección de <a href="https://carlouis.net/encuentranos" target="_blank" rel="noopener">dónde encontrarlos</a>, otra de <a href="https://carlouis.net/eventos" target="_blank" rel="noopener">eventos</a> y una de <a href="https://carlouis.net/cobertura" target="_blank" rel="noopener">cobertura de entrega</a>.</p>
-<p>Ese circuito importa: el que prueba en una feria busca la marca después en el teléfono, y el que ve el sitio quiere saber si puede probarla en algún lado. Si el sitio ignora lo físico, se rompe la mitad del recorrido.</p>
+<p>La marca no vive solo en internet y el sitio lo refleja: hay <a href="https://www.carlouis.net/encuentranos.html" target="_blank" rel="noopener">dónde encontrarlos</a>, <a href="https://www.carlouis.net/cobertura.html" target="_blank" rel="noopener">cobertura de entrega</a> y una sección de <a href="https://www.carlouis.net/eventos.html" target="_blank" rel="noopener">eventos</a>, con páginas propias para las ferias en las que participan — como la de la <a href="https://www.carlouis.net/feria-forum-2-lindora.html" target="_blank" rel="noopener">feria en Fórum 2, Lindora</a>.</p>
+<p>Esas páginas de evento son contenido con fecha de vencimiento, y aun así valen la pena. El que probó en la feria busca la marca esa misma noche en el teléfono; el que ve el sitio quiere saber dónde puede probarla. Si el sitio ignora lo físico, se rompe la mitad del recorrido.</p>
+<p>Los <a href="https://www.carlouis.net/testimonios.html" target="_blank" rel="noopener">testimonios</a> cierran lo que la foto no puede: alguien más ya la probó y volvió a comprar.</p>
 
 <h2>Qué se lleva otra marca de alimentos de este caso</h2>
 <ul>
-  <li><strong>Vendé el uso, no el frasco.</strong> Recetas, maridajes, ideas: eso convierte más que la descripción del producto.</li>
+  <li><strong>Invertí en la fotografía antes que en cualquier otra cosa.</strong> En comida es el producto, no la decoración.</li>
+  <li><strong>Vendé el uso, no el frasco.</strong> Recetas, maridajes, ideas: eso convierte más que la ficha técnica.</li>
   <li><strong>Regalá algo que se quede.</strong> Un PDF útil sigue trabajando meses después de la visita.</li>
-  <li><strong>Conectá la feria con el sitio.</strong> Dónde encontrarte y a dónde entregás cierra el circuito.</li>
+  <li><strong>Conectá la feria con el sitio.</strong> Dónde encontrarte y hasta dónde entregás cierra el circuito de la venta.</li>
 </ul>
-<p>¿Tenés un producto artesanal y no sabés cómo llevarlo a internet? Contanos qué vendés. Mirá el <a href="/proyectos/carlouis/">caso en el portafolio</a> o cómo trabajamos las <a href="/tiendas-online-costa-rica/">tiendas online</a>.</p>
+<p>¿Tenés un producto artesanal y las fotos no le hacen justicia? Contanos qué vendés. Mirá el <a href="/proyectos/carlouis/">caso en el portafolio</a> o cómo trabajamos el <a href="/diseno-web-costa-rica/">diseño</a> y las <a href="/tiendas-online-costa-rica/">tiendas online</a>.</p>
 `,
   },
   {

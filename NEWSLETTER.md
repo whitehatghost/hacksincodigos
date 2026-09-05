@@ -84,7 +84,7 @@ Si trabajás desde otra computadora, copiá el archivo a mano — no lo commitee
 
 - **Clientes actuales y anteriores.** Hay una relación comercial de por medio y
   el contenido es sobre los servicios que ya contrataron. Es lo normal.
-- **Quien lo pidió** por WhatsApp o desde `/newsletter/`.
+- **Quien lo pidió** por WhatsApp.
 
 A nadie más. Nada de listas compradas ni correos levantados de directorios: además
 de ser una mala práctica, hunde la reputación del dominio y hace que los correos
@@ -115,8 +115,8 @@ previsto en el código:
    del formulario y no se ve ningún error.
 6. Cambiar `envio.metodo` a `'zoho-campaigns'`.
 
-El formulario de alta aparece solo en el sitio en cuanto `zoho.formAction` deja
-de ser `null`. Mientras tanto, `/newsletter/` ofrece suscribirse por WhatsApp.
+Si se llega a ese punto habrá que volver a poner un bloque de alta en el sitio:
+hoy no hay ninguno, porque el boletín es un correo y no una sección de la web.
 
 > **Nunca** pongas en el repositorio un token de API ni una contraseña de Zoho.
 > Los datos del formulario sí pueden ir: son públicos por diseño, quedan a la
@@ -130,8 +130,6 @@ de ser `null`. Mientras tanto, `/newsletter/` ofrece suscribirse por WhatsApp.
 | --- | --- |
 | [`src/data/newsletter.ts`](src/data/newsletter.ts) | Ediciones, la promesa al suscriptor y la configuración de envío |
 | [`src/pages/newsletter/edicion/[mes].astro`](src/pages/newsletter/edicion/) | El HTML del correo — `noindex` y fuera del sitemap |
-| [`src/pages/newsletter/index.astro`](src/pages/newsletter/index.astro) | La página pública que explica el boletín |
-| [`src/components/NewsletterSignup.astro`](src/components/NewsletterSignup.astro) | El bloque de alta (WhatsApp o formulario) |
 | [`src/pages/politica-de-privacidad.astro`](src/pages/politica-de-privacidad.astro) | Qué se hace con el correo del suscriptor |
 
 ---

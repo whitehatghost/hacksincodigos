@@ -270,8 +270,7 @@ test('el boletín no se indexa ni entra al sitemap', { skip: !hasDist }, () => {
   }
   const sitemaps = fs.readdirSync(DIST).filter((f) => f.startsWith('sitemap') && f.endsWith('.xml'));
   const contenido = sitemaps.map((f) => read(f)).join('\n');
-  assert.ok(!contenido.includes('/newsletter/edicion/'), 'el sitemap lista una edición del boletín');
-  assert.ok(contenido.includes('/newsletter/'), 'la página pública del boletín falta en el sitemap');
+  assert.ok(!contenido.includes('/newsletter/'), 'el boletín no va al sitemap: es un correo, no una página del sitio');
 });
 
 test('el correo del boletín usa solo URLs absolutas', { skip: !hasDist }, () => {

@@ -83,3 +83,7 @@
 
 # ── Imagen Open Graph que el sitio WordPress referenciaba y devolvía 404 ─────
 /og-image.jpg             /images/og-hacksincodigos.png  301
+
+# La página de suscripción al boletín se retiró: el boletín es un correo que se
+# manda a mano, no una sección del sitio. Alcanzó a estar publicada un rato.
+/newsletter/  /  301

@@ -41,8 +41,8 @@ export const articles: Article[] = [
       'Un sitio de negocio arranca alrededor de los $350–$450 y un e-commerce completo va de $800 a $2,500. Acá está el desglose de qué cambia el precio y qué costos anuales hay que sumar.',
     tag: '💰 Precios 2026',
     tagColor: 'var(--accent-green)',
-    published: '2026-01-15',
-    updated: '2026-07-28',
+    published: '2026-03-18',
+    updated: '2026-08-26',
     readingMinutes: 6,
     relatedServices: [
       { href: '/paginas-web-costa-rica/', label: 'páginas web en Costa Rica' },
@@ -101,8 +101,8 @@ export const articles: Article[] = [
       'Un agente de IA contesta tu WhatsApp a las 9 de la noche de un domingo. Qué automatiza de verdad, qué no conviene dejarle y qué hace falta para ponerlo a andar.',
     tag: '🤖 Automatización',
     tagColor: 'var(--accent-amber)',
-    published: '2026-02-10',
-    updated: '2026-07-28',
+    published: '2026-04-09',
+    updated: '2026-08-26',
     readingMinutes: 5,
     relatedServices: [
       { href: '/agentes-ia-costa-rica/', label: 'agentes de IA para WhatsApp' },
@@ -149,8 +149,8 @@ export const articles: Article[] = [
       'Aparecer en Google cuando alguien busca tu servicio cerca no es cuestión de suerte. Google Business, SEO técnico, contenido local y enlaces legítimos — en ese orden.',
     tag: '📈 SEO Local',
     tagColor: 'var(--accent-blue)',
-    published: '2026-03-05',
-    updated: '2026-07-28',
+    published: '2026-05-06',
+    updated: '2026-08-26',
     readingMinutes: 7,
     relatedServices: [
       { href: '/seo-costa-rica/', label: 'SEO en Costa Rica' },
@@ -221,8 +221,8 @@ export const articles: Article[] = [
       'Le desarrollamos a Grupo Novo la tienda en línea con la que venden andamios y accesorios, y después el CRM. Acá está el razonamiento: por qué un distribuidor necesita un sistema propio y cómo se decide qué construir.',
     tag: '🏗️ Caso de cliente',
     tagColor: '#06b6d4',
-    published: '2026-08-31',
-    updated: '2026-08-31',
+    published: '2026-08-28',
+    updated: '2026-09-05',
     readingMinutes: 11,
     relatedServices: [
       { href: '/software-a-la-medida-costa-rica/', label: 'software a la medida y CRM' },
@@ -306,7 +306,7 @@ export const articles: Article[] = [
       'Una clínica con más de treinta años de trayectoria no se vendía sola en Google. Le lanzamos el sitio, armamos la estructura de SEO y escribimos parte del blog.',
     tag: '🦷 Caso de cliente',
     tagColor: '#38bdf8',
-    published: '2026-09-05',
+    published: '2026-09-04',
     updated: '2026-09-05',
     readingMinutes: 10,
     relatedServices: [
@@ -398,8 +398,8 @@ export const articles: Article[] = [
       'Una fábrica que teje redes a la medida no vende "redes": vende redes de fútbol, de catamarán o de balcón, que son búsquedas distintas. Así armamos el logo, el sitio y la presencia.',
     tag: '🥅 Caso de cliente',
     tagColor: '#22c55e',
-    published: '2026-09-05',
-    updated: '2026-09-05',
+    published: '2026-08-14',
+    updated: '2026-08-14',
     readingMinutes: 8,
     relatedServices: [
       { href: '/diseno-web-costa-rica/', label: 'diseño y marca' },
@@ -464,8 +464,8 @@ export const articles: Article[] = [
       'Rediseñamos la tienda y le producimos el contenido de Instagram para todo el mes. Las dos cosas juntas, porque publicar sin dónde aterrizar es tirar el alcance a la basura.',
     tag: '🍼 Caso de cliente',
     tagColor: '#f472b6',
-    published: '2026-09-05',
-    updated: '2026-09-05',
+    published: '2026-07-30',
+    updated: '2026-07-30',
     readingMinutes: 7,
     relatedServices: [
       { href: '/tiendas-online-costa-rica/', label: 'tiendas online' },
@@ -526,8 +526,8 @@ export const articles: Article[] = [
       'Una empresa de remodelación en Connecticut compite contra el que sale primero en Google al buscar "drywall repair near me". Le hicimos el logo, el sitio y el SEO local.',
     tag: '🔨 Caso de cliente',
     tagColor: '#f59e0b',
-    published: '2026-09-05',
-    updated: '2026-09-05',
+    published: '2026-07-08',
+    updated: '2026-07-08',
     readingMinutes: 8,
     relatedServices: [
       { href: '/seo-costa-rica/', label: 'posicionamiento SEO' },
@@ -595,7 +595,7 @@ export const articles: Article[] = [
       'Una salsa artesanal se vende probándola, y en una pantalla no se prueba nada. Le rediseñamos el sitio, le produjimos las imágenes y escribimos parte del contenido.',
     tag: '🌶️ Caso de cliente',
     tagColor: '#ef4444',
-    published: '2026-09-05',
+    published: '2026-06-17',
     updated: '2026-09-05',
     readingMinutes: 8,
     relatedServices: [
@@ -657,7 +657,7 @@ export const articles: Article[] = [
       'Cuando el que compra vive en otro país, el sitio no acompaña la venta: la empieza. Le hicimos a Costa Rica Realty PRO el sitio en WordPress y la aplicación para vender propiedades.',
     tag: '🏝️ Caso de cliente',
     tagColor: '#14b8a6',
-    published: '2026-09-05',
+    published: '2026-05-27',
     updated: '2026-09-05',
     readingMinutes: 8,
     relatedServices: [

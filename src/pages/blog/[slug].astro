@@ -3,8 +3,10 @@ import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import { articles, type Article } from '../../data/articles';
+import { getProject } from '../../data/projects';
 import { site } from '../../data/site';
 import { webPageSchema, breadcrumbSchema } from '../../lib/schema';
+import { conReferenciaEnHtml } from '../../lib/referral';
 
 export function getStaticPaths() {
   return articles.map((a) => ({ params: { slug: a.slug }, props: { article: a } }));
@@ -21,6 +23,9 @@ const crumbs = [
 ];
 
 const others = articles.filter((a) => a.slug !== article.slug);
+
+/** Si el artículo es un caso, el cliente del que habla. */
+const cliente = article.proyecto ? getProject(article.proyecto) : undefined;
 
 const schemas = [
   webPageSchema({ path, name: article.metaTitle, description: article.metaDesc }),
@@ -55,6 +60,17 @@ const fmt = new Intl.DateTimeFormat('es-CR', { year: 'numeric', month: 'long', d
 
     <section class="page-hero">
       <div class="page-hero-inner">
+        {cliente?.logo && (
+          <span class="caso-logo caso-logo-hero">
+            <img
+              src={cliente.logo}
+              alt={`Logo de ${cliente.name}`}
+              width="320"
+              height="160"
+              decoding="async"
+            />
+          </span>
+        )}
         <span class="page-eyebrow">{article.tag}</span>
         <h1 class="page-h1">{article.title}</h1>
         <p class="page-lead">{article.excerpt}</p>
@@ -68,7 +84,9 @@ const fmt = new Intl.DateTimeFormat('es-CR', { year: 'numeric', month: 'long', d
 
     <section class="section-block">
       <div class="section-inner narrow">
-        <article class="prose" set:html={article.bodyHtml} />
+        <!-- Los enlaces a sitios de clientes salen marcados, para que ellos vean
+             en su analítica que la visita vino de este artículo. -->
+        <article class="prose" set:html={conReferenciaEnHtml(article.bodyHtml, article.slug)} />
 
         <p class="attribution">
           Escrito por el equipo de <a href="/">HacksinCodigos</a>. Trabajamos en
@@ -88,6 +106,18 @@ const fmt = new Intl.DateTimeFormat('es-CR', { year: 'numeric', month: 'long', d
         <div class="card-grid cols-3">
           {others.map((a) => (
             <a class="info-card" href={`/blog/${a.slug}/`}>
+              {a.proyecto && getProject(a.proyecto)?.logo && (
+                <span class="caso-logo">
+                  <img
+                    src={getProject(a.proyecto)!.logo}
+                    alt={`Logo de ${getProject(a.proyecto)!.name}`}
+                    width="320"
+                    height="160"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+              )}
               <span class="blog-tag" style={`color:${a.tagColor}`}>{a.tag}</span>
               <h3 style="margin-top:.5rem">{a.title}</h3>
               <p>{a.excerpt}</p>

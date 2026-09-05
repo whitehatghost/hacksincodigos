@@ -25,6 +25,13 @@ export interface Project {
   relatedServices: string[];
   /** Gradiente del thumb, tal como en la home actual. */
   thumbGradient?: string;
+  /**
+   * Logo del cliente, normalizado sobre placa blanca por
+   * scripts/fetch-client-logos.mjs. Se sirve desde acá y no desde el sitio del
+   * cliente: el hotlinking le carga el ancho de banda a él y se rompe el día
+   * que mueva el archivo.
+   */
+  logo?: string;
   metaTitle: string;
   metaDesc: string;
 }
@@ -32,6 +39,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: 'grupo-novo',
+    logo: '/images/clientes/grupo-novo.webp',
     name: 'Grupo Novo',
     domain: 'gruponovocr.com',
     liveUrl: 'https://gruponovocr.com',
@@ -62,6 +70,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'redes-deportivas-cr',
+    logo: '/images/clientes/redes-deportivas-cr.webp',
     name: 'Redes Deportivas CR',
     domain: 'redesdeportivascr.com',
     liveUrl: 'https://redesdeportivascr.com',
@@ -88,6 +97,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'grupo-novo-crm',
+    logo: '/images/clientes/grupo-novo.webp',
     name: 'CRM de Grupo Novo',
     domain: 'Sistema interno',
     // Un CRM es de uso interno: no hay URL pública que enseñar, y no se publican
@@ -115,6 +125,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'la-casita-del-bebe',
+    logo: '/images/clientes/la-casita-del-bebe.webp',
     name: 'La Casita del Bebé',
     domain: 'lacasitadelbebecr.com',
     liveUrl: 'https://lacasitadelbebecr.com',
@@ -138,6 +149,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'ticos-home-remodeling',
+    logo: '/images/clientes/ticos-home-remodeling.webp',
     name: "Tico's Home Remodeling",
     domain: 'ticoshomeremodeling.com',
     liveUrl: 'https://ticoshomeremodeling.com',
@@ -163,6 +175,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'carlouis',
+    logo: '/images/clientes/carlouis.webp',
     name: 'Carlouis',
     domain: 'carlouis.net',
     liveUrl: 'https://carlouis.net',
@@ -187,6 +200,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'costa-rica-realty-pro',
+    logo: '/images/clientes/costa-rica-realty-pro.webp',
     name: 'Costa Rica Realty PRO',
     domain: 'costaricarealtypro.com',
     liveUrl: 'https://costaricarealtypro.com',
@@ -212,6 +226,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'ryv-dental',
+    logo: '/images/clientes/ryv-dental.webp',
     name: 'RyV Dental',
     domain: 'ryvdental.com',
     liveUrl: 'https://ryvdental.com',

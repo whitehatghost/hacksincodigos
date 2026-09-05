@@ -25,6 +25,8 @@ export interface Article {
   readingMinutes: number;
   /** Servicios con los que conecta el artículo. */
   relatedServices: { href: string; label: string }[];
+  /** Si es un caso de cliente, el slug del proyecto: de ahí sale el logo. */
+  proyecto?: string;
   bodyHtml: string;
 }
 
@@ -210,6 +212,7 @@ export const articles: Article[] = [
     // ninguno que no venga del propio cliente por escrito.
     // ────────────────────────────────────────────────────────────────────────────────
     slug: 'crm-empresarial-caso-grupo-novo',
+    proyecto: 'grupo-novo',
     title: 'CRM y tienda en línea: el caso de Grupo Novo',
     metaTitle: 'CRM y tienda en línea: el caso de Grupo Novo | HacksinCodigos',
     metaDesc:
@@ -294,6 +297,7 @@ export const articles: Article[] = [
     // páginas por especialidad y por profesional. Servicios prestados según el
     // cliente: lanzamiento del sitio y SEO. Sin cifras de resultado.
     slug: 'caso-ryv-dental-sitio-web-clinica-dental',
+    proyecto: 'ryv-dental',
     title: 'RyV Dental: lanzamiento del sitio y SEO para una clínica dental en Palmares',
     metaTitle: 'Caso RyV Dental — Sitio web y SEO para clínica dental | HacksinCodigos',
     metaDesc:
@@ -373,6 +377,7 @@ export const articles: Article[] = [
     // cobertura y modo de cotizar. Servicios prestados según el cliente: diseño
     // de logo, sitio web y presencia de marca. Sin cifras de resultado.
     slug: 'caso-redes-deportivas-cr-logo-sitio-y-presencia',
+    proyecto: 'redes-deportivas-cr',
     title: 'Redes Deportivas CR: logo, sitio y presencia para una fábrica nacional',
     metaTitle: 'Caso Redes Deportivas CR — Logo, sitio y marca | HacksinCodigos',
     metaDesc:
@@ -438,6 +443,7 @@ export const articles: Article[] = [
     // prestados según el cliente: rediseño del sitio y producción de contenido
     // de Instagram para el mes completo. Sin cifras de resultado.
     slug: 'caso-la-casita-del-bebe-rediseno-y-contenido',
+    proyecto: 'la-casita-del-bebe',
     title: 'La Casita del Bebé: rediseño de la tienda y contenido de Instagram para todo el mes',
     metaTitle: 'Caso La Casita del Bebé — Rediseño y contenido | HacksinCodigos',
     metaDesc:
@@ -499,6 +505,7 @@ export const articles: Article[] = [
     // prestados según el cliente: logo, sitio web, SEO y presencia. El sitio
     // está en inglés porque su mercado es Connecticut. Sin cifras de resultado.
     slug: 'caso-ticos-home-remodeling-logo-sitio-y-seo',
+    proyecto: 'ticos-home-remodeling',
     title: "Tico's Home Remodeling: logo, sitio y SEO local para Connecticut",
     metaTitle: "Caso Tico's Home Remodeling — Sitio y SEO local | HacksinCodigos",
     metaDesc:
@@ -567,6 +574,7 @@ export const articles: Article[] = [
     // trabajo es el que ya estaba publicado en nuestro portafolio desde la
     // migración. Sin cifras de resultado.
     slug: 'caso-carlouis-tienda-de-salsas-artesanales',
+    proyecto: 'carlouis',
     title: 'Carlouis: rediseño, fotografía y contenido para una marca de salsas artesanales',
     metaTitle: 'Caso Carlouis — Rediseño, imágenes y contenido | HacksinCodigos',
     metaDesc:
@@ -628,6 +636,7 @@ export const articles: Article[] = [
     // El alcance del trabajo es el que ya estaba publicado en nuestro portafolio
     // desde la migración. Sin cifras de resultado.
     slug: 'caso-costa-rica-realty-pro-portal-inmobiliario',
+    proyecto: 'costa-rica-realty-pro',
     title: 'Costa Rica Realty PRO: un sitio en WordPress con aplicación para vender propiedades',
     metaTitle: 'Caso Costa Rica Realty PRO — Sitio y app inmobiliaria | HacksinCodigos',
     metaDesc:

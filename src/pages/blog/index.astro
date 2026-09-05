@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import { articles } from '../../data/articles';
+import { getProject } from '../../data/projects';
 import { webPageSchema, breadcrumbSchema } from '../../lib/schema';
 
 const path = '/blog/';
@@ -58,8 +59,22 @@ const fmt = new Intl.DateTimeFormat('es-CR', { year: 'numeric', month: 'long', d
     <section class="section-block">
       <div class="section-inner">
         <div class="card-grid cols-3">
-          {sorted.map((a) => (
+          {sorted.map((a) => {
+            const cliente = a.proyecto ? getProject(a.proyecto) : undefined;
+            return (
             <a class="info-card" href={`/blog/${a.slug}/`}>
+              {cliente?.logo && (
+                <span class="caso-logo">
+                  <img
+                    src={cliente.logo}
+                    alt={`Logo de ${cliente.name}`}
+                    width="320"
+                    height="160"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+              )}
               <span class="blog-tag" style={`color:${a.tagColor}`}>{a.tag}</span>
               <h3 style="margin-top:.5rem">{a.title}</h3>
               <p>{a.excerpt}</p>
@@ -67,7 +82,8 @@ const fmt = new Intl.DateTimeFormat('es-CR', { year: 'numeric', month: 'long', d
                 <time datetime={a.published}>{fmt.format(new Date(a.published))}</time> · {a.readingMinutes} min
               </p>
             </a>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
@@ -78,7 +94,7 @@ const fmt = new Intl.DateTimeFormat('es-CR', { year: 'numeric', month: 'long', d
         <ul>
           <li><a href="/paginas-web-costa-rica/">Páginas web en Costa Rica</a> — qué hacemos, para quién y a qué precio.</li>
           <li><a href="/seo-costa-rica/">SEO en Costa Rica</a> — cómo trabajamos el posicionamiento.</li>
-          <li><a href="/shop/">Tienda</a> — servicios con precio publicado.</li>
+          <li><a href="/shop/">Catálogo</a> — todo lo que hacemos, cotizado caso por caso.</li>
           <li><a href="/proyectos/">Portafolio</a> — sitios que ya están en producción.</li>
         </ul>
       </div>

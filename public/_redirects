@@ -87,3 +87,22 @@
 # La página de suscripción al boletín se retiró: el boletín es un correo que se
 # manda a mano, no una sección del sitio. Alcanzó a estar publicada un rato.
 /newsletter/  /  301
+
+# ── Sitio anterior a WordPress: cursos y ciberseguridad ─────────────────────
+# Google todavía tiene indexadas estas URLs de la versión vieja del sitio (la de
+# cursos y noticias de ciberseguridad) y hoy todas devuelven 404. Un 404 tira a
+# la basura la autoridad que esa URL acumuló; un 301 la traslada.
+#
+# DECISIÓN PENDIENTE: si se vuelve a ofrecer capacitación, estas páginas
+# deberían existir de nuevo en vez de redirigir — están indexadas y compiten en
+# términos con poca competencia. Mientras tanto, van a la portada.
+/noticias                     /blog/                    301
+/cursos                       /                         301
+/capacitaciones               /                         301
+/curso-ethical-hacking        /                         301
+/curso-securityplus           /                         301
+/curso-ciberseguridad-basica  /                         301
+/curso-hacker-vida-real       /                         301
+/curso-instalacion-so         /                         301
+/sobre-nosotros               /                         301
+/nosotros                     /                         301

@@ -612,46 +612,61 @@ export const articles: Article[] = [
     // El alcance del trabajo es el que ya estaba publicado en nuestro portafolio
     // desde la migración. Sin cifras de resultado.
     slug: 'caso-costa-rica-realty-pro-portal-inmobiliario',
-    title: 'Costa Rica Realty PRO: un portal inmobiliario para un comprador que está afuera',
-    metaTitle: 'Caso Costa Rica Realty PRO — Portal inmobiliario | HacksinCodigos',
+    title: 'Costa Rica Realty PRO: un sitio en WordPress con aplicación para vender propiedades',
+    metaTitle: 'Caso Costa Rica Realty PRO — Sitio y app inmobiliaria | HacksinCodigos',
     metaDesc:
-      'Cómo se arma un portal inmobiliario para inversión en Costa Rica cuando el comprador vive en otro país y decide a distancia. El caso de Costa Rica Realty PRO.',
+      'Sitio en WordPress con aplicación para publicar y gestionar propiedades, para una empresa que le vende bienes raíces en Costa Rica a compradores extranjeros.',
     excerpt:
-      'Cuando el que compra vive en otro país, el sitio no acompaña la venta: la empieza. Así se armó el portal de Costa Rica Realty PRO.',
+      'Cuando el que compra vive en otro país, el sitio no acompaña la venta: la empieza. Le hicimos a Costa Rica Realty PRO el sitio en WordPress y la aplicación para vender propiedades.',
     tag: '🏝️ Caso de cliente',
     tagColor: '#14b8a6',
     published: '2026-09-05',
     updated: '2026-09-05',
-    readingMinutes: 6,
+    readingMinutes: 8,
     relatedServices: [
       { href: '/desarrollo-web-costa-rica/', label: 'desarrollo web' },
-      { href: '/seo-costa-rica/', label: 'posicionamiento SEO' },
+      { href: '/paginas-web-costa-rica/', label: 'páginas web en Costa Rica' },
     ],
     bodyHtml: `
-<p><a href="https://costaricarealtypro.com" target="_blank" rel="noopener">Costa Rica Realty PRO</a> es una empresa de bienes raíces enfocada en inversión inmobiliaria en Costa Rica. Le desarrollamos el portal con el listado de propiedades y la estructura para captar consultas.</p>
+<p><a href="https://costaricarealtypro.com" target="_blank" rel="noopener">Costa Rica Realty PRO</a> vende bienes raíces en Costa Rica a un comprador que casi siempre está afuera. Le desarrollamos <strong>el sitio en WordPress</strong> y <strong>la aplicación con la que publican y gestionan las propiedades en venta</strong>.</p>
 
 <h2>El comprador no puede pasar a ver</h2>
-<p>Esto define todo lo demás. En bienes raíces local, el sitio acompaña una venta que se cierra visitando la propiedad. En inversión desde el exterior, el sitio <strong>es</strong> la primera visita — y muchas veces la única antes de que alguien decida invertir una suma seria.</p>
-<p>Eso sube el estándar de tres cosas: las fotos, la información y la vía de contacto.</p>
+<p>Esto define todo lo demás. En bienes raíces local, el sitio acompaña una venta que se cierra visitando la propiedad. Acá el sitio <strong>es</strong> la primera visita, y muchas veces la única antes de que alguien decida poner una suma seria en un país donde no vive.</p>
+<p>Eso sube el estándar de tres cosas a la vez: las fotos, la información y la facilidad para arrancar la conversación.</p>
 
-<h2>Fichas de propiedad que aguanten una decisión a distancia</h2>
-<p>El listado se armó con ficha propia por propiedad y galería de imágenes. Cuando no se puede visitar, la galería no es adorno: es el sustituto de estar parado en el lugar. Fotos pocas o malas equivalen a una propiedad que no existe.</p>
-<p>Y la información tiene que anticipar lo que un extranjero no sabe y no se atreve a preguntar todavía: cómo funciona la titulación, qué zona es, qué implica mantener eso a distancia.</p>
+<h2>El argumento del negocio, y por qué manda en el diseño</h2>
+<p>Lo primero que dice su portada no es "las mejores propiedades". Es una advertencia: que el paraíso no se te convierta en una pesadilla.</p>
+<p>Ese es el negocio de verdad. <a href="https://costaricarealtypro.com/#about-us" target="_blank" rel="noopener">Rob Villalta</a> es un estadounidense que ha vivido y trabajado entre Estados Unidos y Costa Rica durante décadas, y que ha comprado y construido en los dos países. Lo que vende no es solo la propiedad: es no meterse solo en un trámite extranjero, con ordenanzas locales que nadie de afuera conoce.</p>
+<p>Un sitio inmobiliario genérico —fotos bonitas y un buscador— habría enterrado eso. Por eso <a href="https://costaricarealtypro.com/#services" target="_blank" rel="noopener">los servicios</a> y la trayectoria van arriba, compitiendo en jerarquía con las propiedades. En una venta consultiva, la confianza en la persona se vende antes que el inmueble.</p>
 
-<h2>Un público internacional</h2>
-<p>El diseño y el contenido se orientaron a alguien que no vive acá y que está comparando Costa Rica con otros destinos de inversión. No es el mismo lector que busca casa en Heredia, y hablarle igual no funciona.</p>
-<p>Esa diferencia se nota en el tono y en qué se pone primero: en un portal local manda el precio; en inversión internacional mandan la seguridad jurídica, la zona y el retorno.</p>
+<h2>Las cuatro categorías</h2>
+<p>La oferta se organiza en cuatro tipos de propiedad, que son cuatro compradores distintos: <strong>playa</strong>, <strong>naturaleza</strong>, <strong>apartamentos</strong> y <strong>comercial</strong>.</p>
+<p>No es lo mismo el que busca una casa frente al mar para retirarse que el que busca finca con caída de agua, que el que compra un apartamento como inversión de alquiler, que el que busca local comercial. Cambia el precio, el trámite y el miedo que hay que resolverle a cada uno.</p>
+
+<h2>La aplicación para vender propiedades</h2>
+<p>La parte que no se ve desde afuera es la que más trabajo tiene. El sitio incluye una <strong>aplicación para publicar y administrar las propiedades en venta</strong>, con su <a href="https://costaricarealtypro.com/customer-cabinet/" target="_blank" rel="noopener">área de cliente</a>.</p>
+<p>La razón de construir eso en vez de dejar el catálogo en páginas sueltas es simple: <strong>el inventario cambia</strong>. Las propiedades entran, se reservan, se venden y salen. Si cada alta obliga a llamar al desarrollador, en tres meses el sitio muestra propiedades que ya no existen — y no hay nada que queme más rápido la confianza de un comprador internacional que escribir por una casa que se vendió hace medio año.</p>
+<p>Con la aplicación, la empresa publica, edita y retira propiedades por su cuenta. Es la misma lógica que aplicamos en cualquier <a href="/software-a-la-medida-costa-rica/">sistema a la medida</a>: el cliente tiene que poder operar sin depender de nosotros para cada cambio.</p>
+
+<h2>Por qué WordPress acá</h2>
+<p>No usamos WordPress por defecto — <a href="/desarrollo-web-costa-rica/">elegimos la tecnología según el proyecto</a>. Acá tenía sentido por dos razones concretas.</p>
+<p>La primera es que el contenido lo administra el cliente. Cuando alguien va a entrar todas las semanas a mover propiedades y textos, un panel que ya conoce vale más que la arquitectura más elegante.</p>
+<p>La segunda es que el catálogo es dinámico. Un generador estático brilla cuando el contenido cambia poco; un inventario inmobiliario cambia todo el tiempo y necesita una base de datos detrás.</p>
+<p>El sitio corre con el tema Astra y Elementor, que es lo que hace que el cliente pueda ajustar la presentación sin tocar código.</p>
 
 <h2>El contacto, sin trámite</h2>
-<p>El sitio lleva formularios de consulta para asesoría. En inversión, la conversación es larga y consultiva — nadie compra apretando un botón. Lo que tiene que lograr el sitio es que esa conversación <em>empiece</em>, y por eso la vía de contacto está donde el interesado termina de leer, no escondida en una página aparte.</p>
+<p>La <a href="https://costaricarealtypro.com/#contact" target="_blank" rel="noopener">vía de contacto</a> está donde el interesado termina de leer, no escondida en una página aparte.</p>
+<p>En inversión inmobiliaria nadie compra apretando un botón: la conversación es larga y consultiva. Lo único que tiene que lograr el sitio es que esa conversación <em>empiece</em>. Todo lo que se interponga —un formulario de quince campos, un "le responderemos en 48 horas"— es un interesado que se fue a mirar propiedades en Panamá.</p>
+<p>La sección de <a href="https://costaricarealtypro.com/#clients" target="_blank" rel="noopener">clientes</a> cumple la otra mitad: alguien que va a mandar dinero a otro país necesita ver que hubo gente antes que lo hizo y le fue bien.</p>
 
 <h2>Qué se lleva otro negocio de este caso</h2>
 <ul>
-  <li><strong>Si tu comprador no puede venir, el sitio es la visita.</strong> Fotos e información pasan de "importantes" a "todo lo que hay".</li>
+  <li><strong>Si tu comprador no puede venir, el sitio es la visita.</strong> Las fotos y la información dejan de ser importantes para pasar a ser todo lo que hay.</li>
+  <li><strong>Si tu inventario cambia, necesitás administrarlo vos.</strong> Un catálogo que solo el desarrollador puede tocar se desactualiza y empieza a costar ventas.</li>
+  <li><strong>En ventas consultivas, la persona se vende antes que el producto.</strong> La trayectoria y el criterio van arriba, no en un "quiénes somos" al final.</li>
   <li><strong>Escribí para el que no conoce el contexto.</strong> Lo obvio para vos no lo es para alguien a cinco mil kilómetros.</li>
-  <li><strong>Ventas largas necesitan un primer paso corto.</strong> El sitio no cierra: abre la conversación.</li>
 </ul>
-<p>¿Vendés algo a gente que está en otro país? Contanos el caso. Mirá el <a href="/proyectos/costa-rica-realty-pro/">caso en el portafolio</a> o cómo trabajamos el <a href="/desarrollo-web-costa-rica/">desarrollo web</a>.</p>
+<p>¿Vendés algo que exige confianza a distancia, o tenés un catálogo que cambia seguido? Contanos el caso. Mirá el <a href="/proyectos/costa-rica-realty-pro/">caso en el portafolio</a> o cómo trabajamos el <a href="/desarrollo-web-costa-rica/">desarrollo web a medida</a>.</p>
 `,
   },
 ];

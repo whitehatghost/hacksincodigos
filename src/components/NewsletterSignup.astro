@@ -1,0 +1,86 @@
+---
+/**
+ * Alta al newsletter mensual.
+ *
+ * Si Zoho Campaigns todavía no está configurado (`zoho.formAction === null`),
+ * NO se pinta un formulario: se ofrece WhatsApp, que es un canal que ya
+ * funciona. Publicar un formulario sin destino haría perder correos en silencio,
+ * que es peor que no tenerlo.
+ */
+import { zoho, zohoListo, promesa } from '../data/newsletter';
+import { wa } from '../data/site';
+
+export interface Props {
+  /** `banda` para el pie de página, `bloque` para una sección completa. */
+  variante?: 'banda' | 'bloque';
+  titulo?: string;
+  texto?: string;
+}
+
+const {
+  variante = 'banda',
+  titulo = 'Enterate de lo nuevo, una vez al mes',
+  texto = `${promesa.frecuencia}: lo que publicamos, un caso real de cliente y una recomendación que podés aplicar por tu cuenta. Nada más.`,
+} = Astro.props;
+
+const waText = 'Hola, quiero recibir el boletín mensual de HacksinCodigos en mi correo';
+---
+<section class={`newsletter newsletter-${variante}`} aria-labelledby="newsletter-titulo">
+  <div class="newsletter-inner">
+    <div class="newsletter-copy">
+      <h2 id="newsletter-titulo" class="newsletter-title">{titulo}</h2>
+      <p class="newsletter-text">{texto}</p>
+      {variante === 'bloque' && (
+        <ul class="newsletter-list" role="list">
+          {promesa.incluye.map((i) => <li>{i}</li>)}
+        </ul>
+      )}
+    </div>
+
+    {zohoListo ? (
+      <form
+        class="newsletter-form"
+        action={zoho.formAction!}
+        method="POST"
+        target="_blank"
+        accept-charset="UTF-8"
+      >
+        {Object.entries(zoho.hidden).map(([name, value]) => (
+          <input type="hidden" name={name} value={value} />
+        ))}
+
+        <div class="newsletter-field">
+          <label class="visually-hidden" for="newsletter-email">Tu correo electrónico</label>
+          <input
+            id="newsletter-email"
+            type="email"
+            name="CONTACT_EMAIL"
+            placeholder="tu@correo.com"
+            autocomplete="email"
+            required
+            aria-describedby="newsletter-nota"
+          />
+          <button type="submit" class="btn btn-solid newsletter-btn">Suscribirme</button>
+        </div>
+
+        <p id="newsletter-nota" class="newsletter-nota">
+          Te llega un correo para confirmar. Te podés dar de baja cuando querás.
+          Leé la <a href="/politica-de-privacidad/">política de privacidad</a>.
+        </p>
+      </form>
+    ) : (
+      <div class="newsletter-form">
+        <a
+          class="btn btn-solid newsletter-btn"
+          href={wa(waText)}
+          target="_blank"
+          rel="noopener"
+        >Pedir el boletín por WhatsApp</a>
+        <p class="newsletter-nota">
+          Escribinos y te agregamos a la lista. Para salir, respondés BAJA a cualquier edición.
+          Leé la <a href="/politica-de-privacidad/">política de privacidad</a>.
+        </p>
+      </div>
+    )}
+  </div>
+</section>

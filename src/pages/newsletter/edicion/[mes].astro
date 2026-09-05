@@ -1,0 +1,273 @@
+---
+/**
+ * La edición del boletín, lista para copiar y pegar en el correo.
+ *
+ * POR QUÉ ES UNA PÁGINA Y NO UN ARCHIVO SUELTO: así se arma con los mismos
+ * datos que el sitio — servicios, proyectos y artículos publicados — y no puede
+ * decir algo que el sitio no diga. Para mandarla: abrir la URL, seleccionar
+ * todo, copiar, y pegar en el redactor de Zoho Mail. El formato se conserva.
+ *
+ * NO usa el layout del sitio. Es HTML de correo, que tiene sus propias reglas:
+ *   · Todo con <table>: Outlook no entiende flex ni grid.
+ *   · Estilos en línea: Gmail descarta la mayoría de las hojas de estilo.
+ *   · Ancho fluido con tope de 600 px: al pegar el correo en el redactor las
+ *     media queries se pierden, así que la adaptación al celular la hace la
+ *     estructura de tablas, no el CSS.
+ *   · URLs absolutas: en un correo no existe la raíz del sitio.
+ *   · Fondo claro en el cuerpo: el modo oscuro de Gmail invierte los colores y
+ *     un diseño oscuro termina ilegible. El verde de marca queda para la banda
+ *     superior; sobre blanco se usa un verde más oscuro que sí tiene contraste.
+ *
+ * Va con noindex y fuera del sitemap: es una pieza de trabajo, no una página
+ * que Google deba indexar.
+ */
+import { ediciones, promesa, envio, type Edicion } from '../../../data/newsletter';
+import { getProduct } from '../../../data/products';
+import { getProject } from '../../../data/projects';
+import { getArticle } from '../../../data/articles';
+import { site } from '../../../data/site';
+
+export function getStaticPaths() {
+  return ediciones.map((e) => ({ params: { mes: e.mes }, props: { edicion: e } }));
+}
+
+interface Props { edicion: Edicion }
+const { edicion } = Astro.props;
+
+const BASE = site.url;
+const abs = (p: string) => new URL(p, BASE).href;
+const waUrl = (t: string) => `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(t)}`;
+
+/** "setiembre de 2026" — en Costa Rica se escribe con te. */
+const MESES = [
+  'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+  'julio', 'agosto', 'setiembre', 'octubre', 'noviembre', 'diciembre',
+];
+const [anio, mesNum] = edicion.mes.split('-').map(Number);
+const mesLargo = `${MESES[mesNum - 1]} de ${anio}`;
+const mesTitulo = mesLargo.charAt(0).toUpperCase() + mesLargo.slice(1);
+
+/** Colapsa los saltos de línea de los template literals del archivo de datos. */
+const t = (s: string) => s.replace(/\s+/g, ' ').trim();
+
+const servicios = (edicion.servicios ?? []).map(getProduct).filter(Boolean);
+const proyectos = (edicion.proyectos ?? []).map(getProject).filter(Boolean);
+const articulos = (edicion.articulos ?? []).map(getArticle).filter(Boolean);
+
+// ── Paleta del correo ───────────────────────────────────────────────────────
+const C = {
+  tinta: '#0d1117',      // banda superior y pie
+  texto: '#1f2933',      // cuerpo
+  suave: '#5b6773',      // texto secundario
+  verde: '#00ff88',      // solo sobre fondo oscuro
+  verdeOsc: '#00794a',   // verde legible sobre blanco
+  linea: '#e3e8ee',
+  fondo: '#f4f6f8',
+  tarjeta: '#ffffff',
+};
+
+const font = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
+const cell = `font-family:${font};color:${C.texto};font-size:16px;line-height:1.65;`;
+
+/** Página de trabajo, con noindex: el title solo sirve para ubicarla en la pestaña. */
+const title = `Boletín de ${mesTitulo} | HacksinCodigos`;
+const description = t(edicion.preheader).slice(0, 160);
+---
+<html lang="es-CR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={abs(`/newsletter/edicion/${edicion.mes}/`)} />
+  <!-- is:inline para que Astro no lo extraiga a un archivo aparte: en un correo
+       no hay hoja de estilos externa que cargar. Aun así, esto es solo un reset:
+       lo que hace que el correo se adapte al celular es la estructura de tablas,
+       porque al pegar en el redactor las media queries se pierden. -->
+  <style is:inline>{`
+    body { margin:0; padding:0; background:${C.fondo}; }
+    a { text-decoration:none; }
+    img { border:0; outline:none; }
+  `}</style>
+</head>
+<body style={`margin:0;padding:0;background:${C.fondo};`}>
+
+  <!-- Vista previa en la bandeja de entrada. No se ve al abrir el correo. -->
+  <div style="display:none;max-height:0;overflow:hidden;opacity:0;">
+    {t(edicion.preheader)}
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style={`background:${C.fondo};`}>
+    <tr>
+      <td align="center" style="padding:24px 12px;">
+
+        <table role="presentation" class="wrap" width="100%" cellpadding="0" cellspacing="0" border="0" style={`width:100%;max-width:600px;background:${C.tarjeta};border-radius:14px;overflow:hidden;`}>
+
+          <!-- ── Encabezado ─────────────────────────────────────────────── -->
+          <tr>
+            <td class="pad" style={`background:${C.tinta};padding:24px;`}>
+              <a href={abs('/')}>
+                <img
+                  src={abs('/images/logo-hacksincodigos.png')}
+                  width="170"
+                  alt="HacksinCodigos"
+                  style="display:block;border:0;width:170px;max-width:70%;height:auto;"
+                />
+              </a>
+              <div style={`font-family:${font};color:${C.verde};font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding-top:12px;`}>
+                Boletín · {mesTitulo}
+              </div>
+            </td>
+          </tr>
+
+          <!-- ── Entrada ────────────────────────────────────────────────── -->
+          <tr>
+            <td class="pad" style="padding:28px 24px 8px;">
+              <h1 style={`font-family:${font};color:${C.texto};font-size:25px;line-height:1.3;margin:0 0 14px;`}>
+                {edicion.asunto}
+              </h1>
+              <p style={`${cell}margin:0 0 18px;`}>{t(edicion.intro)}</p>
+            </td>
+          </tr>
+
+          <!-- ── Lo nuevo ───────────────────────────────────────────────── -->
+          {servicios.length > 0 && (
+            <tr>
+              <td class="pad" style="padding:14px 24px 0;">
+                <p style={`font-family:${font};color:${C.verdeOsc};font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin:0 0 14px;`}>
+                  Lo nuevo este mes
+                </p>
+
+                {servicios.map((s) => (
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style={`border:1px solid ${C.linea};border-radius:10px;margin:0 0 14px;`}>
+                    <tr>
+                      <td style="padding:18px 20px;">
+                        <a href={abs(`/product/${s!.slug}/`)} style={`font-family:${font};color:${C.texto};font-size:17px;font-weight:700;line-height:1.35;`}>
+                          {s!.title}
+                        </a>
+                        <p style={`${cell}font-size:15px;color:${C.suave};margin:8px 0 12px;`}>{s!.tagline}</p>
+                        <a href={abs(`/product/${s!.slug}/`)} style={`font-family:${font};color:${C.verdeOsc};font-size:14px;font-weight:700;`}>
+                          Ver el detalle →
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                ))}
+              </td>
+            </tr>
+          )}
+
+          <!-- ── Caso del mes ───────────────────────────────────────────── -->
+          {(proyectos.length > 0 || articulos.length > 0) && (
+            <tr>
+              <td class="pad" style="padding:18px 24px 0;">
+                <p style={`font-family:${font};color:${C.verdeOsc};font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin:0 0 14px;`}>
+                  Un caso real
+                </p>
+
+                {proyectos.map((p) => (
+                  <p style={`${cell}margin:0 0 12px;`}>
+                    <a href={abs(`/proyectos/${p!.slug}/`)} style={`color:${C.texto};font-weight:700;`}>{p!.name}</a>
+                    {' — '}{p!.summary}
+                  </p>
+                ))}
+
+                {articulos.map((a) => (
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style={`background:${C.fondo};border-radius:10px;margin:0 0 14px;`}>
+                    <tr>
+                      <td style="padding:18px 20px;">
+                        <a href={abs(`/blog/${a!.slug}/`)} style={`font-family:${font};color:${C.texto};font-size:17px;font-weight:700;line-height:1.35;`}>
+                          {a!.title}
+                        </a>
+                        <p style={`${cell}font-size:15px;color:${C.suave};margin:8px 0 12px;`}>{a!.excerpt}</p>
+                        <a href={abs(`/blog/${a!.slug}/`)} style={`font-family:${font};color:${C.verdeOsc};font-size:14px;font-weight:700;`}>
+                          Leer el artículo →
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                ))}
+              </td>
+            </tr>
+          )}
+
+          <!-- ── El consejo del mes ─────────────────────────────────────── -->
+          {edicion.consejo && (
+            <tr>
+              <td class="pad" style="padding:18px 24px 0;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style={`border-left:4px solid ${C.verdeOsc};background:${C.fondo};border-radius:0 10px 10px 0;`}>
+                  <tr>
+                    <td style="padding:18px 20px;">
+                      <p style={`font-family:${font};color:${C.verdeOsc};font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin:0 0 8px;`}>
+                        Para aplicar esta semana
+                      </p>
+                      <p style={`${cell}font-weight:700;margin:0 0 8px;`}>{edicion.consejo.titulo}</p>
+                      <p style={`${cell}font-size:15px;color:${C.suave};margin:0;`}>{t(edicion.consejo.texto)}</p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          )}
+
+          <!-- ── Llamada a la acción ────────────────────────────────────── -->
+          <tr>
+            <td class="pad" style="padding:24px 24px 6px;">
+              {edicion.despedida && (
+                <p style={`${cell}margin:0 0 18px;`}>{t(edicion.despedida)}</p>
+              )}
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="center" style={`background:${C.verdeOsc};border-radius:10px;`}>
+                    <a
+                      href={waUrl(`Hola, leí el boletín de ${mesLargo} y quiero consultar algo`)}
+                      style={`display:inline-block;padding:14px 26px;font-family:${font};color:#ffffff;font-size:15px;font-weight:700;`}
+                    >Escribinos por WhatsApp</a>
+                  </td>
+                </tr>
+              </table>
+              <p style={`${cell}font-size:14px;color:${C.suave};margin:14px 0 0;`}>
+                O respondé este correo. También podés ver
+                <a href={abs('/shop/')} style={`color:${C.verdeOsc};font-weight:700;`}> todo lo que hacemos</a>.
+              </p>
+            </td>
+          </tr>
+
+          <!-- ── Pie ───────────────────────────────────────────────────── -->
+          <tr>
+            <td class="pad" style={`padding:24px;background:${C.tinta};`}>
+              <p style={`font-family:${font};color:#c9d1d9;font-size:14px;line-height:1.7;margin:0 0 12px;`}>
+                <strong style="color:#ffffff;">HacksinCodigos</strong> — páginas web, software a la
+                medida, agentes de IA y soporte técnico en {site.countryName}.
+              </p>
+              <p style={`font-family:${font};color:#8b949e;font-size:13px;line-height:1.7;margin:0 0 16px;`}>
+                <a href={abs('/')} style="color:#c9d1d9;">{site.url.replace('https://', '')}</a>
+                &nbsp;·&nbsp;
+                <a href={waUrl('Hola HacksinCodigos')} style="color:#c9d1d9;">{site.phone}</a>
+                &nbsp;·&nbsp;{site.hours}
+              </p>
+              <p style={`font-family:${font};color:#8b949e;font-size:12px;line-height:1.7;margin:0;border-top:1px solid #21262d;padding-top:14px;`}>
+                Recibís este correo porque sos cliente de HacksinCodigos o pediste el boletín.
+                Llega {promesa.frecuencia.toLowerCase()}. Si no querés recibirlo más, respondé este
+                correo con la palabra <strong style="color:#c9d1d9;">{envio.palabraDeBaja}</strong> y
+                te sacamos de la lista en el momento.
+                <br /><br />
+                <a href={abs('/politica-de-privacidad/')} style="color:#8b949e;">Política de privacidad</a>
+                &nbsp;·&nbsp;
+                <a href={abs('/newsletter/')} style="color:#8b949e;">Sobre este boletín</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+
+        <p style={`font-family:${font};color:${C.suave};font-size:12px;margin:16px 0 0;`}>
+          © {anio} HacksinCodigos · Costa Rica
+        </p>
+
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

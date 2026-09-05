@@ -23,7 +23,7 @@ export default defineConfig({
   integrations: [
     sitemap({
       // Solo URLs indexables: nada de 404, ni páginas de utilidad.
-      filter: (page) => !page.includes('/404'),
+      filter: (page) => !page.includes('/404') && !page.includes('/newsletter/edicion/'),
       changefreq: 'weekly',
       lastmod: new Date(),
       serialize(item) {

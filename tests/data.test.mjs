@@ -13,6 +13,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execSync } from 'node:child_process';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = path.join(ROOT, 'dist');
@@ -163,7 +164,12 @@ test('el Schema no declara reseñas, ratings, premios ni dirección postal', { s
 
 test('todo el JSON-LD es válido y declara @context', { skip: !hasDist }, () => {
   for (const file of allHtml()) {
-    const blocks = jsonLdBlocks(fs.readFileSync(file, 'utf8'));
+    const html = fs.readFileSync(file, 'utf8');
+    // Las páginas con noindex —como el HTML del boletín, que existe solo para
+    // copiarlo al correo— no son para buscadores: no tiene sentido exigirles
+    // datos estructurados.
+    if (/<meta[^>]+name="robots"[^>]+noindex/.test(html)) continue;
+    const blocks = jsonLdBlocks(html);
     assert.ok(blocks.length > 0, `${path.relative(DIST, file)} no tiene JSON-LD`);
     for (const b of blocks) {
       assert.equal(b['@context'], 'https://schema.org');
@@ -224,6 +230,74 @@ test('el catálogo no muestra precios tachados ni ofertas', { skip: !hasDist }, 
   const html = read('shop/index.html');
   assert.ok(!/text-decoration:\s*line-through/.test(html), 'quedó un precio tachado en el catálogo');
   assert.ok(!/price-was|badge-sale/.test(html), 'quedó marcado de oferta en el catálogo');
+});
+
+// ── Boletín mensual ───────────────────────────────────────────────
+
+test('la lista de destinatarios nunca entra al repositorio', () => {
+  // El repositorio es público: una lista de correos acá la levanta un scraper.
+  const ignore = fs.readFileSync(path.join(ROOT, '.gitignore'), 'utf8');
+  assert.ok(
+    /^newsletter\/contactos\/$/m.test(ignore),
+    'newsletter/contactos/ tiene que estar en .gitignore'
+  );
+  const tracked = execSync('git ls-files', { cwd: ROOT, encoding: 'utf8' }).split('\n');
+  const filtrados = tracked.filter((f) => f.startsWith('newsletter/contactos/'));
+  assert.deepEqual(filtrados, [], `hay archivos de contactos versionados: ${filtrados.join(', ')}`);
+});
+
+test('ningún archivo versionado publica correos de clientes', () => {
+  const tracked = execSync('git ls-files', { cwd: ROOT, encoding: 'utf8' })
+    .split('\n')
+    .filter((f) => /\.(ts|js|mjs|astro|md|json|csv|txt|html)$/.test(f));
+  for (const rel of tracked) {
+    // Este archivo contiene el patron de busqueda, no una direccion real.
+    if (rel === 'tests/data.test.mjs') continue;
+    const full = path.join(ROOT, rel);
+    if (!fs.existsSync(full)) continue;
+    const body = fs.readFileSync(full, 'utf8');
+    const correos = body.match(/info@[a-z0-9.-]+\.[a-z]{2,}/gi);
+    assert.ok(!correos, `${rel} publica correos de clientes: ${correos && correos.join(', ')}`);
+  }
+});
+
+test('el boletín no se indexa ni entra al sitemap', { skip: !hasDist }, () => {
+  const dir = path.join(DIST, 'newsletter', 'edicion');
+  assert.ok(fs.existsSync(dir), 'no se generó ninguna edición del boletín');
+  for (const mes of fs.readdirSync(dir)) {
+    const html = read(path.join('newsletter', 'edicion', mes, 'index.html'));
+    assert.match(html, /name="robots"[^>]*noindex/, `la edición ${mes} no lleva noindex`);
+  }
+  const sitemaps = fs.readdirSync(DIST).filter((f) => f.startsWith('sitemap') && f.endsWith('.xml'));
+  const contenido = sitemaps.map((f) => read(f)).join('\n');
+  assert.ok(!contenido.includes('/newsletter/edicion/'), 'el sitemap lista una edición del boletín');
+  assert.ok(contenido.includes('/newsletter/'), 'la página pública del boletín falta en el sitemap');
+});
+
+test('el correo del boletín usa solo URLs absolutas', { skip: !hasDist }, () => {
+  // En un correo no hay dominio de referencia: un href="/shop/" no lleva a
+  // ninguna parte. Es el error clásico de las plantillas de email.
+  const dir = path.join(DIST, 'newsletter', 'edicion');
+  for (const mes of fs.readdirSync(dir)) {
+    const html = read(path.join('newsletter', 'edicion', mes, 'index.html'));
+    const cuerpo = html.replace(/<head>[\s\S]*?<\/head>/, '');
+    const relativos = [
+      ...[...cuerpo.matchAll(/(?:href|src)="(\/[^/][^"]*)"/g)].map((m) => m[1]),
+    ];
+    assert.deepEqual(
+      relativos,
+      [],
+      `la edición ${mes} tiene enlaces relativos que en un correo no funcionan: ${relativos.join(', ')}`
+    );
+  }
+});
+
+test('el boletín dice cómo darse de baja', { skip: !hasDist }, () => {
+  const dir = path.join(DIST, 'newsletter', 'edicion');
+  for (const mes of fs.readdirSync(dir)) {
+    const html = read(path.join('newsletter', 'edicion', mes, 'index.html'));
+    assert.match(html, /BAJA/, `la edición ${mes} no explica cómo darse de baja`);
+  }
 });
 
 // ── Archivos de despliegue ──────────────────────────────────────────────────

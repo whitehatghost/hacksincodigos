@@ -40,3 +40,7 @@ desktop.ini
 
 # Material de referencia de la migración (pesado, no se despliega)
 _migracion/mirror/
+
+# Lista de destinatarios del boletín — el repositorio es público.
+# Una lista de correos acá queda expuesta a scrapers.
+newsletter/contactos/

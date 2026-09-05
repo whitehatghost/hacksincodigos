@@ -643,29 +643,36 @@ a.info-card { display: block; text-decoration: none; color: inherit; }
 }
 
 /* ── Logo del cliente en las tarjetas de caso ────────────────────────────────
-   Los logos vienen de siete sitios distintos: unos con fondo blanco, otros con
-   transparencia, cuadrados y horizontales. Se normalizan en una placa blanca del
-   mismo tamaño (scripts/fetch-client-logos.mjs) y acá se les da el mismo marco:
-   así el conjunto se lee como un muro de clientes y no como un collage. */
+   Sin placa ni recuadro: los logos vienen recortados a silueta blanca sobre
+   transparencia desde scripts/fetch-client-logos.mjs, así que se apoyan
+   directo sobre el fondo del sitio. En reposo van a media luz para que no le
+   ganen al titular, y se encienden al pasar por la tarjeta. */
 .caso-logo {
   display: block;
-  width: 100%;
-  max-width: 200px;
-  aspect-ratio: 2 / 1;
-  margin: 0 0 1rem;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #fff;
-  border: 1px solid var(--border-glow);
+  height: 40px;
+  margin: 0 0 1.1rem;
 }
 .caso-logo img {
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: 165px;
   height: 100%;
   object-fit: contain;
+  object-position: left center;
+  opacity: .72;
+  transition: opacity .25s ease;
 }
+.info-card:hover .caso-logo img,
+.info-card:focus-visible .caso-logo img { opacity: 1; }
+
 .caso-logo-hero {
-  margin: 0 auto 1.25rem;
-  max-width: 190px;
-  box-shadow: 0 14px 34px -18px rgba(0, 0, 0, .85);
+  height: 58px;
+  margin: 0 0 1.35rem;
+  display: flex;
+  justify-content: center;
+}
+.caso-logo-hero img {
+  max-width: 230px;
+  object-position: center;
+  opacity: .95;
 }

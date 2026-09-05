@@ -235,12 +235,13 @@ export const projects: Project[] = [
     summary:
       'Sitio de una clínica dental familiar en Palmares, con Invisalign al frente y una página propia por especialidad y por especialista.',
     objective:
-      'Que una clínica con más de treinta años de trayectoria se vea en internet como se ve en consulta, y que quien busca un tratamiento concreto —ortodoncia invisible, diseño de sonrisa, endodoncia— llegue a la página de ese tratamiento y pueda escribir por WhatsApp.',
+      'Que una clínica con más de treinta años de trayectoria, dirigida por la Dra. Mayra Rodríguez y la Dra. Amaya Vásquez, se vea en internet como se ve en consulta — y que quien busca un tratamiento concreto llegue a la página de ese tratamiento y pueda escribir por WhatsApp.',
     scope: [
       'Sitio estático, sin base de datos que consultar en cada visita',
       'Invisalign como eje de la portada, con el proceso explicado paso a paso',
-      'Una página por especialidad — diseño de sonrisa, ortodoncia, botox estético y para bruxismo, cirugía maxilofacial, endodoncia y las demás',
-      'Una página por cada profesional del equipo',
+      'Nueve páginas de especialidad — Invisalign, ortodoncia, diseño de sonrisa, cirugía maxilofacial, endodoncia, periodoncia e implantes, prostodoncia, botox y odontopediatría',
+      'Perfil propio para cada uno de los ocho especialistas del equipo',
+      'Secciones de resultados reales y testimonios de pacientes',
       'Solicitud de valoración por WhatsApp desde cualquier página',
       'SEO local orientado a Palmares y la zona de Alajuela',
       'Blog con contenido escrito por nosotros, orientado a la búsqueda previa a elegir clínica',

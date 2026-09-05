@@ -325,22 +325,34 @@ export const articles: Article[] = [
 <p>Cada tratamiento es una búsqueda distinta, hecha por una persona distinta, con una preocupación distinta. Así que cada tratamiento tiene su propia página:</p>
 <ul>
   <li><a href="https://ryvdental.com/invisalign/" target="_blank" rel="noopener">Invisalign</a> — ortodoncia invisible, con el proceso completo explicado paso a paso.</li>
-  <li><a href="https://ryvdental.com/diseno-de-sonrisa/" target="_blank" rel="noopener">Diseño de sonrisa</a> — tratamientos estéticos para lograr una sonrisa armónica con el rostro.</li>
   <li><a href="https://ryvdental.com/ortodoncia/" target="_blank" rel="noopener">Ortodoncia</a> — alineación dental y corrección de mordida.</li>
-  <li><a href="https://ryvdental.com/botox/" target="_blank" rel="noopener">Botox estético y para bruxismo</a> — aplicación con enfoque estético y también terapéutico.</li>
+  <li><a href="https://ryvdental.com/diseno-de-sonrisa/" target="_blank" rel="noopener">Diseño de sonrisa</a> — tratamientos estéticos para una sonrisa armónica con el rostro.</li>
   <li><a href="https://ryvdental.com/cirugia-maxilofacial/" target="_blank" rel="noopener">Cirugía maxilofacial</a> — procedimientos orales y maxilofaciales.</li>
   <li><a href="https://ryvdental.com/endodoncia/" target="_blank" rel="noopener">Endodoncia</a> — tratamientos para conservar la pieza dental.</li>
+  <li><a href="https://ryvdental.com/periodoncia-e-implantes/" target="_blank" rel="noopener">Periodoncia e implantes</a> — encías y reposición de piezas perdidas.</li>
+  <li><a href="https://ryvdental.com/prostodoncia-y-rehabilitacion-oral/" target="_blank" rel="noopener">Prostodoncia y rehabilitación oral</a> — casos que hay que reconstruir completos.</li>
+  <li><a href="https://ryvdental.com/botox/" target="_blank" rel="noopener">Botox estético y para bruxismo</a> — con enfoque estético y también terapéutico.</li>
+  <li><a href="https://ryvdental.com/ryvkids-2/" target="_blank" rel="noopener">RyV Kids — odontopediatría</a> — la consulta de los niños, que no se atiende igual que la de un adulto.</li>
 </ul>
+<p>Son <strong>nueve páginas</strong> donde la mayoría de las clínicas tiene una. Cada una puede posicionar por su cuenta, y cada una recibe a alguien que buscó exactamente eso.</p>
 <p>Todas cuelgan de una página de <a href="https://ryvdental.com/especialidades/" target="_blank" rel="noopener">especialidades</a> que funciona como índice. El que busca un tratamiento concreto cae directo en él; el que llega sin saber qué necesita, navega.</p>
 
 <h2>Invisalign al frente, y por qué</h2>
 <p>De todo lo que ofrece la clínica, <strong>Invisalign</strong> es lo que más se busca y lo que más se compara antes de decidir. Por eso es lo primero que se ve al entrar, con el proceso desglosado en cuatro pasos: escaneo digital 3D, valoración profesional, planificación personalizada, e inicio con seguimiento.</p>
 <p>Ese detalle del <strong>escaneo digital 3D</strong> —que el paciente ve en pantalla cómo le va a quedar la sonrisa antes de empezar— es exactamente el tipo de cosa que hay que poner en el sitio. Es lo que le quita el miedo a alguien que está dudando, y lo que ninguna clínica genérica puede copiar sin tener el equipo.</p>
 
+<h2>Quiénes dirigen la clínica</h2>
+<p>Este es el activo que la clínica tenía y que internet no mostraba, y por eso ocupa lugar propio en el sitio.</p>
+<p>La <a href="https://ryvdental.com/dra-mayra-rodriguez/" target="_blank" rel="noopener">Dra. Mayra Rodríguez Carranza</a> es la fundadora, con más de treinta años de trayectoria clínica en odontología integral. La <a href="https://ryvdental.com/dra-amaya-rodriguez/" target="_blank" rel="noopener">Dra. Amaya Vásquez Rodríguez</a> lleva ortodoncia e Invisalign®, con el código profesional publicado en su perfil.</p>
+<p>Madre e hija dirigiendo la misma clínica no es un dato de color: es continuidad. El paciente que empezó un tratamiento hace veinte años y el que llega hoy por unos alineadores están en la misma casa, y eso ninguna cadena lo puede replicar.</p>
+<p>Alrededor de ellas hay un <a href="https://ryvdental.com/especialistas/" target="_blank" rel="noopener">equipo de ocho especialistas</a>, cada uno con su área. Es lo que permite que un caso complejo —una rehabilitación completa, una cirugía, un implante— se resuelva sin mandar al paciente a otro lado.</p>
+<p><strong>Un apunte sobre cómo se escribió esto.</strong> En ningún lugar del sitio dice "la mejor clínica de la zona". No porque no lo sean, sino porque ese adjetivo lo escribe también el que abrió el mes pasado, no se puede verificar, y Google lo descuenta. Lo que sí pesa —ante el buscador y ante el paciente que está dudando— son los datos que nadie más puede copiar: treinta años, ocho especialistas, nueve especialidades y el código profesional a la vista. Eso dice lo mismo, y se sostiene.</p>
+
 <h2>Una página por cada profesional</h2>
 <p>El equipo de RyV Dental tiene una página propia por cada persona, además de la página conjunta de <a href="https://ryvdental.com/especialistas/" target="_blank" rel="noopener">especialistas</a>.</p>
 <p>Esto no es vanidad y tiene dos razones concretas. La primera es que muchos pacientes buscan por nombre — les recomendaron a alguien y quieren verificar quién es antes de pedir cita. Si ese nombre no está en ninguna página, la búsqueda muere. La segunda es que en salud, la confianza es el producto: ver la cara, la formación y la especialidad de quien te va a atender pesa más que cualquier texto de marketing.</p>
-<p>Lo mismo aplica a <a href="https://ryvdental.com/quienes-somos/" target="_blank" rel="noopener">la historia de la clínica</a>: que sea familiar, dirigida por madre e hija, con más de treinta años, es un dato que diferencia de verdad. Ninguna cadena puede decir lo mismo.</p>
+<p>Lo mismo aplica a <a href="https://ryvdental.com/quienes-somos/" target="_blank" rel="noopener">la historia de la clínica</a>: que sea familiar, dirigida por madre e hija, con más de treinta años, es un dato que diferencia de verdad.</p>
+<p>Y a las dos secciones que cierran la duda cuando el texto ya no alcanza: los <a href="https://ryvdental.com/resultados-reales-2/" target="_blank" rel="noopener">resultados reales</a> —casos de la propia clínica, no fotos de banco— y los <a href="https://ryvdental.com/testimonios-2/" target="_blank" rel="noopener">testimonios</a> de pacientes. En estética dental, el antes y el después vale más que cualquier párrafo.</p>
 
 <h2>El SEO local: Palmares primero</h2>
 <p>Una clínica dental no compite contra todo el país. Compite contra las clínicas a las que un paciente está dispuesto a manejar. El trabajo de <a href="/seo-costa-rica/">SEO</a> se orientó a eso:</p>

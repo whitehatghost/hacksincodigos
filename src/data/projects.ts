@@ -61,6 +61,59 @@ export const projects: Project[] = [
       'Caso de proyecto: tienda en línea con catálogo de productos de construcción y CRM empresarial para Grupo Novo, desarrollados por HacksinCodigos en Costa Rica.',
   },
   {
+    slug: 'redes-deportivas-cr',
+    name: 'Redes Deportivas CR',
+    domain: 'redesdeportivascr.com',
+    liveUrl: 'https://redesdeportivascr.com',
+    industry: 'Fabricación de redes deportivas y de protección',
+    tags: ['Sitio estático', 'SEO local', 'Fabricación'],
+    summary:
+      'Sitio de una fábrica nacional de redes a la medida, con una página por tipo de red y cotización directa por WhatsApp.',
+    objective:
+      'Que quien busca en Google "redes de fútbol", "redes de protección para balcón" o "trampolín de catamarán" llegue a la página de ese producto en concreto y pueda cotizar en el momento, sin formularios de por medio.',
+    scope: [
+      'Una página por tipo de red — fútbol, baloncesto, tenis y pádel, voleibol, golf, catamarán, protección, descanso y glamping, perimetrales y mascotas',
+      'Especificaciones de material, calibre y luz de malla en cada página',
+      'Galería de trabajos instalados y sección de proyectos',
+      'Cotización por WhatsApp desde cualquier página, con el mensaje ya escrito',
+      'Blog y página de contacto',
+      'Schema.org de negocio local y estructura orientada a búsqueda por producto',
+    ],
+    tech: ['Sitio estático', 'SEO local', 'Schema.org', 'Diseño responsive'],
+    relatedServices: ['/paginas-web-costa-rica/', '/seo-costa-rica/'],
+    thumbGradient: 'linear-gradient(135deg,#04140a,#0d1117)',
+    metaTitle: 'Redes Deportivas CR — Sitio de fábrica de redes | HacksinCodigos',
+    metaDesc:
+      'Caso de proyecto: sitio web para una fábrica costarricense de redes deportivas y de protección a la medida, con una página por tipo de red y cotización por WhatsApp.',
+  },
+  {
+    slug: 'grupo-novo-crm',
+    name: 'CRM de Grupo Novo',
+    domain: 'Sistema interno',
+    // Un CRM es de uso interno: no hay URL pública que enseñar, y no se publican
+    // capturas con datos de clientes del cliente.
+    liveUrl: null,
+    industry: 'Andamios y accesorios para construcción',
+    tags: ['CRM', 'Software a la medida', 'Andamios'],
+    summary:
+      'CRM empresarial para un distribuidor de andamios: clientes, cotizaciones y seguimiento comercial en un solo sistema.',
+    objective:
+      'Sacar la información comercial de las agendas personales y las conversaciones sueltas, y ponerla donde la empresa la pueda consultar: quién es cada cliente, qué se le cotizó, en qué quedó y a quién le toca darle seguimiento.',
+    scope: [
+      'Base única de clientes y contactos, con el historial de cada cuenta',
+      'Registro de cotizaciones y su desenlace',
+      'Seguimientos asignados a una persona y con fecha',
+      'Acceso por usuario con permisos según el rol',
+      'Reportes de la actividad comercial',
+    ],
+    tech: ['Software a la medida', 'Base de datos', 'Acceso por rol'],
+    relatedServices: ['/software-a-la-medida-costa-rica/', '/desarrollo-web-costa-rica/'],
+    thumbGradient: 'linear-gradient(135deg,#04141a,#0d1117)',
+    metaTitle: 'CRM de Grupo Novo — Software a la medida | HacksinCodigos',
+    metaDesc:
+      'Caso de proyecto: CRM empresarial a la medida para Grupo Novo, distribuidor de andamios en Costa Rica, con clientes, cotizaciones y seguimiento comercial.',
+  },
+  {
     slug: 'la-casita-del-bebe',
     name: 'La Casita del Bebé',
     domain: 'lacasitadelbebecr.com',
@@ -159,23 +212,26 @@ export const projects: Project[] = [
     name: 'RyV Dental',
     domain: 'ryvdental.com',
     liveUrl: 'https://ryvdental.com',
-    industry: 'Salud — clínica dental',
-    tags: ['Salud', 'Dental', 'Invisalign'],
-    summary: 'Clínica dental premium con presencia digital profesional y agenda online.',
+    industry: 'Salud — clínica dental en Palmares, Alajuela',
+    tags: ['Salud', 'Dental', 'Invisalign', 'Sitio estático'],
+    summary:
+      'Sitio de una clínica dental familiar en Palmares, con Invisalign al frente y una página propia por especialidad y por especialista.',
     objective:
-      'Dar a una clínica dental una presencia digital profesional que explique sus tratamientos y facilite que los pacientes soliciten una cita.',
+      'Que una clínica con más de treinta años de trayectoria se vea en internet como se ve en consulta, y que quien busca un tratamiento concreto —ortodoncia invisible, diseño de sonrisa, endodoncia— llegue a la página de ese tratamiento y pueda escribir por WhatsApp.',
     scope: [
-      'Sitio web de clínica dental con sus tratamientos',
-      'Solicitud de cita en línea',
-      'Secciones de servicios y casos',
-      'Diseño responsive y enfocado en conversión',
+      'Sitio estático, sin base de datos que consultar en cada visita',
+      'Invisalign como eje de la portada, con el proceso explicado paso a paso',
+      'Una página por especialidad — diseño de sonrisa, ortodoncia, botox estético y para bruxismo, cirugía maxilofacial, endodoncia y las demás',
+      'Una página por cada profesional del equipo',
+      'Solicitud de valoración por WhatsApp desde cualquier página',
+      'SEO local orientado a Palmares y la zona de Alajuela',
     ],
-    tech: ['WordPress', 'Elementor', 'Diseño responsive'],
-    relatedServices: ['/diseno-web-costa-rica/', '/desarrollo-web-costa-rica/'],
+    tech: ['Sitio estático', 'SEO local', 'Diseño responsive'],
+    relatedServices: ['/paginas-web-costa-rica/', '/diseno-web-costa-rica/', '/seo-costa-rica/'],
     thumbGradient: 'linear-gradient(135deg,#0a001a,#0d1117)',
     metaTitle: 'RyV Dental — Sitio web para clínica dental | HacksinCodigos',
     metaDesc:
-      'Caso de proyecto: sitio web con solicitud de cita en línea para la clínica RyV Dental, desarrollado por HacksinCodigos en Costa Rica.',
+      'Caso de proyecto: sitio web para RyV Dental, clínica dental en Palmares, Alajuela, con página por especialidad y por especialista. Desarrollado por HacksinCodigos.',
   },
 ];
 

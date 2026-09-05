@@ -693,3 +693,12 @@ a.info-card { display: block; text-decoration: none; color: inherit; }
 }
 .newsletter-nota a { color: var(--accent-green); text-decoration: none; border-bottom: 1px solid var(--border-glow); }
 .newsletter-nota a:hover { border-bottom-color: var(--accent-green); }
+
+/* Nota bajo el hero de un proyecto sin URL pública (sistemas internos). */
+.page-note {
+  max-width: 46rem;
+  margin: 1.1rem auto 0;
+  font-size: .85rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}

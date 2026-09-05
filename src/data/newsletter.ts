@@ -126,14 +126,16 @@ export const ediciones: Edicion[] = [
     mes: '2026-09',
     asunto: 'Ahora hacemos software a la medida y CRM para empresas',
     preheader:
-      'Lo nuevo del mes: software a la medida, CRM empresarial, y el caso de Grupo Novo.',
+      'Software a la medida y CRM empresarial, tres trabajos nuevos en el portafolio y el caso de Grupo Novo.',
     intro: `Arrancamos este boletín porque hay cosas que pasan en HacksinCodigos y no
-      se enteran ni los clientes que ya trabajan con nosotros. Va a llegar una vez al mes,
-      con lo nuevo, un caso real y algo que puedas aplicar sin contratarnos. Si en algún
-      momento deja de servirte, respondés este correo con la palabra BAJA y listo.`,
+      se enteran ni los clientes que ya trabajan con nosotros. Este mes: abrimos una línea
+      de software a la medida, y sumamos al portafolio tres trabajos que valía la pena
+      mostrar. Va a llegar una vez al mes, con lo nuevo, un caso real y algo que puedas
+      aplicar sin contratarnos. Si en algún momento deja de servirte, respondés este
+      correo con la palabra BAJA y listo.`,
     servicios: ['software-a-la-medida-pymes', 'crm-empresarial', 'aplicaciones-moviles-y-web'],
     articulos: ['crm-empresarial-caso-grupo-novo'],
-    proyectos: ['grupo-novo'],
+    proyectos: ['grupo-novo-crm', 'redes-deportivas-cr', 'ryv-dental'],
     consejo: {
       titulo: 'Antes de mandar a programar un sistema, medí el cuello de botella',
       texto: `La pregunta no es "¿qué se puede automatizar?" sino "¿dónde se está

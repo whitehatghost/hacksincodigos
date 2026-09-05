@@ -40,6 +40,8 @@ const schemas = [
     path,
     clientUrl: project.liveUrl,
     industry: project.industry,
+    // Sin sitio público, lo que se entregó fue software, no una web.
+    tipo: project.liveUrl ? 'WebSite' : 'SoftwareApplication',
   }),
 ];
 ---
@@ -52,11 +54,19 @@ const schemas = [
         <span class="page-eyebrow">Caso de proyecto</span>
         <h1 class="page-h1">{project.name}</h1>
         <p class="page-lead">{project.summary}</p>
-        {project.liveUrl && (
-          <div class="page-cta-row">
+        <div class="page-cta-row">
+          {project.liveUrl ? (
             <a href={project.liveUrl} class="btn btn-solid" target="_blank" rel="noopener">Visitar sitio web ↗</a>
-            <a href="/proyectos/" class="btn btn-outline">Ver más proyectos</a>
-          </div>
+          ) : (
+            <a href="/#contacto" class="btn btn-solid">Pedir cotización</a>
+          )}
+          <a href="/proyectos/" class="btn btn-outline">Ver más proyectos</a>
+        </div>
+        {!project.liveUrl && (
+          <p class="page-note">
+            Es un sistema de uso interno: no hay una dirección pública que visitar, y no
+            publicamos capturas con datos de los clientes de nuestro cliente.
+          </p>
         )}
       </div>
     </section>

@@ -148,11 +148,16 @@ export function creativeWorkSchema(opts: {
   clientUrl: string | null;
   industry: string;
   image?: string;
+  /**
+   * Qué se construyó. No todo proyecto es un sitio web: declarar un CRM interno
+   * como `WebSite` es un dato falso en los datos estructurados.
+   */
+  tipo?: 'WebSite' | 'SoftwareApplication';
 }) {
   const url = new URL(opts.path, site.url).href;
   const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
-    '@type': 'WebSite',
+    '@type': opts.tipo ?? 'WebSite',
     '@id': `${url}#project`,
     name: opts.name,
     description: opts.description,

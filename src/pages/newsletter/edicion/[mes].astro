@@ -158,20 +158,36 @@ const description = t(edicion.preheader).slice(0, 160);
             </tr>
           )}
 
-          <!-- ── Caso del mes ───────────────────────────────────────────── -->
+          <!-- ── Portafolio y lecturas ───────────────────────────────────────────── -->
           {(proyectos.length > 0 || articulos.length > 0) && (
             <tr>
               <td class="pad" style="padding:18px 24px 0;">
                 <p style={`font-family:${font};color:${C.verdeOsc};font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin:0 0 14px;`}>
-                  Un caso real
+                  Trabajos que sumamos al portafolio
                 </p>
 
                 {proyectos.map((p) => (
-                  <p style={`${cell}margin:0 0 12px;`}>
-                    <a href={abs(`/proyectos/${p!.slug}/`)} style={`color:${C.texto};font-weight:700;`}>{p!.name}</a>
-                    {' — '}{p!.summary}
-                  </p>
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style={`border:1px solid ${C.linea};border-radius:10px;margin:0 0 14px;`}>
+                    <tr>
+                      <td style="padding:18px 20px;">
+                        <a href={abs(`/proyectos/${p!.slug}/`)} style={`font-family:${font};color:${C.texto};font-size:17px;font-weight:700;line-height:1.35;`}>
+                          {p!.name}
+                        </a>
+                        <p style={`${cell}font-size:13px;color:${C.suave};margin:6px 0 0;`}>{p!.industry}</p>
+                        <p style={`${cell}font-size:15px;color:${C.suave};margin:8px 0 12px;`}>{p!.summary}</p>
+                        <a href={abs(`/proyectos/${p!.slug}/`)} style={`font-family:${font};color:${C.verdeOsc};font-size:14px;font-weight:700;`}>
+                          Ver el caso →
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
                 ))}
+
+                {articulos.length > 0 && (
+                  <p style={`font-family:${font};color:${C.verdeOsc};font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin:22px 0 14px;`}>
+                    Para leer
+                  </p>
+                )}
 
                 {articulos.map((a) => (
                   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style={`background:${C.fondo};border-radius:10px;margin:0 0 14px;`}>

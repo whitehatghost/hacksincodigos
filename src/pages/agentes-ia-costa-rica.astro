@@ -19,6 +19,10 @@ const faqs = [
     a: 'Es un asistente que atiende los mensajes de tu WhatsApp de negocio automáticamente: responde preguntas frecuentes, toma pedidos, agenda citas y filtra a quién vale la pena pasarle a una persona. Funciona las 24 horas y entiende lo que le escriben en lenguaje normal, sin menús numerados.',
   },
   {
+    q: '¿Solo funciona en WhatsApp?',
+    a: 'No. El mismo agente atiende WhatsApp, el chat de tu sitio web, Instagram y Facebook, con la misma información y desde un solo panel. WhatsApp suele ser el canal principal en Costa Rica, pero el visitante que llega de Google prefiere resolver la duda sin salir de la página, y ahí el chat del sitio convierte mejor.',
+  },
+  {
     q: '¿Cuál es la diferencia entre un chatbot y un agente de IA?',
     a: 'Un chatbot sigue un guion: "marque 1 para horarios, 2 para precios". Si el cliente escribe algo que no está en el menú, se traba. Un agente de IA entiende lo que le escriben, consulta la información de tu negocio y responde; si le preguntan por algo que no sabe, lo dice y pasa la conversación a una persona en vez de contestar cualquier cosa.',
   },
@@ -56,13 +60,13 @@ const casoRelacionado = projects.find((p) => p.slug === 'grupo-novo-crm');
 ---
 <ServiceLanding
   path={path}
-  title="Agentes de IA para WhatsApp en Costa Rica | HacksinCodigos"
-  description="Agentes de IA y chatbots para WhatsApp en Costa Rica: atienden, cotizan, toman pedidos y agendan citas 24/7. Con panel de conversaciones y costos explicados."
+  title="Agentes de IA para WhatsApp, Web y Redes | HacksinCodigos"
+  description="Agentes de IA y chatbots en Costa Rica para WhatsApp, tu sitio web, Instagram y Facebook: atienden, cotizan y agendan 24/7 desde un solo panel."
   eyebrow="Costa Rica · Inteligencia artificial"
-  h1="Agentes de IA para WhatsApp en Costa Rica"
-  lead="Un asistente que contesta tu WhatsApp de negocio a cualquier hora: responde consultas, toma pedidos, agenda citas y te pasa solo lo que necesita una persona."
+  h1="Agentes de IA para WhatsApp, tu sitio web y tus redes"
+  lead="Un mismo asistente atiende WhatsApp, el chat de tu sitio, Instagram y Facebook: responde consultas, toma pedidos, agenda citas y te pasa solo lo que necesita una persona. Todo desde un panel."
   crumbLabel="Agentes IA Costa Rica"
-  serviceName="Agentes de IA y chatbots para WhatsApp en Costa Rica"
+  serviceName="Agentes de IA y chatbots para WhatsApp, web y redes sociales en Costa Rica"
   serviceType="Automatización con inteligencia artificial"
   faqs={faqs}
   waText="Hola, quiero información sobre agentes IA para WhatsApp"
@@ -86,6 +90,53 @@ const casoRelacionado = projects.find((p) => p.slug === 'grupo-novo-crm');
         Contratar a alguien para cubrir esas horas cuesta un salario. Un agente de IA cubre
         las mismas horas por una fracción, y lo que no puede resolver lo deja anotado y te lo
         pasa ordenado a la mañana siguiente.
+      </p>
+
+      <h2>Un agente, todos tus canales</h2>
+      <p>
+        El agente no vive en WhatsApp: vive en tu información. WhatsApp es el canal donde más se
+        usa en Costa Rica, pero el mismo agente —con las mismas respuestas y el mismo criterio—
+        atiende por donde te escriban.
+      </p>
+      <ul>
+        <li><strong>WhatsApp</strong>, que es donde el costarricense pregunta y cierra.</li>
+        <li><strong>El chat de tu sitio web</strong>, para el visitante que llega desde Google y no quiere salir de la página.</li>
+        <li><strong>Instagram y Facebook</strong>: mensajes directos, comentarios y respuestas a historias.</li>
+        <li><strong>Un mismo panel</strong> para todo, en vez de cuatro bandejas separadas.</li>
+      </ul>
+      <p>
+        Eso último importa más de lo que parece: sin un lugar común, la misma persona que
+        preguntó por Instagram y después escribió por WhatsApp aparece como dos clientes
+        distintos, y a nadie le queda claro qué se le dijo.
+      </p>
+
+      <h2>El chat del sitio web: el canal que casi nadie aprovecha</h2>
+      <p>
+        Vale la pena separarlo porque su trabajo es distinto al de WhatsApp.
+      </p>
+      <p>
+        Quien llega a tu sitio desde Google está <em>investigando</em>. Todavía no tiene tu
+        número guardado ni ganas de abrir WhatsApp con un desconocido. Si no encuentra la
+        respuesta en la página, cierra la pestaña y se va — y nunca supiste que estuvo.
+      </p>
+      <p>Un agente en el sitio hace tres cosas que ningún otro canal hace:</p>
+      <ul>
+        <li>
+          <strong>Contesta sin fricción.</strong> No hay que instalar nada, ni dar el teléfono, ni
+          salir de la página. Esa barrera de cero es la que convierte a un curioso en consulta.
+        </li>
+        <li>
+          <strong>Sabe dónde está parado.</strong> Si el visitante está leyendo la página de
+          tiendas online, el agente ya sabe de qué le van a preguntar y responde en contexto.
+        </li>
+        <li>
+          <strong>Rescata al que se iba.</strong> Puede ofrecer ayuda cuando alguien lleva rato
+          en la página de precios sin decidirse — el momento exacto en que se pierde la venta.
+        </li>
+      </ul>
+      <p>
+        Y cuando la conversación se pone seria, el agente la pasa a WhatsApp con todo el
+        contexto ya recogido, para que el cliente no tenga que repetir nada.
       </p>
 
       <h2>Chatbot y agente de IA no son lo mismo</h2>
@@ -269,8 +320,9 @@ const casoRelacionado = projects.find((p) => p.slug === 'grupo-novo-crm');
           califica entra directo al embudo de ventas.
         </li>
         <li>
-          Con <a href="/agentes-ia-redes-sociales-costa-rica/">Instagram y Messenger</a>, para
-          que todos los mensajes lleguen al mismo lugar.
+          Con <a href="/agentes-ia-redes-sociales-costa-rica/">Instagram y Messenger</a>, donde
+          los comentarios públicos y las respuestas a historias se atienden distinto — eso está
+          explicado aparte.
         </li>
       </ul>
       {casoRelacionado && (

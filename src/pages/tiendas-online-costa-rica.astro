@@ -1,8 +1,19 @@
-﻿---
+---
+/**
+ * Landing de tiendas online.
+ *
+ * Era de las más flacas (665 palabras). Lo que la diferencia de la competencia no
+ * es enumerar "catálogo, carrito, pagos" —eso lo lista cualquiera— sino las tres
+ * cosas que en Costa Rica deciden si una tienda vende: que buena parte de la
+ * compra se cierra por WhatsApp, cómo se cobra de verdad acá, y el envío, que es
+ * donde se cae la mitad de los carritos.
+ */
 import ServiceLanding from '../layouts/ServiceLanding.astro';
 import { projects } from '../data/projects';
+import { articles } from '../data/articles';
 
 const path = '/tiendas-online-costa-rica/';
+
 const faqs = [
   {
     q: '¿Cuánto cuesta una tienda online en Costa Rica?',
@@ -10,24 +21,41 @@ const faqs = [
   },
   {
     q: '¿Qué formas de pago se pueden aceptar?',
-    a: 'Se puede recibir tarjeta de crédito y débito a través de una pasarela de pago, además de transferencia y SINPE Móvil como opciones manuales. La pasarela que se use depende del banco o proveedor con el que trabaje el negocio.',
+    a: 'Tarjeta de crédito y débito a través de una pasarela de pago, además de SINPE Móvil y transferencia como opciones manuales. En Costa Rica conviene tener las dos vías: hay clientes que no dejan su tarjeta en un sitio que no conocen, pero sí hacen un SINPE sin pensarlo.',
+  },
+  {
+    q: '¿Qué pasarela de pago conviene?',
+    a: 'Depende del banco con el que trabaje el negocio, del volumen y de la comisión que estés dispuesto a pagar. Existen opciones locales y también internacionales. Lo revisamos antes de construir, porque la pasarela condiciona cómo se arma el checkout.',
   },
   {
     q: '¿Yo puedo agregar productos después?',
-    a: 'Sí. Te entregamos el panel de administración y te enseñamos a cargar productos, cambiar precios y ver los pedidos. Si preferís no ocuparte, lo cubrimos con un plan de mantenimiento.',
+    a: 'Sí. Te entregamos el panel de administración y te enseñamos a cargar productos, cambiar precios, aplicar descuentos y ver los pedidos. Si preferís no ocuparte, lo cubrimos con un plan de mantenimiento.',
   },
   {
     q: '¿Sirve para vender por WhatsApp también?',
-    a: 'Sí. La tienda puede tener botón de WhatsApp en cada producto, que es como compra buena parte de los clientes en Costa Rica. Y si querés automatizar esa atención, se integra con un agente de IA.',
+    a: 'Sí, y en Costa Rica es casi obligatorio. La tienda puede llevar botón de WhatsApp en cada producto para el cliente que prefiere preguntar antes de comprar. Obligar a todos a pasar por el carrito pierde ventas.',
+  },
+  {
+    q: '¿Cómo manejo los envíos?',
+    a: 'Se configura el costo por zona, envío gratis a partir de cierto monto si conviene, y retiro en tienda cuando existe local. Es la parte que más carritos abandona: un cliente que llega al final y descubre un costo de envío que no esperaba, se va.',
+  },
+  {
+    q: '¿Puedo migrar la tienda que ya tengo?',
+    a: 'Sí. Se migran productos, categorías, clientes e historial de pedidos, y se redirigen las direcciones viejas a las nuevas para no perder el posicionamiento que la tienda ya tenía. Ese último paso es el que más se olvida y el que más caro sale.',
+  },
+  {
+    q: '¿Cuánto tarda?',
+    a: 'Una tienda con catálogo acotado y pagos estándar puede estar en semanas. Lo que suele demorar no es el desarrollo: es tener listas las fotos, las descripciones y las decisiones de envío y cobro.',
   },
 ];
 
 const proyectosTienda = projects.filter((p) => p.relatedServices.includes(path));
+const casosTienda = articles.filter((a) => a.relatedServices.some((s) => s.href === path));
 ---
 <ServiceLanding
   path={path}
   title="Tiendas Online en Costa Rica — E-commerce y Pagos | HacksinCodigos"
-  description="Creamos tiendas online en Costa Rica con catálogo, carrito, pagos con tarjeta y WhatsApp integrado. Cotización sin compromiso según tu catálogo."
+  description="Tiendas online en Costa Rica con catálogo, carrito, pagos con tarjeta, SINPE y WhatsApp integrado. Envíos por zona y migración sin perder posicionamiento."
   eyebrow="Costa Rica · E-commerce"
   h1="Tiendas online en Costa Rica que cobran de verdad"
   lead="Catálogo, carrito, pagos con tarjeta y pedidos por WhatsApp. Para dejar de vender contestando mensajes uno por uno y que la tienda trabaje mientras dormís."
@@ -40,37 +68,149 @@ const proyectosTienda = projects.filter((p) => p.relatedServices.includes(path))
 >
   <section class="section-block alt">
     <div class="section-inner narrow prose">
+      <h2>Acá se compra distinto, y la tienda tiene que saberlo</h2>
+      <p>
+        La mayoría de las plantillas de e-commerce están pensadas para un mercado donde el
+        cliente llega, agrega al carrito y paga con tarjeta sin hablar con nadie. En Costa Rica
+        eso pasa, pero no es todo lo que pasa.
+      </p>
+      <p>
+        Acá una parte grande de la venta se cierra <strong>preguntando primero por
+        WhatsApp</strong>: si hay existencias, si llega a la zona, si se puede pagar con SINPE, si
+        hay descuento por llevar tres. Una tienda que obliga a todos a pasar por el carrito deja
+        afuera a ese cliente — y suele ser el que más compra.
+      </p>
+      <p>
+        Por eso las tiendas que construimos conviven con WhatsApp en vez de competir contra él:
+        botón de consulta en cada producto, y carrito para el que ya decidió.
+      </p>
+
       <h2>Qué incluye una tienda</h2>
       <ul>
-        <li><strong>Catálogo organizado</strong> por categorías, con buscador y filtros.</li>
-        <li><strong>Ficha de producto</strong> con fotos, descripción, precio y variantes (talla, color, presentación).</li>
-        <li><strong>Carrito y checkout</strong> optimizado para celular, que es donde se compra.</li>
-        <li><strong>Pagos en línea</strong> con tarjeta a través de pasarela, más transferencia y SINPE Móvil.</li>
+        <li><strong>Catálogo organizado</strong> por categorías, con buscador y filtros que sirvan.</li>
+        <li><strong>Ficha de producto</strong> con fotos, descripción, precio y variantes: talla, color, presentación.</li>
+        <li><strong>Carrito y pago</strong> optimizados para celular, que es donde se compra.</li>
+        <li><strong>Pagos en línea</strong> con tarjeta a través de pasarela, más SINPE Móvil y transferencia.</li>
+        <li><strong>Envíos por zona</strong>, con retiro en tienda cuando hay local.</li>
         <li><strong>Gestión de pedidos</strong> desde un panel: qué se vendió, a quién y en qué estado va.</li>
-        <li><strong>Botón de WhatsApp</strong> por producto, para el cliente que prefiere preguntar antes de comprar.</li>
+        <li><strong>Botón de WhatsApp</strong> por producto, para el que prefiere preguntar antes.</li>
+        <li><strong>Base de SEO</strong> en cada ficha, para que los productos aparezcan en Google por su nombre.</li>
       </ul>
+
+      <h2>Cobrar en Costa Rica: las dos vías</h2>
+      <p>
+        Es la decisión que más condiciona el resto y conviene tomarla antes de construir.
+      </p>
+      <h3>Pasarela de pago con tarjeta</h3>
+      <p>
+        Es el pago automático: el cliente paga y el pedido queda confirmado sin que nadie
+        intervenga. Cobra una comisión por transacción y requiere trámite con el proveedor. Es lo
+        que permite vender de madrugada sin estar despierto.
+      </p>
+      <h3>SINPE Móvil y transferencia</h3>
+      <p>
+        Es manual —alguien tiene que confirmar que el dinero entró— pero no cobra comisión y,
+        sobre todo, <strong>lo usa gente que no deja su tarjeta en un sitio que no conoce</strong>.
+        Para una tienda nueva, sin marca todavía conocida, suele ser la vía por la que entran las
+        primeras ventas.
+      </p>
+      <p>
+        La recomendación casi siempre es tener las dos. Cada forma de pago que falta es un grupo
+        de clientes que se va.
+      </p>
+
+      <h2>El envío es donde se cae el carrito</h2>
+      <p>
+        Un cliente que recorrió toda la tienda, eligió, llegó al final y ahí descubrió un costo de
+        envío que no esperaba, se va. Y no vuelve.
+      </p>
+      <p>Lo que hay que definir antes de publicar:</p>
+      <ul>
+        <li><strong>Cuánto cuesta enviar a cada zona</strong>, y si el GAM tiene tarifa distinta al resto del país.</li>
+        <li><strong>Si conviene envío gratis</strong> a partir de cierto monto — funciona bien para subir el ticket promedio.</li>
+        <li><strong>Si hay retiro en tienda</strong>, que ahorra el costo y trae gente al local.</li>
+        <li><strong>Cuánto tarda de verdad</strong>. Prometer un día y entregar en cuatro cuesta más caro que decir cuatro desde el inicio.</li>
+      </ul>
+      <p>
+        La regla es simple: <strong>que el costo de envío se vea antes del final</strong>, no como
+        sorpresa en el último paso.
+      </p>
 
       <h2>Lo que hay que resolver antes de arrancar</h2>
       <p>
-        Una tienda no es solo la web. Antes de publicar conviene tener claro: cómo se cobra, cómo
-        se entrega, cuánto cuesta el envío por zona, y quién actualiza el inventario. Eso lo
-        definimos juntos en la etapa de propuesta.
+        Una tienda no es solo la web, y lo que más atrasa un proyecto no es el desarrollo:
+      </p>
+      <ul>
+        <li><strong>Las fotos.</strong> En venta en línea la foto es el producto. Fotos malas hunden una tienda bien construida.</li>
+        <li><strong>Las descripciones.</strong> Cada producto necesita texto propio; copiar la ficha del proveedor no posiciona y no vende.</li>
+        <li><strong>Quién actualiza el inventario</strong> y con qué frecuencia. Vender algo agotado cuesta un cliente.</li>
+        <li><strong>Qué pasa con una devolución.</strong> Conviene tenerlo escrito antes del primer caso, no durante.</li>
+      </ul>
+
+      <h2>Migrar una tienda que ya existe</h2>
+      <p>
+        Si ya vendés en línea y querés cambiar de plataforma, lo delicado no son los productos:
+        es no perder el posicionamiento que la tienda ya se ganó.
+      </p>
+      <p>
+        Se migran productos, categorías, clientes e historial de pedidos, y —esto es lo que casi
+        siempre se olvida— <strong>se redirige cada dirección vieja a la nueva</strong>. Sin eso,
+        cada producto que Google tenía indexado pasa a ser un error, y el tráfico que costó años
+        construir se pierde en semanas.
       </p>
 
       <h2>Después del lanzamiento</h2>
       <p>
-        Una tienda necesita mantenimiento: actualizaciones de seguridad, backups y revisión de que
-        los pagos sigan funcionando. Los planes están en el <a href="/shop/">catálogo</a>. Y para
-        que la gente la encuentre, hay trabajo de <a href="/seo-costa-rica/">SEO</a>.
+        Una tienda necesita mantenimiento de verdad: actualizaciones de seguridad, respaldos y
+        revisión periódica de que los pagos sigan funcionando. Una pasarela que dejó de procesar y
+        nadie notó es plata perdida en silencio. Los planes están en el
+        <a href="/shop/">catálogo</a>.
+      </p>
+      <p>
+        Y para que la gente la encuentre hay trabajo de <a href="/seo-costa-rica/">SEO</a>: una
+        tienda sin tráfico es una vitrina en una calle sin gente. Si además querés que las
+        consultas se atiendan solas, se integra con un
+        <a href="/agentes-ia-costa-rica/">agente de IA en WhatsApp</a> que responde por
+        existencias, envíos y estado del pedido.
       </p>
       <p>
         Si todavía no estás seguro de necesitar carrito, quizá te sirva más un
-        <a href="/paginas-web-costa-rica/">sitio de negocio</a> con catálogo y contacto por WhatsApp.
+        <a href="/paginas-web-costa-rica/">sitio de negocio</a> con catálogo y contacto por
+        WhatsApp — cuesta menos y se lanza antes.
       </p>
     </div>
   </section>
 
   <section class="section-block">
+    <div class="section-inner">
+      <h2 class="block-title">Cómo llevamos el proyecto</h2>
+      <p class="block-sub">Cuatro etapas. La primera no es técnica y es la que más pesa.</p>
+      <div class="card-grid cols-4">
+        <div class="info-card">
+          <span class="info-card-num">01</span>
+          <h3>Definir cómo se cobra y se entrega</h3>
+          <p>Pasarela, SINPE, zonas de envío y plazos reales. Todo lo demás se construye sobre estas decisiones.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">02</span>
+          <h3>Ordenar el catálogo</h3>
+          <p>Categorías, variantes y qué información lleva cada ficha. Un catálogo mal estructurado no se arregla después.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">03</span>
+          <h3>Construir y probar comprando</h3>
+          <p>Se hacen compras de prueba reales de punta a punta, incluida la pasarela, antes de abrir al público.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">04</span>
+          <h3>Capacitación y lanzamiento</h3>
+          <p>Se entrega el panel y se capacita a quien va a cargar productos y despachar pedidos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block alt">
     <div class="section-inner">
       <h2 class="block-title">Tiendas que desarrollamos</h2>
       <p class="block-sub">E-commerce en producción de clientes costarricenses.</p>
@@ -83,6 +223,40 @@ const proyectosTienda = projects.filter((p) => p.relatedServices.includes(path))
           </a>
         ))}
       </div>
+    </div>
+  </section>
+
+  {casosTienda.length > 0 && (
+    <section class="section-block">
+      <div class="section-inner">
+        <h2 class="block-title">Cómo se resolvió en cada caso</h2>
+        <p class="block-sub">El detalle del trabajo, contado completo.</p>
+        <div class="card-grid cols-3">
+          {casosTienda.map((a) => (
+            <a class="info-card" href={`/blog/${a.slug}/`}>
+              <span class="blog-tag" style={`color:${a.tagColor}`}>{a.tag}</span>
+              <h3 style="margin-top:.5rem">{a.title}</h3>
+              <p>{a.excerpt}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section-block alt">
+    <div class="section-inner narrow prose">
+      <h2>Cuándo no conviene una tienda</h2>
+      <p>
+        Si vendés pocas unidades de alto valor, o si cada venta requiere una conversación —una
+        cotización, una medida, una asesoría— el carrito estorba más de lo que ayuda. Ahí conviene
+        un sitio de catálogo con contacto directo, que cuesta bastante menos y convierte mejor.
+      </p>
+      <p>
+        También conviene esperar si todavía no tenés fotos ni descripciones. Publicar una tienda
+        con fotos malas es peor que no tenerla: el visitante concluye que el producto es igual de
+        descuidado.
+      </p>
     </div>
   </section>
 </ServiceLanding>

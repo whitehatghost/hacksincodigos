@@ -1,6 +1,7 @@
 ﻿---
 import ServiceLanding from '../layouts/ServiceLanding.astro';
 import { projects } from '../data/projects';
+import { articles } from '../data/articles';
 
 const path = '/desarrollo-web-costa-rica/';
 const faqs = [
@@ -17,12 +18,25 @@ const faqs = [
     a: 'Sí, ese es justamente el trabajo de backend: conectar el sitio con pasarelas de pago, CRMs, sistemas de inventario o servicios de terceros mediante APIs.',
   },
   {
+    q: '¿Por qué unos sitios los hacen en WordPress y otros no?',
+    a: 'Porque resuelven cosas distintas. WordPress conviene cuando alguien del negocio va a entrar a editar contenido todas las semanas: el panel ya lo conoce y no depende de nosotros para cada cambio. Un sitio estático conviene cuando el contenido cambia poco y lo que manda es la velocidad y el posicionamiento, porque se sirve HTML ya construido y no hay base de datos que consultar en cada visita.',
+  },
+  {
+    q: '¿Puedo migrar mi sitio sin perder el posicionamiento?',
+    a: 'Sí, si se hace bien. Lo delicado no es mover el contenido: es que cada dirección que Google ya tenía indexada siga resolviendo. Antes de migrar levantamos el mapa de URLs actuales y armamos las redirecciones una por una. Sin ese paso, un sitio migrado pierde en semanas el tráfico que costó años construir.',
+  },
+  {
+    q: '¿Qué pasa si el proyecto crece a mitad de camino?',
+    a: 'Se cotiza aparte y se decide si entra ahora o en una segunda etapa. Lo que no hacemos es meterlo en silencio y estirar el plazo: el alcance se acuerda por escrito al inicio justamente para que ampliarlo sea una decisión consciente y no una sorpresa al final.',
+  },
+  {
     q: '¿Hacen mantenimiento después del lanzamiento?',
     a: 'Sí, con planes mensuales que incluyen actualizaciones, backups y un número de cambios al mes. Los precios están publicados en la tienda.',
   },
 ];
 
 const proyectosDev = projects.filter((p) => p.relatedServices.includes(path));
+const casosDev = articles.filter((a) => a.relatedServices.some((x) => x.href === path));
 ---
 <ServiceLanding
   path={path}
@@ -63,6 +77,54 @@ const proyectosDev = projects.filter((p) => p.relatedServices.includes(path));
         <a href="/tiendas-online-costa-rica/">tiendas online</a>.
       </p>
 
+      <h2>Cuándo una plantilla ya no alcanza</h2>
+      <p>
+        Vale la pena ser claro, porque no todo proyecto necesita desarrollo a medida y cobrarlo
+        cuando no hace falta es una estafa educada.
+      </p>
+      <p>
+        Una plantilla o un constructor visual resuelven bien un sitio que presenta un negocio,
+        muestra servicios y lleva al contacto. Si eso es lo que necesitás, empezá por
+        <a href="/paginas-web-costa-rica/">páginas web en Costa Rica</a> y ahorrá la diferencia.
+      </p>
+      <p>El desarrollo a medida se justifica cuando aparece alguna de estas señales:</p>
+      <ul>
+        <li><strong>Hay lógica propia del negocio.</strong> Reservas con reglas, precios que dependen de variables, aprobaciones internas, cálculos que ningún plugin cubre.</li>
+        <li><strong>Hay que hablar con otro sistema.</strong> Un inventario, una facturación electrónica, el ERP de un proveedor.</li>
+        <li><strong>Hay tipos de usuario distintos</strong> que ven y pueden hacer cosas diferentes.</li>
+        <li><strong>El volumen o la velocidad importan</strong> lo suficiente como para que la arquitectura sea una decisión y no un accidente.</li>
+        <li><strong>La suma de plugins ya cuesta más</strong> que tener el sistema propio — y además cada uno es una dependencia que puede romperse o abandonarse.</li>
+      </ul>
+
+      <h2>Migrar sin perder lo ganado</h2>
+      <p>
+        Es de los trabajos que más pedimos que se tomen en serio, porque el error es irreversible
+        en el corto plazo.
+      </p>
+      <p>
+        Mover el contenido es lo fácil. Lo que decide el resultado es que <strong>cada dirección
+        que Google ya tenía indexada siga resolviendo</strong>. Antes de tocar nada levantamos el
+        mapa de URLs actuales —las del sitemap, las que aparecen en el buscador, las que reciben
+        visitas— y armamos las redirecciones una por una.
+      </p>
+      <p>
+        Un sitio migrado sin ese paso pierde en semanas el tráfico que costó años construir, y
+        recuperarlo toma meses. Es trabajo invisible que nadie agradece hasta que ve el caso de
+        quien no lo hizo.
+      </p>
+
+      <h2>Qué recibe el cliente al final</h2>
+      <ul>
+        <li><strong>El código</strong>, en un repositorio a su nombre y con historial.</li>
+        <li><strong>Los accesos</strong> al dominio, al hosting y a los servicios de terceros.</li>
+        <li><strong>La base de datos</strong> y sus respaldos.</li>
+        <li><strong>Documentación</strong> suficiente para que otro equipo pueda continuar sin depender de nosotros.</li>
+      </ul>
+      <p>
+        No trabajamos con esquemas donde el sitio queda secuestrado si el cliente se va. Un
+        proveedor que te ata no es un proveedor.
+      </p>
+
       <h2>Seguridad desde el inicio</h2>
       <p>
         Venimos del lado de la ciberseguridad, así que lo damos por sentado: HTTPS obligatorio,
@@ -88,6 +150,35 @@ const proyectosDev = projects.filter((p) => p.relatedServices.includes(path));
 
   <section class="section-block">
     <div class="section-inner">
+      <h2 class="block-title">Cómo decidimos la tecnología</h2>
+      <p class="block-sub">Cuatro preguntas antes de elegir herramienta. En ese orden.</p>
+      <div class="card-grid cols-4">
+        <div class="info-card">
+          <span class="info-card-num">01</span>
+          <h3>¿Quién edita el contenido?</h3>
+          <p>Si alguien del negocio entra todas las semanas, pesa el panel que ya conoce. Si el contenido casi no cambia, pesa la velocidad.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">02</span>
+          <h3>¿Con qué tiene que hablar?</h3>
+          <p>Los sistemas con los que hay que integrarse condicionan la arquitectura más que cualquier preferencia técnica.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">03</span>
+          <h3>¿Cuánto tráfico y de dónde?</h3>
+          <p>No es lo mismo un sitio local que uno con visitas de varios países o con picos de campaña.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">04</span>
+          <h3>¿Quién lo mantiene después?</h3>
+          <p>Elegir algo que solo nosotros sabemos mantener es cómodo para nosotros y malo para el cliente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block alt">
+    <div class="section-inner">
       <h2 class="block-title">Proyectos desarrollados</h2>
       <p class="block-sub">Sitios en producción que construimos.</p>
       <div class="card-grid cols-3">
@@ -99,6 +190,36 @@ const proyectosDev = projects.filter((p) => p.relatedServices.includes(path));
           </a>
         ))}
       </div>
+    </div>
+  </section>
+
+  {casosDev.length > 0 && (
+    <section class="section-block">
+      <div class="section-inner">
+        <h2 class="block-title">Cómo se resolvió en cada caso</h2>
+        <p class="block-sub">El detalle técnico y las decisiones, contadas completas.</p>
+        <div class="card-grid cols-3">
+          {casosDev.map((a) => (
+            <a class="info-card" href={`/blog/${a.slug}/`}>
+              <span class="blog-tag" style={`color:${a.tagColor}`}>{a.tag}</span>
+              <h3 style="margin-top:.5rem">{a.title}</h3>
+              <p>{a.excerpt}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section-block alt">
+    <div class="section-inner narrow prose">
+      <h2>Servicios relacionados</h2>
+      <ul>
+        <li><a href="/software-a-la-medida-costa-rica/">Software a la medida y CRM</a> — cuando lo que hace falta es un sistema interno, no un sitio.</li>
+        <li><a href="/software-empresas-costa-rica/">Software para empresas</a> — integraciones con un ERP, accesos por rol y puesta en marcha por etapas.</li>
+        <li><a href="/aplicaciones-moviles-costa-rica/">Aplicaciones móviles</a> — cuando el trabajo pasa fuera del escritorio.</li>
+        <li><a href="/tiendas-online-costa-rica/">Tiendas online</a> — catálogo, carrito y pagos.</li>
+      </ul>
     </div>
   </section>
 </ServiceLanding>

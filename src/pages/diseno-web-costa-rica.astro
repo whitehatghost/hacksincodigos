@@ -1,8 +1,19 @@
-﻿---
+---
+/**
+ * Landing de diseño web.
+ *
+ * Era la página más flaca del sitio (557 palabras) y compite contra agencias con
+ * veinte años de dominio. Lo que la puede diferenciar no es decir "diseño
+ * profesional" —eso lo escribe todo el mundo— sino explicar las decisiones que un
+ * cliente no sabe que hay que tomar: qué mira alguien en los primeros segundos,
+ * por qué el celular manda, y qué errores concretos se ven una y otra vez.
+ */
 import ServiceLanding from '../layouts/ServiceLanding.astro';
 import { projects } from '../data/projects';
+import { articles } from '../data/articles';
 
 const path = '/diseno-web-costa-rica/';
+
 const faqs = [
   {
     q: '¿El diseño es propio o usan plantillas?',
@@ -10,19 +21,33 @@ const faqs = [
   },
   {
     q: '¿Puedo pedir cambios al diseño?',
-    a: 'Sí. Revisamos el diseño con vos antes de programarlo, que es cuando los cambios son baratos. Después del lanzamiento los ajustes menores entran en los planes de mantenimiento.',
+    a: 'Sí. Revisamos el diseño con vos antes de programarlo, que es cuando los cambios son baratos: mover un bloque en un diseño toma minutos, moverlo en un sitio ya construido toma días. Después del lanzamiento, los ajustes menores entran en los planes de mantenimiento.',
   },
   {
     q: '¿Diseñan también el logo?',
-    a: 'Sí, el diseño de logo e identidad visual es un servicio aparte. Si tu marca todavía no tiene logo, conviene resolverlo antes del sitio para que todo salga coherente.',
+    a: 'Sí, el diseño de logo e identidad visual es un servicio aparte. Si tu marca todavía no tiene logo, conviene resolverlo antes del sitio: el logo define la paleta y el tono, y hacerlo después obliga a rehacer decisiones ya tomadas.',
+  },
+  {
+    q: '¿Qué necesitan de mi parte para diseñar?',
+    a: 'El logo en buena calidad si existe, fotos reales del negocio o del producto, y claridad sobre qué querés que haga el visitante: escribir por WhatsApp, comprar, agendar. Con eso alcanza para empezar. Los textos se pueden ir puliendo en el camino.',
+  },
+  {
+    q: '¿Puedo usar fotos de banco de imágenes?',
+    a: 'Se puede, y a veces es lo correcto. Pero en negocios locales una foto real del taller, del equipo o del producto genera más confianza que la mejor foto de banco, porque el visitante nota la diferencia aunque no sepa explicarla.',
+  },
+  {
+    q: '¿Un rediseño me va a hacer perder posiciones en Google?',
+    a: 'Solo si se hace mal. El riesgo real no es el diseño: es cambiar las direcciones de las páginas sin redirigir las viejas. Si las URLs se conservan o se redirigen correctamente, un rediseño bien hecho suele mejorar el posicionamiento, porque un sitio más rápido y más claro se posiciona mejor.',
   },
 ];
+
 const proyectosDiseno = projects.filter((p) => p.relatedServices.includes(path));
+const casosDiseno = articles.filter((a) => a.relatedServices.some((s) => s.href === path));
 ---
 <ServiceLanding
   path={path}
   title="Diseño Web en Costa Rica — Identidad Visual y UI | HacksinCodigos"
-  description="Diseño web profesional en Costa Rica: interfaces claras, identidad visual coherente y diseño responsive pensado para que el visitante entienda y contacte."
+  description="Diseño web profesional en Costa Rica: interfaces claras, jerarquía pensada para convertir, identidad visual coherente y diseño responsive de verdad."
   eyebrow="Costa Rica · Diseño"
   h1="Diseño web en Costa Rica que se entiende a la primera"
   lead="Diseñamos la cara visible de tu negocio en internet: la interfaz, la jerarquía de la información y la identidad visual que la sostiene. Que se vea bien es el mínimo; que se entienda es el objetivo."
@@ -35,31 +60,148 @@ const proyectosDiseno = projects.filter((p) => p.relatedServices.includes(path))
 >
   <section class="section-block alt">
     <div class="section-inner narrow prose">
-      <h2>Qué incluye el diseño</h2>
+      <h2>El diseño no es la decoración: es la conversión</h2>
       <p>
-        Antes de escribir una línea de código definimos cómo se ve y cómo se recorre el sitio.
-        Eso significa decidir qué ve primero el visitante, cómo se agrupa la información y por
-        dónde llega al contacto.
+        Hay una idea instalada de que el diseño es la capa bonita que se pone encima de un sitio
+        que ya funciona. Es al revés. El diseño es lo que decide si el visitante entiende qué
+        vendés y si encuentra cómo contactarte — y eso es exactamente la diferencia entre un
+        sitio que trae clientes y uno que solo existe.
+      </p>
+      <p>
+        Un sitio feo pero clarísimo vende. Uno precioso donde no se entiende qué hace el negocio,
+        no. Cuando hay que elegir entre las dos cosas, elegimos que se entienda.
+      </p>
+
+      <h2>Los primeros segundos deciden</h2>
+      <p>
+        Alguien que llega desde Google no lee: barre la pantalla y decide si se queda. En ese
+        barrido tiene que resolver tres preguntas, en este orden:
       </p>
       <ul>
-        <li><strong>Sistema visual:</strong> paleta de color, tipografías, espaciados y componentes reutilizables.</li>
-        <li><strong>Diseño de pantallas:</strong> portada, páginas internas, formularios y estados de error.</li>
-        <li><strong>Responsive real:</strong> el diseño se resuelve para celular, tablet y escritorio, no solo se encoge.</li>
-        <li><strong>Accesibilidad:</strong> contraste suficiente, foco visible al navegar con teclado y textos alternativos en imágenes.</li>
-        <li><strong>Identidad visual:</strong> logo y aplicación de marca cuando el negocio todavía no la tiene resuelta.</li>
+        <li><strong>¿Qué es esto?</strong> Qué vende el negocio, dicho sin rodeos y sin frases de folleto.</li>
+        <li><strong>¿Es para mí?</strong> Si atiende su zona, su rubro, su tamaño de problema.</li>
+        <li><strong>¿Y ahora qué hago?</strong> Una acción clara y visible, no cinco botones compitiendo.</li>
       </ul>
+      <p>
+        Ese orden es el que define la jerarquía visual: qué va arriba, qué va grande, qué lleva
+        color y qué se queda callado. Cuando todo grita, no se escucha nada.
+      </p>
+
+      <h2>El celular no es "la versión chica"</h2>
+      <p>
+        En Costa Rica la mayoría del tráfico de un negocio local llega desde el teléfono, muchas
+        veces desde el navegador interno de Instagram o WhatsApp, que es más lento que Chrome.
+        Diseñar primero para escritorio y después encoger es la forma más común de arruinar un
+        sitio.
+      </p>
+      <p>Diseñar primero para el celular obliga a tomar decisiones sanas:</p>
+      <ul>
+        <li><strong>Priorizar de verdad.</strong> En una pantalla angosta solo cabe una cosa a la vez, así que hay que decidir cuál va primero.</li>
+        <li><strong>Botones que se puedan tocar</strong> con el dedo pulgar, no con un cursor.</li>
+        <li><strong>Texto que se lea sin acercar</strong>, con contraste suficiente bajo el sol.</li>
+        <li><strong>Peso liviano.</strong> Una foto sin optimizar puede pesar más que todo el resto del sitio junto.</li>
+      </ul>
+
+      <h2>Qué incluye el diseño</h2>
+      <ul>
+        <li><strong>Sistema visual:</strong> paleta de color, tipografías, espaciados y componentes reutilizables — para que la página diez se vea como la uno.</li>
+        <li><strong>Diseño de pantallas:</strong> portada, páginas internas, fichas, formularios y estados de error.</li>
+        <li><strong>Responsive real:</strong> el diseño se resuelve para celular, tableta y escritorio, no solo se encoge.</li>
+        <li><strong>Accesibilidad:</strong> contraste suficiente, foco visible al navegar con teclado y textos alternativos en las imágenes.</li>
+        <li><strong>Identidad visual:</strong> logo y aplicación de marca cuando el negocio todavía no la tiene resuelta.</li>
+        <li><strong>Preparación de imágenes:</strong> recorte, optimización y formatos modernos, que es la mitad de la velocidad del sitio.</li>
+      </ul>
+
+      <h2>Accesibilidad, sin discurso</h2>
+      <p>
+        No lo ponemos por quedar bien: el contraste bajo y la letra chica dejan afuera a clientes
+        reales, empezando por cualquier persona mayor de cincuenta que quiera leer tus precios.
+      </p>
+      <p>
+        Lo que aplicamos es concreto: contraste que se lea con el celular al sol, foco visible al
+        navegar con teclado, textos alternativos en las imágenes que dicen algo, y estructura de
+        títulos ordenada. Lo mismo que ayuda a un lector de pantalla ayuda a Google a entender la
+        página.
+      </p>
+
+      <h2>Cuatro errores que vemos casi siempre</h2>
+      <ul>
+        <li>
+          <strong>Un carrusel gigante en la portada.</strong> Casi nadie espera a la segunda
+          imagen, y el mensaje importante suele estar en la tercera. Es espacio caro, mal usado.
+        </li>
+        <li>
+          <strong>"Bienvenidos a nuestro sitio web".</strong> La línea más visible de la página
+          gastada en algo que no dice qué hace el negocio.
+        </li>
+        <li>
+          <strong>El teléfono escondido.</strong> Solo en la página de contacto, sin enlace para
+          llamar desde el celular. Cada toque de más pierde gente.
+        </li>
+        <li>
+          <strong>Texto blanco sobre foto.</strong> Se ve espectacular en la pantalla del
+          diseñador e ilegible en un teléfono a media luz.
+        </li>
+      </ul>
+
+      <h2>Rediseñar sin perder lo ganado</h2>
+      <p>
+        Si ya tenés sitio, un rediseño mal hecho puede costarte el posicionamiento que ya tenías.
+        El riesgo no es el diseño: es cambiar las direcciones de las páginas y dejar las viejas
+        en error.
+      </p>
+      <p>
+        Antes de tocar nada revisamos qué URLs tiene Google indexadas y armamos el mapa de
+        redirecciones. Las direcciones se conservan cuando se puede, y cuando hay que cambiarlas
+        se redirige cada una a su equivalente. Es trabajo invisible que evita perder meses de
+        tráfico.
+      </p>
 
       <h2>Diseño y desarrollo van juntos</h2>
       <p>
-        Diseñamos sabiendo cómo se va a programar, así que lo que aprobás es lo que se construye.
+        Diseñamos sabiendo cómo se va a programar, así que lo que aprobás es lo que se construye
+        — no una imagen bonita que después "no se puede hacer así".
+      </p>
+      <p>
         Si querés ver la parte técnica, está en
-        <a href="/desarrollo-web-costa-rica/">desarrollo web en Costa Rica</a>; si lo que buscás
-        es el paquete completo, empezá por <a href="/paginas-web-costa-rica/">páginas web en Costa Rica</a>.
+        <a href="/desarrollo-web-costa-rica/">desarrollo web en Costa Rica</a>. Si buscás el
+        paquete completo, empezá por
+        <a href="/paginas-web-costa-rica/">páginas web en Costa Rica</a>. Y si el sitio además
+        tiene que vender, mirá <a href="/tiendas-online-costa-rica/">tiendas online</a>.
       </p>
     </div>
   </section>
 
   <section class="section-block">
+    <div class="section-inner">
+      <h2 class="block-title">Cómo trabajamos el diseño</h2>
+      <p class="block-sub">Cuatro etapas. Se aprueba antes de programar, que es cuando cambiar sale barato.</p>
+      <div class="card-grid cols-4">
+        <div class="info-card">
+          <span class="info-card-num">01</span>
+          <h3>Entender el negocio</h3>
+          <p>Qué vendés, a quién, qué te preguntan siempre y qué querés que haga el visitante. De ahí sale la jerarquía, no de un gusto personal.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">02</span>
+          <h3>Estructura antes que estética</h3>
+          <p>Primero se define qué bloques lleva cada página y en qué orden. Discutir colores antes de esto es discutir sobre nada.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">03</span>
+          <h3>Diseño visual</h3>
+          <p>Se aplica la marca: color, tipografía, imágenes y componentes. Se revisa en pantalla de celular, no solo en escritorio.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">04</span>
+          <h3>Aprobación y entrega a desarrollo</h3>
+          <p>Se aprueba el diseño y recién ahí se programa. Lo que viste es lo que vas a recibir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block alt">
     <div class="section-inner">
       <h2 class="block-title">Diseños en producción</h2>
       <p class="block-sub">Proyectos donde el trabajo de diseño fue parte central.</p>
@@ -72,6 +214,40 @@ const proyectosDiseno = projects.filter((p) => p.relatedServices.includes(path))
           </a>
         ))}
       </div>
+    </div>
+  </section>
+
+  {casosDiseno.length > 0 && (
+    <section class="section-block">
+      <div class="section-inner">
+        <h2 class="block-title">Cómo se resolvió en cada caso</h2>
+        <p class="block-sub">El detalle del trabajo, contado completo.</p>
+        <div class="card-grid cols-3">
+          {casosDiseno.map((a) => (
+            <a class="info-card" href={`/blog/${a.slug}/`}>
+              <span class="blog-tag" style={`color:${a.tagColor}`}>{a.tag}</span>
+              <h3 style="margin-top:.5rem">{a.title}</h3>
+              <p>{a.excerpt}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section-block alt">
+    <div class="section-inner narrow prose">
+      <h2>Cuándo no hace falta rediseñar</h2>
+      <p>
+        Si tu sitio se ve anticuado pero te trae clientes, el rediseño no es lo primero. Muchas
+        veces lo que falta no es diseño sino contenido: páginas que respondan lo que la gente
+        busca. Un sitio feo que aparece en Google le gana a uno precioso que nadie encuentra.
+      </p>
+      <p>
+        Lo decimos cuando corresponde, aunque signifique vender un trabajo más chico. Si el
+        problema es que no te encuentran, lo que necesitás es
+        <a href="/seo-costa-rica/">posicionamiento</a>, no un rediseño.
+      </p>
     </div>
   </section>
 </ServiceLanding>

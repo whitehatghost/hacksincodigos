@@ -18,6 +18,18 @@ const faqs = [
     a: 'Sirve más todavía. El SEO local —perfil de Google Business, datos de contacto consistentes, contenido con menciones geográficas— es lo que hace que aparezcas cuando alguien busca tu servicio cerca.',
   },
   {
+    q: '¿Cómo sé si el trabajo está funcionando antes de subir de posición?',
+    a: 'La posición es lo último en moverse. Antes cambian tres señales en Search Console, y en este orden: la cantidad de páginas indexadas, las impresiones —cuántas veces apareciste, aunque nadie haya entrado— y las consultas nuevas por las que empezás a salir. Si esas tres suben, el trabajo va bien aunque la posición media todavía no se mueva.',
+  },
+  {
+    q: '¿Por qué solo aparezco cuando busco el nombre de mi empresa?',
+    a: 'Es lo normal en un dominio sin autoridad todavía: Google sabe que existís pero no te asocia con ningún servicio. También pasa cuando el sitio cambió de forma y quedó contenido viejo indexado, o cuando conviven la versión con www y sin www como si fueran dos sitios. Eso último se revisa primero porque parte la autoridad en dos.',
+  },
+  {
+    q: '¿Cuántas reseñas necesito en Google?',
+    a: 'No hay un número mágico, pero es de lo que más pesa en las búsquedas locales y de lo más barato de conseguir. Importa la cantidad, que sean recientes y que se respondan todas, incluidas las malas. Pedirlas a clientes reales después de entregar un trabajo es legítimo; comprarlas o inventarlas es motivo de penalización.',
+  },
+  {
     q: '¿Hacen link building?',
     a: 'Solo enlaces legítimos: menciones reales, directorios de negocios costarricenses, atribución en los sitios de clientes que desarrollamos. No compramos enlaces ni participamos en redes de sitios; eso es lo que hace que Google te penalice.',
   },
@@ -64,6 +76,69 @@ const faqs = [
         Google lleva años detectando eso y castigándolo.
       </p>
 
+      <h2>Antes de escribir una palabra: lo que suele estar roto</h2>
+      <p>
+        En la mayoría de las auditorías que hacemos, el problema no es que falte contenido. Es
+        que hay algo técnico impidiendo que el contenido que ya existe cuente. Estos cuatro
+        aparecen una y otra vez:
+      </p>
+      <ul>
+        <li>
+          <strong>El sitio vive en dos direcciones a la vez.</strong> Con www y sin www, o en
+          HTTP y HTTPS, sin redirección entre ellas. Para Google son dos sitios distintos y la
+          autoridad se reparte entre los dos.
+        </li>
+        <li>
+          <strong>Quedan URLs viejas indexadas devolviendo error.</strong> Cada una tira a la
+          basura la autoridad que esa dirección acumuló durante años. Un redireccionamiento la
+          traslada; un error 404 la pierde.
+        </li>
+        <li>
+          <strong>Títulos y descripciones repetidos</strong> entre páginas, o generados solos.
+          Si dos páginas dicen lo mismo, Google elige una y descarta la otra.
+        </li>
+        <li>
+          <strong>El sitio pesa demasiado en celular.</strong> Casi siempre son las imágenes sin
+          optimizar, que pueden pesar más que todo el resto de la página junto.
+        </li>
+      </ul>
+      <p>
+        Arreglar esto no es glamoroso y suele mover más la aguja que tres meses de artículos.
+      </p>
+
+      <h2>Elegir los términos correctos</h2>
+      <p>
+        Es la decisión estratégica del proyecto, y equivocarse acá cuesta meses.
+      </p>
+      <p>
+        El término más obvio suele ser el peor punto de partida: es el que persiguen los
+        dominios con veinte años de antigüedad, y un sitio nuevo no les gana con contenido en un
+        trimestre. La ruta que sí llega es empezar por donde nadie tiene ventaja acumulada
+        —términos más específicos, más nuevos o con menos competencia— ganar ahí, y usar esa
+        autoridad para subir después por los caros.
+      </p>
+      <p>
+        Por eso la auditoría incluye mirar quién está arriba en cada término y qué tan difícil
+        es de verdad moverlo. Un primer lugar en un término que nadie busca no sirve; una
+        tercera posición en el término correcto puede sostener un negocio.
+      </p>
+
+      <h2>Cómo se mide, sin humo</h2>
+      <p>
+        La posición en Google es el último indicador en moverse. Estas señales avisan antes, y
+        son las que revisamos en los reportes:
+      </p>
+      <ul>
+        <li><strong>Páginas indexadas.</strong> Que suban las que deben estar y desaparezcan las que no. Se mueve en dos a seis semanas.</li>
+        <li><strong>Impresiones.</strong> Cuántas veces apareciste, aunque nadie haya entrado. Es la primera señal real de que Google te está mostrando.</li>
+        <li><strong>Consultas nuevas.</strong> Que empiecen a aparecer términos que no son el nombre de tu empresa.</li>
+        <li><strong>Posición media.</strong> Lo último, y por eso el peor indicador para juzgar el primer mes.</li>
+      </ul>
+      <p>
+        Y el que más importa, que no está en ninguna herramienta: <strong>cuántas consultas
+        llegan diciendo que te encontraron en Google</strong>. Vale la pena anotarlo cada mes.
+      </p>
+
       <h2>Qué no hacemos</h2>
       <p>
         Ni compra de enlaces, ni redes privadas de sitios, ni texto escondido, ni reseñas
@@ -77,11 +152,19 @@ const faqs = [
         Google Business, qué términos tienen sentido para tu negocio y qué están haciendo los que
         aparecen arriba. De ahí sale un plan con prioridades.
       </p>
+      <p>El orden de trabajo casi siempre es el mismo, y no es negociable:</p>
+      <ul>
+        <li><strong>Primero lo técnico roto</strong>, porque hasta que eso no se arregla, todo lo demás rinde menos.</li>
+        <li><strong>Después el perfil de Google</strong> y las reseñas, que es lo más barato con más efecto en búsquedas locales.</li>
+        <li><strong>Luego el contenido</strong>, empezando por los términos donde sí se puede ganar.</li>
+        <li><strong>Y al final los enlaces</strong>, que son la señal más lenta y la que menos se puede apurar sin hacer trampa.</li>
+      </ul>
       <p>
         Si tu sitio es viejo o lento, a veces sale más a cuenta rehacerlo que parcharlo — eso lo
         vemos en <a href="/desarrollo-web-costa-rica/">desarrollo web</a>. Todos los sitios que
         hacemos en <a href="/paginas-web-costa-rica/">páginas web Costa Rica</a> salen con el SEO
-        técnico ya resuelto.
+        técnico ya resuelto, y las <a href="/tiendas-online-costa-rica/">tiendas online</a> con
+        cada ficha de producto preparada para aparecer por su nombre.
       </p>
     </div>
   </section>

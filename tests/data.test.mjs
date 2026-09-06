@@ -241,6 +241,46 @@ test('el catálogo no muestra precios tachados ni ofertas', { skip: !hasDist }, 
   assert.ok(!/price-was|badge-sale/.test(html), 'quedó marcado de oferta en el catálogo');
 });
 
+// ── Reseñas de Google ─────────────────────────────────────────
+
+test('la clave de la API de Google nunca entra al repositorio', () => {
+  // El repositorio es público: una clave acá la copian y la usan hasta agotar
+  // la cuota, que se cobra. Vive solo en la variable de entorno de la build.
+  const tracked = execSync('git ls-files', { cwd: ROOT, encoding: 'utf8' })
+    .split('\n')
+    .filter((f) => /\.(ts|js|mjs|astro|json|md)$/.test(f));
+  const patron = /AIza[0-9A-Za-z_\-]{30,}/;
+  for (const rel of tracked) {
+    const full = path.join(ROOT, rel);
+    if (!fs.existsSync(full)) continue;
+    assert.ok(!patron.test(fs.readFileSync(full, 'utf8')), `${rel} parece contener una clave de Google`);
+  }
+});
+
+test('la build no se cae cuando no hay reseñas configuradas', () => {
+  const datos = JSON.parse(fs.readFileSync(path.join(ROOT, 'src', 'data', 'google-reviews.json'), 'utf8'));
+  for (const campo of ['actualizado', 'perfilUrl', 'calificacion', 'totalResenas', 'resenas']) {
+    assert.ok(campo in datos, `google-reviews.json no declara "${campo}"`);
+  }
+  assert.ok(Array.isArray(datos.resenas), 'resenas tiene que ser un arreglo');
+});
+
+test('las reseñas se muestran atribuidas y sin marcarlas como propias', { skip: !hasDist }, () => {
+  const datos = JSON.parse(fs.readFileSync(path.join(ROOT, 'src', 'data', 'google-reviews.json'), 'utf8'));
+  const home = read('index.html');
+  if (datos.resenas.length === 0) {
+    assert.ok(!home.includes('resenas-google'), 'no hay reseñas pero la sección se pintó igual');
+    return;
+  }
+  // Los términos de la API obligan a atribuir cada reseña a su autor.
+  for (const r of datos.resenas.slice(0, 6)) {
+    assert.ok(home.includes(r.autor), `la reseña de ${r.autor} se muestra sin atribuir`);
+  }
+  // Y las directrices de Google prohíben declarar como propias las reseñas de
+  // un tercero. La prueba general de JSON-LD ya lo cubre, esto lo hace explícito.
+  assert.ok(!home.includes('"aggregateRating"'), 'no se puede declarar aggregateRating con reseñas de Google');
+});
+
 // ── Boletín mensual ───────────────────────────────────────────────
 
 test('la lista de destinatarios nunca entra al repositorio', () => {

@@ -218,3 +218,71 @@ https://hacksincodigos.com/proyectos/ryv-dental/
 > para colar palabras clave, intercambios de enlaces pactados, ni repetir la
 > misma frase hasta que suene raro. Eso sí se penaliza, y el castigo cae también
 > sobre el dominio del cliente.
+
+---
+
+## Reseñas de Google en el sitio
+
+El sitio ya sabe mostrar las reseñas del perfil de Google. Solo faltan **dos
+datos**, y no van al repositorio: van a las variables de entorno de Cloudflare.
+
+### Por qué no van en el código
+
+El repositorio es público en GitHub. Una clave de API de Google ahí la copian y
+la usan hasta agotar la cuota — que se cobra a tu tarjeta. Por eso las reseñas se
+traen **durante la build**: la clave vive solo en el servidor de construcción,
+nunca llega al navegador del visitante y nunca entra a git.
+
+Hay una prueba que falla si alguna vez se cuela una clave en el repositorio.
+
+### Los dos datos
+
+**1. El identificador del perfil (Place ID).** Se saca gratis en el buscador de
+Place ID de Google Maps Platform, o desde tu perfil de negocio. Es un texto tipo
+`ChIJ...`, público, no es secreto.
+
+**2. La clave de la Places API.** En Google Cloud Console:
+
+- Crear un proyecto (o usar uno existente).
+- Habilitar **Places API (New)**.
+- Crear una clave en *Credenciales*.
+- **Restringirla**: en *Restricciones de API*, dejar solo Places API (New). Sin
+  esa restricción, una clave filtrada sirve para cualquier servicio de Google.
+
+### Dónde se pegan
+
+Cloudflare → el proyecto de Pages → **Settings** → **Environment variables** →
+*Add variable*, para Production y Preview:
+
+```
+GOOGLE_PLACES_API_KEY = la clave
+GOOGLE_PLACE_ID       = el identificador del perfil
+```
+
+Y para probar en local, un archivo `.env` en la raíz — ya está en `.gitignore`:
+
+```
+GOOGLE_PLACES_API_KEY=...
+GOOGLE_PLACE_ID=...
+```
+
+Después, un despliegue normal ya trae las reseñas.
+
+### Qué pasa mientras tanto
+
+Nada se rompe. Si las variables no están, el script lo dice en el registro de la
+build y la sección de reseñas simplemente no aparece. Si la API falla un día, se
+queda con lo de la build anterior en vez de tumbar el despliegue.
+
+### Dos decisiones que conviene entender
+
+- **Las reseñas se muestran atribuidas a su autor**, con enlace a su perfil.
+  Los términos de la API lo exigen y además es lo correcto.
+- **No se declaran como `aggregateRating`** en los datos estructurados. Marcar
+  como propias las reseñas alojadas en un tercero va contra las directrices de
+  Google y es motivo de penalización. Se muestran, y ya. Hay una prueba que lo
+  vigila.
+
+Cuando la build las traiga, el enlace al perfil de Google entra solo en el
+`sameAs` del negocio — que es la señal que le dice a Google que ese perfil y este
+dominio son el mismo negocio.

@@ -6,6 +6,7 @@
  * sería Schema falso y es motivo de acción manual por parte de Google.
  */
 import { site, areasServed } from '../data/site';
+import google from '../data/google-reviews.json';
 
 const ORG_ID = `${site.url}/#organization`;
 const SITE_ID = `${site.url}/#website`;
@@ -29,7 +30,15 @@ export function organizationSchema() {
       url: new URL(site.logo, site.url).href,
       caption: site.name,
     },
-    sameAs: [site.instagram],
+    // El perfil de Google se declara acá cuando la build lo trajo. Es la señal
+    // que ata el perfil de negocio con el dominio, y es justo lo que le faltaba
+    // a Google para relacionar los dos.
+    //
+    // Lo que NO se declara es `aggregateRating` con la calificación del perfil:
+    // marcar como propias reseñas alojadas en un tercero va contra las
+    // directrices de datos estructurados y es motivo de penalización. Las
+    // reseñas se muestran en la página, atribuidas a su autor, y ya.
+    sameAs: [site.instagram, google.perfilUrl].filter(Boolean) as string[],
     knowsLanguage: ['es', 'en'],
     // Negocio que opera de forma remota en todo el país: se declara el área de
     // servicio, no una dirección física (no hay una dirección pública verificable).

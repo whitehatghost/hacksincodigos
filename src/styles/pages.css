@@ -676,3 +676,57 @@ a.info-card { display: block; text-decoration: none; color: inherit; }
   object-position: center;
   opacity: .95;
 }
+
+/* ── Reseñas de Google ───────────────────────────────────────────────────────
+   Se apoyan en .info-card para no inventar otra tarjeta; solo se añade lo
+   propio de una reseña: las estrellas, el texto citado y la firma del autor. */
+.resena { display: flex; flex-direction: column; }
+.resena-estrellas {
+  color: var(--accent-amber, #f59e0b);
+  font-size: 1rem;
+  letter-spacing: .12em;
+  margin-bottom: .7rem;
+}
+.resena-texto {
+  flex: 1;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0 0 1.1rem;
+}
+.resena-autor {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  padding-top: .9rem;
+  border-top: 1px solid var(--border-glow);
+  font-size: .85rem;
+  color: var(--text-primary);
+}
+.resena-avatar {
+  width: 32px; height: 32px;
+  flex: 0 0 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00ff88, #00bfff);
+  color: #06210f;
+  font-weight: 800;
+  font-size: .78rem;
+}
+.resena-autor a { color: var(--text-primary); text-decoration: none; }
+.resena-autor a:hover { text-decoration: underline; }
+.resena-cuando {
+  display: block;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  margin-top: .15rem;
+}
+.resena-fuente {
+  margin: 1.75rem 0 0;
+  text-align: center;
+  font-size: .82rem;
+  color: var(--text-secondary);
+}
+.resena-fuente a { color: var(--accent-green); text-decoration: none; }
+.resena-fuente a:hover { text-decoration: underline; }

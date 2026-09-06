@@ -1,0 +1,72 @@
+---
+/**
+ * Reseñas del perfil de Google.
+ *
+ * Los datos los trae scripts/fetch-google-reviews.mjs durante la build. Si no
+ * hay ninguna —porque todavía no se configuraron las credenciales— este
+ * componente no pinta nada: mejor una sección menos que un bloque vacío.
+ *
+ * ATRIBUCIÓN. Los términos de la Places API obligan a mostrar cada reseña
+ * atribuida a su autor y a dejar claro que vienen de Google. Por eso cada
+ * tarjeta enlaza al perfil del autor y el pie enlaza al perfil de negocio.
+ *
+ * NO se declara `aggregateRating` en los datos estructurados: marcar como
+ * propias reseñas alojadas en un tercero va contra las directrices de Google.
+ */
+import datos from '../data/google-reviews.json';
+
+const resenas = datos.resenas ?? [];
+const hay = resenas.length > 0;
+
+/** Estrellas como texto: se lee igual sin imágenes y no pesa nada. */
+const estrellas = (n: number | null) => '★'.repeat(Math.round(n ?? 5)).padEnd(5, '☆');
+
+const iniciales = (nombre: string) =>
+  nombre
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((p) => p[0] ?? '')
+    .join('')
+    .toUpperCase();
+---
+{hay && (
+  <section id="resenas-google" class="section-block alt" aria-label="Reseñas de Google">
+    <div class="section-inner">
+      <h2 class="block-title">Lo que dicen en Google</h2>
+      <p class="block-sub">
+        Reseñas publicadas por clientes en nuestro perfil de Google.
+        {datos.calificacion && datos.totalResenas && (
+          <> Calificación {datos.calificacion} sobre {datos.totalResenas} reseñas.</>
+        )}
+      </p>
+
+      <div class="card-grid cols-3">
+        {resenas.slice(0, 6).map((r) => (
+          <article class="info-card resena">
+            <div class="resena-estrellas" aria-label={`${r.calificacion ?? 5} de 5 estrellas`}>
+              {estrellas(r.calificacion)}
+            </div>
+            <p class="resena-texto">{r.texto}</p>
+            <footer class="resena-autor">
+              <span class="resena-avatar" aria-hidden="true">{iniciales(r.autor)}</span>
+              <span>
+                {r.autorUrl ? (
+                  <a href={r.autorUrl} target="_blank" rel="noopener nofollow">{r.autor}</a>
+                ) : (
+                  r.autor
+                )}
+                {r.cuando && <span class="resena-cuando">{r.cuando}</span>}
+              </span>
+            </footer>
+          </article>
+        ))}
+      </div>
+
+      {datos.perfilUrl && (
+        <p class="resena-fuente">
+          Reseñas de <a href={datos.perfilUrl} target="_blank" rel="noopener">nuestro perfil de Google</a>.
+        </p>
+      )}
+    </div>
+  </section>
+)}

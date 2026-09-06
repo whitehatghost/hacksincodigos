@@ -1,0 +1,218 @@
+---
+/**
+ * Landing de aplicaciones móviles.
+ *
+ * Existía solo como ficha de catálogo, que no compite por "desarrollo de apps
+ * Costa Rica". Esta página persigue ese término.
+ *
+ * La sección que la diferencia es la primera: casi todo el que busca "quiero una
+ * app" no necesita una app. Decirlo de entrada convierte mejor que prometer.
+ */
+import ServiceLanding from '../layouts/ServiceLanding.astro';
+
+const path = '/aplicaciones-moviles-costa-rica/';
+
+const faqs = [
+  {
+    q: '¿Cuánto cuesta desarrollar una aplicación móvil en Costa Rica?',
+    a: 'Se cotiza por alcance, y el rango es amplio de verdad: una app de un solo flujo con pocos usuarios no se parece en nada a una con varios roles, pagos y conexión a sistemas internos. El costo depende de cuántas pantallas lleve, cuántos tipos de usuario existan, si necesita funcionar sin internet y con qué otros sistemas tenga que hablar.',
+  },
+  {
+    q: '¿Necesito de verdad una app o me sirve un sitio web?',
+    a: 'Es la primera pregunta que hacemos, y en bastantes casos la respuesta honesta es que un sitio web bien hecho resuelve lo mismo por mucho menos. Una app se justifica cuando hace falta funcionar sin internet, usar cámara o GPS de forma intensiva, mandar notificaciones push, o cuando la persona la va a abrir todos los días.',
+  },
+  {
+    q: '¿Hacen una app para Android y otra para iPhone?',
+    a: 'Depende del caso. Para la mayoría de los proyectos se desarrolla una sola base de código que corre en las dos tiendas, que cuesta bastante menos y se mantiene una sola vez. El desarrollo nativo separado se justifica cuando la app exige rendimiento gráfico alto o funciones muy específicas del sistema.',
+  },
+  {
+    q: '¿Quién publica la app en Google Play y App Store?',
+    a: 'Acompañamos todo el proceso de publicación, pero las cuentas de desarrollador van a nombre del cliente y las cobra cada tienda: Google Play tiene un pago único y Apple una suscripción anual. Que estén a tu nombre es importante — es lo que garantiza que la app sea tuya.',
+  },
+  {
+    q: '¿Cuánto tarda?',
+    a: 'Una primera versión con el flujo principal funcionando toma semanas, no días. Un sistema con varios roles, pagos e integraciones toma meses. Entregamos por partes para que puedas usar y corregir lo primero mientras se construye lo siguiente.',
+  },
+  {
+    q: '¿Qué pasa después de publicarla?',
+    a: 'Una app no se entrega y se olvida: Android e iOS sacan versiones nuevas todos los años y las tiendas exigen actualizaciones para que siga publicada. Eso se cubre con un plan de mantenimiento. Es un costo recurrente que conviene tener claro desde el principio.',
+  },
+  {
+    q: '¿El código queda mío?',
+    a: 'Sí. Al completarse el pago, el código, la base de datos y las cuentas quedan a nombre del cliente. Podés seguir el mantenimiento con nosotros o con quien quieras.',
+  },
+];
+---
+<ServiceLanding
+  path={path}
+  title="Desarrollo de Aplicaciones Móviles en Costa Rica | HacksinCodigos"
+  description="Desarrollo de apps para Android, iOS y navegador en Costa Rica: apps para clientes, para equipos en calle y conectadas a tus sistemas. Cotización por alcance."
+  eyebrow="Costa Rica · Android, iOS y web"
+  h1="Desarrollo de aplicaciones móviles en Costa Rica"
+  lead="Apps para tus clientes o para tu equipo en calle, construidas sobre lo que tu negocio necesita hacer — no sobre una plantilla."
+  crumbLabel="Aplicaciones móviles Costa Rica"
+  serviceName="Desarrollo de aplicaciones móviles en Costa Rica"
+  serviceType="Desarrollo de aplicaciones móviles"
+  faqs={faqs}
+  waText="Hola, me interesa desarrollar una aplicación móvil"
+  ctaTitle="Contanos qué tiene que hacer la app"
+>
+  <section class="section-block alt">
+    <div class="section-inner narrow prose">
+      <h2>Antes que nada: puede que no necesités una app</h2>
+      <p>
+        Lo ponemos primero porque es la conversación que más plata le ahorra a la gente, y la
+        que casi ningún proveedor tiene.
+      </p>
+      <p>
+        Mucho de lo que se pide como "una app" es en realidad un sitio web que funcione bien en
+        el celular. Y la diferencia no es menor: el sitio cuesta una fracción, se actualiza el
+        mismo día, no depende de que nadie apruebe nada, y sobre todo <strong>no exige que el
+        cliente instale algo</strong>, que es la barrera más grande que existe.
+      </p>
+      <p>Una app se justifica cuando aparece al menos una de estas condiciones:</p>
+      <ul>
+        <li><strong>Tiene que funcionar sin internet</strong>, o con señal mala. Un técnico en zona rural, un inventario en bodega, una ruta de reparto.</li>
+        <li><strong>Usa el teléfono de verdad</strong>: cámara para escanear códigos, GPS todo el día, lector de credenciales, impresión por bluetooth.</li>
+        <li><strong>Necesita notificaciones push</strong> que la persona vea aunque no esté en el sitio.</li>
+        <li><strong>Se abre todos los días.</strong> Si es de uso diario, el ícono en la pantalla vale; si se usa dos veces al año, nadie la deja instalada.</li>
+      </ul>
+      <p>
+        Si ninguna aplica, te lo decimos y te proponemos una
+        <a href="/paginas-web-costa-rica/">página web</a> o una
+        <a href="/tiendas-online-costa-rica/">tienda online</a>. Perdemos el proyecto grande y
+        ganamos un cliente que vuelve.
+      </p>
+
+      <h2>Los dos tipos de app que más se piden</h2>
+      <p>
+        Se parecen poco entre sí, y confundirlos al cotizar es el error clásico.
+      </p>
+
+      <h3>La app para tus clientes</h3>
+      <p>
+        Va a las tiendas, la instala gente que no conocés y compite por espacio en la pantalla
+        de un teléfono. Su desafío no es técnico, es de adopción: tiene que dar una razón para
+        instalarla y otra para no borrarla. Pedidos recurrentes, puntos, estado de un envío,
+        agenda de citas.
+      </p>
+
+      <h3>La app para tu equipo</h3>
+      <p>
+        La usan diez, veinte o cien personas conocidas, y no compite con nadie. Acá el desafío es
+        que funcione en condiciones reales: con el teléfono viejo del técnico, sin señal, con
+        guantes puestos, bajo el sol. Órdenes de trabajo, rutas de reparto, inventario en
+        bodega, control de asistencia, formularios de campo con fotos.
+      </p>
+      <p>
+        La segunda suele dar retorno más rápido, porque el ahorro se mide en horas de trabajo
+        desde el primer mes.
+      </p>
+
+      <h2>Qué construimos</h2>
+      <ul>
+        <li><strong>Apps para Android y iOS</strong> desde una sola base de código, publicadas en las dos tiendas.</li>
+        <li><strong>Aplicaciones web</strong> que se instalan desde el navegador, sin pasar por ninguna tienda.</li>
+        <li><strong>Trabajo sin conexión</strong>: la información se guarda en el teléfono y se sincroniza cuando vuelve la señal.</li>
+        <li><strong>Notificaciones push</strong> segmentadas, no masivas.</li>
+        <li><strong>Backend propio y APIs seguras</strong>, o conexión con los sistemas que ya usás.</li>
+        <li><strong>Acceso por rol</strong>: que cada persona vea lo que le corresponde y nada más.</li>
+      </ul>
+
+      <h2>Los costos que casi nadie menciona</h2>
+      <p>
+        El desarrollo es un pago único. Una app publicada tiene además costos que conviene tener
+        claros desde el principio:
+      </p>
+      <ul>
+        <li><strong>Cuentas de desarrollador.</strong> Google Play cobra un pago único; Apple, una suscripción anual. Las cobra cada tienda y van a nombre del cliente.</li>
+        <li><strong>Servidor.</strong> Si la app guarda información, esa información vive en algún lado.</li>
+        <li><strong>Mantenimiento obligatorio.</strong> Android e iOS sacan versión nueva todos los años y las tiendas exigen actualizarse para seguir publicado. Una app sin mantenimiento termina retirada de la tienda.</li>
+      </ul>
+      <p>
+        Ese último punto es el que sorprende a la gente meses después. Preferimos decirlo antes
+        de cotizar.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-inner">
+      <h2 class="block-title">Cómo llevamos el proyecto</h2>
+      <p class="block-sub">Por partes, no todo al final.</p>
+      <div class="card-grid cols-4">
+        <div class="info-card">
+          <span class="info-card-num">01</span>
+          <h3>Definir el flujo principal</h3>
+          <p>Qué es lo único que la app tiene que hacer bien. Todo lo demás se decide después de que eso funcione.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">02</span>
+          <h3>Pantallas antes que código</h3>
+          <p>Se dibuja el recorrido completo y se revisa con quien la va a usar. Cambiar un dibujo cuesta minutos; cambiar una pantalla programada, días.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">03</span>
+          <h3>Versión de prueba real</h3>
+          <p>Se instala en los teléfonos del equipo antes de publicarla. Ahí aparece lo que ninguna reunión detecta.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">04</span>
+          <h3>Publicación y acompañamiento</h3>
+          <p>Se publica en las tiendas y se acompañan las primeras semanas de uso, que es cuando salen los ajustes que importan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block alt">
+    <div class="section-inner">
+      <h2 class="block-title">Casos donde una app sí resuelve</h2>
+      <div class="card-grid cols-3">
+        <div class="info-card"><h3>Equipos en calle</h3><p>Técnicos, repartidores e inspectores que registran trabajo donde la señal no llega.</p></div>
+        <div class="info-card"><h3>Inventario y bodega</h3><p>Escaneo de códigos con la cámara y conteo sin depender de una computadora.</p></div>
+        <div class="info-card"><h3>Pedidos recurrentes</h3><p>Clientes que compran seguido y necesitan repetir un pedido en dos toques.</p></div>
+        <div class="info-card"><h3>Reservas y citas</h3><p>Agenda que el cliente consulta y modifica sin escribir por WhatsApp.</p></div>
+        <div class="info-card"><h3>Control de asistencia</h3><p>Marca con ubicación y foto para personal distribuido en varios sitios.</p></div>
+        <div class="info-card"><h3>Formularios de campo</h3><p>Inspecciones y actas con fotos y firma, que se sincronizan al volver la señal.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-inner narrow prose">
+      <h2>Con qué se conecta</h2>
+      <p>
+        Una app rara vez vive sola. Casi siempre es la cara móvil de algo que ya existe:
+      </p>
+      <ul>
+        <li>
+          Con un <a href="/software-a-la-medida-costa-rica/">sistema a la medida o un CRM</a>,
+          para que lo que se registra en calle llegue al mismo lugar donde trabaja la oficina.
+        </li>
+        <li>
+          Con tu <a href="/tiendas-online-costa-rica/">tienda online</a>, para que el catálogo
+          y los pedidos sean los mismos en los dos lados.
+        </li>
+        <li>
+          Con un <a href="/agentes-ia-costa-rica/">agente de IA en WhatsApp</a>, para atender
+          por el canal donde el cliente ya está antes de pedirle que instale nada.
+        </li>
+        <li>
+          Con servicios de terceros: pasarelas de pago, facturación electrónica, mensajería.
+        </li>
+      </ul>
+
+      <h2>Cuándo conviene esperar</h2>
+      <p>
+        Si el proceso que va a soportar la app todavía cambia cada mes, programarlo lo congela
+        antes de tiempo y sale más caro corregirlo después. En ese caso conviene ordenar primero
+        con herramientas simples y desarrollar cuando el proceso ya se estabilizó.
+      </p>
+      <p>
+        Y si la app es para clientes que hoy no te conocen, primero hay que resolver que te
+        encuentren. Una app que nadie descarga es la inversión más cara que existe.
+      </p>
+    </div>
+  </section>
+</ServiceLanding>

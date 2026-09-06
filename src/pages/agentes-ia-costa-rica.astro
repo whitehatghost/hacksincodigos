@@ -1,35 +1,63 @@
-﻿---
+---
+/**
+ * Landing de agentes de IA para WhatsApp.
+ *
+ * Es la página con la mejor oportunidad de todo el sitio: en Costa Rica casi
+ * todos los competidores de este término son proyectos de 2025 en adelante, así
+ * que nadie tiene autoridad acumulada. Por eso se trabaja a fondo — sobre las
+ * 1.800 palabras — y por eso incluye las dos secciones que la competencia evita:
+ * qué cuesta operar el agente mes a mes, y cuándo NO conviene poner uno.
+ */
 import ServiceLanding from '../layouts/ServiceLanding.astro';
+import { projects } from '../data/projects';
 
 const path = '/agentes-ia-costa-rica/';
 
 const faqs = [
   {
     q: '¿Qué es un agente de IA para WhatsApp?',
-    a: 'Es un asistente que atiende los mensajes de tu WhatsApp de negocio automáticamente: responde preguntas frecuentes, toma pedidos, agenda citas y filtra a quién vale la pena pasarle a una persona. Funciona las 24 horas.',
+    a: 'Es un asistente que atiende los mensajes de tu WhatsApp de negocio automáticamente: responde preguntas frecuentes, toma pedidos, agenda citas y filtra a quién vale la pena pasarle a una persona. Funciona las 24 horas y entiende lo que le escriben en lenguaje normal, sin menús numerados.',
+  },
+  {
+    q: '¿Cuál es la diferencia entre un chatbot y un agente de IA?',
+    a: 'Un chatbot sigue un guion: "marque 1 para horarios, 2 para precios". Si el cliente escribe algo que no está en el menú, se traba. Un agente de IA entiende lo que le escriben, consulta la información de tu negocio y responde; si le preguntan por algo que no sabe, lo dice y pasa la conversación a una persona en vez de contestar cualquier cosa.',
+  },
+  {
+    q: '¿Necesito la API de WhatsApp Business o sirve mi WhatsApp normal?',
+    a: 'Para un negocio pequeño con un solo número se puede trabajar sobre la aplicación normal. Cuando hay volumen, varias personas atendiendo o necesidad de enviar mensajes de plantilla, corresponde la plataforma de WhatsApp Business de Meta, que es la vía oficial y tiene un costo por conversación. En el diagnóstico te decimos cuál de las dos te conviene y por qué.',
   },
   {
     q: '¿El cliente se da cuenta de que habla con un bot?',
     a: 'Configuramos el agente para que se presente con claridad y para que pase la conversación a una persona cuando la consulta se sale de lo que sabe responder. Engañar al cliente sale caro; ser útil no.',
   },
   {
+    q: '¿Cuánto cuesta mantenerlo cada mes?',
+    a: 'Hay dos costos recurrentes que no dependen de nosotros: el del proveedor de inteligencia artificial, que cobra por uso, y el de la plataforma de WhatsApp si se usa la vía oficial de Meta, que cobra por conversación. Un negocio con pocas consultas al día gasta poco; uno con cientos, bastante más. Te lo estimamos con tu volumen real antes de que decidas.',
+  },
+  {
     q: '¿Lo administro yo o ustedes?',
-    a: 'Las dos opciones existen. En el modo gestionado nosotros mantenemos el agente y ajustamos las respuestas. En el autogestionado te entregamos el panel y vos editás lo que responde.',
+    a: 'Las dos opciones existen. En el modo gestionado nosotros mantenemos el agente y ajustamos las respuestas según lo que va pasando. En el autogestionado te entregamos el panel y vos editás lo que responde. El precio cambia según la opción.',
   },
   {
     q: '¿Funciona con Instagram y Messenger?',
-    a: 'Sí, además de WhatsApp se puede conectar a Messenger e Instagram para que todas las conversaciones lleguen al mismo lugar.',
+    a: 'Sí. Además de WhatsApp se conecta a Instagram y Messenger para que todas las conversaciones lleguen al mismo lugar. Ese caso está explicado aparte en la página de agentes de IA para redes sociales.',
+  },
+  {
+    q: '¿Cuánto tarda montarlo?',
+    a: 'Una primera versión que ya conteste lo esencial puede estar en pocos días. Lo que toma tiempo no es programarlo: es reunir y ordenar la información que el agente debe manejar, y afinar las respuestas con las conversaciones reales de las primeras semanas.',
   },
   {
     q: '¿Qué necesito para empezar?',
-    a: 'Un número de WhatsApp para el negocio y la información que el agente debe manejar: servicios, precios, horarios, ubicación y las preguntas que más te hacen. Con eso armamos la primera versión.',
+    a: 'Un número de WhatsApp para el negocio y la información que el agente debe manejar: servicios, precios, horarios, ubicación, formas de pago y las preguntas que más te hacen. Con eso armamos la primera versión.',
   },
 ];
+
+const casoRelacionado = projects.find((p) => p.slug === 'grupo-novo-crm');
 ---
 <ServiceLanding
   path={path}
   title="Agentes de IA para WhatsApp en Costa Rica | HacksinCodigos"
-  description="Chatbots con inteligencia artificial para WhatsApp, Instagram y Messenger en Costa Rica. Atienden, toman pedidos y agendan citas 24/7, con panel de conversaciones."
+  description="Agentes de IA y chatbots para WhatsApp en Costa Rica: atienden, cotizan, toman pedidos y agendan citas 24/7. Con panel de conversaciones y costos explicados."
   eyebrow="Costa Rica · Inteligencia artificial"
   h1="Agentes de IA para WhatsApp en Costa Rica"
   lead="Un asistente que contesta tu WhatsApp de negocio a cualquier hora: responde consultas, toma pedidos, agenda citas y te pasa solo lo que necesita una persona."
@@ -44,55 +72,227 @@ const faqs = [
     <div class="section-inner narrow prose">
       <h2>El problema que resuelve</h2>
       <p>
-        La mayoría de los negocios en Costa Rica recibe sus consultas por WhatsApp. El problema no
-        es la falta de mensajes: es que llegan a las 9 de la noche, un domingo, o mientras estás
-        atendiendo a otro cliente. El que no recibe respuesta en minutos se va con el siguiente.
+        En Costa Rica la venta pasa por WhatsApp. No por el formulario de contacto, no por
+        el correo: por WhatsApp. Y el problema nunca es la falta de mensajes — es cuándo
+        llegan.
+      </p>
+      <p>
+        Llegan a las nueve de la noche, un domingo, o justo mientras estás atendiendo a otro
+        cliente. El que pregunta por un precio y no recibe respuesta en unos minutos le
+        escribe al siguiente proveedor, y ese siguiente sí contesta. La venta no se pierde
+        por precio: se pierde por silencio.
+      </p>
+      <p>
+        Contratar a alguien para cubrir esas horas cuesta un salario. Un agente de IA cubre
+        las mismas horas por una fracción, y lo que no puede resolver lo deja anotado y te lo
+        pasa ordenado a la mañana siguiente.
+      </p>
+
+      <h2>Chatbot y agente de IA no son lo mismo</h2>
+      <p>
+        Vale la pena separarlos porque casi todo lo que se vende como "chatbot" en el mercado
+        es lo primero, y se comporta muy distinto.
+      </p>
+      <p>
+        Un <strong>chatbot</strong> sigue un guion cerrado: <em>marque 1 para horarios, 2 para
+        precios, 3 para ubicación</em>. Funciona mientras el cliente se porte bien. En cuanto
+        escribe "buenas, tienen algo parecido a lo que vi en Instagram pero más barato", el bot
+        se traba y repite el menú. El cliente se va.
+      </p>
+      <p>
+        Un <strong>agente de IA</strong> entiende lo que le escribieron, busca en la
+        información de tu negocio y contesta con lenguaje normal. Si le preguntan algo que no
+        sabe, no inventa: lo dice y pasa la conversación a una persona. Esa diferencia —saber
+        cuándo callarse— es la que separa un agente útil de uno que te hace quedar mal.
       </p>
 
       <h2>Qué hace el agente</h2>
       <ul>
-        <li><strong>Responde al instante</strong> las preguntas de siempre: precios, horarios, ubicación, formas de pago.</li>
-        <li><strong>Toma pedidos</strong> y los registra con los datos del cliente.</li>
-        <li><strong>Agenda citas</strong> según la disponibilidad que le definas.</li>
-        <li><strong>Califica al interesado</strong> y te avisa cuando vale la pena que entres vos.</li>
+        <li><strong>Responde al instante</strong> las preguntas de siempre: precios, horarios, ubicación, formas de pago, cobertura de entrega.</li>
+        <li><strong>Toma pedidos</strong> y los registra con los datos del cliente, listos para procesar.</li>
+        <li><strong>Agenda citas</strong> según la disponibilidad que le definas, y manda el recordatorio.</li>
+        <li><strong>Califica al interesado</strong> con las preguntas correctas y te avisa cuando vale la pena que entres vos.</li>
+        <li><strong>Arma la cotización inicial</strong> cuando el precio depende de datos que se pueden preguntar.</li>
+        <li><strong>Deja registro de todo</strong>, de modo que la conversación no se quede en el teléfono de una sola persona.</li>
         <li><strong>Nunca deja un mensaje sin leer</strong>, ni de madrugada ni en feriado.</li>
       </ul>
+
+      <h2>Qué no conviene automatizar</h2>
+      <p>
+        Esta es la parte que casi nadie te va a decir antes de venderte el servicio, y es la
+        que decide si el agente suma o resta.
+      </p>
+      <ul>
+        <li>
+          <strong>Un reclamo.</strong> El cliente molesto quiere una persona, y un bot
+          contestándole con amabilidad genérica lo enoja más. El agente debe detectarlo y pasar
+          la conversación de inmediato.
+        </li>
+        <li>
+          <strong>La negociación final.</strong> El agente lleva la conversación hasta el punto
+          donde hay que decidir un descuento o una excepción. Ahí entra una persona.
+        </li>
+        <li>
+          <strong>Cualquier cosa con consecuencia legal o de salud.</strong> Un diagnóstico, una
+          dosis, un plazo contractual. Se responde con una persona o no se responde.
+        </li>
+        <li>
+          <strong>Lo que cambia todos los días</strong> y nadie va a mantener al día. Un agente
+          que da precios viejos hace más daño que no tener agente.
+        </li>
+      </ul>
+
+      <h2>Lo que cuesta operarlo, dicho de frente</h2>
+      <p>
+        El desarrollo es un pago único. La operación tiene dos costos recurrentes que no
+        dependen de nosotros y que conviene tener claros <em>antes</em> de decidir:
+      </p>
+      <ul>
+        <li>
+          <strong>El proveedor de inteligencia artificial</strong> cobra por uso. Cada
+          conversación consume un poco. Un negocio con diez consultas al día gasta muy poco;
+          uno con trescientas, bastante más.
+        </li>
+        <li>
+          <strong>La plataforma de WhatsApp</strong>, si se usa la vía oficial de Meta, cobra
+          por conversación. Las tarifas las define Meta y cambian; no las publicamos acá para no
+          darte un número que quede viejo.
+        </li>
+      </ul>
+      <p>
+        Antes de que decidas te estimamos los dos con <strong>tu volumen real</strong> de
+        mensajes. Si el número no cierra contra lo que te ahorra, te lo decimos.
+      </p>
+
+      <h2>¿WhatsApp normal o la plataforma oficial de Meta?</h2>
+      <p>
+        Es la decisión técnica que más impacto tiene y conviene tomarla al inicio, no después.
+      </p>
+      <p>
+        Para un negocio pequeño, con un solo número y volumen moderado, se puede trabajar sobre
+        la aplicación normal. Es más barato y arranca antes.
+      </p>
+      <p>
+        La <strong>plataforma de WhatsApp Business de Meta</strong> corresponde cuando hay
+        volumen alto, varias personas atendiendo el mismo número, necesidad de mandar mensajes
+        de plantilla —una confirmación de pedido, un recordatorio de cita— o cuando el negocio
+        no puede permitirse el riesgo de una restricción. Es la vía oficial, es más estable y
+        tiene costo por conversación.
+      </p>
 
       <h2>Panel de control y reportes</h2>
       <p>
         Viene con un panel web donde ves todas las conversaciones en tiempo real, podés
-        intervenir cuando querás y consultás estadísticas: cuántas consultas llegaron, de qué
-        preguntaron y cuántas terminaron en venta.
+        intervenir en cualquier momento y consultás las estadísticas que importan: cuántas
+        consultas llegaron, a qué hora, de qué preguntaron, cuántas terminaron en venta y
+        cuáles tuvo que atender una persona.
+      </p>
+      <p>
+        Ese último dato es el más útil de todos: cada consulta que el agente no supo resolver es
+        una respuesta que hay que agregarle. El panel te dice exactamente qué falta.
       </p>
 
       <h2>Gestionado o autogestionado</h2>
       <p>
-        Si preferís no ocuparte, lo mantenemos nosotros y ajustamos las respuestas según lo que
-        vaya pasando. Si querés control total, te entregamos el panel y lo manejás vos. El precio
-        cambia según la opción.
+        Si preferís no ocuparte, lo mantenemos nosotros: revisamos las conversaciones, ajustamos
+        las respuestas y te reportamos. Si querés control total, te entregamos el panel y lo
+        manejás vos, con la capacitación incluida.
       </p>
-
-      <h2>Se integra con tu sitio</h2>
       <p>
-        El agente funciona solo, pero rinde más conectado al sitio web: el visitante que llega
-        desde Google entra a tu <a href="/paginas-web-costa-rica/">página web</a>, y si tiene una
-        duda la resuelve en WhatsApp sin esperar. Si además vendés en línea, se conecta con tu
-        <a href="/tiendas-online-costa-rica/">tienda online</a> para tomar pedidos.
+        La mayoría arranca gestionado los primeros meses —que es cuando más ajustes hay— y pasa
+        a autogestionado cuando el agente ya está afinado.
       </p>
     </div>
   </section>
 
   <section class="section-block">
     <div class="section-inner">
+      <h2 class="block-title">Cómo se monta</h2>
+      <p class="block-sub">Cuatro etapas. La primera es la que más determina el resultado.</p>
+      <div class="card-grid cols-4">
+        <div class="info-card">
+          <span class="info-card-num">01</span>
+          <h3>Reunir lo que ya contestás</h3>
+          <p>Se revisan tus conversaciones reales de WhatsApp para ver qué te preguntan de verdad, con qué palabras y en qué orden. Ahí está el guion, no hay que inventarlo.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">02</span>
+          <h3>Definir los límites</h3>
+          <p>Qué responde solo, qué pregunta antes de responder y en qué casos pasa la conversación a una persona sin intentarlo.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">03</span>
+          <h3>Primera versión y prueba</h3>
+          <p>Se pone a funcionar con un grupo chico o en horario limitado, para ver cómo responde con gente real antes de abrirlo del todo.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">04</span>
+          <h3>Afinar con lo que pasa</h3>
+          <p>Las primeras semanas aparecen preguntas que nadie previó. Cada una se convierte en una respuesta nueva. Ahí es donde el agente se vuelve bueno.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block alt">
+    <div class="section-inner">
       <h2 class="block-title">Para qué tipo de negocio sirve</h2>
       <div class="card-grid cols-3">
         <div class="info-card"><h3>Restaurantes y cafeterías</h3><p>Toma pedidos, comparte el menú y responde horarios sin sacar a nadie de la cocina.</p></div>
-        <div class="info-card"><h3>Clínicas y consultorios</h3><p>Agenda citas, explica tratamientos y recuerda la cita al paciente.</p></div>
-        <div class="info-card"><h3>Tiendas y e-commerce</h3><p>Responde sobre stock, tallas, envíos y estado del pedido.</p></div>
-        <div class="info-card"><h3>Inmobiliarias</h3><p>Filtra interesados por presupuesto y zona antes de que el agente invierta tiempo.</p></div>
-        <div class="info-card"><h3>Servicios profesionales</h3><p>Recibe la consulta inicial, la clasifica y agenda la reunión.</p></div>
+        <div class="info-card"><h3>Clínicas y consultorios</h3><p>Agenda citas, explica en qué consiste cada tratamiento y le recuerda la cita al paciente.</p></div>
+        <div class="info-card"><h3>Tiendas y e-commerce</h3><p>Responde sobre existencias, tallas, envíos y estado del pedido.</p></div>
+        <div class="info-card"><h3>Inmobiliarias</h3><p>Filtra interesados por presupuesto y zona antes de que un agente invierta su tiempo.</p></div>
+        <div class="info-card"><h3>Distribuidores y ferreterías</h3><p>Contesta por disponibilidad y arma la lista de la cotización con cantidades.</p></div>
         <div class="info-card"><h3>Talleres y servicios técnicos</h3><p>Recibe la descripción del problema y arma la cola de trabajo del día.</p></div>
       </div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-inner narrow prose">
+      <h2>Se integra con lo que ya tenés</h2>
+      <p>
+        El agente funciona solo, pero rinde bastante más conectado al resto:
+      </p>
+      <ul>
+        <li>
+          Con tu <a href="/paginas-web-costa-rica/">página web</a>: el visitante que llega desde
+          Google resuelve la duda en WhatsApp sin esperar, en vez de irse.
+        </li>
+        <li>
+          Con tu <a href="/tiendas-online-costa-rica/">tienda online</a>: toma pedidos y consulta
+          el estado de una compra.
+        </li>
+        <li>
+          Con un <a href="/software-a-la-medida-costa-rica/">CRM o sistema propio</a>: cada
+          conversación queda registrada en la ficha del cliente, y el interesado que el agente
+          califica entra directo al embudo de ventas.
+        </li>
+        <li>
+          Con <a href="/agentes-ia-redes-sociales-costa-rica/">Instagram y Messenger</a>, para
+          que todos los mensajes lleguen al mismo lugar.
+        </li>
+      </ul>
+      {casoRelacionado && (
+        <p>
+          Un ejemplo de esa última pieza es el
+          <a href={`/proyectos/${casoRelacionado.slug}/`}> CRM que desarrollamos para Grupo Novo</a>:
+          el sistema donde el agente puede dejar registrada cada consulta en vez de que se
+          quede en un teléfono.
+        </p>
+      )}
+
+      <h2>Cuándo conviene esperar</h2>
+      <p>
+        Si hoy recibís pocas consultas al día y las contestás todas a tiempo, un agente no te va
+        a cambiar el negocio: primero conviene invertir en que lleguen más consultas. Lo decimos
+        cuando toca, aunque signifique no vender el servicio este mes.
+      </p>
+      <p>
+        El agente empieza a pagar solo cuando hay mensajes que se están quedando sin respuesta,
+        cuando la atención se lleva horas que hacen falta en otro lado, o cuando el negocio
+        recibe consultas fuera de horario.
+      </p>
     </div>
   </section>
 </ServiceLanding>

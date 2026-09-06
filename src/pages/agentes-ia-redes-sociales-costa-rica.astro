@@ -1,0 +1,253 @@
+---
+/**
+ * Landing de agentes de IA para redes sociales.
+ *
+ * El hueco más grande que salió del análisis competitivo: en Costa Rica
+ * prácticamente nadie trabaja este término como página propia. Instagram y
+ * Messenger estaban nombrados de pasada dentro de la landing de WhatsApp, que es
+ * exactamente la forma de no posicionar por ninguno de los dos.
+ *
+ * No repite lo de WhatsApp: el problema de redes es distinto —comentarios
+ * públicos, historias, varias marcas hablando a la vez— y eso es lo que cubre.
+ */
+import ServiceLanding from '../layouts/ServiceLanding.astro';
+
+const path = '/agentes-ia-redes-sociales-costa-rica/';
+
+const faqs = [
+  {
+    q: '¿Qué es un agente de IA para redes sociales?',
+    a: 'Es un asistente que atiende los mensajes directos y los comentarios de Instagram y Facebook automáticamente: responde preguntas, guarda el dato del interesado y pasa a una persona lo que necesita criterio. Trabaja de noche, fines de semana y feriados.',
+  },
+  {
+    q: '¿También responde comentarios, o solo mensajes directos?',
+    a: 'Las dos cosas, y son casos distintos. El mensaje directo es privado y se puede resolver a fondo. El comentario es público: ahí el agente responde corto y lleva la conversación al privado, que es donde se cierra la venta y donde no queda expuesto el dato del cliente.',
+  },
+  {
+    q: '¿Contesta a quien responde una historia?',
+    a: 'Sí. Las respuestas a historias entran como mensajes directos y son de las consultas con más intención de compra que existe: la persona acaba de ver el producto. Que se queden sin respuesta hasta el día siguiente es de lo más caro que pasa en redes.',
+  },
+  {
+    q: '¿Puede manejar varias cuentas o varias marcas?',
+    a: 'Sí. Se puede montar un agente por cuenta, con su propia información y su propio tono, y verlas todas desde el mismo panel. Es lo habitual cuando una empresa maneja más de una marca o una agencia atiende a varios clientes.',
+  },
+  {
+    q: '¿Se mezcla con WhatsApp?',
+    a: 'Se conecta. Lo normal es que Instagram y Messenger atiendan la consulta inicial y, cuando la conversación se pone seria, se pase a WhatsApp, que es donde el costarricense cierra. El agente hace ese traspaso con el contexto ya recogido, para que el cliente no tenga que repetir nada.',
+  },
+  {
+    q: '¿Meta permite responder automáticamente?',
+    a: 'Sí, por la vía oficial. Instagram y Messenger tienen su plataforma de mensajería para empresas y es la que usamos: es la que no pone en riesgo la cuenta. Las herramientas que automatizan por fuera de esa vía funcionan hasta que Meta las detecta, y ahí el que pierde la cuenta es el negocio.',
+  },
+  {
+    q: '¿Cuánto tarda montarlo?',
+    a: 'Una primera versión que ya conteste lo esencial puede estar en pocos días. Lo que toma tiempo es reunir la información que el agente debe manejar y afinar las respuestas con las conversaciones reales de las primeras semanas.',
+  },
+  {
+    q: '¿Qué necesito para empezar?',
+    a: 'Las cuentas de Instagram y Facebook del negocio, en modo empresa, y la información que el agente debe manejar: productos, precios, horarios, cobertura de entrega y las preguntas que más te hacen. Con eso armamos la primera versión.',
+  },
+];
+---
+<ServiceLanding
+  path={path}
+  title="Agentes de IA para Instagram y Facebook en Costa Rica | HacksinCodigos"
+  description="Agentes de IA que responden mensajes directos, comentarios y respuestas a historias en Instagram y Messenger. Atención 24/7 para negocios en Costa Rica."
+  eyebrow="Costa Rica · Instagram y Messenger"
+  h1="Agentes de IA para redes sociales en Costa Rica"
+  lead="Un asistente que contesta los mensajes directos y los comentarios de Instagram y Facebook a cualquier hora, guarda el dato del interesado y te pasa solo lo que necesita una persona."
+  crumbLabel="Agentes IA redes sociales"
+  serviceName="Agentes de IA para Instagram y Messenger en Costa Rica"
+  serviceType="Automatización de redes sociales con inteligencia artificial"
+  faqs={faqs}
+  waText="Hola, quiero un agente de IA para Instagram y Facebook"
+  ctaTitle="¿Cuántos mensajes se te están quedando sin responder?"
+>
+  <section class="section-block alt">
+    <div class="section-inner narrow prose">
+      <h2>El problema es distinto al de WhatsApp</h2>
+      <p>
+        En WhatsApp la conversación es privada y ordenada: entra un mensaje, se contesta. En
+        redes sociales llegan por cuatro puertas al mismo tiempo, y tres de ellas se ignoran
+        casi siempre.
+      </p>
+      <ul>
+        <li><strong>El mensaje directo</strong>, que es el que todo el mundo revisa.</li>
+        <li><strong>El comentario en una publicación</strong>, que además lo lee todo el que pase.</li>
+        <li><strong>La respuesta a una historia</strong>, que se pierde entre reacciones y emojis.</li>
+        <li><strong>La mención</strong>, que a veces ni llega a la bandeja principal.</li>
+      </ul>
+      <p>
+        Y hay un problema que WhatsApp no tiene: <strong>el comentario sin responder es
+        público</strong>. Un "¿cuánto vale?" abandonado hace tres semanas debajo de una foto le
+        dice a todo el que entra al perfil que ahí no contestan. Es publicidad negativa que
+        queda escrita.
+      </p>
+
+      <h2>La respuesta a una historia es la consulta más caliente que existe</h2>
+      <p>
+        Vale la pena detenerse acá porque es donde más plata se deja ir.
+      </p>
+      <p>
+        Quien responde una historia acaba de ver el producto <em>hace segundos</em>. No está
+        investigando: está interesado ahora. Si esa respuesta se contesta al día siguiente, la
+        persona ya no se acuerda de qué preguntó, o ya compró en otro lado.
+      </p>
+      <p>
+        Un agente contesta esa respuesta en el momento, con la historia todavía fresca en la
+        cabeza del cliente. Es la diferencia entre una conversación y un mensaje muerto.
+      </p>
+
+      <h2>Qué hace el agente</h2>
+      <ul>
+        <li><strong>Responde mensajes directos</strong> de Instagram y Messenger las 24 horas, en lenguaje normal.</li>
+        <li><strong>Contesta comentarios públicos</strong> con una respuesta corta y lleva la conversación al privado.</li>
+        <li><strong>Atiende las respuestas a historias</strong> en el momento, que es cuando valen.</li>
+        <li><strong>Guarda el dato del interesado</strong> — qué preguntó, qué le interesa, cómo contactarlo.</li>
+        <li><strong>Pasa a WhatsApp</strong> cuando la conversación se pone seria, con el contexto ya recogido.</li>
+        <li><strong>Avisa a una persona</strong> cuando aparece un reclamo o algo que no debe contestar solo.</li>
+      </ul>
+
+      <h2>Por qué el comentario se responde distinto</h2>
+      <p>
+        Un comentario es público, y eso cambia las reglas. El agente responde corto, cordial y
+        sin dar precios ni datos personales a la vista de todos — y ahí mismo invita a seguir por
+        privado.
+      </p>
+      <p>
+        Hay dos razones. La primera es comercial: la venta se cierra en privado, no en un hilo
+        de comentarios. La segunda es de respeto al cliente: nadie quiere que su consulta sobre
+        un tratamiento, un préstamo o un producto quede publicada bajo su nombre.
+      </p>
+
+      <h2>Qué no automatizamos en redes</h2>
+      <p>
+        En redes esto pesa más que en WhatsApp, porque los errores quedan a la vista de todos.
+      </p>
+      <ul>
+        <li>
+          <strong>Un reclamo público.</strong> Es el peor lugar posible para que conteste un
+          bot. El agente lo detecta, no responde y avisa de inmediato para que entre una persona.
+        </li>
+        <li>
+          <strong>Cualquier discusión.</strong> Si el tono se calienta, el agente se retira.
+          Un bot discutiendo en un comentario público es una captura de pantalla esperando.
+        </li>
+        <li>
+          <strong>Los mensajes de otra empresa o de prensa.</strong> Se identifican y se pasan
+          sin responder.
+        </li>
+        <li>
+          <strong>Poner "me gusta" o comentar por su cuenta.</strong> Eso es simular actividad,
+          no atender clientes. No lo hacemos.
+        </li>
+      </ul>
+
+      <h2>Por la vía oficial de Meta, no por atajos</h2>
+      <p>
+        Instagram y Messenger tienen su propia plataforma de mensajería para empresas, y es la
+        que usamos. Es la que Meta reconoce y la que no pone en riesgo la cuenta.
+      </p>
+      <p>
+        Existen herramientas que automatizan por fuera de esa vía, simulando a una persona.
+        Funcionan hasta que Meta las detecta, y cuando las detecta el que pierde la cuenta —con
+        todos sus seguidores y su historial— es el negocio, no la herramienta. No trabajamos así.
+      </p>
+      <p>
+        Para conectarlo hacen falta las cuentas en modo empresa y los permisos correspondientes.
+        Ese trámite lo hacemos nosotros.
+      </p>
+
+      <h2>Lo que cuesta operarlo</h2>
+      <p>
+        El desarrollo es un pago único. Después queda un costo recurrente: el del proveedor de
+        inteligencia artificial, que cobra por uso. A diferencia de WhatsApp, la mensajería de
+        Instagram y Messenger no tiene hoy un costo por conversación de parte de Meta.
+      </p>
+      <p>
+        Antes de que decidas te estimamos el gasto mensual con tu volumen real de mensajes. Si el
+        número no cierra contra lo que te ahorra, te lo decimos.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-inner">
+      <h2 class="block-title">Las cuatro puertas, y qué hace el agente en cada una</h2>
+      <p class="block-sub">Cada tipo de mensaje se atiende distinto porque no significa lo mismo.</p>
+      <div class="card-grid cols-4">
+        <div class="info-card">
+          <span class="info-card-num">01</span>
+          <h3>Mensaje directo</h3>
+          <p>Conversación privada y completa: responde, cotiza si se puede, toma el dato y agenda.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">02</span>
+          <h3>Comentario público</h3>
+          <p>Respuesta corta y cordial a la vista de todos, y la conversación sigue por privado.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">03</span>
+          <h3>Respuesta a historia</h3>
+          <p>Se contesta en el momento, mientras el interés está vivo. Es la de mayor intención.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">04</span>
+          <h3>Mención</h3>
+          <p>Se detecta, se agradece si corresponde y se avisa cuando merece atención de una persona.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block alt">
+    <div class="section-inner">
+      <h2 class="block-title">Para qué tipo de negocio sirve</h2>
+      <div class="card-grid cols-3">
+        <div class="info-card"><h3>Tiendas y marcas de producto</h3><p>Donde el catálogo vive en Instagram y cada publicación levanta preguntas de precio y disponibilidad.</p></div>
+        <div class="info-card"><h3>Restaurantes y cafeterías</h3><p>Reservas, menú del día y consultas de ubicación que llegan a cualquier hora.</p></div>
+        <div class="info-card"><h3>Clínicas y estética</h3><p>Consultas sobre tratamientos que conviene sacar del comentario público y llevar al privado.</p></div>
+        <div class="info-card"><h3>Emprendimientos que venden por redes</h3><p>El caso más común del país: toda la venta pasa por mensajes directos y una sola persona los contesta.</p></div>
+        <div class="info-card"><h3>Hoteles y turismo</h3><p>Consultas en varios idiomas y en horarios de otros países.</p></div>
+        <div class="info-card"><h3>Agencias con varias cuentas</h3><p>Un agente por marca, con su propio tono, todos en el mismo panel.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-inner narrow prose">
+      <h2>Se conecta con el resto</h2>
+      <ul>
+        <li>
+          Con <a href="/agentes-ia-costa-rica/">tu agente de WhatsApp</a>, para que la
+          conversación pase de la red social al canal donde se cierra, sin que el cliente
+          repita nada.
+        </li>
+        <li>
+          Con tu <a href="/paginas-web-costa-rica/">página web</a>, para llevar al interesado
+          a la página del servicio en vez de explicarlo todo por mensaje.
+        </li>
+        <li>
+          Con un <a href="/software-a-la-medida-costa-rica/">CRM</a>, para que cada interesado
+          quede registrado y con seguimiento asignado en vez de perderse en la bandeja.
+        </li>
+        <li>
+          Con tu <a href="/tiendas-online-costa-rica/">tienda online</a>, para consultar
+          existencias y estado de pedidos.
+        </li>
+      </ul>
+
+      <h2>Cuándo conviene esperar</h2>
+      <p>
+        Si tus redes reciben pocos mensajes al día y los contestás todos el mismo día, un agente
+        no te va a cambiar el negocio: lo que hace falta primero es que lleguen más consultas.
+        Lo decimos cuando toca.
+      </p>
+      <p>
+        El agente empieza a pagar solo cuando hay comentarios sin responder a la vista de todos,
+        cuando las respuestas a historias se contestan al día siguiente, o cuando atender la
+        bandeja se lleva horas que hacen falta en otro lado.
+      </p>
+    </div>
+  </section>
+</ServiceLanding>

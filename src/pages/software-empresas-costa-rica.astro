@@ -1,0 +1,251 @@
+---
+/**
+ * Landing de software para empresa mediana y grande.
+ *
+ * La de software a la medida habla de PYMES en el título, el H1 y todo el cuerpo:
+ * una gerencia de TI que busca proveedor no se reconoce ahí. Esta página persigue
+ * al otro comprador, que decide por criterios distintos — integraciones, control
+ * de accesos, trazabilidad, continuidad y niveles de servicio — y que casi nunca
+ * pregunta primero por el precio.
+ *
+ * No compite con /software-a-la-medida-costa-rica/: se enlazan entre sí y cada una
+ * habla de lo suyo.
+ */
+import ServiceLanding from '../layouts/ServiceLanding.astro';
+
+const path = '/software-empresas-costa-rica/';
+
+const faqs = [
+  {
+    q: '¿Trabajan con empresas medianas y grandes o solo con PYMES?',
+    a: 'Con las dos, pero el enfoque es distinto. En una empresa con varias áreas el desafío rara vez es programar: es integrarse con lo que ya existe, respetar los permisos de cada rol y no interrumpir la operación durante la puesta en marcha. Eso es lo que cubre este servicio.',
+  },
+  {
+    q: '¿Se integra con el ERP que ya usamos?',
+    a: 'Sí, y es lo habitual. Se trabaja contra la API del sistema o, cuando no la hay, sobre exportaciones e intercambios programados. Lo primero que hacemos en el diagnóstico es revisar qué expone cada sistema, porque de ahí sale si la integración es cuestión de días o de semanas.',
+  },
+  {
+    q: '¿Cómo manejan los accesos y los permisos?',
+    a: 'Con roles definidos junto al cliente: quién ve qué, quién puede modificar y quién solo consulta. Cada acción relevante queda registrada con usuario, fecha y qué cambió. En una empresa con varias áreas eso no es un extra, es un requisito.',
+  },
+  {
+    q: '¿Dónde quedan alojados los datos?',
+    a: 'Donde la empresa decida: en la nube, en su propia infraestructura o en un esquema mixto. Hay organizaciones con políticas que exigen que cierta información no salga del país o de sus servidores, y eso se define antes de escribir la primera línea.',
+  },
+  {
+    q: '¿Qué pasa si la empresa decide cambiar de proveedor?',
+    a: 'El código, la base de datos, la documentación y los accesos son del cliente desde que se completa el pago. La documentación se entrega para que otro equipo pueda tomar el proyecto sin depender de nosotros. Un proveedor que te deja atrapado no es un proveedor, es un problema.',
+  },
+  {
+    q: '¿Cómo se hace la puesta en marcha sin frenar la operación?',
+    a: 'Por partes y con convivencia. El sistema nuevo entra en un área o en un proceso, corre en paralelo con lo que ya existe hasta que los números coinciden, y recién ahí se apaga lo anterior. Cambiar todo de un día para otro es la forma más rápida de que el proyecto fracase.',
+  },
+  {
+    q: '¿Ofrecen soporte con tiempos de respuesta comprometidos?',
+    a: 'Sí. Se acuerdan por escrito tiempos de respuesta según la severidad del incidente, con canal de contacto definido y responsable identificado. Se define antes de firmar, no después del primer problema.',
+  },
+  {
+    q: '¿Cuánto cuesta y cómo se cotiza?',
+    a: 'Por alcance, después de un diagnóstico. No hay precio de lista porque el costo depende de cuántos módulos e integraciones lleve, cuántos tipos de usuario existan y qué exigencias de seguridad y disponibilidad tenga. Casi siempre conviene arrancar por un módulo acotado que resuelva un cuello de botella concreto.',
+  },
+];
+---
+<ServiceLanding
+  path={path}
+  title="Software para Empresas en Costa Rica | HacksinCodigos"
+  description="Desarrollo de software para empresas medianas y grandes en Costa Rica: integraciones con ERP, accesos por rol, trazabilidad, portales y puesta en marcha por etapas."
+  eyebrow="Costa Rica · Empresa mediana y grande"
+  h1="Software para empresas en Costa Rica"
+  lead="Sistemas que se integran con lo que la empresa ya usa, respetan los permisos de cada área y entran en operación sin frenar el negocio."
+  crumbLabel="Software para empresas"
+  serviceName="Desarrollo de software empresarial e integraciones en Costa Rica"
+  serviceType="Desarrollo de software empresarial"
+  faqs={faqs}
+  waText="Hola, quiero conversar sobre un proyecto de software para nuestra empresa"
+  ctaTitle="¿Conversamos sobre el proyecto?"
+>
+  <section class="section-block alt">
+    <div class="section-inner narrow prose">
+      <h2>En una empresa, el problema no es programar</h2>
+      <p>
+        Cuando un negocio chico necesita un sistema, el trabajo es construirlo. Cuando lo
+        necesita una empresa con varias áreas, construirlo es la parte fácil.
+      </p>
+      <p>Lo difícil es todo lo que lo rodea:</p>
+      <ul>
+        <li><strong>Ya hay sistemas funcionando</strong> — un ERP, una facturación electrónica, un sistema de planilla — y el nuevo tiene que convivir con ellos, no reemplazarlos.</li>
+        <li><strong>La información es sensible</strong> y no todo el mundo puede ver lo mismo.</li>
+        <li><strong>Hay que poder auditar</strong> quién hizo qué y cuándo.</li>
+        <li><strong>La operación no se puede detener</strong> mientras se hace el cambio.</li>
+        <li><strong>Hay más de un dueño de la decisión</strong>, y cada uno mide el éxito distinto.</li>
+      </ul>
+      <p>
+        Un proveedor que solo sabe programar entrega un sistema que funciona en su computadora y
+        no entra nunca en producción. La diferencia está en el proceso, no en el código.
+      </p>
+
+      <h2>Integrarse con lo que ya existe</h2>
+      <p>
+        Es el punto donde más proyectos se caen, y por eso es lo primero que revisamos.
+      </p>
+      <p>
+        Si el sistema actual tiene una API documentada, la integración es cuestión de días. Si no
+        la tiene —que es lo más común con software administrativo de hace años— hay que trabajar
+        sobre exportaciones, bases intermedias o intercambios programados. Se puede, pero cambia
+        el plazo y el costo, y hay que saberlo <em>antes</em> de comprometer una fecha.
+      </p>
+      <p>
+        Por eso el diagnóstico empieza revisando qué expone cada sistema involucrado. Es la hora
+        mejor invertida de todo el proyecto.
+      </p>
+
+      <h2>Accesos, roles y trazabilidad</h2>
+      <p>
+        En una empresa con varias áreas esto no es una funcionalidad extra: es la condición para
+        que el sistema pueda usarse.
+      </p>
+      <ul>
+        <li><strong>Roles definidos con el cliente:</strong> quién consulta, quién modifica, quién aprueba.</li>
+        <li><strong>Registro de auditoría:</strong> cada acción relevante queda con usuario, fecha y el detalle de qué cambió.</li>
+        <li><strong>Separación por área o sucursal</strong>, cuando cada una debe ver solo lo suyo.</li>
+        <li><strong>Bajas ordenadas:</strong> que el acceso de quien sale de la empresa se cierre el mismo día, sin depender de que alguien se acuerde.</li>
+      </ul>
+
+      <h2>Qué desarrollamos</h2>
+      <ul>
+        <li><strong>Sistemas de gestión a la medida</strong> para procesos que ningún producto de estante cubre.</li>
+        <li><strong>Integraciones entre sistemas</strong> que hoy no se hablan, y que obligan a alguien a copiar datos de uno a otro.</li>
+        <li><strong>Portales para clientes o proveedores</strong>: estado de cuenta, pedidos, documentos, sin llamar a preguntar.</li>
+        <li><strong>Automatización de procesos internos</strong> con aprobaciones, alertas y plazos.</li>
+        <li><strong>Paneles de gerencia</strong> con los indicadores calculados solos, no armados a mano cada fin de mes.</li>
+        <li><strong>Aplicaciones móviles</strong> para personal en calle, conectadas al sistema central.</li>
+        <li><strong>APIs propias</strong> para exponer con orden lo que hoy se comparte por archivos.</li>
+      </ul>
+
+      <h2>Cómo entra en operación sin frenar el negocio</h2>
+      <p>
+        La puesta en marcha es donde un proyecto correcto se puede arruinar. La regla es simple:
+        <strong>nunca se cambia todo de un día para otro</strong>.
+      </p>
+      <ul>
+        <li><strong>Se arranca por un área o un proceso</strong>, el que más duele, no el más fácil.</li>
+        <li><strong>Se corre en paralelo</strong> con lo que ya existe hasta que los números de los dos coinciden.</li>
+        <li><strong>Se capacita a quien lo va a usar</strong>, no solo a quien lo aprobó.</li>
+        <li><strong>Se apaga lo viejo</strong> recién cuando el área confirma que puede trabajar sin ello.</li>
+      </ul>
+      <p>
+        Es más lento sobre el papel y bastante más rápido en la realidad, porque evita el mes de
+        caos que hunde la confianza en el sistema.
+      </p>
+
+      <h2>Continuidad: qué pasa si mañana no estamos</h2>
+      <p>
+        Es una pregunta legítima que toda gerencia debería hacer, y la respuesta define si vale
+        la pena contratar a alguien.
+      </p>
+      <p>
+        El código, la base de datos, la documentación y los accesos son del cliente desde que se
+        completa el pago. La documentación se escribe para que otro equipo pueda tomar el
+        proyecto: cómo está armado, dónde corre, cómo se despliega y qué decisiones se tomaron.
+      </p>
+      <p>
+        No usamos formatos cerrados ni dependencias propias que aten al cliente. Un proveedor
+        que te deja atrapado no es un proveedor.
+      </p>
+
+      <h2>Cuándo conviene comprar en vez de construir</h2>
+      <p>
+        Lo decimos aunque signifique no vender el desarrollo, porque a mediano plazo es lo que
+        sostiene la relación.
+      </p>
+      <p>
+        Si el proceso es estándar —contabilidad, planilla, facturación electrónica— casi siempre
+        conviene un producto establecido y bien configurado. Ahí lo que aporta valor no es
+        programar de cero: es la integración entre esos productos y el proceso propio de la
+        empresa, que suele ser donde está el verdadero cuello de botella.
+      </p>
+      <p>El desarrollo a la medida se justifica cuando aparece alguna de estas tres:</p>
+      <ul>
+        <li><strong>El proceso es la ventaja competitiva</strong> y adaptarlo a un producto de estante significaría perderla.</li>
+        <li><strong>Ningún producto integra</strong> lo que hay que integrar, y alguien está copiando datos a mano entre sistemas.</li>
+        <li><strong>El costo por usuario de la licencia</strong> ya supera lo que costaría tener el sistema propio.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-inner">
+      <h2 class="block-title">Cómo trabajamos un proyecto empresarial</h2>
+      <p class="block-sub">Cinco etapas, con entregas parciales y un responsable identificado en cada una.</p>
+      <div class="card-grid cols-3">
+        <div class="info-card">
+          <span class="info-card-num">01</span>
+          <h3>Diagnóstico técnico</h3>
+          <p>Qué sistemas hay, qué expone cada uno, dónde se está copiando información a mano y qué exige la política interna de datos.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">02</span>
+          <h3>Alcance y prioridades</h3>
+          <p>Qué entra en la primera entrega y qué espera. Se define con las áreas que van a usarlo, no solo con quien firma.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">03</span>
+          <h3>Construcción por módulos</h3>
+          <p>Entregas parciales revisables. El área usa lo primero mientras se construye lo siguiente y corrige el rumbo temprano.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">04</span>
+          <h3>Convivencia y corte</h3>
+          <p>El sistema nuevo corre en paralelo con el anterior hasta que los números coinciden. Recién ahí se apaga lo viejo.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">05</span>
+          <h3>Soporte con compromisos</h3>
+          <p>Tiempos de respuesta acordados por severidad, canal definido y responsable identificado. Por escrito antes de firmar.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card-num">06</span>
+          <h3>Entrega documentada</h3>
+          <p>Código, datos, accesos y documentación técnica a nombre del cliente, suficientes para que otro equipo continúe.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block alt">
+    <div class="section-inner narrow prose">
+      <h2>Seguridad, sin adornos</h2>
+      <p>
+        Aplicamos lo que corresponde a un sistema que va a manejar información de una empresa:
+        cifrado en tránsito, contraseñas almacenadas de forma irreversible, control de acceso por
+        rol, registro de auditoría, respaldos con restauración probada —un respaldo que nunca se
+        restauró no es un respaldo— y separación entre los ambientes de prueba y producción.
+      </p>
+      <p>
+        Lo que no vamos a hacer es prometer certificaciones que no tenemos ni cumplimientos
+        normativos que no auditamos. Si tu empresa necesita una certificación específica, lo
+        correcto es decirlo desde el inicio y evaluar si corresponde sumar a un tercero.
+      </p>
+
+      <h2>Servicios relacionados</h2>
+      <ul>
+        <li>
+          <a href="/software-a-la-medida-costa-rica/">Software a la medida y CRM</a> — el mismo
+          servicio enfocado en negocios más chicos, donde el proyecto arranca por un solo módulo.
+        </li>
+        <li>
+          <a href="/aplicaciones-moviles-costa-rica/">Aplicaciones móviles</a> — la cara móvil
+          del sistema, para personal en calle o para clientes.
+        </li>
+        <li>
+          <a href="/desarrollo-web-costa-rica/">Desarrollo web y APIs</a> — plataformas,
+          integraciones y servicios que conectan sistemas entre sí.
+        </li>
+        <li>
+          <a href="/agentes-ia-costa-rica/">Agentes de IA</a> — automatización de la atención,
+          conectada al sistema para que cada conversación quede registrada.
+        </li>
+      </ul>
+    </div>
+  </section>
+</ServiceLanding>

@@ -730,3 +730,28 @@ a.info-card { display: block; text-decoration: none; color: inherit; }
 }
 .resena-fuente a { color: var(--accent-green); text-decoration: none; }
 .resena-fuente a:hover { text-decoration: underline; }
+
+/* Resumen de la calificación cuando no hay reseñas con texto que citar. */
+.resena-resumen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: .7rem;
+  margin: 1.5rem 0 2rem;
+}
+.resena-nota {
+  font-family: var(--font-display, inherit);
+  font-size: 2.1rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text-primary);
+}
+.resena-resumen .resena-estrellas { margin: 0; font-size: 1.15rem; }
+.resena-total {
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}

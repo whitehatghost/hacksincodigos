@@ -16,7 +16,11 @@
 import datos from '../data/google-reviews.json';
 
 const resenas = datos.resenas ?? [];
-const hay = resenas.length > 0;
+// Se pinta si hay reseñas con texto O si al menos hay calificación: una reseña
+// de solo estrellas no da qué citar, pero el promedio y el total sí dicen algo.
+const hayTexto = resenas.length > 0;
+const hayResumen = Boolean(datos.calificacion && datos.totalResenas);
+const hay = hayTexto || hayResumen;
 
 /** Estrellas como texto: se lee igual sin imágenes y no pesa nada. */
 const estrellas = (n: number | null) => '★'.repeat(Math.round(n ?? 5)).padEnd(5, '☆');
@@ -34,11 +38,20 @@ const iniciales = (nombre: string) =>
     <div class="section-inner">
       <h2 class="block-title">Lo que dicen en Google</h2>
       <p class="block-sub">
-        Reseñas publicadas por clientes en nuestro perfil de Google.
-        {datos.calificacion && datos.totalResenas && (
-          <> Calificación {datos.calificacion} sobre {datos.totalResenas} reseñas.</>
-        )}
+        {hayTexto
+          ? 'Reseñas publicadas por clientes en nuestro perfil de Google.'
+          : 'Calificación de nuestro perfil de Google, publicada por clientes reales.'}
       </p>
+
+      {hayResumen && (
+        <p class="resena-resumen">
+          <span class="resena-nota">{datos.calificacion}</span>
+          <span class="resena-estrellas" aria-hidden="true">{estrellas(datos.calificacion)}</span>
+          <span class="resena-total">
+            {datos.totalResenas} {datos.totalResenas === 1 ? 'reseña' : 'reseñas'} en Google
+          </span>
+        </p>
+      )}
 
       <div class="card-grid cols-3">
         {resenas.slice(0, 6).map((r) => (
@@ -64,7 +77,8 @@ const iniciales = (nombre: string) =>
 
       {datos.perfilUrl && (
         <p class="resena-fuente">
-          Reseñas de <a href={datos.perfilUrl} target="_blank" rel="noopener">nuestro perfil de Google</a>.
+          {hayTexto ? 'Reseñas de ' : 'Ver '}
+          <a href={datos.perfilUrl} target="_blank" rel="noopener">nuestro perfil de Google</a>.
         </p>
       )}
     </div>

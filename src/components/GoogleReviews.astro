@@ -39,13 +39,15 @@ const iniciales = (nombre: string) =>
     .join('')
     .toUpperCase();
 ---
-{/* Diagnóstico: solo un comentario en el HTML, invisible para el visitante.
-    Sirve para saber desde producción qué devolvió la API sin abrir el registro
-    de la build. Se puede quitar cuando las reseñas fluyan solas. */}
-<!--
-  resenas-api: {JSON.stringify(datos.diagnostico ?? {sinDatos: true})}
-  resenas-manuales: {String((manuales.resenas ?? []).length)}
--->
+{/* Diagnóstico, en un atributo porque Astro no evalúa expresiones dentro de un
+    comentario HTML: ahí salían literales. Es un elemento oculto, sin contenido,
+    que permite ver desde producción qué devolvió la API sin abrir el registro de
+    la build. Se puede quitar cuando las reseñas fluyan solas. */}
+<div
+  hidden
+  data-resenas-api={JSON.stringify(datos.diagnostico ?? { sinDatos: true })}
+  data-resenas-manuales={String((manuales.resenas ?? []).length)}
+></div>
 {hay && (
   <section id="resenas-google" class="section-block alt" aria-label="Reseñas de Google">
     <div class="section-inner">

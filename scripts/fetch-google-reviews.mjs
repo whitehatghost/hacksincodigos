@@ -118,13 +118,27 @@ try {
     calificacion: d.rating ?? null,
     totalResenas: d.userRatingCount ?? null,
     resenas,
+    // Para poder diagnosticar desde producción por qué no hay reseñas sin tener
+    // que abrir el registro de la build.
+    diagnostico: {
+      camposRecibidos: Object.keys(d).sort(),
+      resenasDevueltas: (d.reviews ?? []).length,
+      resenasConTexto: resenas.length,
+    },
   });
 
   console.log(
-    `  ✓ Reseñas de Google: ${resenas.length} con texto` +
-      (d.userRatingCount ? ` de ${d.userRatingCount} en total` : '') +
-      (d.rating ? ` · calificación ${d.rating}` : '')
+    `  ✓ Reseñas de Google: la API devolvió ${(d.reviews ?? []).length}, ` +
+      `${resenas.length} con texto` +
+      (d.userRatingCount ? ` · ${d.userRatingCount} calificaciones en el perfil` : '') +
+      (d.rating ? ` · promedio ${d.rating}` : '')
   );
+  console.log(`    campos recibidos: ${Object.keys(d).sort().join(', ')}`);
+  if ((d.reviews ?? []).length === 0) {
+    console.log('    Google no devolvió ninguna reseña. Suele pasar cuando son');
+    console.log('    recientes: la API tarda días en publicarlas aunque ya se vean');
+    console.log('    en el perfil. Mientras tanto sirve src/data/resenas-manuales.json.');
+  }
 } catch (e) {
   console.error(`  ✗ Reseñas de Google: ${e.message}`);
   if (!fs.existsSync(DESTINO)) guardar(VACIO);

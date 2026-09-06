@@ -14,8 +14,14 @@
  * propias reseñas alojadas en un tercero va contra las directrices de Google.
  */
 import datos from '../data/google-reviews.json';
+import manuales from '../data/resenas-manuales.json';
 
-const resenas = datos.resenas ?? [];
+// Las de la API mandan. Las transcritas a mano son el respaldo mientras Google
+// tarda en publicarlas: aparecen igual y se ignoran solas en cuanto la API las
+// devuelva.
+const deLaApi = datos.resenas ?? [];
+const resenas = deLaApi.length > 0 ? deLaApi : (manuales.resenas ?? []);
+const origenManual = deLaApi.length === 0 && resenas.length > 0;
 // Se pinta si hay reseñas con texto O si al menos hay calificación: una reseña
 // de solo estrellas no da qué citar, pero el promedio y el total sí dicen algo.
 const hayTexto = resenas.length > 0;
@@ -33,6 +39,13 @@ const iniciales = (nombre: string) =>
     .join('')
     .toUpperCase();
 ---
+{/* Diagnóstico: solo un comentario en el HTML, invisible para el visitante.
+    Sirve para saber desde producción qué devolvió la API sin abrir el registro
+    de la build. Se puede quitar cuando las reseñas fluyan solas. */}
+<!--
+  resenas-api: {JSON.stringify(datos.diagnostico ?? {sinDatos: true})}
+  resenas-manuales: {String((manuales.resenas ?? []).length)}
+-->
 {hay && (
   <section id="resenas-google" class="section-block alt" aria-label="Reseñas de Google">
     <div class="section-inner">
@@ -79,8 +92,9 @@ const iniciales = (nombre: string) =>
 
       {datos.perfilUrl && (
         <p class="resena-fuente">
-          {hayTexto ? 'Reseñas de ' : 'Ver '}
+          {hayTexto ? 'Reseñas publicadas en ' : 'Ver '}
           <a href={datos.perfilUrl} target="_blank" rel="noopener">nuestro perfil de Google</a>.
+          {origenManual && ' Ahí están todas, con su fecha.'}
         </p>
       )}
     </div>

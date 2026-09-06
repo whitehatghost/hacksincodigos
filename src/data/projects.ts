@@ -139,9 +139,10 @@ export const projects: Project[] = [
       'Integración de pagos en línea',
       'Catálogo por categorías de producto',
       'Diseño mobile-first para compra desde el celular',
+      'Agente de IA en WhatsApp que atiende consultas fuera de horario',
     ],
     tech: ['WordPress', 'WooCommerce', 'Pasarela de pagos'],
-    relatedServices: ['/tiendas-online-costa-rica/', '/desarrollo-web-costa-rica/'],
+    relatedServices: ['/tiendas-online-costa-rica/', '/agentes-ia-costa-rica/', '/desarrollo-web-costa-rica/'],
     thumbGradient: 'linear-gradient(135deg,#1a0a2e,#0d1117)',
     metaTitle: 'La Casita del Bebé — Tienda online en Costa Rica | HacksinCodigos',
     metaDesc:

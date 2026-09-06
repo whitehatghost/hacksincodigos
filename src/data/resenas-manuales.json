@@ -1,0 +1,19 @@
+{
+  "_comentario": [
+    "Reseñas transcritas del perfil de Google mientras la API se pone al día.",
+    "",
+    "SOLO se copian reseñas que YA ESTÁN PUBLICADAS en el perfil, tal cual las",
+    "escribió su autor. No se retocan, no se resumen y no se inventan: si una no",
+    "está en el perfil, no va acá.",
+    "",
+    "En cuanto la API empiece a devolverlas, las de la API mandan y estas se",
+    "ignoran solas — no hay que borrar nada.",
+    "",
+    "Formato de cada una:",
+    "  autor        nombre tal como aparece en Google",
+    "  calificacion 1 a 5",
+    "  texto        la reseña completa, sin editar",
+    "  cuando       opcional: 'hace 2 semanas', o la fecha"
+  ],
+  "resenas": []
+}

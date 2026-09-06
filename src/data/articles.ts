@@ -705,6 +705,107 @@ export const articles: Article[] = [
 <p>¿Vendés algo que exige confianza a distancia, o tenés un catálogo que cambia seguido? Contanos el caso. Mirá el <a href="/proyectos/costa-rica-realty-pro/">caso en el portafolio</a> o cómo trabajamos el <a href="/desarrollo-web-costa-rica/">desarrollo web a medida</a>.</p>
 `,
   },
+  {
+    // ─────────────────────────────────────────────────────────────────────────
+    // POR CONFIRMAR antes de darlo por definitivo. Lo que se afirma acá es:
+    //   · La Casita del Bebé es una tienda de productos para bebé en Costa Rica
+    //     con tienda en línea sobre WooCommerce — verificable en su sitio.
+    //   · Vende marcas como Joie, Graco y Premium Baby — publicado por ellos.
+    //   · Atiende por WhatsApp al 8426 8083 — publicado en su sitio.
+    //   · HacksinCodigos les desarrolló la tienda y el agente de IA — confirmado
+    //     por el cliente.
+    // Lo que describe el agente está al nivel del servicio que se vende, no de
+    // funciones concretas que nadie verificó. Si el agente hace algo distinto o
+    // algo más, corregirlo acá.
+    // NO hay métricas de venta y no debe agregarse ninguna sin autorización
+    // escrita del cliente.
+    // ─────────────────────────────────────────────────────────────────────────
+    slug: 'caso-chatbot-whatsapp-la-casita-del-bebe',
+    title: 'Un agente de IA en WhatsApp para una tienda de bebés',
+    metaTitle: 'Caso: chatbot de IA en WhatsApp para tienda | HacksinCodigos',
+    metaDesc:
+      'Cómo un agente de IA atiende el WhatsApp de La Casita del Bebé: responde de madrugada, consulta el catálogo y sabe cuándo NO debe contestar solo.',
+    excerpt:
+      'A las tres de la mañana un bebé no duerme y la mamá compra desde el celular. Le montamos a La Casita del Bebé un agente que atiende esa hora — y que sabe cuándo callarse.',
+    tag: '🤖 Caso de cliente',
+    tagColor: 'var(--accent-amber)',
+    published: '2026-09-06',
+    updated: '2026-09-06',
+    readingMinutes: 9,
+    proyecto: 'la-casita-del-bebe',
+    relatedServices: [
+      { href: '/agentes-ia-costa-rica/', label: 'agentes de IA' },
+      { href: '/tiendas-online-costa-rica/', label: 'tiendas online' },
+    ],
+    bodyHtml: `
+<p><a href="https://lacasitadelbebecr.com/" target="_blank" rel="noopener">La Casita del Bebé</a> vende productos para bebé en Costa Rica: coches, sillas de carro, cunas y accesorios de marcas como Joie, Graco y Premium Baby. Ya le habíamos desarrollado la <a href="/proyectos/la-casita-del-bebe/">tienda en línea</a>. Después le montamos un <strong>agente de IA en WhatsApp</strong>.</p>
+<p>Este caso es distinto a los otros del portafolio, porque el problema no era que no las encontraran. Era la hora a la que las encontraban.</p>
+
+<h2>El cliente de una tienda de bebés compra a las tres de la mañana</h2>
+<p>No es una forma de hablar. Es literal, y define todo lo demás.</p>
+<p>Quien tiene un recién nacido no duerme de corrido. A la madrugada, con el bebé en brazos y el celular en la otra mano, es cuando aparece el rato para resolver que hace falta un coche que sirva desde el nacimiento, o averiguar si la silla que le regalaron le queda al carro.</p>
+<p>A esa hora no hay nadie contestando en ninguna tienda del país. La consulta se manda igual, y a las nueve de la mañana la persona ya está en otra cosa — o ya compró en otro lado, donde sí le respondieron.</p>
+<p>Ese es el problema que un agente resuelve mejor que en casi cualquier otro rubro: <strong>acá el horario comercial no coincide con el horario del cliente</strong>.</p>
+
+<h2>Lo que preguntan no es el precio</h2>
+<p>Es la otra particularidad, y la que hace que un chatbot de menú numerado no sirva.</p>
+<p>En productos para bebé la consulta casi nunca es "¿cuánto vale?". Es una pregunta de <em>compatibilidad</em>, y viene envuelta en la vida real de quien pregunta:</p>
+<ul>
+  <li><strong>De edad y peso:</strong> "mi bebé tiene cuatro meses, ¿ya le sirve?".</li>
+  <li><strong>De compatibilidad:</strong> "¿esta silla calza con el coche que ya tengo?".</li>
+  <li><strong>De uso real:</strong> "¿cabe en la cajuela de un carro pequeño?", "¿se puede lavar?".</li>
+  <li><strong>De regalo:</strong> alguien que no tiene bebé comprando para un baby shower, y que no sabe ni qué preguntar.</li>
+</ul>
+<p>Un bot de opciones fijas —<em>marque 1 para coches, 2 para sillas</em>— se traba en la primera. Por eso acá hacía falta un agente que entienda lo que le escribieron, no uno que ofrezca un menú.</p>
+
+<h2>Qué hace el agente</h2>
+<p>Trabaja sobre el mismo catálogo de la <a href="/tiendas-online-costa-rica/">tienda</a>, así que responde con lo que de verdad hay:</p>
+<ul>
+  <li><strong>Contesta a cualquier hora</strong> las preguntas de siempre: disponibilidad, características, formas de pago, envíos y cobertura.</li>
+  <li><strong>Ubica el producto</strong> a partir de lo que la persona describe, aunque no sepa el nombre ni la marca.</li>
+  <li><strong>Recoge los datos</strong> que hacen falta para cotizar o despachar, sin que nadie los vuelva a pedir.</li>
+  <li><strong>Deja la consulta ordenada</strong> para la mañana siguiente cuando hace falta una persona.</li>
+  <li><strong>Manda al carrito</strong> a quien ya decidió, y mantiene la conversación con quien todavía está averiguando.</li>
+</ul>
+
+<h2>La parte más importante: cuándo el agente NO contesta</h2>
+<p>Acá es donde este proyecto se separa de un chatbot cualquiera, y donde más tiempo se invirtió.</p>
+<p>En productos para bebé hay preguntas que <strong>no puede responder una máquina</strong>, porque la respuesta equivocada no cuesta una venta: puede costar bastante más.</p>
+<ul>
+  <li>
+    <strong>Instalación de una silla de carro.</strong> Cómo se ancla, con cinturón o con los anclajes del vehículo, en qué posición según la edad. Eso lo explica una persona, no un mensaje automático.
+  </li>
+  <li>
+    <strong>Si un producto es seguro para un bebé en particular.</strong> Hay diferencias por peso, por talla, por condición médica. El agente puede decir qué dice el fabricante; no puede decidir por nadie.
+  </li>
+  <li>
+    <strong>Cualquier cosa que suene a consulta de salud.</strong> Se pasa a una persona, sin intentarlo.
+  </li>
+  <li>
+    <strong>Un reclamo.</strong> Una mamá molesta con un pedido quiere una persona, y un bot amable la enoja más.
+  </li>
+</ul>
+<p>Que el agente <em>sepa lo que no sabe</em> no es una limitación: es el requisito para poder ponerlo. Un agente que improvisa sobre seguridad infantil es un riesgo para el negocio y para el cliente, y ninguna venta lo compensa.</p>
+
+<h2>Por qué WhatsApp y no un chat en el sitio</h2>
+<p>Al sitio no le pusimos widget de chat, y fue a propósito.</p>
+<p>En Costa Rica el cliente de este rubro ya está en WhatsApp: es donde le escribe a su familia, donde pregunta en los grupos de mamás y donde guarda la conversación para retomarla mañana. Un chat dentro del sitio se pierde cuando cierra la pestaña; una conversación de WhatsApp sigue ahí a los tres días, cuando por fin decide.</p>
+<p>Además hay una razón práctica: nadie contesta un chat web con el bebé en brazos. WhatsApp sí, porque ya lo tiene abierto.</p>
+
+<h2>Cómo se armó</h2>
+<p>El trabajo no fue programar: fue <strong>leer conversaciones reales</strong>. Antes de escribir una respuesta se revisó lo que la tienda ya contestaba todos los días — qué preguntan, con qué palabras y en qué orden. Ahí estaba el guion; no había que inventarlo.</p>
+<p>De ahí salieron las tres decisiones que importan: qué responde solo, qué pregunta antes de responder, y en qué casos pasa la conversación sin intentarlo. Después vinieron las semanas de ajuste, que es cuando aparecen las preguntas que nadie previó y el agente se vuelve realmente útil.</p>
+
+<h2>Qué se lleva otra tienda de este caso</h2>
+<ul>
+  <li><strong>Mirá a qué hora te escriben.</strong> Si buena parte llega fuera de horario, ahí hay ventas perdiéndose en silencio, no falta de clientes.</li>
+  <li><strong>Si la consulta es de compatibilidad, necesitás un agente, no un bot.</strong> Un menú de opciones no resuelve "¿esto le sirve a mi bebé?".</li>
+  <li><strong>Definí primero qué NO se automatiza.</strong> Es más importante que la lista de lo que sí, sobre todo si vendés algo donde equivocarse tiene consecuencias.</li>
+  <li><strong>El guion ya lo tenés escrito</strong> en tus conversaciones de WhatsApp. Solo hay que leerlas.</li>
+</ul>
+<p>¿Te llegan consultas a horas en las que no hay nadie? Contanos tu caso. Mirá cómo trabajamos los <a href="/agentes-ia-costa-rica/">agentes de IA</a>, o el <a href="/proyectos/la-casita-del-bebe/">caso completo de La Casita del Bebé</a> en el portafolio.</p>
+`,
+  },
 ];
 
 export function getArticle(slug: string): Article | undefined {

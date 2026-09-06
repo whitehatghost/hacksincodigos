@@ -85,33 +85,20 @@ export const process = [
   },
 ];
 
-/** Testimonios reales ya publicados en el sitio actual. No se agregan nuevos ni se inventan. */
-export const testimonials = [
-  {
-    text: '"HacksinCodigos nos hizo la página de Grupo Novo desde cero y quedamos encantados. El sitio se ve profesional, carga rápido y ya recibimos pedidos en línea desde la primera semana. Muy recomendados, conocen lo que hacen."',
-    name: 'Carlos Rodriguez',
-    company: 'Grupo Novo CR',
-    initials: 'MV',
-    avatarBg: 'linear-gradient(135deg,#00ff88,#00bfff)',
-    i18n: 'test1',
-  },
-  {
-    text: '"Tomé el curso de Ethical Hacking y fue una experiencia increíble. Los labs en HackTheBox son reales, el instructor explica con mucha paciencia y ahora ya sé cómo proteger mi empresa. Vale cada colón invertido."',
-    name: 'Andrea Solano',
-    company: 'Emprendedora digital, San José',
-    initials: 'AS',
-    avatarBg: 'linear-gradient(135deg,#7c3aed,#00bfff)',
-    i18n: 'test2',
-  },
-  {
-    text: '"Las campañas de Meta Ads que manejaron para La Casita del Bebé triplicaron nuestras ventas en dos meses. Los reportes son claros y siempre están disponibles para explicar los resultados. 100% recomendados."',
-    name: 'Erick Rodriguez',
-    company: 'La Casita del Bebé CR',
-    initials: 'KM',
-    avatarBg: 'linear-gradient(135deg,#f97316,#fbbf24)',
-    i18n: 'test3',
-  },
-];
+/*
+ * NO HAY TESTIMONIOS EN ESTE ARCHIVO, Y ES A PROPÓSITO.
+ *
+ * Los que había venían heredados del WordPress original y el dueño confirmó que
+ * no correspondían a clientes reales. Se retiraron del sitio completo.
+ *
+ * Lo que ocupa su lugar son las reseñas del perfil de Google, que se traen en
+ * la build (scripts/fetch-google-reviews.mjs) y se muestran atribuidas a su
+ * autor, con enlace al perfil para que cualquiera pueda comprobarlas.
+ *
+ * Si algún día se quiere volver a publicar un testimonio escrito, tiene que
+ * venir del cliente por escrito y con su autorización para usarlo. Hay una
+ * prueba en tests/ que falla si reaparecen los textos viejos.
+ */
 
 /** Artículos de la sección Blog de la home (contenido íntegro del sitio actual). */
 export const blogTeasers = [

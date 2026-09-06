@@ -250,8 +250,7 @@ export const articles: Article[] = [
   <li><strong>Carrito y WhatsApp conviviendo.</strong> Cada producto tiene "Añadir al carrito" y también "Consultar por WhatsApp". El que ya sabe qué quiere compra; el que necesita preguntar por cantidades, disponibilidad o alquiler escribe. Obligar a todos por el mismo camino habría perdido a la mitad.</li>
   <li><strong>El catálogo descargable.</strong> En este sector el comprador muchas veces tiene que pasarle la lista a un tercero —el ingeniero, el contratista, quien aprueba la compra—. Un PDF que se reenvía sirve para eso.</li>
 </ul>
-<p>Sobre ese trabajo, Carlos Rodríguez de Grupo Novo CR dejó publicado en nuestro sitio:</p>
-<blockquote>"HacksinCodigos nos hizo la página de Grupo Novo desde cero y quedamos encantados. El sitio se ve profesional, carga rápido y ya recibimos pedidos en línea desde la primera semana."</blockquote>
+<p>Las dos decisiones apuntan a lo mismo: que la tienda se adapte a cómo compra el cliente de este sector, en vez de obligarlo a comprar como compra el de otro.</p>
 
 <h2>Después el sistema: por qué siguió un CRM</h2>
 <p>Ahí aparece la segunda parte del problema, la que ninguna tienda en línea resuelve sola: cuando el canal empieza a traer consultas, alguien tiene que sostenerlas. Un carrito atiende al cliente que ya decidió y paga en el momento. En andamios, buena parte de la venta no funciona así.</p>

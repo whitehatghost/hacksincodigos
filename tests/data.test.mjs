@@ -241,6 +241,42 @@ test('el catálogo no muestra precios tachados ni ofertas', { skip: !hasDist }, 
   assert.ok(!/price-was|badge-sale/.test(html), 'quedó marcado de oferta en el catálogo');
 });
 
+// ── Nada de testimonios inventados ────────────────────────────────
+
+test('no vuelven los testimonios que el negocio confirmó que no eran reales', { skip: !hasDist }, () => {
+  // Venían heredados del WordPress original y el archivo de datos los daba por
+  // buenos. No lo eran. Se retiraron del sitio entero, incluida la cita que se
+  // había usado como prueba dentro del caso de Grupo Novo.
+  //
+  // Lo que ocupa su lugar son las reseñas del perfil de Google, que cualquiera
+  // puede ir a comprobar.
+  const inventados = [
+    'HacksinCodigos nos hizo la página de Grupo Novo desde cero',
+    'Tomé el curso de Ethical Hacking y fue una experiencia increíble',
+    'triplicaron nuestras ventas en dos meses',
+    'Andrea Solano',
+    'Erick Rodriguez',
+  ];
+  for (const file of allHtml()) {
+    const html = fs.readFileSync(file, 'utf8');
+    for (const frase of inventados) {
+      assert.ok(
+        !html.includes(frase),
+        `${path.relative(DIST, file)} volvió a publicar un testimonio no verificado: "${frase}"`
+      );
+    }
+  }
+});
+
+test('todo testimonio publicado está atribuido y es comprobable', { skip: !hasDist }, () => {
+  // La única prueba social que se publica son las reseñas de Google, y cada una
+  // lleva enlace al perfil. Si aparece un bloque de testimonio suelto, sin
+  // fuente verificable, hay que justificarlo antes de que salga a producción.
+  const home = read('index.html');
+  assert.ok(!home.includes('testimonial-card'), 'reapareció el carrusel de testimonios escritos');
+  assert.ok(!home.includes('carousel-track'), 'reapareció el carrusel de testimonios escritos');
+});
+
 // ── Reseñas de Google ─────────────────────────────────────────
 
 test('la clave de la API de Google nunca entra al repositorio', () => {

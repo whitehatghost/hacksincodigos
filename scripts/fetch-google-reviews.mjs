@@ -28,6 +28,11 @@
  * un tercero va contra las directrices de Google y es motivo de penalización.
  * Hay una prueba en tests/ que falla si alguien lo intenta.
  *
+ * CUÁNDO SE ACTUALIZAN. Solo cuando corre una build, que hoy es cada vez que se
+ * hace push al repositorio. Si pasan semanas sin tocar el sitio, las reseñas se
+ * quedan como estaban. Para refrescarlas sin cambiar nada basta con un commit
+ * vacío, o se puede programar una reconstrucción periódica desde Cloudflare.
+ *
  * Uso:  node scripts/fetch-google-reviews.mjs
  */
 import fs from 'node:fs';

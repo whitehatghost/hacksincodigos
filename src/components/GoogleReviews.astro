@@ -47,8 +47,10 @@ const iniciales = (nombre: string) =>
         <p class="resena-resumen">
           <span class="resena-nota">{datos.calificacion}</span>
           <span class="resena-estrellas" aria-hidden="true">{estrellas(datos.calificacion)}</span>
+          {/* En una sola expresión: con compressHTML activo, el espacio suelto
+              entre dos expresiones vecinas se pierde y quedaba "8reseñas". */}
           <span class="resena-total">
-            {datos.totalResenas} {datos.totalResenas === 1 ? 'reseña' : 'reseñas'} en Google
+            {`${datos.totalResenas} ${datos.totalResenas === 1 ? 'reseña' : 'reseñas'} en Google`}
           </span>
         </p>
       )}

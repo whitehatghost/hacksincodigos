@@ -34,7 +34,7 @@ export const services: Service[] = [
     cardBg: 'linear-gradient(135deg, rgba(0,255,136,.15), rgba(0,191,255,.05))',
     iconColor: 'var(--accent-green)',
     waText: 'Hola, me interesa el servicio de Desarrollo Web',
-    page: '/desarrollo-web-costa-rica/',
+    page: '/paginas-web-costa-rica/',
     icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/>',
   },
   {
@@ -128,14 +128,63 @@ export const services: Service[] = [
     cardBg: 'linear-gradient(135deg, rgba(239,68,68,.12), rgba(245,158,11,.05))',
     iconColor: '#ef4444',
     waText: 'Hola, me interesa desarrollo de APIs',
+    page: '/desarrollo-web-costa-rica/',
     icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/>',
+  },
+  {
+    id: 'agentes-ia-redes',
+    i18n: 'srv9',
+    title: 'Agentes IA para Redes Sociales',
+    desc: 'Un asistente que responde mensajes directos, comentarios y respuestas a historias en Instagram y Facebook.',
+    benefits: ['Mensajes directos 24/7', 'Comentarios públicos atendidos', 'Pasa a WhatsApp con el contexto'],
+    gradient: ['#e1306c', '#f59e0b'],
+    cardBg: 'linear-gradient(135deg, rgba(225,48,108,.15), rgba(245,158,11,.05))',
+    iconColor: '#e1306c',
+    waText: 'Hola, quiero un agente de IA para Instagram y Facebook',
+    page: '/agentes-ia-redes-sociales-costa-rica/',
+    icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z"/>',
+  },
+  {
+    id: 'apps-moviles',
+    i18n: 'srv10',
+    title: 'Aplicaciones Móviles',
+    desc: 'Apps para Android, iOS y navegador: para tus clientes o para el equipo que trabaja fuera del escritorio.',
+    benefits: ['Android, iOS y web', 'Funciona sin conexión', 'Publicación en las tiendas'],
+    gradient: ['#22d3ee', '#3b82f6'],
+    cardBg: 'linear-gradient(135deg, rgba(34,211,238,.15), rgba(59,130,246,.05))',
+    iconColor: '#22d3ee',
+    waText: 'Hola, me interesa desarrollar una aplicación móvil',
+    page: '/aplicaciones-moviles-costa-rica/',
+    icon: '<rect x="7" y="2" width="10" height="20" rx="2"/><path stroke-linecap="round" d="M11 18.5h2"/>',
+  },
+  {
+    id: 'software-empresas',
+    i18n: 'srv11',
+    title: 'Software para Empresas',
+    desc: 'Sistemas que se integran con el ERP que ya usás, respetan los permisos de cada área y entran sin frenar la operación.',
+    benefits: ['Integración con sistemas existentes', 'Accesos por rol y auditoría', 'Puesta en marcha por etapas'],
+    gradient: ['#a3e635', '#14b8a6'],
+    cardBg: 'linear-gradient(135deg, rgba(163,230,53,.14), rgba(20,184,166,.05))',
+    iconColor: '#a3e635',
+    waText: 'Hola, quiero conversar sobre un proyecto de software para nuestra empresa',
+    page: '/software-empresas-costa-rica/',
+    icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/>',
   },
 ];
 
 /** Estilos inline del icono cuando el servicio trae color propio (replica el sitio actual). */
 export function iconWrapStyle(s: Service): string {
-  if (s.id === 'apps-personalizadas') return 'color:#06b6d4;border-color:rgba(6,182,212,.15);background:rgba(6,182,212,.08)';
-  if (s.id === 'apis-backend') return 'color:#ef4444;border-color:rgba(239,68,68,.15);background:rgba(239,68,68,.08)';
+  // Los servicios con color propio traen su marco y su fondo a juego; el resto
+  // hereda el color del icono y el marco por defecto de la tarjeta.
+  const propios: Record<string, string> = {
+    'apps-personalizadas': '6,182,212',
+    'apis-backend': '239,68,68',
+    'agentes-ia-redes': '225,48,108',
+    'apps-moviles': '34,211,238',
+    'software-empresas': '163,230,53',
+  };
+  const rgb = propios[s.id];
+  if (rgb) return `color:${s.iconColor};border-color:rgba(${rgb},.15);background:rgba(${rgb},.08)`;
   return `color:${s.iconColor}`;
 }
 

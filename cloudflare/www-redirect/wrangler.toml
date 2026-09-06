@@ -1,0 +1,11 @@
+# Worker que redirige www -> sin www. Ver src/index.js para el porqué.
+#
+# Desplegar:  npx wrangler deploy --config cloudflare/www-redirect/wrangler.toml
+name = "www-redirect"
+main = "src/index.js"
+compatibility_date = "2026-09-05"
+
+# La ruta captura todo lo que entre por www, incluida la raíz.
+routes = [
+  { pattern = "www.hacksincodigos.com/*", zone_name = "hacksincodigos.com" }
+]

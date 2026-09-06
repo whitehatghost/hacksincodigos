@@ -42,42 +42,46 @@ Creá una regla que redirija todo lo que llegue a `*.pages.dev` hacia `hacksinco
 
 ---
 
-## Paso 2b — Redirigir www al dominio sin www
+## Paso 2b — Redirigir www al dominio sin www ✅ RESUELTO
 
-**Por qué:** hoy `www.hacksincodigos.com` y `hacksincodigos.com` devuelven las dos
-un 200 con el mismo contenido. El `canonical` de cada página ya apunta a la versión
-sin www — por eso Search Console lo reporta como *"Alternate page with proper
-canonical tag"* y no como error — pero repartir el sitio entre dos hostnames no
-suma nada.
+**El problema que había:** `www.hacksincodigos.com` y `hacksincodigos.com`
+devolvían las dos un 200 con el mismo contenido. Para Google eran dos sitios
+distintos y la autoridad se repartía entre ambos — y las páginas que tenía
+indexadas estaban justamente en `www`. El `canonical` ya apuntaba a la versión sin
+www, pero eso es una sugerencia; el 301 es una instrucción.
 
-**Esto NO se puede hacer desde `_redirects`.** Cloudflare Pages solo acepta rutas
-que empiecen con `/` como origen y marca los redirects de dominio como no
-soportados. Se intentó y rompió el despliegue.
+**Cómo quedó resuelto.** No se pudo por las dos vías obvias:
 
-**Dónde:** panel de Cloudflare → seleccioná el dominio `hacksincodigos.com`
-→ **Rules** → **Redirect Rules** → *Create rule*
+1. Desde `public/_redirects` no se puede: Cloudflare Pages solo acepta orígenes
+   que empiecen con `/` y rechaza las redirecciones de dominio. Se intentó y
+   rompió el despliegue.
+2. La Redirect Rule del panel tampoco: el token OAuth de wrangler tiene permiso
+   de lectura sobre la zona pero no de escritura sobre rulesets.
 
-1. Nombre: `www a dominio sin www`
-2. **If** → *Custom filter expression*:
-   - Field: `Hostname`
-   - Operator: `equals`
-   - Value: `www.hacksincodigos.com`
-3. **Then** → *URL redirect*:
-   - Type: **Dynamic**
-   - Expression: `concat("https://hacksincodigos.com", http.request.uri.path)`
-   - Status code: **301**
-   - Marcá *Preserve query string*
-4. **Deploy**
+Lo que ese token **sí** permite es desplegar Workers y sus rutas. Así que la
+redirección la hace un Worker publicado en `www.hacksincodigos.com/*`, que
+responde 301 conservando ruta y cadena de consulta.
 
-Toma un minuto y está incluido en el plan gratuito.
+El código está en [`cloudflare/www-redirect/`](cloudflare/www-redirect/), con el
+porqué escrito en el propio archivo.
 
-**Para comprobar que quedó:**
+**Si alguna vez hay que volver a desplegarlo:**
 
 ```bash
-curl -sI https://www.hacksincodigos.com/ | head -3
+cd cloudflare/www-redirect && npx wrangler deploy
 ```
 
-Tiene que responder `301` y un `location:` hacia `https://hacksincodigos.com/`.
+**Para comprobar que sigue bien:**
+
+```bash
+curl -sI https://www.hacksincodigos.com/blog/ | head -3
+```
+
+Tiene que responder `301` con `location: https://hacksincodigos.com/blog/`.
+
+> Si en el futuro se consigue un token con permiso de escritura sobre rulesets,
+> una Redirect Rule del panel hace lo mismo con un componente menos. Mientras
+> tanto el Worker cumple igual y no cuesta nada: entra en el plan gratuito.
 
 ---
 

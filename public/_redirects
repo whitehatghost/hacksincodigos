@@ -5,13 +5,14 @@
 # El mapa completo, con el porqué de cada línea, está en URL-MAP.md.
 
 # ── Dominio canónico: www -> sin www ────────────────────────────────────────
-# NO se puede hacer desde este archivo. Cloudflare Pages solo acepta rutas que
-# empiecen con "/" como origen, y marca los redirects a nivel de dominio como no
-# soportados. Un intento con `https://www.hacksincodigos.com/* ... 301!` rompió el
-# despliegue (el sufijo "!" además es sintaxis de Netlify, no de Cloudflare).
+# RESUELTO, pero no desde este archivo. Cloudflare Pages solo acepta orígenes que
+# empiecen con "/" y rechaza las redirecciones a nivel de dominio — un intento con
+# `https://www.hacksincodigos.com/* ... 301!` rompió el despliegue (y el sufijo
+# "!" es sintaxis de Netlify, no de Cloudflare).
 #
-# La forma correcta es una Redirect Rule en el panel de Cloudflare.
-# Los pasos exactos están en MANUAL-STEP-BY-STEP.md.
+# Lo resuelve un Worker desplegado en la ruta www.hacksincodigos.com/*, que
+# responde 301 conservando ruta y cadena de consulta. El código y el porqué están
+# en cloudflare/www-redirect/. No agregar reglas de www acá.
 
 # ── Sitemaps de Rank Math -> sitemap generado por Astro ──────────────────────
 /sitemap_index.xml        /sitemap-index.xml        301

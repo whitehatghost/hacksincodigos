@@ -63,6 +63,7 @@ export const services: Service[] = [
     iconColor: 'var(--accent-blue)',
     iconClass: 'blue',
     waText: 'Hola, necesito soporte técnico remoto',
+    page: '/soporte-tecnico-computadoras-costa-rica/',
     icon: '<rect x="2" y="3" width="20" height="14" rx="2"/><path stroke-linecap="round" d="M8 21h8M12 17v4"/>',
   },
   {

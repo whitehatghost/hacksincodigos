@@ -1,0 +1,149 @@
+---
+/**
+ * Landing de soporte técnico remoto y asesoría de compra de computadoras.
+ *
+ * El servicio existía solo como tarjeta en la portada. Las guías de hardware del
+ * blog (PC lenta, armar PC gamer, tarjeta gráfica, procesador y RAM) necesitan a
+ * dónde llevar al lector, y esta página persigue "soporte técnico computadoras
+ * Costa Rica" y "asesoría para comprar computadora".
+ *
+ * Todo es remoto: no se promete reparación en taller ni visitas, porque no se dan.
+ */
+import ServiceLanding from '../layouts/ServiceLanding.astro';
+
+const path = '/soporte-tecnico-computadoras-costa-rica/';
+
+const faqs = [
+  {
+    q: '¿Cómo funciona el soporte técnico remoto?',
+    a: 'Nos escribís por WhatsApp contando qué pasa. Si se puede resolver a distancia, te guiamos para instalar un programa de acceso remoto y, con tu permiso, vemos tu pantalla y trabajamos en la computadora mientras vos mirás. Cuando terminamos, el acceso se cierra y no queda abierto.',
+  },
+  {
+    q: '¿Qué problemas se pueden resolver de forma remota?',
+    a: 'Todo lo que es de software: computadora lenta, programas que no abren, virus y programas no deseados, correo que no funciona, impresoras que no aparecen, actualizaciones trabadas, configuración de Windows, respaldos y controladores. Lo que es daño físico —una pieza quemada, una pantalla rota, un disco que suena— no se arregla a distancia, pero sí te ayudamos a diagnosticarlo para que no gastés de más.',
+  },
+  {
+    q: '¿Es seguro dejar que entren a mi computadora?',
+    a: 'Solo entramos cuando vos lo autorizás, con un código que se genera en ese momento, y ves todo lo que hacemos en tu pantalla. Nunca te vamos a pedir contraseñas de bancos ni a entrar sin avisar. Y ojo: si alguien te llama sin que lo hayás pedido diciendo ser soporte técnico y pide acceso a tu computadora, es una estafa.',
+  },
+  {
+    q: '¿Qué es la asesoría de compra?',
+    a: 'Es un PDF que te preparamos por ₡5.000. Nos contás para qué querés la computadora y cuál es tu presupuesto, y te enviamos las opciones que calzan, con los lugares donde podés comprar esas piezas o equipos al mejor precio. Además, con nosotros tenés acceso a descuentos.',
+  },
+  {
+    q: '¿Me ayudan a armar una PC gamer?',
+    a: 'Sí. El PDF de asesoría de compra incluye opciones de tarjeta gráfica, procesador, RAM, fuente y case que calcen entre sí y con tu presupuesto, y dónde comprarlas. Una vez armada, también te ayudamos de forma remota con Windows, controladores, el perfil de la RAM y revisar que rinda lo que debe.',
+  },
+  {
+    q: '¿Atienden en todo Costa Rica?',
+    a: 'Sí. Como el trabajo es remoto, da igual si estás en San José, Guanacaste, Limón, Puntarenas, Alajuela, Heredia o Cartago. Solo hace falta que la computadora encienda y tenga internet.',
+  },
+  {
+    q: '¿Cuánto cuesta?',
+    a: 'La asesoría de compra en PDF cuesta ₡5.000. El soporte técnico depende de lo que haya que hacer, y te lo decimos antes de empezar: escribinos por WhatsApp contando el problema y te damos la cotización sin compromiso.',
+  },
+];
+---
+<ServiceLanding
+  path={path}
+  title="Soporte Técnico de Computadoras en Costa Rica | HacksinCodigos"
+  description="Soporte técnico remoto de computadoras en todo Costa Rica y asesoría de compra en PDF para elegir o armar tu PC gamer según tu presupuesto."
+  eyebrow="Costa Rica · Remoto en todo el país"
+  h1="Soporte técnico de computadoras y asesoría de compra"
+  lead="Resolvemos los problemas de tu computadora a distancia, sin que tengás que llevarla a ningún lado, y te preparamos una asesoría de compra en PDF para elegir bien antes de comprar una nueva o armar tu PC."
+  crumbLabel="Soporte técnico de computadoras"
+  serviceName="Soporte técnico remoto de computadoras y asesoría de compra en Costa Rica"
+  serviceType="Soporte técnico informático"
+  faqs={faqs}
+  waText="Hola, necesito soporte técnico o la asesoría de compra en PDF"
+  ctaTitle="Contanos qué le pasa a tu computadora o qué querés comprar"
+>
+  <section class="section-block alt">
+    <div class="section-inner">
+      <h2 class="block-title">Dos formas de ayudarte</h2>
+      <div class="card-grid cols-3">
+        <div class="info-card">
+          <h3>Soporte técnico remoto</h3>
+          <p>
+            Tu computadora anda lenta, tiene virus, un programa no abre o Windows se trabó. Nos
+            conectamos con tu permiso, vemos qué pasa y lo resolvemos mientras mirás.
+          </p>
+        </div>
+        <div class="info-card">
+          <h3>Asesoría de compra</h3>
+          <p>
+            Un PDF por ₡5.000 con las opciones de computadora, laptop o PC gamer que calzan con
+            tu presupuesto, dónde comprarlas al mejor precio y descuentos con nosotros.
+          </p>
+        </div>
+        <div class="info-card">
+          <h3>Mejorar lo que ya tenés</h3>
+          <p>
+            Muchas veces un SSD o más RAM revive una computadora por una fracción del costo de una
+            nueva. Te decimos si vale la pena o si conviene cambiarla.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-inner narrow prose">
+      <h2>Lo que resolvemos a distancia</h2>
+      <ul>
+        <li><strong>Computadora lenta:</strong> programas que arrancan solos, disco lleno, procesos que consumen todo.</li>
+        <li><strong>Virus y programas no deseados:</strong> publicidad que aparece sola, extensiones sospechosas, el navegador redirigiendo a otros sitios.</li>
+        <li><strong>Windows:</strong> actualizaciones trabadas, errores al iniciar, configuración, paso a Windows 11 cuando el equipo lo permite.</li>
+        <li><strong>Programas y correo:</strong> instalación, configuración de Outlook o del correo de tu empresa, Office, impresoras.</li>
+        <li><strong>Controladores</strong> de tarjeta gráfica, sonido o wifi, siempre desde las páginas oficiales.</li>
+        <li><strong>Respaldos:</strong> dejar configurado que tus archivos se guarden solos en otro lado.</li>
+        <li><strong>PC gamer recién armada:</strong> revisar que la RAM trabaje a su velocidad, que el monitor esté en la tarjeta gráfica y que las temperaturas sean normales.</li>
+      </ul>
+      <p>
+        Lo que es daño físico no se arregla a distancia, y preferimos decirlo claro. Pero sí te
+        ayudamos a diagnosticar qué pieza falla, para que llegués al taller sabiendo qué pedir y no
+        te cambien de más.
+      </p>
+
+      <h2>Asesoría para comprar computadora o armar tu PC</h2>
+      <p>
+        Es donde más plata se pierde: una laptop con la RAM soldada que no se puede ampliar, una
+        fuente de poder que no alcanza, una tarjeta gráfica que no entra en el case, o simplemente
+        pagar por potencia que nunca vas a usar.
+      </p>
+      <p>
+        Para evitarlo preparamos un <strong>PDF de asesoría de compra por ₡5.000</strong>. Nos
+        contás tres cosas y te lo armamos desde ahí:
+      </p>
+      <ul>
+        <li><strong>Para qué la querés:</strong> estudiar, trabajar, programar, diseño, edición de video, inteligencia artificial o jugar — y qué juegos.</li>
+        <li><strong>Cuánto querés invertir,</strong> contando monitor y accesorios si hacen falta.</li>
+        <li><strong>Qué ya tenés,</strong> por si algo se puede aprovechar.</li>
+      </ul>
+      <p>
+        El PDF trae las opciones que calzan con tu uso y tu presupuesto, revisadas para que las
+        piezas sean compatibles entre sí, y <strong>los lugares donde podés comprar esos
+        artículos a los mejores precios</strong>. Además, por medio de nosotros tenés acceso a
+        descuentos. Y te recordamos lo básico al comprar en Costa Rica: factura electrónica y
+        garantía local.
+      </p>
+
+      <h2>Guías para leer antes</h2>
+      <ul>
+        <li><a href="/blog/mi-computadora-esta-lenta-que-hago/">Mi computadora está lenta: qué hacer</a></li>
+        <li><a href="/blog/como-armar-una-pc-gamer-en-costa-rica/">Cómo armar una PC gamer en Costa Rica</a></li>
+        <li><a href="/blog/que-tarjeta-grafica-comprar/">Qué tarjeta gráfica comprar</a></li>
+        <li><a href="/blog/que-procesador-comprar-y-cuanta-ram-necesito/">Qué procesador comprar y cuánta RAM necesitás</a></li>
+      </ul>
+
+      <h2>Seguridad primero</h2>
+      <p>
+        Venimos de la ciberseguridad, y el soporte remoto se hace como corresponde: solo con tu
+        autorización, viendo todo en tu pantalla y cerrando el acceso al terminar. Nunca pedimos
+        contraseñas de bancos. Si te interesa protegerte de las estafas más comunes, leé
+        <a href="/blog/estafas-sinpe-movil-costa-rica/">estafas por SINPE Móvil</a> y
+        <a href="/blog/ciberseguridad-para-pymes-costa-rica/">ciberseguridad para PYMES</a>.
+      </p>
+    </div>
+  </section>
+</ServiceLanding>

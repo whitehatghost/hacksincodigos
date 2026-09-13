@@ -1671,6 +1671,375 @@ export const articles: Article[] = [
 <p>Si querés que lo revisemos junto con tu sitio web, en <a href="/seo-costa-rica/">posicionamiento SEO y SEO local</a> está cómo trabajamos. Y si todavía no tenés una página que respalde tu perfil, empezá por <a href="/paginas-web-costa-rica/">páginas web en Costa Rica</a>. Para seguir leyendo: <a href="/blog/guia-seo-negocios-locales-costa-rica/">guía de SEO local</a> y <a href="/blog/por-que-mi-pagina-web-no-aparece-en-google/">por qué tu página no aparece en Google</a>.</p>
 `,
   },
+  {
+    slug: 'mi-computadora-esta-lenta-que-hago',
+    title: 'Mi computadora está lenta: qué hacer para que vuelva a andar rápido',
+    metaTitle: 'Mi computadora está lenta: qué hacer | HacksinCodigos',
+    metaDesc:
+      'Por qué tu computadora está lenta y qué hacer paso a paso: programas al inicio, disco lleno, virus, poca RAM, polvo y cuándo conviene un SSD o cambiar de equipo.',
+    excerpt:
+      'Antes de pensar en comprar otra, casi siempre hay una causa concreta. Así se encuentra en diez minutos y así se arregla — incluido el cambio que más revive a una computadora vieja.',
+    tag: '🖥️ Soporte técnico',
+    tagColor: '#f97316',
+    published: '2026-08-31',
+    updated: '2026-09-13',
+    readingMinutes: 9,
+    relatedServices: [
+      { href: '/soporte-tecnico-computadoras-costa-rica/', label: 'soporte técnico remoto de computadoras' },
+      { href: '/blog/ciberseguridad-para-pymes-costa-rica/', label: 'ciberseguridad' },
+    ],
+    bodyHtml: `
+<p>Tarda en encender, las ventanas se quedan pegadas, el navegador se congela. Es de las cosas más frustrantes del día a día, y la reacción típica es pensar que ya hay que comprar otra. Casi nunca es así: <strong>una computadora lenta casi siempre tiene una causa concreta</strong>, y muchas se arreglan en una tarde sin gastar nada.</p>
+<p>Esta guía está pensada para Windows, que es lo que usa la mayoría, pero la lógica sirve para cualquier equipo.</p>
+
+<h2>Paso 1: averiguá qué la está frenando</h2>
+<p>No se arregla lo que no se mide. Abrí el <strong>Administrador de tareas</strong> con <strong>Ctrl + Shift + Esc</strong> y mirá la pestaña de procesos mientras la computadora está lenta. Arriba hay cuatro columnas que importan:</p>
+<ul>
+  <li><strong>CPU al 100%:</strong> algún programa está trabajando de más. Ordená por esa columna y fijate cuál.</li>
+  <li><strong>Memoria muy alta:</strong> te falta RAM para lo que estás usando, o hay algo consumiéndola.</li>
+  <li><strong>Disco al 100%:</strong> muy común en computadoras con disco duro mecánico. Es el síntoma clásico de que el disco es el cuello de botella.</li>
+  <li><strong>Red alta sin razón:</strong> algo está descargando o subiendo en segundo plano.</li>
+</ul>
+<p>Con eso ya sabés hacia dónde ir.</p>
+
+<h2>Las causas más comunes, y qué hacer con cada una</h2>
+
+<h3>1. Demasiados programas que arrancan solos</h3>
+<p>Cada programa que instalás quiere abrirse al encender la computadora: el de la impresora, el de la música, el de actualizaciones de algo que ni usás. Se acumulan y la dejan arrastrándose desde que prende.</p>
+<p><strong>Qué hacer:</strong> en el Administrador de tareas, pestaña <em>Aplicaciones de arranque</em> o <em>Inicio</em>, deshabilitá todo lo que no necesités apenas encendés. No borra nada: solo evita que se abra solo.</p>
+
+<h3>2. El disco está lleno</h3>
+<p>Cuando el disco donde está Windows se queda casi sin espacio, todo se pone lento, porque el sistema necesita lugar libre para trabajar.</p>
+<p><strong>Qué hacer:</strong> desinstalá programas que no usás, vaciá la papelera, mové fotos y videos a un disco externo o a la nube, y usá el <em>Liberador de espacio</em> o el <em>Sensor de almacenamiento</em> de Windows. Conviene dejar siempre un buen margen libre.</p>
+
+<h3>3. Virus o programas no deseados</h3>
+<p>Algunos virus y programas basura trabajan en segundo plano: minan criptomonedas, muestran publicidad o mandan información. Se nota como lentitud general sin explicación.</p>
+<p><strong>Qué hacer:</strong> corré un análisis completo con <em>Seguridad de Windows</em>, que ya viene incluido. Revisá también la lista de programas instalados y desinstalá lo que no reconozcás, sobre todo si llegó "de regalo" con otra descarga. Y ojo con las extensiones del navegador: son una fuente muy común de lentitud y de publicidad invasiva.</p>
+
+<h3>4. Todavía tiene disco duro mecánico</h3>
+<p>Esta es la causa número uno en computadoras de hace algunos años, y la que tiene el arreglo más espectacular. Los discos duros mecánicos —los que giran— son muchísimo más lentos que los de estado sólido.</p>
+<p><strong>Qué hacer:</strong> cambiar el disco duro por un <strong>SSD</strong> es, por lejos, la mejora que más revive a una computadora vieja: arranca en segundos, los programas abren al instante. En muchos casos una computadora que parecía para botar queda perfecta para trabajar. Se clona el disco viejo o se instala el sistema desde cero.</p>
+
+<h3>5. Le falta memoria RAM</h3>
+<p>Si la columna de memoria vive alta y abrís pocas cosas, a la computadora le falta RAM. Con poca memoria, el sistema usa el disco como memoria de emergencia, y eso es lentísimo.</p>
+<p><strong>Qué hacer:</strong> cerrar pestañas y programas ayuda en el momento. La solución de fondo es ampliar la RAM, si el equipo lo permite. Ojo: en muchas laptops delgadas la memoria viene soldada y no se puede ampliar. Hay que revisarlo antes de comprar nada.</p>
+
+<h3>6. Polvo y calor</h3>
+<p>Cuando el procesador se calienta demasiado, baja su velocidad a propósito para protegerse. El polvo acumulado en ventiladores y rejillas —muy común en nuestro clima— hace que se caliente de más. Si la computadora se pone lenta después de un rato de uso y el ventilador suena fuerte, sospechá de esto.</p>
+<p><strong>Qué hacer:</strong> limpiar el polvo con aire comprimido, con la computadora apagada y desconectada. En equipos con varios años, a veces también hay que cambiar la pasta térmica del procesador. En laptops, si no tenés experiencia, mejor que lo haga alguien que sepa: es fácil romper un cable plano.</p>
+
+<h3>7. Actualizaciones pendientes o un sistema viejo</h3>
+<p>Windows actualizándose en segundo plano puede poner lenta la computadora un rato. Pero el problema más serio es otro: <strong>Windows 10 dejó de recibir actualizaciones de seguridad gratuitas en octubre de 2025</strong>. Una computadora con un sistema sin parches no solo puede andar peor: queda expuesta a ataques.</p>
+<p><strong>Qué hacer:</strong> dejá que terminen las actualizaciones y reiniciá. Si seguís en Windows 10, revisá si tu equipo puede pasar a Windows 11 o planificá el cambio.</p>
+
+<h2>Lo que conviene evitar</h2>
+<ul>
+  <li><strong>Los "optimizadores" y "limpiadores" milagrosos.</strong> Muchos no hacen nada útil y varios instalan publicidad o cosas peores.</li>
+  <li><strong>Descargar controladores de sitios desconocidos.</strong> Siempre desde la página oficial del fabricante.</li>
+  <li><strong>Borrar archivos del sistema "para liberar espacio"</strong> sin saber qué son.</li>
+  <li><strong>Desarmar una laptop sin experiencia</strong> para limpiarla.</li>
+</ul>
+
+<h2>¿Arreglarla o cambiarla?</h2>
+<p>Conviene <strong>arreglarla</strong> si el problema es de programas, de espacio, de polvo, o si con un SSD y algo más de RAM queda bien para lo que la usás. Es mucho más barato que una computadora nueva.</p>
+<p>Conviene <strong>cambiarla</strong> si el procesador ya no da para lo que necesitás, si no puede correr un sistema operativo con soporte de seguridad, o si el costo de las mejoras se acerca al de un equipo nuevo. Si llegás a ese punto, tenemos un PDF de asesoría de compra por ₡5.000 con las opciones que calzan con tu presupuesto y dónde comprarlas al mejor precio.</p>
+
+<h2>Si no querés pelearte con esto</h2>
+<p>Buena parte de estos arreglos —revisar qué consume, limpiar el arranque, eliminar programas no deseados, analizar virus, preparar actualizaciones— se pueden hacer <strong>de forma remota</strong>, sin que tengás que llevar la computadora a ningún lado. Es uno de los servicios que damos: <a href="/soporte-tecnico-computadoras-costa-rica/">soporte técnico remoto de computadoras</a>, con diagnóstico y solución en el momento. Escribinos por WhatsApp y lo vemos.</p>
+<p>Y si la lentitud vino junto con ventanas raras, publicidad o el antivirus desactivado, leé también <a href="/blog/ciberseguridad-para-pymes-costa-rica/">ciberseguridad para PYMES</a>.</p>
+`,
+  },
+  {
+    slug: 'como-armar-una-pc-gamer-en-costa-rica',
+    title: 'Cómo armar una PC gamer en Costa Rica: guía paso a paso desde cero',
+    metaTitle: 'Cómo armar una PC gamer en Costa Rica | HacksinCodigos',
+    metaDesc:
+      'Cómo armar una PC gamer en Costa Rica desde cero: elegir cada componente, revisar compatibilidad, dónde comprar con garantía y el armado paso a paso.',
+    excerpt:
+      'Armar tu propia PC gamer es más fácil de lo que parece y rinde más por tu plata que una armada. Qué componentes elegir, cómo comprarlos en Costa Rica y cómo armarla sin cometer los errores clásicos.',
+    tag: '🎮 PC gamer',
+    tagColor: '#f97316',
+    published: '2026-09-01',
+    updated: '2026-09-13',
+    readingMinutes: 12,
+    relatedServices: [
+      { href: '/soporte-tecnico-computadoras-costa-rica/', label: 'soporte técnico de computadoras' },
+      { href: '/blog/que-tarjeta-grafica-comprar/', label: 'cómo elegir tarjeta gráfica' },
+    ],
+    bodyHtml: `
+<p>Armar tu propia computadora gamer tiene tres ventajas: sale mejor por la misma plata que una ya armada, elegís exactamente lo que querés, y después la podés ir mejorando pieza por pieza. Y es mucho más fácil de lo que parece: las piezas encajan de una sola forma y no hace falta soldar nada.</p>
+<p>Lo difícil no es armarla. Es <strong>elegir bien</strong>. Por eso esta guía empieza por ahí.</p>
+
+<h2>Antes de comprar nada: tres preguntas</h2>
+<ul>
+  <li><strong>¿Qué vas a jugar?</strong> No es lo mismo Valorant, Fortnite o Minecraft que los juegos más nuevos con gráficos al máximo.</li>
+  <li><strong>¿En qué monitor?</strong> La resolución —1080p, 1440p o 4K— y los hercios —60, 144, 240— definen cuánta potencia necesitás. Una tarjeta de gama alta en un monitor de 1080p a 60 Hz es plata tirada.</li>
+  <li><strong>¿Cuál es tu presupuesto real?</strong> Incluyendo monitor, teclado, mouse y el sistema operativo si no los tenés.</li>
+</ul>
+<p>Con esas tres respuestas, todo lo demás se ordena.</p>
+
+<h2>Los componentes, uno por uno</h2>
+
+<h3>Tarjeta gráfica: donde va la mayor parte de la plata</h3>
+<p>Para jugar, es la pieza que más define el rendimiento, y por eso se lleva la parte más grande del presupuesto. La elección depende sobre todo de la resolución de tu monitor. Lo explicamos a fondo en <a href="/blog/que-tarjeta-grafica-comprar/">qué tarjeta gráfica comprar</a>.</p>
+
+<h3>Procesador</h3>
+<p>Para jugar no hace falta el más caro: importa que no se quede corto frente a la tarjeta gráfica. Un procesador de gama media actual rinde muy bien para jugar. Si además vas a hacer streaming o edición de video, conviene subir de gama. Ojo con el <strong>socket</strong>: define qué tarjeta madre podés usar. Los detalles están en <a href="/blog/que-procesador-comprar-y-cuanta-ram-necesito/">qué procesador comprar y cuánta RAM necesitás</a>.</p>
+
+<h3>Tarjeta madre</h3>
+<p>Tiene que ser compatible con el socket del procesador y con el tipo de memoria. No hace falta la más cara: fijate que tenga los puertos que vas a usar, espacio para un SSD M.2, y buen wifi integrado si no vas a conectar cable.</p>
+
+<h3>Memoria RAM</h3>
+<p>Para jugar hoy, <strong>16 GB</strong> es el mínimo razonable y <strong>32 GB</strong> da margen para jugar con otras cosas abiertas o hacer streaming. Comprá <strong>dos módulos iguales</strong> —por ejemplo, dos de 8 o dos de 16— en vez de uno solo: trabajan en doble canal y rinden mejor. Revisá si tu plataforma usa DDR4 o DDR5, porque no son intercambiables.</p>
+
+<h3>Almacenamiento</h3>
+<p>Un <strong>SSD NVMe</strong> para el sistema y los juegos es obligatorio: los juegos cargan muchísimo más rápido. Los juegos actuales pesan mucho, así que no te quedés corto de capacidad. Un disco duro mecánico solo sirve como almacenamiento extra para archivos.</p>
+
+<h3>Fuente de poder: donde nunca hay que ahorrar</h3>
+<p>Es la pieza que la gente más escatima y la que más problemas causa. Una fuente mala puede apagar la computadora en medio del juego o, en el peor caso, dañar otros componentes. Elegí una <strong>marca reconocida</strong>, con certificación <strong>80 Plus</strong>, con la potencia que pide tu tarjeta gráfica y un margen extra para el futuro.</p>
+
+<h3>Case y enfriamiento</h3>
+<p>El case tiene que tener buena ventilación —en nuestro clima importa— y espacio para el largo de tu tarjeta gráfica, que en las de gama alta es considerable. Revisá la medida antes de comprar. El disipador que trae el procesador sirve para gama de entrada; para modelos más potentes conviene uno aparte.</p>
+
+<h2>Compatibilidad: lo que hay que revisar antes de pagar</h2>
+<ul>
+  <li>Que el <strong>procesador y la tarjeta madre</strong> tengan el mismo socket.</li>
+  <li>Que la <strong>RAM</strong> sea del tipo que acepta la tarjeta madre: DDR4 o DDR5.</li>
+  <li>Que la <strong>tarjeta gráfica quepa en el case</strong> por largo y grosor.</li>
+  <li>Que la <strong>fuente tenga la potencia y los conectores</strong> que pide la tarjeta gráfica.</li>
+  <li>Que el <strong>disipador quepa</strong> en el case y no choque con la RAM.</li>
+</ul>
+<p>Existen herramientas en línea que revisan la compatibilidad de una lista de piezas automáticamente. Usalas antes de comprar.</p>
+
+<h2>Dónde comprar en Costa Rica</h2>
+<p>Hay dos caminos, y cada uno tiene su precio escondido:</p>
+<ul>
+  <li><strong>Tiendas locales:</strong> la gran ventaja es la <strong>garantía</strong>. Si una pieza sale mala, la cambiás acá sin mandar nada fuera del país. Pedí siempre factura electrónica: es tu respaldo para hacer válida la garantía.</li>
+  <li><strong>Importar por casillero:</strong> a veces sale más barato, pero hay que sumar el envío y los impuestos de importación, esperar el tiempo de entrega y aceptar que hacer válida una garantía desde acá es complicado. Para piezas delicadas y caras, la garantía local muchas veces vale la diferencia.</li>
+</ul>
+<p>Con las piezas usadas, cuidado: sobre todo con tarjetas gráficas de origen desconocido. Si comprás usado, que sea probado en persona y, en lo posible, con garantía restante.</p>
+
+<h2>El armado, paso a paso</h2>
+<ol>
+  <li><strong>Prepará el espacio.</strong> Mesa amplia, buena luz, destornillador de estrella. Tocá algo metálico antes de manipular piezas para descargar la electricidad estática.</li>
+  <li><strong>Instalá el procesador en la tarjeta madre</strong>, fuera del case. Encaja en una sola posición: guiate por el triángulo de la esquina. Sin fuerza.</li>
+  <li><strong>Instalá la RAM</strong> en las ranuras que indica el manual para doble canal. Empujá hasta que suene el clic.</li>
+  <li><strong>Instalá el SSD M.2</strong> en su ranura y atornillalo.</li>
+  <li><strong>Colocá el disipador.</strong> Si trae pasta térmica ya aplicada, no pongás más. Y quitá el plástico protector de la base: es un olvido clásico.</li>
+  <li><strong>Montá la tarjeta madre en el case</strong> sobre los separadores metálicos, que evitan que toque el metal del case.</li>
+  <li><strong>Instalá la fuente</strong> y pasá los cables por detrás para que el aire circule.</li>
+  <li><strong>Instalá la tarjeta gráfica</strong> en la ranura PCIe principal y conectale la alimentación de la fuente.</li>
+  <li><strong>Conectá los cables:</strong> el conector grande de la tarjeta madre, el de alimentación del procesador —arriba a la izquierda, muy fácil de olvidar— y los del botón de encendido y puertos frontales siguiendo el manual.</li>
+  <li><strong>Primer encendido.</strong> Entrá a la BIOS y revisá que reconozca el procesador, la RAM y el SSD.</li>
+</ol>
+
+<h2>Después de encender</h2>
+<ul>
+  <li><strong>Activá el perfil de la RAM</strong> —XMP o EXPO— en la BIOS. Sin eso, la memoria trabaja más lenta de lo que pagaste.</li>
+  <li><strong>Instalá Windows</strong> desde una memoria USB creada con la herramienta oficial de Microsoft.</li>
+  <li><strong>Instalá los controladores</strong> de la tarjeta gráfica desde la página oficial del fabricante, no desde sitios de terceros.</li>
+  <li><strong>Revisá temperaturas</strong> jugando un rato, para confirmar que todo enfría bien.</li>
+</ul>
+
+<h2>Los errores más comunes</h2>
+<ul>
+  <li><strong>Conectar el monitor a la tarjeta madre en vez de a la tarjeta gráfica.</strong> La computadora usa el video integrado —o no da imagen— y los juegos andan fatal. El cable va en la tarjeta gráfica.</li>
+  <li>Poner la RAM en las ranuras equivocadas.</li>
+  <li>Olvidar el cable de alimentación del procesador.</li>
+  <li>No quitar el plástico de la base del disipador.</li>
+  <li>No activar el perfil XMP o EXPO.</li>
+  <li>Ahorrar en la fuente de poder.</li>
+</ul>
+
+<h2>¿Querés que alguien revise tu lista antes de comprar?</h2>
+<p>Es el momento donde más plata se pierde: una fuente que no alcanza, una RAM que no es compatible, una tarjeta que no entra en el case. Para eso hacemos un <strong>PDF de asesoría de compra</strong> por ₡5.000: con tu presupuesto y lo que querés hacer, te armamos las opciones que calzan, te decimos en qué lugares conseguir esas piezas al mejor precio y te damos acceso a descuentos por medio de nosotros. Lo pedís desde <a href="/soporte-tecnico-computadoras-costa-rica/">soporte técnico y asesoría de compra</a>.</p>
+
+<h2>Si algo no enciende o no da imagen</h2>
+<p>Revisá, en este orden: que la fuente esté encendida en su interruptor trasero, los dos cables de alimentación de la tarjeta madre, que la RAM esté bien encajada, y que el monitor esté conectado a la tarjeta gráfica. La mayoría de los "no enciende" son uno de esos cuatro.</p>
+<p>Y si ya la armaste y no arranca, anda inestable o no rinde lo que debería, en <a href="/soporte-tecnico-computadoras-costa-rica/">soporte técnico de computadoras</a> te ayudamos a encontrar qué pasa, muchas veces de forma remota.</p>
+`,
+  },
+  {
+    slug: 'que-tarjeta-grafica-comprar',
+    title: 'Qué tarjeta gráfica comprar: cómo elegir la adecuada para tu PC',
+    metaTitle: 'Qué tarjeta gráfica comprar: cómo elegirla | HacksinCodigos',
+    metaDesc:
+      'Cómo elegir la tarjeta gráfica adecuada según tu monitor, tus juegos o tu trabajo: gamas, memoria de video, NVIDIA o AMD, fuente de poder y errores al comprar.',
+    excerpt:
+      'La mejor tarjeta gráfica no es la más cara: es la que calza con tu monitor, tu procesador y lo que vas a hacer. Así se elige sin gastar de más ni quedarse corto.',
+    tag: '🎮 PC gamer',
+    tagColor: '#f97316',
+    published: '2026-09-02',
+    updated: '2026-09-13',
+    readingMinutes: 10,
+    relatedServices: [
+      { href: '/soporte-tecnico-computadoras-costa-rica/', label: 'soporte técnico de computadoras' },
+      { href: '/blog/como-armar-una-pc-gamer-en-costa-rica/', label: 'cómo armar una PC gamer' },
+    ],
+    bodyHtml: `
+<p>Es la pieza más cara de una computadora para jugar y la que más dudas genera. La tentación es comprar la más potente que alcance el presupuesto, pero ese es justamente el error más común: <strong>la mejor tarjeta gráfica no es la más cara, es la que calza</strong> con tu monitor, tu procesador y lo que vas a hacer.</p>
+<p>No vamos a darte un ranking de modelos, porque cambia cada pocos meses. Te vamos a enseñar a elegir, que sirve para esta generación y para la siguiente.</p>
+
+<h2>Empezá por el monitor, no por la tarjeta</h2>
+<p>Esta es la decisión que ordena todo lo demás. La tarjeta gráfica tiene que mover tu monitor, y lo que más pide potencia es:</p>
+<ul>
+  <li><strong>La resolución:</strong> 1080p pide mucho menos que 1440p, y 4K pide muchísimo más.</li>
+  <li><strong>Los hercios:</strong> un monitor de 60 Hz no muestra más de 60 imágenes por segundo, así que pagar por una tarjeta que da 200 es desperdicio. Uno de 144 o 240 Hz sí aprovecha más potencia.</li>
+</ul>
+<p>Si todavía no tenés monitor, elegí primero en qué resolución querés jugar y después la tarjeta.</p>
+
+<h2>Cómo leer los nombres: las gamas</h2>
+<p>Los fabricantes numeran sus tarjetas de forma que se puede entender la gama sin memorizar modelos:</p>
+<ul>
+  <li><strong>NVIDIA</strong> usa nombres como RTX de la serie 50. Los dos primeros dígitos indican la generación y los últimos la gama: una xx60 es gama de entrada a media, xx70 media-alta, xx80 alta y xx90 lo máximo.</li>
+  <li><strong>AMD</strong> usa la línea Radeon RX con una lógica parecida: dentro de una misma generación, el número más alto es la gama más alta.</li>
+  <li><strong>Intel</strong> también tiene tarjetas gráficas, la línea Arc, con opciones interesantes en gama de entrada.</li>
+</ul>
+<p>La regla práctica: compará siempre tarjetas <strong>de la misma generación</strong>. Una gama alta de hace varias generaciones puede rendir menos que una gama media actual.</p>
+
+<h2>Qué gama para qué uso</h2>
+<ul>
+  <li><strong>Juegos competitivos y livianos</strong> —Valorant, League of Legends, Fortnite, Minecraft, Roblox— en 1080p: una gama de entrada actual alcanza y sobra.</li>
+  <li><strong>Juegos actuales en 1080p con buenos gráficos:</strong> gama media.</li>
+  <li><strong>Juegos actuales en 1440p:</strong> gama media-alta.</li>
+  <li><strong>4K o gráficos al máximo con trazado de rayos:</strong> gama alta.</li>
+</ul>
+
+<h2>La memoria de video (VRAM)</h2>
+<p>Es la memoria propia de la tarjeta, y los juegos nuevos piden cada vez más. Quedarse corto provoca tirones y texturas borrosas aunque la tarjeta sea rápida. Como referencia actual:</p>
+<ul>
+  <li><strong>8 GB:</strong> alcanza para 1080p, pero ya se queda justo en muchos juegos nuevos.</li>
+  <li><strong>12 a 16 GB:</strong> lo recomendable para 1440p y para que la tarjeta dure varios años.</li>
+  <li><strong>16 GB o más:</strong> para 4K, y para trabajo con inteligencia artificial o 3D.</li>
+</ul>
+
+<h2>NVIDIA o AMD</h2>
+<p>Las dos son buenas opciones, y conviene comparar el modelo concreto que te alcanza. Las diferencias generales:</p>
+<ul>
+  <li><strong>NVIDIA</strong> suele destacar en trazado de rayos y tiene DLSS, su tecnología para ganar rendimiento con muy buena calidad de imagen. Además, para <strong>inteligencia artificial, 3D y edición de video</strong> muchos programas aprovechan mejor su plataforma CUDA — si vas a trabajar con eso, pesa mucho.</li>
+  <li><strong>AMD</strong> suele ofrecer más memoria de video y más rendimiento por la misma plata en juegos tradicionales, y tiene FSR, su tecnología equivalente para ganar rendimiento.</li>
+</ul>
+<p>Para jugar, compará por precio y rendimiento del modelo exacto. Para trabajar con IA, 3D o video, NVIDIA suele tener la ventaja.</p>
+
+<h2>Que no se quede corta la computadora</h2>
+
+<h3>El procesador</h3>
+<p>Una tarjeta gráfica de gama alta con un procesador viejo o de gama baja no rinde lo que debería: el procesador no le alcanza a mandarle trabajo y queda desaprovechada. Esto se nota sobre todo en 1080p con muchos cuadros por segundo. Buscá un equilibrio: tarjeta y procesador de gamas parecidas.</p>
+<p>Y si tu procesador tiene gráficos integrados —como los modelos con "G" de AMD—, recordá que al instalar una tarjeta dedicada el monitor se conecta a la tarjeta, no a la tarjeta madre.</p>
+
+<h3>La fuente de poder</h3>
+<p>Las tarjetas actuales consumen bastante. Revisá dos cosas: que la fuente tenga la <strong>potencia recomendada</strong> por el fabricante de la tarjeta, y que tenga los <strong>conectores</strong> que la tarjeta pide. Varias tarjetas de gama alta usan un conector de alimentación nuevo que las fuentes viejas no traen.</p>
+
+<h3>El tamaño</h3>
+<p>Las tarjetas de gama media y alta son largas y gruesas. Medí el espacio disponible en tu case antes de comprar. Pasa más de lo que parece que la tarjeta simplemente no entra.</p>
+
+<h2>Comprar nueva o usada</h2>
+<p>El mercado de usadas puede dar buenos precios, pero con riesgo: tarjetas que trabajaron años a máxima exigencia, modificadas o con fallas intermitentes. Si comprás usada, probala en persona funcionando con un juego exigente, revisá temperaturas y preferí las que conservan garantía. En Costa Rica, comprar nueva en una tienda local tiene la ventaja de hacer válida la garantía acá; pedí siempre factura electrónica.</p>
+
+<h2>Errores comunes</h2>
+<ul>
+  <li>Comprar más tarjeta de la que tu monitor puede mostrar.</li>
+  <li>Comparar tarjetas de generaciones distintas solo por el número.</li>
+  <li>Quedarse corto de memoria de video para jugar varios años.</li>
+  <li>Olvidarse de la fuente de poder y sus conectores.</li>
+  <li>No medir el case.</li>
+  <li>Conectar el monitor a la tarjeta madre en vez de a la tarjeta gráfica.</li>
+</ul>
+
+<h2>Si todavía no sabés cuál te conviene</h2>
+<p>Con tantas versiones de cada modelo, es normal dudar. Por eso hacemos un <strong>PDF de asesoría de compra</strong> por ₡5.000: con tu presupuesto y lo que querés hacer, te armamos las opciones que calzan, te decimos en qué lugares conseguir esas piezas al mejor precio y te damos acceso a descuentos por medio de nosotros, incluida la tarjeta gráfica que calza con tu monitor y el resto de la computadora. Lo pedís desde <a href="/soporte-tecnico-computadoras-costa-rica/">soporte técnico y asesoría de compra</a>.</p>
+
+<h2>Si ya la tenés y no rinde</h2>
+<p>Si tu tarjeta rinde menos de lo esperado, revisá que el monitor esté conectado a ella, que los controladores estén actualizados desde la página oficial, que las temperaturas sean normales y que el procesador no esté al 100% mientras jugás. Si seguís con dudas, en <a href="/soporte-tecnico-computadoras-costa-rica/">soporte técnico de computadoras</a> lo revisamos con vos. Y si estás empezando de cero, seguí con <a href="/blog/como-armar-una-pc-gamer-en-costa-rica/">cómo armar una PC gamer en Costa Rica</a>.</p>
+`,
+  },
+  {
+    slug: 'que-procesador-comprar-y-cuanta-ram-necesito',
+    title: 'Qué procesador comprar y cuánta RAM necesitás para tu PC',
+    metaTitle: 'Qué procesador comprar y cuánta RAM necesito | HacksinCodigos',
+    metaDesc:
+      'Cómo elegir el procesador y cuánta memoria RAM necesitás según lo que hacés: jugar, trabajar, programar, diseñar o usar IA. Núcleos, AMD o Intel, DDR4 o DDR5.',
+    excerpt:
+      'Ni el procesador más caro ni la mayor cantidad de RAM son la mejor compra. Lo que conviene depende de lo que hacés con la computadora. Así se decide.',
+    tag: '🖥️ Hardware',
+    tagColor: '#f97316',
+    published: '2026-09-03',
+    updated: '2026-09-13',
+    readingMinutes: 10,
+    relatedServices: [
+      { href: '/soporte-tecnico-computadoras-costa-rica/', label: 'soporte técnico de computadoras' },
+      { href: '/blog/como-armar-una-pc-gamer-en-costa-rica/', label: 'cómo armar una PC' },
+    ],
+    bodyHtml: `
+<p>Son las dos preguntas que más se repiten al comprar o mejorar una computadora: qué procesador conviene y cuánta RAM hace falta. Y en las dos la respuesta honesta es la misma: <strong>depende de lo que hacés</strong>. Una computadora para jugar, otra para programar y otra para editar video no necesitan lo mismo, y comprar de más es tan malo como quedarse corto.</p>
+
+<h2>Parte 1: el procesador</h2>
+
+<h3>Núcleos e hilos, sin enredos</h3>
+<p>Los núcleos son como trabajadores dentro del procesador. Más núcleos permiten hacer más cosas a la vez. Pero no todo aprovecha muchos núcleos:</p>
+<ul>
+  <li><strong>Los juegos</strong> aprovechan una cantidad moderada de núcleos. Les importa más que cada núcleo sea rápido.</li>
+  <li><strong>La edición de video, el 3D, compilar código o ejecutar máquinas virtuales</strong> sí aprovechan muchos núcleos.</li>
+  <li><strong>El trabajo de oficina</strong> —navegador, correo, documentos, videollamadas— anda perfecto con cualquier procesador actual de gama de entrada.</li>
+</ul>
+
+<h3>AMD o Intel</h3>
+<p>Las dos marcas tienen buenas opciones en todas las gamas y la ventaja cambia de generación en generación, así que conviene comparar el modelo concreto. Algunas pistas generales:</p>
+<ul>
+  <li><strong>AMD</strong> tiene los Ryzen, con gamas 3, 5, 7 y 9. Sus modelos con <strong>X3D</strong> están especialmente pensados para juegos y rinden muy bien en ese uso. AMD además ha mantenido sus plataformas durante varias generaciones, lo que facilita cambiar solo el procesador más adelante.</li>
+  <li><strong>Intel</strong> tiene sus líneas Core con gamas equivalentes. Fijate en las letras: los modelos con <strong>F</strong> no traen gráficos integrados, y los <strong>K</strong> permiten overclock.</li>
+</ul>
+
+<h3>Los gráficos integrados</h3>
+<p>Algunos procesadores traen video integrado —en AMD suelen llevar una <strong>G</strong> en el nombre—. Sirve para trabajo de oficina, estudiar, ver video y juegos muy livianos, sin comprar tarjeta gráfica. Si vas a jugar en serio, igual necesitás una tarjeta dedicada, pero tener gráficos integrados es útil como respaldo si la tarjeta falla.</p>
+
+<h3>El socket define tu futuro</h3>
+<p>El socket es el tipo de conexión entre el procesador y la tarjeta madre. Tienen que coincidir. Y pensá a futuro: una plataforma que el fabricante va a seguir soportando te permite mejorar el procesador sin cambiar la tarjeta madre ni la memoria.</p>
+
+<h3>Qué gama para qué uso</h3>
+<ul>
+  <li><strong>Oficina, estudio, navegar:</strong> gama de entrada.</li>
+  <li><strong>Jugar:</strong> gama media actual. Es el punto dulce: subir más casi no se nota si la tarjeta gráfica no acompaña.</li>
+  <li><strong>Programar:</strong> gama media alcanza para la mayoría. Si compilás proyectos grandes, usás contenedores o máquinas virtuales, conviene subir.</li>
+  <li><strong>Diseño gráfico:</strong> gama media para trabajo en 2D; más para 3D.</li>
+  <li><strong>Edición de video, 3D y streaming mientras jugás:</strong> gama alta, con muchos núcleos.</li>
+</ul>
+
+<h2>Parte 2: cuánta RAM necesitás</h2>
+<p>La memoria RAM es el espacio donde la computadora tiene lo que está usando en el momento. Cuando se llena, el sistema recurre al disco, que es muchísimo más lento, y todo se arrastra. Por eso quedarse corto se nota tanto.</p>
+
+<h3>La guía rápida</h3>
+<ul>
+  <li><strong>8 GB:</strong> hoy se queda corto hasta para uso general cómodo. Un navegador con varias pestañas, una videollamada y Windows ya lo llenan. Solo para uso muy básico.</li>
+  <li><strong>16 GB:</strong> el mínimo razonable para una computadora nueva. Alcanza para trabajo de oficina, estudiar, programar y la mayoría de los juegos.</li>
+  <li><strong>32 GB:</strong> para jugar con otras cosas abiertas, hacer streaming, editar fotos o video, programar con varias herramientas pesadas o usar máquinas virtuales.</li>
+  <li><strong>64 GB o más:</strong> edición de video profesional, 3D pesado, trabajo con modelos de inteligencia artificial en la propia computadora o muchas máquinas virtuales.</li>
+</ul>
+
+<h3>Cuánta RAM para jugar</h3>
+<p>Juegos livianos como Roblox o Minecraft sin modificaciones andan bien con 8 a 16 GB. Minecraft con muchos mods, o los juegos grandes actuales, piden 16 GB como mínimo, y 32 GB dan margen si tenés el navegador, Discord o el streaming abiertos al mismo tiempo.</p>
+
+<h3>Cuánta RAM para trabajar</h3>
+<ul>
+  <li><strong>Programas de diseño como AutoCAD o Photoshop:</strong> 16 GB para empezar, 32 GB para proyectos grandes.</li>
+  <li><strong>Edición de video:</strong> 32 GB es lo cómodo.</li>
+  <li><strong>Inteligencia artificial en la propia computadora:</strong> la RAM y, sobre todo, la memoria de la tarjeta gráfica mandan. Cuanto más, mejor.</li>
+</ul>
+
+<h3>DDR4 o DDR5</h3>
+<p>No se elige libremente: <strong>depende de tu tarjeta madre</strong>. Las plataformas actuales usan DDR5, que es más rápida; muchas plataformas anteriores usan DDR4. No son intercambiables y no entran en la misma ranura.</p>
+
+<h3>Dos módulos mejor que uno</h3>
+<p>Para la misma cantidad, <strong>dos módulos iguales</strong> —dos de 8 para tener 16— rinden mejor que uno solo, porque trabajan en doble canal. Y cuando instales la RAM, entrá a la BIOS y activá el perfil <strong>XMP o EXPO</strong>: sin eso, la memoria trabaja a menor velocidad de la que compraste.</p>
+
+<h3>Ojo con las laptops</h3>
+<p>En muchas laptops delgadas la RAM viene soldada y no se puede ampliar nunca. Si estás por comprar una, revisá cuánta trae y si se puede aumentar. Es mejor pagar un poco más al inicio que quedarse corto para siempre.</p>
+
+<h2>¿Mejorar lo que tenés o cambiar?</h2>
+<p>Si tu computadora anda lenta, antes de cambiar el procesador revisá lo más barato: un <strong>SSD</strong> y <strong>más RAM</strong> suelen revivir un equipo por una fracción del costo. Lo explicamos en <a href="/blog/mi-computadora-esta-lenta-que-hago/">mi computadora está lenta: qué hacer</a>.</p>
+<p>Si estás armando desde cero, seguí con <a href="/blog/como-armar-una-pc-gamer-en-costa-rica/">cómo armar una PC</a> y <a href="/blog/que-tarjeta-grafica-comprar/">qué tarjeta gráfica comprar</a>. Y si tenés dudas sobre qué conviene para tu caso, hacemos un <strong>PDF de asesoría de compra</strong> por ₡5.000: con tu presupuesto y lo que querés hacer, te armamos las opciones que calzan, te decimos en qué lugares conseguir esas piezas al mejor precio y te damos acceso a descuentos por medio de nosotros. Lo encontrás en <a href="/soporte-tecnico-computadoras-costa-rica/">soporte técnico y asesoría de compra</a>.</p>
+`,
+  },
 ];
 
 export function getArticle(slug: string): Article | undefined {

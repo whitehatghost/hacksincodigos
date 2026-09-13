@@ -43,7 +43,7 @@ export default defineConfig({
         } else if (url.includes('/paginas-web-costa-rica/')) {
           // El término más buscado, pero también el de los dominios de 25 años.
           item.priority = 0.9;
-        } else if (/\/(diseno-web|desarrollo-web|tiendas-online|seo)-costa-rica\//.test(url)) {
+        } else if (/\/(diseno-web|desarrollo-web|tiendas-online|seo|soporte-tecnico-computadoras)-costa-rica\//.test(url)) {
           item.priority = 0.8;
         } else if (url.includes('/blog/caso-') || url.includes('caso-grupo-novo')) {
           // Los casos de cliente sostienen a las landings: son la prueba.

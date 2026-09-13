@@ -1,39 +1,93 @@
 ---
-import { blogTeasers } from '../data/content';
 import { articles } from '../data/articles';
-import { wa } from '../data/site';
+import { getProject } from '../data/projects';
 
-/** El teaser N de la home corresponde al artículo completo N del blog. */
-const withArticle = blogTeasers.map((b, i) => ({ ...b, article: articles[i] }));
+/**
+ * Carrusel con los artículos más recientes del blog.
+ *
+ * Todas las tarjetas están en el HTML (Google las lee y funcionan sin JavaScript,
+ * con desplazamiento lateral). El script solo agrega flechas y avance automático,
+ * que se detiene al pasar el mouse, al tocar, al enfocar con teclado, y no corre
+ * si la persona pidió reducir el movimiento.
+ */
+const recientes = [...articles].sort((a, b) => b.published.localeCompare(a.published)).slice(0, 12);
+const fmt = new Intl.DateTimeFormat('es-CR', { year: 'numeric', month: 'short', day: 'numeric' });
 ---
 <section id="blog" class="blog-section" aria-label="Blog">
   <div class="container">
     <h2 class="section-title fade-up" data-i18n="blog_title">Guías y Consejos para tu Negocio en Costa Rica</h2>
     <p class="section-subtitle fade-up" data-i18n="blog_sub">Aprende cómo mejorar tu presencia digital en Costa Rica con estos artículos</p>
-    <div class="blog-grid">
-      {withArticle.map((b) => (
-        <article class="blog-card fade-up">
-          <span class="blog-tag" style={`color:${b.tagColor}`} data-i18n={`${b.i18n}_tag`}>{b.tag}</span>
-          <h3 data-i18n={`${b.i18n}_title`}>{b.title}</h3>
-          <p data-i18n={`${b.i18n}_text`} set:html={b.html} />
-          <div class="service-card-actions">
-            <a
-              class="blog-cta"
-              style={`color:${b.tagColor}`}
-              href={b.ctaHref ?? wa(b.ctaWa)}
-              target={b.ctaHref ? undefined : '_blank'}
-              rel={b.ctaHref ? undefined : 'noopener'}
-              data-i18n={`${b.i18n}_btn`}
-            >{b.ctaLabel}</a>
-            {b.article && (
-              <a class="service-more" href={`/blog/${b.article.slug}/`}>Leer el artículo completo</a>
-            )}
-          </div>
-        </article>
-      ))}
+    <div class="blog-rail-wrap" data-blog-rail>
+      <button type="button" class="blog-rail-btn prev" aria-label="Artículos anteriores" hidden>‹</button>
+      <ul class="blog-rail" tabindex="0" aria-label="Artículos recientes del blog">
+        {recientes.map((a) => {
+          const cliente = a.proyecto ? getProject(a.proyecto) : undefined;
+          return (
+            <li class="blog-rail-item">
+              <a class="blog-rail-card" href={`/blog/${a.slug}/`}>
+                {cliente?.logo && (
+                  <span class="caso-logo">
+                    <img src={cliente.logo} alt={`Logo de ${cliente.name}`} width="320" height="160" loading="lazy" decoding="async" />
+                  </span>
+                )}
+                <span class="blog-tag" style={`color:${a.tagColor}`}>{a.tag}</span>
+                <h3>{a.title}</h3>
+                <p>{a.excerpt}</p>
+                <span class="blog-rail-meta">
+                  <time datetime={a.published}>{fmt.format(new Date(a.published))}</time> · {a.readingMinutes} min
+                </span>
+                <span class="blog-rail-leer">Leer →</span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+      <button type="button" class="blog-rail-btn next" aria-label="Más artículos" hidden>›</button>
     </div>
     <div class="portfolio-footer fade-up">
       <a href="/blog/" class="btn btn-outline">Ver todos los artículos</a>
     </div>
   </div>
 </section>
+
+<script>
+  for (const wrap of document.querySelectorAll<HTMLElement>('[data-blog-rail]')) {
+    const rail = wrap.querySelector<HTMLElement>('.blog-rail')!;
+    const prev = wrap.querySelector<HTMLButtonElement>('.prev')!;
+    const next = wrap.querySelector<HTMLButtonElement>('.next')!;
+    prev.hidden = false;
+    next.hidden = false;
+
+    const paso = () => {
+      const item = rail.querySelector<HTMLElement>('.blog-rail-item');
+      return item ? item.offsetWidth + parseFloat(getComputedStyle(rail).columnGap || '0') : rail.clientWidth;
+    };
+    const alFinal = () => rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 8;
+    const mover = (dir: number) => {
+      if (dir > 0 && alFinal()) rail.scrollTo({ left: 0, behavior: 'smooth' });
+      else rail.scrollBy({ left: dir * paso(), behavior: 'smooth' });
+    };
+    prev.addEventListener('click', () => mover(-1));
+    next.addEventListener('click', () => mover(1));
+
+    const quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let pausado = false;
+    let visible = false;
+    const pausar = () => (pausado = true);
+    const seguir = () => (pausado = false);
+    wrap.addEventListener('mouseenter', pausar);
+    wrap.addEventListener('mouseleave', seguir);
+    wrap.addEventListener('focusin', pausar);
+    wrap.addEventListener('focusout', seguir);
+    // Si la persona desliza con el dedo, el carrusel deja de moverse solo.
+    let tocado = false;
+    rail.addEventListener('touchstart', () => (tocado = true), { passive: true });
+    new IntersectionObserver(([e]) => (visible = e.isIntersecting), { threshold: 0.3 }).observe(rail);
+
+    if (!quieto) {
+      setInterval(() => {
+        if (!pausado && !tocado && visible && !document.hidden) mover(1);
+      }, 5000);
+    }
+  }
+</script>

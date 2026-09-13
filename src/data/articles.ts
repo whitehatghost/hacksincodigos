@@ -1465,6 +1465,212 @@ export const articles: Article[] = [
 <p>Si querés un chatbot con IA para tu empresa, en <a href="/agentes-ia-costa-rica/">agentes de IA para tu sitio web, WhatsApp y redes</a> está cómo trabajamos. Si antes querés entender la inversión, mirá <a href="/blog/cuanto-cuesta-un-chatbot-de-ia-para-whatsapp/">cuánto cuesta un chatbot de IA</a>. Y si tus clientes también te escriben por Instagram, está <a href="/agentes-ia-redes-sociales-costa-rica/">agentes de IA para redes sociales</a>.</p>
 `,
   },
+  {
+    slug: 'estafas-sinpe-movil-costa-rica',
+    title: 'Estafas por SINPE Móvil en Costa Rica: cómo funcionan y cómo evitarlas',
+    metaTitle: 'Estafas por SINPE Móvil en Costa Rica | HacksinCodigos',
+    metaDesc:
+      'Las estafas por SINPE Móvil más comunes en Costa Rica —comprobante falso, SINPE equivocado, llamadas del falso banco— y qué hacer para evitarlas o si ya te pasó.',
+    excerpt:
+      'SINPE Móvil es rápido y cómodo, y justamente por eso es el favorito de los estafadores. Así funcionan las estafas más comunes, las señales para reconocerlas y qué hacer si ya caíste.',
+    tag: '🔐 Ciberseguridad',
+    tagColor: '#ef4444',
+    published: '2026-09-07',
+    updated: '2026-09-13',
+    readingMinutes: 10,
+    relatedServices: [
+      { href: '/tiendas-online-costa-rica/', label: 'tiendas online con pagos verificados' },
+      { href: '/desarrollo-web-costa-rica/', label: 'desarrollo web seguro' },
+    ],
+    bodyHtml: `
+<p>SINPE Móvil cambió la forma de pagar en Costa Rica: basta un número de teléfono y la plata llega en segundos. Esa misma rapidez es lo que lo volvió el favorito de los estafadores. No porque el sistema sea inseguro, sino porque <strong>las estafas no atacan al sistema: atacan a las personas</strong>, aprovechando la confianza, la prisa y la costumbre de dar por buena una captura de pantalla.</p>
+<p>La buena noticia es que casi todas siguen unos pocos guiones que se repiten. Si los conocés, los reconocés. Estos son los más comunes, tanto para negocios como para personas.</p>
+
+<h2>1. El comprobante falso</h2>
+<p><strong>Cómo funciona:</strong> alguien compra, dice que ya pagó y te manda la captura del SINPE. Se ve perfecta: tu nombre, el monto, la fecha, el número de referencia. Pero la imagen está editada o es de otra transferencia, y la plata nunca entró. Cuando te das cuenta, el producto ya salió.</p>
+<p>Es la estafa que más golpea a los negocios que venden por WhatsApp e Instagram, sobre todo en momentos de mucho movimiento, cuando no hay tiempo de revisar.</p>
+<p><strong>Cómo evitarla:</strong> la captura no es prueba de nada. Antes de entregar, confirmá que el dinero está <strong>en la aplicación de tu banco</strong>. Si tenés un negocio con varias personas atendiendo, que una sola sea la encargada de confirmar pagos, y que nadie despache sin su visto bueno.</p>
+
+<h2>2. El SINPE equivocado: "me equivoqué de número"</h2>
+<p><strong>Cómo funciona:</strong> te llega un SINPE que no esperabas —o un mensaje que dice que te llegó— y enseguida alguien te escribe muy apenado: se equivocó de número, por favor devolvéselo. Hay varias versiones:</p>
+<ul>
+  <li><strong>El depósito nunca existió.</strong> Solo te mandaron un mensaje o una captura falsa, y si "devolvés", ponés plata tuya.</li>
+  <li><strong>El depósito es real, pero la plata es robada.</strong> Viene de la cuenta de otra víctima. Si la devolvés a un número distinto del que te la envió, terminás mandándole plata robada al estafador — y la cuenta involucrada en el reclamo es la tuya.</li>
+  <li><strong>Te piden devolverla a "otro número"</strong> porque el original "no funciona". Es la señal más clara de estafa.</li>
+</ul>
+<p><strong>Cómo evitarla:</strong> no devuelvas nada por tu cuenta y en caliente. Revisá en tu banco si el ingreso es real. Si lo es, comunicate con tu banco y dejá que ellos gestionen la devolución. Una persona que de verdad se equivocó puede esperar a que el banco lo resuelva; un estafador no, y por eso presiona.</p>
+
+<h2>3. El mensaje falso de "recibió un SINPE"</h2>
+<p><strong>Cómo funciona:</strong> llega un mensaje de texto que imita la notificación de tu banco avisando que recibiste un SINPE. Viene de un número cualquiera, pero con el formato de siempre. Sirve para acompañar la estafa del comprobante falso o la del SINPE equivocado.</p>
+<p><strong>Cómo evitarla:</strong> las notificaciones se confirman en la aplicación del banco, no en un mensaje. Y un mensaje de texto de un número desconocido no es tu banco, por más parecido que se vea.</p>
+
+<h2>4. La llamada del falso banco</h2>
+<p><strong>Cómo funciona:</strong> te llaman diciendo que son del departamento de seguridad de tu banco. Detectaron "un movimiento sospechoso" o "un SINPE que no reconociste" y para detenerlo necesitan que les confirmes un código que te va a llegar, tu clave, o que instalés una aplicación. Hablan con seguridad, conocen tu nombre y a veces hasta los últimos números de tu tarjeta.</p>
+<p>Con ese código o esa clave entran a tu banca en línea y vacían la cuenta — muchas veces, justamente, por SINPE.</p>
+<p><strong>Cómo evitarla:</strong> <strong>tu banco nunca te va a pedir claves, códigos de autorización ni que instalés nada por teléfono.</strong> Si te llaman, colgá y llamá vos al número oficial que está en la tarjeta o en el sitio del banco. Si era real, ahí te lo confirman.</p>
+
+<h2>5. El comprador o vendedor de redes sociales</h2>
+<p><strong>Cómo funciona:</strong> en ventas por Facebook, Marketplace o Instagram hay dos caras. El comprador que "ya pagó" y manda un comprobante falso para que le mandés el producto. Y el vendedor que pide un adelanto por SINPE para "apartar" algo que no existe, y desaparece.</p>
+<p><strong>Cómo evitarla:</strong> como vendedor, no entregues sin confirmar el ingreso en tu banco. Como comprador, desconfiá de precios muy por debajo del mercado, de perfiles recién creados y de quien no permite ver el producto ni pagar contra entrega.</p>
+
+<h2>6. El WhatsApp robado que pide plata</h2>
+<p><strong>Cómo funciona:</strong> le roban el WhatsApp a un conocido tuyo —normalmente consiguiendo que reenvíe el código de verificación de seis dígitos— y desde su cuenta te escriben: <em>"¿me podés hacer un SINPE? Te lo devuelvo mañana, es una emergencia"</em>. El número es el de tu amigo, la foto también.</p>
+<p><strong>Cómo evitarla:</strong> ante cualquier pedido de plata por mensaje, <strong>llamá a la persona</strong> por teléfono. Una emergencia real aguanta una llamada de treinta segundos. Y protegé tu propio WhatsApp: el código de verificación no se comparte nunca, y activá la verificación en dos pasos.</p>
+
+<h2>7. Premios, empleos y alquileres que piden "un trámite"</h2>
+<p><strong>Cómo funciona:</strong> ganaste una rifa en la que no participaste, te ofrecen un trabajo muy bien pagado sin entrevista, o encontraste un alquiler buenísimo. Para seguir solo falta un pequeño pago por SINPE: el trámite, el envío del premio, el depósito para apartar.</p>
+<p><strong>Cómo evitarla:</strong> la regla es simple. Si para recibir algo tenés que pagar primero, y te apuran para que lo hagás ya, es estafa. Un alquiler se ve antes de pagar; un premio real no cobra por entregarse.</p>
+
+<h2>Las señales de alerta que se repiten en todas</h2>
+<ul>
+  <li><strong>Urgencia.</strong> "Tiene que ser ya", "se cae la oferta", "le bloqueamos la cuenta".</li>
+  <li><strong>Que te pidan un código, una clave o un PIN.</strong> Nunca, con nadie.</li>
+  <li><strong>Que la prueba sea una captura</strong> y no el dinero en tu cuenta.</li>
+  <li><strong>Que el pago o la devolución vaya a un número distinto</strong> del que corresponde.</li>
+  <li><strong>Que no te dejen verificar</strong>: no quieren que llamés, que veás el producto o que consultés con tu banco.</li>
+  <li><strong>Que sea demasiado bueno para ser verdad.</strong></li>
+</ul>
+
+<h2>Si tenés un negocio: un protocolo de cinco reglas</h2>
+<p>Los negocios que venden por WhatsApp y redes son el blanco principal del comprobante falso. Estas reglas cierran casi todas las puertas:</p>
+<ol>
+  <li><strong>Ningún producto sale con una captura.</strong> Solo con el dinero confirmado en la aplicación del banco.</li>
+  <li><strong>Una persona confirma los pagos.</strong> Siempre la misma, aunque atiendan varios.</li>
+  <li><strong>Revisá el nombre de quien envía</strong> y que coincida con quien está comprando.</li>
+  <li><strong>Activá las notificaciones de tu banco</strong> y usá una cuenta separada solo para el negocio, así los ingresos se revisan fácil.</li>
+  <li><strong>Nada de devoluciones sin pasar por el banco.</strong></li>
+</ol>
+<p>Si vendés mucho en línea, vale considerar una <a href="/tiendas-online-costa-rica/">tienda con pasarela de pago</a>: el pago se confirma de forma automática antes de generar el pedido, y la captura de pantalla deja de ser parte del proceso.</p>
+
+<h2>Si ya te estafaron</h2>
+<p>El tiempo importa. Hacé esto en este orden:</p>
+<ol>
+  <li><strong>Llamá a tu banco de inmediato</strong> por su número oficial y reportá lo que pasó. Pedí que bloqueen lo que haga falta.</li>
+  <li><strong>Si diste claves o códigos</strong>, cambialos desde un dispositivo de confianza, empezando por la banca en línea y el correo.</li>
+  <li><strong>Guardá toda la evidencia</strong>: capturas de la conversación, el número que te contactó, los comprobantes, fechas y montos. No borres nada.</li>
+  <li><strong>Presentá la denuncia ante el OIJ</strong> con esa evidencia.</li>
+  <li><strong>Si te robaron el WhatsApp</strong>, recuperalo reinstalando la aplicación con tu número y avisá a tus contactos por otro medio que no respondan pedidos de plata.</li>
+</ol>
+<p>Y no te quedés con la vergüenza: estas estafas están diseñadas por gente que se dedica a eso, y le pasan a personas muy cuidadosas. Contarlo ayuda a que no le pase a alguien más.</p>
+
+<h2>Lo que hay que llevarse</h2>
+<p>SINPE Móvil es seguro. Lo que falla es la verificación. Tres hábitos te protegen de casi todo: <strong>confirmá siempre en la aplicación del banco</strong>, <strong>nunca compartás un código o una clave</strong>, y <strong>desconfiá de la urgencia</strong>.</p>
+<p>Si querés ir más allá, en <a href="/blog/ciberseguridad-para-pymes-costa-rica/">ciberseguridad para PYMES</a> están las diez medidas mínimas para proteger tu negocio completo, y en <a href="/blog/seguridad-web-y-seo-disenar-un-sitio-seguro/">seguridad web y SEO</a> cómo cuidar tu página.</p>
+`,
+  },
+  {
+    slug: 'como-aparecer-en-google-maps-con-mi-negocio',
+    title: 'Cómo aparecer en Google Maps con tu negocio en Costa Rica',
+    metaTitle: 'Cómo aparecer en Google Maps con tu negocio | HacksinCodigos',
+    metaDesc:
+      'Paso a paso para que tu negocio aparezca en Google Maps en Costa Rica: perfil de Google, verificación, categorías, zona de servicio, fotos y reseñas.',
+    excerpt:
+      'Cuando alguien busca un servicio cerca, los primeros resultados salen con mapa. Así se consigue aparecer ahí: el perfil de negocio, las decisiones que más pesan y los errores que te pueden suspender.',
+    tag: '📍 SEO local',
+    tagColor: 'var(--accent-blue)',
+    published: '2026-09-05',
+    updated: '2026-09-13',
+    readingMinutes: 10,
+    relatedServices: [
+      { href: '/seo-costa-rica/', label: 'posicionamiento SEO y SEO local' },
+      { href: '/paginas-web-costa-rica/', label: 'páginas web en Costa Rica' },
+    ],
+    bodyHtml: `
+<p>Hacé la prueba: buscá en Google "dentista en Heredia" o "taller mecánico en Cartago". Antes de los resultados normales aparece un mapa con unos pocos negocios, sus estrellas y su teléfono. Ese bloque es lo primero que ve la gente, y para muchas búsquedas locales es donde se decide a quién llamar.</p>
+<p>Aparecer ahí no depende de pagar publicidad. Depende de tu <strong>perfil de negocio de Google</strong> y de cómo lo cuidés. Este es el paso a paso.</p>
+
+<h2>Cómo decide Google a quién mostrar</h2>
+<p>Google explica públicamente que para los resultados locales mira tres cosas:</p>
+<ul>
+  <li><strong>Relevancia:</strong> qué tanto coincide tu perfil con lo que la persona buscó.</li>
+  <li><strong>Distancia:</strong> qué tan cerca estás de quien busca o de la zona que menciona.</li>
+  <li><strong>Prominencia:</strong> qué tan conocido y confiable es tu negocio — reseñas, menciones, tu sitio web.</li>
+</ul>
+<p>La distancia no la controlás. Las otras dos sí, y todo lo que sigue apunta a ellas.</p>
+
+<h2>Paso 1: crear o reclamar tu perfil</h2>
+<p>El perfil de negocio de Google es gratis. Antes de crear uno nuevo, buscá tu negocio en Google Maps: puede que ya exista, creado por Google o por algún cliente. Si existe, lo reclamás; si no, lo creás.</p>
+<p>Nunca crees un segundo perfil para el mismo negocio. Los perfiles duplicados confunden a Google y pueden terminar en suspensión.</p>
+
+<h2>Paso 2: verificarlo</h2>
+<p>Hasta que no está verificado, tu perfil prácticamente no aparece. Google te indica el método que corresponde a tu caso —puede ser un video mostrando el negocio, una llamada, un mensaje o un correo, entre otros— y el proceso puede tardar desde minutos hasta varios días.</p>
+<p>Seguí las instrucciones al pie de la letra. Un video de verificación que no muestra claramente que el negocio existe y opera suele rechazarse.</p>
+
+<h2>Paso 3: el nombre real, sin trucos</h2>
+<p>Poné el nombre de tu negocio <strong>tal como aparece en tu rótulo, tus facturas y tu sitio</strong>. Nada más.</p>
+<p>La tentación de agregarle palabras clave es enorme —"Taller López Mejor Mecánico Barato San José"— y es uno de los errores más castigados: va contra las políticas de Google y es causa frecuente de suspensión. Además, tus competidores pueden reportarlo.</p>
+
+<h2>Paso 4: la categoría principal, la decisión que más pesa</h2>
+<p>De todo el perfil, la <strong>categoría principal</strong> es lo que más influye en por qué búsquedas aparecés. Elegí la que describe con más precisión tu actividad principal, no la más amplia. Después podés agregar categorías secundarias para lo demás que ofrecés.</p>
+<p>Un truco útil: buscá en Google Maps a los competidores que aparecen arriba en tu rubro y fijate qué categoría usan.</p>
+
+<h2>Paso 5: dirección o zona de servicio</h2>
+<p>Acá hay que decidir qué tipo de negocio sos:</p>
+<ul>
+  <li><strong>Si atendés clientes en un local</strong> —una tienda, un consultorio, un restaurante— poné la dirección exacta.</li>
+  <li><strong>Si vas donde el cliente o trabajás a distancia</strong> —un fontanero, una empresa de desarrollo web, un servicio de limpieza— ocultá la dirección y definí tu <strong>zona de servicio</strong>: las provincias, cantones o ciudades que atendés.</li>
+</ul>
+<p>Nosotros, por ejemplo, trabajamos en todo el país de forma remota, así que nuestro perfil declara como zona de servicio las siete provincias, y lo mismo dice nuestro sitio.</p>
+<p>Lo que nunca conviene: poner una dirección que no es real, o una oficina virtual donde no hay nadie, para "aparecer" en una zona. Es de las causas más comunes de suspensión.</p>
+
+<h2>Paso 6: completá todo lo demás</h2>
+<p>Un perfil completo le da a Google más razones para mostrarte y al cliente más razones para escoger:</p>
+<ul>
+  <li><strong>Teléfono</strong> y, si es tu canal, el acceso a WhatsApp.</li>
+  <li><strong>Horario</strong> real, con los feriados actualizados. Llegar y encontrar cerrado un negocio que "estaba abierto" genera malas reseñas.</li>
+  <li><strong>Sitio web</strong>, apuntando a la página más relevante.</li>
+  <li><strong>Servicios o productos</strong> con descripciones claras.</li>
+  <li><strong>Descripción del negocio</strong>, escrita para personas, sin repetir palabras clave.</li>
+  <li><strong>Fotos reales</strong>: el logo, la fachada o el espacio de trabajo, el equipo, los trabajos terminados. Los perfiles con fotos propias generan más confianza que los que no tienen ninguna.</li>
+</ul>
+
+<h2>Paso 7: reseñas, el factor que más se nota</h2>
+<p>Las reseñas pesan en dos lados: le dicen a Google que tu negocio es confiable y le dicen a la persona que busca que otros ya te eligieron. Lo que funciona:</p>
+<ul>
+  <li><strong>Pedilas siempre</strong>, justo después de entregar un buen trabajo. Tu perfil tiene un enlace directo para compartir por WhatsApp.</li>
+  <li><strong>Pedí que escriban algo</strong>, aunque sean dos líneas. Una reseña con texto que menciona el servicio vale mucho más que cinco estrellas solas.</li>
+  <li><strong>Respondé todas</strong>, las buenas y las malas. Una respuesta educada a una reseña negativa muchas veces convence más que diez positivas.</li>
+</ul>
+<p>Y lo que nunca: comprar reseñas, inventarlas, pedirle a familiares que dejen reseñas falsas u ofrecer descuentos a cambio de una reseña. Todo eso va contra las políticas de Google, y las reseñas pueden eliminarse o el perfil sancionarse.</p>
+
+<h2>Paso 8: mantenelo vivo</h2>
+<p>Un perfil que no se toca en meses se ve abandonado. Publicá novedades de vez en cuando —un trabajo terminado, un servicio nuevo, un horario especial—, subí fotos nuevas y revisá que los datos sigan correctos. Google favorece los perfiles activos y actualizados.</p>
+
+<h2>Tu página web también empuja tu perfil</h2>
+<p>El perfil y el sitio se refuerzan entre sí. Lo que ayuda:</p>
+<ul>
+  <li><strong>Mismos datos en los dos</strong>: nombre, teléfono y zona exactamente iguales. Si el perfil dice un número y el sitio otro, Google pierde confianza en ambos.</li>
+  <li><strong>Una página por servicio</strong>, que le da a Google más contexto sobre qué hacés.</li>
+  <li><strong>Mencionar las zonas donde trabajás</strong> de forma natural en tu sitio.</li>
+  <li><strong>Datos estructurados</strong> que describan tu negocio, tu zona de servicio y tus horarios, y que enlacen con tu perfil de Google.</li>
+</ul>
+
+<h2>Cuánto tarda</h2>
+<p>Un perfil recién verificado puede empezar a mostrarse en pocos días para búsquedas con tu nombre. Aparecer en el mapa para búsquedas de tu servicio, compitiendo con negocios que tienen años de reseñas, toma más tiempo: semanas o meses de perfil completo, reseñas constantes y un sitio que lo respalde. No hay atajo legítimo que lo acelere de un día para otro.</p>
+
+<h2>Los errores que más suspenden perfiles</h2>
+<ul>
+  <li>Agregar palabras clave al nombre del negocio.</li>
+  <li>Poner una dirección falsa o una oficina virtual.</li>
+  <li>Tener varios perfiles para el mismo negocio.</li>
+  <li>Reseñas compradas, inventadas o a cambio de descuentos.</li>
+  <li>Datos distintos en el perfil, el sitio y las redes.</li>
+</ul>
+
+<h2>Resumen del paso a paso</h2>
+<ol>
+  <li>Crear o reclamar el perfil.</li>
+  <li>Verificarlo.</li>
+  <li>Nombre real, sin palabras clave.</li>
+  <li>Categoría principal precisa.</li>
+  <li>Dirección si atendés en local, o zona de servicio si vas donde el cliente.</li>
+  <li>Completar teléfono, horario, sitio, servicios y fotos.</li>
+  <li>Pedir y responder reseñas reales.</li>
+  <li>Mantenerlo actualizado.</li>
+</ol>
+<p>Si querés que lo revisemos junto con tu sitio web, en <a href="/seo-costa-rica/">posicionamiento SEO y SEO local</a> está cómo trabajamos. Y si todavía no tenés una página que respalde tu perfil, empezá por <a href="/paginas-web-costa-rica/">páginas web en Costa Rica</a>. Para seguir leyendo: <a href="/blog/guia-seo-negocios-locales-costa-rica/">guía de SEO local</a> y <a href="/blog/por-que-mi-pagina-web-no-aparece-en-google/">por qué tu página no aparece en Google</a>.</p>
+`,
+  },
 ];
 
 export function getArticle(slug: string): Article | undefined {

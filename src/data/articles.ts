@@ -806,6 +806,517 @@ export const articles: Article[] = [
 <p>¿Te llegan consultas a horas en las que no hay nadie? Contanos tu caso. Mirá cómo trabajamos los <a href="/agentes-ia-costa-rica/">agentes de IA</a>, o el <a href="/proyectos/la-casita-del-bebe/">caso completo de La Casita del Bebé</a> en el portafolio.</p>
 `,
   },
+  {
+    slug: 'por-que-mi-pagina-web-no-aparece-en-google',
+    title: 'Por qué tu página web no aparece en Google (y cómo arreglarlo)',
+    metaTitle: 'Por qué tu página web no aparece en Google | HacksinCodigos',
+    metaDesc:
+      'Las razones reales por las que un sitio no sale en Google en Costa Rica: indexación, versiones duplicadas, URLs viejas, falta de páginas y de autoridad.',
+    excerpt:
+      'Si solo aparecés cuando alguien busca el nombre de tu empresa, algo concreto está fallando. Estas son las causas que encontramos una y otra vez — incluida la que tenía nuestro propio sitio.',
+    tag: '📈 SEO',
+    tagColor: 'var(--accent-blue)',
+    published: '2026-09-08',
+    updated: '2026-09-08',
+    readingMinutes: 10,
+    relatedServices: [
+      { href: '/seo-costa-rica/', label: 'posicionamiento SEO' },
+      { href: '/paginas-web-costa-rica/', label: 'páginas web en Costa Rica' },
+    ],
+    bodyHtml: `
+<p>Es la queja más común que escuchamos: <em>"tengo página web y no me encuentra nadie"</em>. Casi siempre viene con un detalle: si buscan el nombre de la empresa, sí aparece. Si buscan lo que la empresa vende, no.</p>
+<p>Eso no es mala suerte ni algo místico del algoritmo. Tiene causas concretas, y casi todas se pueden revisar en una tarde. Acá están las que encontramos una y otra vez, en el orden en que conviene revisarlas.</p>
+
+<h2>Primero: comprobá qué sabe Google de tu sitio</h2>
+<p>Antes de cambiar nada, hay que saber de dónde se parte. Dos revisiones gratuitas:</p>
+<ul>
+  <li><strong>Buscá en Google <code>site:tudominio.com</code></strong>, con tu dominio real. Lo que aparece es lo que Google tiene guardado de tu sitio. Si no aparece nada, o aparecen páginas que ya no existen, ahí está el primer problema.</li>
+  <li><strong>Abrí Google Search Console.</strong> Es gratis y es la única fuente que te dice lo que Google ve de verdad: qué páginas indexó, cuáles descartó y por qué, y por qué búsquedas te está mostrando.</li>
+</ul>
+<p>Con eso a mano, las causas se vuelven evidentes.</p>
+
+<h2>1. Google ni siquiera tiene tus páginas</h2>
+<p>Parece obvio, pero es lo más frecuente en sitios nuevos o recién migrados. Si una página no está indexada, no puede aparecer por nada.</p>
+<p>Las razones típicas: el sitio es muy nuevo, no tiene un sitemap enviado a Search Console, alguna página quedó marcada para que Google no la indexe —pasa mucho con plantillas que traen esa opción activada "mientras se construye"— o simplemente nada en internet enlaza a esas páginas y Google no las encontró.</p>
+<p><strong>Cómo se arregla:</strong> enviar el sitemap en Search Console, revisar que ninguna página importante tenga la etiqueta <em>noindex</em>, y pedir la indexación de las páginas clave desde la herramienta de inspección de URLs.</p>
+
+<h2>2. Tenés dos sitios y no lo sabés</h2>
+<p>Este es de los más dañinos porque no se ve. Tu sitio responde en <code>www.tudominio.com</code> y también en <code>tudominio.com</code>, o en <code>http</code> y en <code>https</code>, y las dos versiones muestran el mismo contenido sin redirigir una a la otra.</p>
+<p>Para Google son sitios distintos. La autoridad que ganás se reparte entre los dos en vez de sumarse, y ninguno llega a competir en serio.</p>
+<p>No lo decimos de oídas: <strong>a nuestro propio sitio le pasaba</strong>. La versión con www servía una copia completa, y justamente era la que Google tenía indexada. Se arregló con una redirección permanente —un 301— de todas las variantes hacia una sola.</p>
+<p><strong>Cómo se revisa:</strong> escribí tu dominio con y sin www en el navegador. Si en los dos casos la dirección se queda como la escribiste, en vez de saltar a una sola, tenés el problema.</p>
+
+<h2>3. Google conoce tu versión vieja, no la nueva</h2>
+<p>Si rediseñaste o migraste el sitio, es muy probable que Google todavía tenga guardadas las páginas anteriores. Y si esas direcciones ahora dan error 404, estás tirando a la basura la autoridad que acumularon durante años.</p>
+<p>También nos pasó: nuestro sitio anterior tenía páginas de cursos y noticias que seguían indexadas mucho después de desaparecer. Diez direcciones devolvían error.</p>
+<p><strong>Cómo se arregla:</strong> cada dirección vieja se redirige con un 301 a su equivalente nueva — o a la más parecida si ya no existe. Así la autoridad se traslada en vez de perderse. En Search Console, el informe de páginas te muestra cuáles están dando error.</p>
+
+<h2>4. No tenés una página para lo que la gente busca</h2>
+<p>Google no posiciona sitios: posiciona <strong>páginas</strong>, cada una por lo que trata. Si ofrecés diseño web, tiendas online y mantenimiento, y todo está explicado en una sola página de "Servicios", esa página compite débilmente por las tres cosas a la vez y no gana ninguna.</p>
+<p>La regla es simple: <strong>una página por cada cosa que alguien buscaría por separado</strong>. Con su propio título, su propio texto y respondiendo lo que esa persona quiere saber antes de contratar.</p>
+<p>Y que tenga contenido de verdad. Tres párrafos genéricos no le ganan a la página de un competidor que explica el proceso, los costos y las dudas frecuentes.</p>
+
+<h2>5. Solo aparecés por tu nombre: te falta autoridad</h2>
+<p>Si Google te muestra cuando buscan tu marca pero no cuando buscan tu servicio, lo más probable es que tu sitio todavía no tenga suficiente autoridad frente a la competencia.</p>
+<p>La autoridad se construye, sobre todo, con <strong>enlaces desde otros sitios</strong>. Un dominio que lleva veinte años recibiendo enlaces no se alcanza en un mes. Pero hay enlaces legítimos que casi todo negocio tiene a mano y no aprovecha: proveedores, clientes, cámaras y asociaciones del sector, medios locales, directorios de negocios del país.</p>
+<p>Lo que <strong>no</strong> hay que hacer es comprarlos. Los paquetes de "mil enlaces por veinte dólares" funcionan unas semanas y después Google hunde el dominio.</p>
+
+<h2>6. Tu perfil de Google Business está suelto</h2>
+<p>Para búsquedas locales —"diseño web en San José", "dentista en Palmares"— lo que aparece arriba, con el mapa, sale del perfil de negocio de Google. Tenerlo verificado es el requisito, no el resultado.</p>
+<p>Lo que lo hace subir: <strong>reseñas reales y con texto</strong>, categorías bien elegidas, fotos propias, y que el nombre, teléfono y zona coincidan exactamente con lo que dice tu sitio. Si el perfil dice un teléfono y la página otro, Google pierde confianza en los dos.</p>
+
+<h2>7. El sitio es lento en el celular</h2>
+<p>La mayoría de tus visitas llegan desde el teléfono, muchas veces desde el navegador interno de Instagram o WhatsApp. Si la página tarda en cargar, la gente se va antes de verla, y Google lo toma en cuenta.</p>
+<p>El culpable casi siempre son las imágenes: fotos subidas tal cual salieron del celular, que pesan más que todo el resto de la página junta. Search Console tiene un informe de rendimiento en móviles que te dice qué páginas están lentas.</p>
+
+<h2>8. Es demasiado pronto</h2>
+<p>Esta es la causa que nadie quiere escuchar, y es real. Aunque arregles todo lo anterior hoy, Google no reordena los resultados en días.</p>
+<p>El orden en que se ven los cambios es siempre el mismo:</p>
+<ul>
+  <li><strong>Primero suben las páginas indexadas</strong> — en semanas.</li>
+  <li><strong>Después suben las impresiones</strong>: Google empieza a mostrarte, aunque todavía abajo y aunque nadie haga clic.</li>
+  <li><strong>Luego aparecen búsquedas nuevas</strong> por las que antes no salías.</li>
+  <li><strong>Y al final se mueve la posición</strong>, que es lo último y lo que más tarda.</li>
+</ul>
+<p>Si las impresiones van subiendo, el trabajo va bien aunque la posición todavía no se mueva. Juzgar el SEO por la posición del primer mes es la forma más rápida de abandonar algo que estaba funcionando.</p>
+
+<h2>Lo que conviene evitar</h2>
+<ul>
+  <li><strong>Quien te garantice el primer lugar.</strong> Nadie puede garantizarlo: lo decide Google, no el proveedor.</li>
+  <li><strong>Repetir la palabra clave veinte veces.</strong> Google lleva años detectándolo y castigándolo.</li>
+  <li><strong>Reseñas o testimonios inventados.</strong> Además de ser deshonesto, es motivo de penalización.</li>
+  <li><strong>Cambiar las direcciones de las páginas sin redirigir las viejas.</strong> Es la forma más rápida de perder en una semana lo que costó años.</li>
+</ul>
+
+<h2>Por dónde empezar hoy</h2>
+<p>Si tuvieras que hacer solo tres cosas: revisá que tu sitio responda en una sola dirección, enviá el sitemap en Search Console, y asegurate de tener una página propia para cada servicio que querés vender. Eso resuelve la mayoría de los casos que vemos.</p>
+<p>Si querés que lo revisemos por vos, en <a href="/seo-costa-rica/">posicionamiento SEO</a> está cómo trabajamos una auditoría. Y si lo que tenés es un sitio viejo que conviene rehacer, empezá por <a href="/paginas-web-costa-rica/">páginas web en Costa Rica</a>. También te puede servir la <a href="/blog/guia-seo-negocios-locales-costa-rica/">guía de SEO local</a>.</p>
+`,
+  },
+  {
+    slug: 'que-debe-tener-una-pagina-web-de-negocio',
+    title: 'Qué debe tener la página web de un negocio en Costa Rica',
+    metaTitle: 'Qué debe tener la página web de un negocio | HacksinCodigos',
+    metaDesc:
+      'Lo que no puede faltar en el sitio de un negocio en Costa Rica para que traiga clientes: mensaje claro, WhatsApp, páginas por servicio, velocidad y confianza.',
+    excerpt:
+      'Una página bonita que nadie contacta no sirve. Esta es la lista de lo que un sitio de negocio necesita para convertir visitas en clientes — y lo que conviene quitarle.',
+    tag: '🎨 Diseño web',
+    tagColor: '#a855f7',
+    published: '2026-09-09',
+    updated: '2026-09-09',
+    readingMinutes: 9,
+    relatedServices: [
+      { href: '/diseno-web-costa-rica/', label: 'diseño web' },
+      { href: '/paginas-web-costa-rica/', label: 'páginas web en Costa Rica' },
+    ],
+    bodyHtml: `
+<p>La pregunta suele llegar al revés: <em>"¿qué diseño me recomiendan?"</em>. Pero antes del diseño hay una pregunta más útil: <strong>¿qué tiene que lograr la página?</strong> Para casi cualquier negocio la respuesta es la misma: que alguien que no te conoce entienda qué hacés, confíe y te escriba.</p>
+<p>Todo lo que ayuda a eso se queda. Todo lo que estorba, sobra, por más lindo que se vea. Esta es la lista.</p>
+
+<h2>Lo que tiene que resolver en los primeros segundos</h2>
+<p>Quien llega desde Google no lee: barre la pantalla y decide si se queda. Arriba del todo, sin tener que bajar, tienen que quedar claras tres cosas:</p>
+<ul>
+  <li><strong>Qué hacés</strong>, dicho en palabras normales. No "soluciones integrales de excelencia", sino "reparamos aires acondicionados en Heredia".</li>
+  <li><strong>Para quién</strong>: tu zona, tu tipo de cliente, el tamaño de problema que resolvés.</li>
+  <li><strong>Qué hacer ahora</strong>: un botón claro. Uno, no cinco compitiendo.</li>
+</ul>
+<p>Si alguien tiene que adivinar a qué se dedica tu negocio, ya lo perdiste.</p>
+
+<h2>1. WhatsApp a la vista, siempre</h2>
+<p>En Costa Rica la venta pasa por WhatsApp. Un botón que abra la conversación con un mensaje ya escrito —"Hola, vengo de su página y quiero información sobre…"— convierte bastante más que cualquier formulario.</p>
+<p>Y el teléfono tiene que poder tocarse para llamar desde el celular. Un número escrito como texto plano obliga a copiarlo, y cada paso extra pierde gente.</p>
+
+<h2>2. Una página por cada servicio</h2>
+<p>Es la diferencia entre aparecer en Google y no aparecer. Si todo lo que ofrecés está amontonado en una página de "Servicios", esa página no gana por ninguno.</p>
+<p>Cada servicio que alguien buscaría por separado merece su propia página: qué incluye, para quién es, cómo es el proceso, cómo se cotiza y las preguntas que siempre te hacen. Eso le sirve al cliente para decidir y a Google para entender qué ofrecés.</p>
+
+<h2>3. Fotos reales, no de banco</h2>
+<p>Una foto de tu taller, tu equipo o tu producto real genera más confianza que la mejor foto de banco de imágenes. El visitante nota la diferencia aunque no sepa explicarla: las fotos de banco se reconocen, y dicen "este negocio no quiso mostrarse".</p>
+<p>No hace falta un fotógrafo profesional para empezar. Hace falta buena luz, fondo ordenado y fotos tomadas con intención.</p>
+
+<h2>4. Que cargue rápido en el celular</h2>
+<p>La mayoría de tus visitas llegan desde el teléfono, y muchas desde el navegador de Instagram o WhatsApp, que es más lento. Una página pesada pierde gente antes de mostrar nada.</p>
+<p>Lo que más la pone lenta casi siempre son las imágenes subidas sin optimizar. Bien preparadas, pesan una fracción y se ven igual.</p>
+
+<h2>5. Prueba de que sos real</h2>
+<p>Alguien que no te conoce necesita razones para confiar. Las que funcionan:</p>
+<ul>
+  <li><strong>Trabajos hechos</strong>, con fotos y una explicación breve de qué se resolvió.</li>
+  <li><strong>Reseñas reales</strong> de tu perfil de Google, con nombre. Nunca testimonios inventados: se notan, y además pueden traerte problemas.</li>
+  <li><strong>Datos de contacto completos</strong> y una zona de servicio clara.</li>
+  <li><strong>Quién está detrás</strong>: una cara, un nombre, una historia corta.</li>
+</ul>
+
+<h2>6. Cómo se cotiza, dicho de frente</h2>
+<p>No siempre se pueden publicar precios, y está bien. Pero el visitante sí necesita saber cómo funciona: si la cotización es gratis, qué datos necesitás para darla y cuánto tardás en responder. El silencio sobre el precio hace que la gente asuma lo peor y se vaya.</p>
+
+<h2>7. Formularios cortos</h2>
+<p>Cada campo que agregás a un formulario baja la cantidad de gente que lo completa. Nombre, forma de contacto y qué necesita. Lo demás se pregunta después, cuando ya hay conversación.</p>
+
+<h2>8. Lo básico de confianza técnica</h2>
+<ul>
+  <li><strong>Candado de seguridad (HTTPS).</strong> Un sitio sin él aparece marcado como "no seguro" en el navegador.</li>
+  <li><strong>Política de privacidad</strong> si recogés datos, aunque sea un formulario.</li>
+  <li><strong>Una sola dirección</strong>: que el sitio no responda igual con www y sin www, porque Google lo toma como dos sitios.</li>
+  <li><strong>Datos iguales en todas partes</strong>: el mismo nombre, teléfono y zona en tu sitio, en tu perfil de Google y en tus redes.</li>
+</ul>
+
+<h2>Lo que conviene quitarle</h2>
+<p>Tan importante como lo que tiene es lo que sobra:</p>
+<ul>
+  <li><strong>El carrusel gigante en la portada.</strong> Casi nadie espera la segunda imagen, y lo importante suele estar en la tercera.</li>
+  <li><strong>"Bienvenidos a nuestro sitio web".</strong> La frase más visible de la página, gastada en no decir nada.</li>
+  <li><strong>Animaciones pesadas y videos que arrancan solos.</strong> Se ven bien en la computadora del diseñador y cuelgan el celular de tu cliente.</li>
+  <li><strong>Texto blanco sobre fotos.</strong> Ilegible a media luz.</li>
+  <li><strong>Páginas vacías o "en construcción".</strong> Mejor no tenerlas que mostrarlas a medias.</li>
+</ul>
+
+<h2>La prueba final</h2>
+<p>Pedile a alguien que no conozca tu negocio que abra tu página en su celular. Dale diez segundos y preguntale: ¿qué hace esta empresa?, ¿a quién atiende?, ¿cómo la contactarías? Si duda en cualquiera de las tres, ya sabés qué arreglar.</p>
+<p>Si querés que la revisemos o la hagamos desde cero, en <a href="/diseno-web-costa-rica/">diseño web</a> está cómo trabajamos, y en <a href="/paginas-web-costa-rica/">páginas web en Costa Rica</a> el servicio completo. Si te preguntás por el presupuesto, empezá por <a href="/blog/cuanto-cuesta-una-pagina-web-en-costa-rica/">cuánto cuesta una página web</a>.</p>
+`,
+  },
+  {
+    slug: 'cuanto-cuesta-un-chatbot-de-ia-para-whatsapp',
+    title: '¿Cuánto cuesta un chatbot de IA para WhatsApp en Costa Rica?',
+    metaTitle: '¿Cuánto cuesta un chatbot de IA para WhatsApp? | HacksinCodigos',
+    metaDesc:
+      'Qué define el costo de un agente de IA para WhatsApp: desarrollo, uso de la IA, la plataforma de Meta y el mantenimiento. Y cómo saber si te conviene.',
+    excerpt:
+      'No existe un precio honesto de lista, pero sí se puede saber de qué depende. Estos son los cuatro costos de un agente de IA para WhatsApp y cómo calcular si te conviene.',
+    tag: '🤖 Agentes IA',
+    tagColor: 'var(--accent-amber)',
+    published: '2026-09-10',
+    updated: '2026-09-10',
+    readingMinutes: 9,
+    relatedServices: [
+      { href: '/agentes-ia-costa-rica/', label: 'agentes de IA para WhatsApp' },
+      { href: '/agentes-ia-redes-sociales-costa-rica/', label: 'agentes de IA para redes sociales' },
+    ],
+    bodyHtml: `
+<p>La respuesta corta es incómoda pero honesta: <strong>depende</strong>. Y no porque queramos esquivar la pregunta, sino porque un agente que contesta diez mensajes al día y uno que atiende cuatrocientos no cuestan lo mismo, igual que no cuesta lo mismo una casa de una habitación que una de cinco.</p>
+<p>Lo que sí se puede hacer es explicar <strong>de qué depende</strong>, para que cuando pidás una cotización sepas qué estás comparando. Porque ahí es donde la gente se confunde: dos precios muy distintos a veces son dos productos muy distintos.</p>
+
+<h2>Los cuatro costos de un agente de IA</h2>
+<p>Un agente para WhatsApp no tiene un solo costo. Tiene cuatro, y conviene separarlos:</p>
+
+<h3>1. El desarrollo — pago único</h3>
+<p>Es el trabajo de montarlo: reunir la información del negocio, definir qué responde y qué no, conectarlo a WhatsApp y a lo que haga falta, probarlo y ajustarlo. Se paga una vez.</p>
+
+<h3>2. El uso de la inteligencia artificial — mensual, por uso</h3>
+<p>El proveedor del modelo de IA cobra según cuánto se usa: cada conversación consume un poco. Un negocio con pocas consultas gasta muy poco; uno con cientos al día, bastante más. No es un monto fijo: sube y baja con tu volumen.</p>
+
+<h3>3. La plataforma de WhatsApp — mensual, si se usa la vía oficial</h3>
+<p>Si el agente funciona sobre la plataforma oficial de WhatsApp Business de Meta, Meta cobra según el tipo y la cantidad de conversaciones o mensajes. Esas tarifas las define Meta y cambian con el tiempo, así que desconfiá de quien te dé un número fijo sin revisar tu caso.</p>
+
+<h3>4. El mantenimiento — mensual, opcional pero recomendable</h3>
+<p>Un agente no se instala y se olvida. Los precios cambian, aparecen preguntas nuevas, hay que revisar las conversaciones que no supo resolver. Eso lo podés hacer vos o lo puede hacer tu proveedor.</p>
+
+<h2>Qué hace subir el desarrollo</h2>
+<ul>
+  <li><strong>Cuánta información tiene que manejar.</strong> No es lo mismo un negocio con cinco servicios que una tienda con cientos de productos.</li>
+  <li><strong>Con qué se tiene que conectar.</strong> Consultar existencias en tu tienda, agendar en tu calendario o registrar al cliente en tu CRM suma trabajo.</li>
+  <li><strong>En cuántos canales atiende.</strong> Solo WhatsApp, o también el chat de tu sitio, Instagram y Facebook.</li>
+  <li><strong>Cuántos idiomas.</strong> Si atendés turistas, cada idioma es trabajo adicional de prueba.</li>
+  <li><strong>Qué tan delicado es tu rubro.</strong> En salud, finanzas o productos para bebés, definir lo que el agente NO debe contestar lleva más tiempo — y es lo más importante.</li>
+</ul>
+
+<h2>Qué hace subir el costo mensual</h2>
+<ul>
+  <li><strong>El volumen de mensajes.</strong> Es lo que más pesa.</li>
+  <li><strong>El largo de las conversaciones.</strong> Diez mensajes para cerrar un pedido consumen más que dos.</li>
+  <li><strong>El modelo de IA que se use.</strong> Los más capaces cuestan más por uso; para muchas tareas no hace falta el más caro.</li>
+  <li><strong>Si se usa la plataforma oficial de Meta</strong> o se trabaja sobre la aplicación normal.</li>
+</ul>
+
+<h2>WhatsApp normal o la plataforma oficial</h2>
+<p>Es la decisión que más cambia el costo, y conviene entenderla.</p>
+<p>Para un negocio pequeño, con un solo número y volumen moderado, se puede trabajar sobre la aplicación normal. Es más barato y arranca antes.</p>
+<p>La plataforma oficial corresponde cuando hay mucho volumen, varias personas atendiendo el mismo número, o necesidad de mandar mensajes de plantilla como confirmaciones y recordatorios. Tiene costo por uso, pero es la vía reconocida por Meta y la más estable.</p>
+
+<h2>Cómo saber si te conviene</h2>
+<p>No hace falta adivinar. Hacé esta cuenta con tu realidad:</p>
+<ul>
+  <li><strong>¿Cuántas horas al día se van contestando lo mismo?</strong> Precios, horarios, ubicación, "¿tienen esto?".</li>
+  <li><strong>¿Cuántos mensajes llegan fuera de horario</strong> y se contestan tarde, o nunca?</li>
+  <li><strong>¿Cuántas de esas consultas terminan comprando en otro lado</strong> porque no respondiste a tiempo?</li>
+</ul>
+<p>Si la respuesta es "pocas horas y casi todo se contesta a tiempo", un agente no te va a cambiar el negocio: primero conviene conseguir más consultas. Si la respuesta es "se nos va medio día" o "perdemos lo que llega de noche", ahí el agente paga solo.</p>
+
+<h2>Cuidado con estas señales al cotizar</h2>
+<ul>
+  <li><strong>Un precio sospechosamente bajo.</strong> Muchas veces es un bot de menú numerado —"marque 1, marque 2"— presentado como inteligencia artificial.</li>
+  <li><strong>Costos mensuales que nadie te explica.</strong> Si no te dicen qué pasa cuando crece el volumen, lo vas a descubrir en la factura.</li>
+  <li><strong>Que no te den acceso a las conversaciones.</strong> Son de tu negocio y de tus clientes.</li>
+  <li><strong>Que no hablen de qué NO va a contestar el agente.</strong> Si no lo mencionan, no lo pensaron.</li>
+  <li><strong>Contratos que te atan</strong> sin forma de llevarte tu información si te vas.</li>
+</ul>
+
+<h2>Qué pedir en una cotización</h2>
+<p>Para comparar peras con peras, pedí que te detallen:</p>
+<ul>
+  <li>El costo de desarrollo, y qué incluye exactamente.</li>
+  <li>Una estimación del costo mensual con <strong>tu</strong> volumen de mensajes, no uno genérico.</li>
+  <li>Si usa la plataforma oficial de WhatsApp o la aplicación normal.</li>
+  <li>En qué canales funciona.</li>
+  <li>Quién lo mantiene y cuánto cuesta eso.</li>
+  <li>Qué pasa si querés cancelar.</li>
+</ul>
+
+<h2>En resumen</h2>
+<p>Un agente de IA tiene un costo de arranque y un costo de operación que crece con tu volumen. La pregunta útil no es "¿cuánto cuesta?" sino <strong>"¿cuánto me está costando no tenerlo?"</strong>: las horas contestando lo mismo y las ventas que se van de noche.</p>
+<p>Si querés que lo calculemos con tu caso real, en <a href="/agentes-ia-costa-rica/">agentes de IA</a> está cómo trabajamos, y te estimamos los costos mensuales antes de que decidas. Podés ver cómo funcionó en una tienda en el <a href="/blog/caso-chatbot-whatsapp-la-casita-del-bebe/">caso de La Casita del Bebé</a>, y si tus clientes te escriben por Instagram, mirá <a href="/agentes-ia-redes-sociales-costa-rica/">agentes de IA para redes sociales</a>.</p>
+`,
+  },
+  {
+    slug: 'inteligencia-artificial-para-pymes-costa-rica',
+    title: 'Inteligencia artificial para PYMES: por dónde empezar sin gastar de más',
+    metaTitle: 'IA para PYMES en Costa Rica: por dónde empezar | HacksinCodigos',
+    metaDesc:
+      'Cómo una PYME en Costa Rica puede empezar a usar inteligencia artificial con sentido: dónde rinde primero, dónde no conviene y un plan de treinta días.',
+    excerpt:
+      'La IA no es para empresas grandes ni hace falta entenderla para aprovecharla. Lo que sí hace falta es empezar por el problema correcto. Así se arranca sin tirar la plata.',
+    tag: '🧠 Inteligencia artificial',
+    tagColor: '#06b6d4',
+    published: '2026-09-11',
+    updated: '2026-09-11',
+    readingMinutes: 9,
+    relatedServices: [
+      { href: '/agentes-ia-costa-rica/', label: 'agentes de IA' },
+      { href: '/software-a-la-medida-costa-rica/', label: 'software a la medida' },
+    ],
+    bodyHtml: `
+<p>Hay dos errores opuestos con la inteligencia artificial en las PYMES. El primero es pensar que es cosa de empresas grandes y que no aplica a un negocio de cinco personas. El segundo es lanzarse a comprar la herramienta de moda sin saber para qué.</p>
+<p>Los dos terminan igual: sin resultados. Lo que funciona es más aburrido y más efectivo: <strong>empezar por el problema, no por la herramienta</strong>.</p>
+
+<h2>La pregunta correcta</h2>
+<p>No es "¿cómo uso IA en mi negocio?". Es: <strong>"¿en qué se nos va el tiempo haciendo lo mismo una y otra vez?"</strong></p>
+<p>La inteligencia artificial rinde en tareas que se repiten, que siguen un patrón y que hoy hace una persona que podría estar haciendo algo más valioso. Si identificás eso primero, la herramienta se elige casi sola.</p>
+
+<h2>Dónde rinde primero en una PYME</h2>
+
+<h3>Atender las consultas de siempre</h3>
+<p>Precios, horarios, ubicación, disponibilidad, formas de pago. Un <a href="/agentes-ia-costa-rica/">agente de IA</a> en WhatsApp, en tu sitio o en Instagram contesta eso al instante, a cualquier hora, y te pasa solo lo que necesita una persona. Es, por lejos, donde más se nota el cambio.</p>
+
+<h3>Redactar</h3>
+<p>Descripciones de productos, borradores de correos, publicaciones para redes, respuestas a reseñas. La IA no reemplaza el criterio de quien conoce el negocio, pero sí convierte una hora frente a una hoja en blanco en diez minutos de revisar y ajustar.</p>
+
+<h3>Resumir y ordenar información</h3>
+<p>Leer un contrato largo y sacar lo importante, resumir las notas de una reunión, clasificar los mensajes que llegan por tipo de consulta, extraer los datos de facturas. Trabajo tedioso que se come horas.</p>
+
+<h3>Atención fuera de horario</h3>
+<p>Buena parte de las consultas llegan de noche o en fin de semana. Que alguien reciba respuesta a esa hora —aunque sea para tomar sus datos y decirle que mañana lo llaman— evita que se vaya con la competencia.</p>
+
+<h2>Dónde NO conviene usarla</h2>
+<p>Esta parte es tan importante como la anterior, y casi nadie la dice.</p>
+<ul>
+  <li>
+    <strong>Decisiones con consecuencias serias.</strong> Salud, temas legales, finanzas de un cliente, seguridad. La IA puede ayudar a preparar información; la decisión la toma una persona.
+  </li>
+  <li>
+    <strong>Cuando nadie va a revisar lo que produce.</strong> La IA a veces inventa datos con total seguridad. Un precio equivocado, una política que no existe, una cifra falsa. Todo lo que sale hacia un cliente tiene que pasar por alguien.
+  </li>
+  <li>
+    <strong>Con datos sensibles en herramientas gratuitas.</strong> Pegar la base de clientes, datos de salud o información financiera en un servicio gratuito puede exponer esa información. Costa Rica tiene ley de protección de datos personales, y la responsabilidad sigue siendo tuya.
+  </li>
+  <li>
+    <strong>Cuando el proceso todavía es un desorden.</strong> Automatizar un proceso que no está claro solo produce el mismo desorden más rápido. Primero se ordena, después se automatiza.
+  </li>
+</ul>
+
+<h2>Herramientas listas o algo a la medida</h2>
+<p>Para empezar, las herramientas generales que ya existen alcanzan para mucho: redactar, resumir, ordenar ideas. Cuestan poco o nada y no requieren instalar nada.</p>
+<p>Lo hecho a la medida se justifica cuando la IA tiene que <strong>trabajar con la información de tu negocio</strong> —tu catálogo, tus clientes, tus reglas— o <strong>conectarse con lo que ya usás</strong>: tu WhatsApp, tu tienda en línea, tu CRM. Ahí una herramienta genérica no llega, porque no conoce tu negocio.</p>
+<p>La regla sensata: probá primero con lo general. Cuando choques con su límite, sabés exactamente qué necesitás construir.</p>
+
+<h2>Un plan de treinta días para empezar</h2>
+<p>Sin grandes inversiones y sin apostar a ciegas:</p>
+<ul>
+  <li><strong>Semana 1 — medir.</strong> Anotá durante una semana en qué se va el tiempo del equipo: qué preguntas se contestan más, qué tareas se repiten, qué se hace a mano copiando de un lado a otro.</li>
+  <li><strong>Semana 2 — elegir una sola tarea.</strong> La que más tiempo come y menos riesgo tiene si sale mal. Una sola, no cinco.</li>
+  <li><strong>Semana 3 — probar.</strong> Usá IA en esa tarea y compará contra cómo se hacía antes. Tiempo, calidad, errores.</li>
+  <li><strong>Semana 4 — decidir.</strong> Si funcionó, se incorpora al trabajo diario y se pasa a la siguiente. Si no, se descarta sin haber gastado de más.</li>
+</ul>
+<p>Un piloto chico que funciona vale más que un proyecto grande que nadie usa.</p>
+
+<h2>Lo que la IA no va a hacer por vos</h2>
+<p>No va a arreglar un producto que no se vende, ni un servicio que decepciona, ni un negocio que nadie encuentra. Es una herramienta para hacer más con el mismo equipo, no un reemplazo de lo básico.</p>
+<p>Si tu problema es que no te encuentran, lo primero es tener un sitio que aparezca en Google. Si tu problema es que no das abasto con las consultas, ahí sí la IA puede cambiar el día a día.</p>
+
+<h2>Por dónde seguir</h2>
+<p>Si lo que más te consume es contestar mensajes, empezá por <a href="/agentes-ia-costa-rica/">agentes de IA para WhatsApp, tu sitio y tus redes</a>. Si tu operación está repartida entre hojas de cálculo y conversaciones, lo que falta puede ser un <a href="/software-a-la-medida-costa-rica/">sistema a la medida</a> antes que la IA. Y si querés entender los costos antes de decidir, mirá <a href="/blog/cuanto-cuesta-un-chatbot-de-ia-para-whatsapp/">cuánto cuesta un chatbot de IA para WhatsApp</a>.</p>
+`,
+  },
+  {
+    slug: 'ciberseguridad-para-pymes-costa-rica',
+    title: 'Ciberseguridad para PYMES en Costa Rica: lo mínimo que tenés que hacer',
+    metaTitle: 'Ciberseguridad para PYMES en Costa Rica | HacksinCodigos',
+    metaDesc:
+      'Las estafas que más golpean a negocios en Costa Rica —comprobantes de SINPE falsos, WhatsApp robado, correos falsos— y las medidas mínimas para protegerte.',
+    excerpt:
+      'A una PYME no la atacan por grande: la atacan porque es fácil. Estas son las estafas que más vemos en Costa Rica y las medidas básicas que cierran la mayoría de las puertas.',
+    tag: '🔐 Ciberseguridad',
+    tagColor: '#ef4444',
+    published: '2026-09-12',
+    updated: '2026-09-12',
+    readingMinutes: 10,
+    relatedServices: [
+      { href: '/desarrollo-web-costa-rica/', label: 'desarrollo web seguro' },
+      { href: '/product/mantenimiento-web-pro-mensual/', label: 'mantenimiento y seguridad web' },
+    ],
+    bodyHtml: `
+<p>Hay una idea muy instalada en los negocios pequeños: <em>"a mí no me van a atacar, no soy una empresa grande"</em>. Es exactamente al revés. A una PYME no la atacan por ser grande: la atacan porque <strong>es fácil</strong>. No tiene departamento de TI, la contraseña es la misma para todo y el WhatsApp del negocio está en el celular personal del dueño.</p>
+<p>La buena noticia es que la mayoría de los ataques que golpean a negocios en Costa Rica no son sofisticados. Se aprovechan de descuidos, y los descuidos se corrigen. Empecemos por lo que más vemos.</p>
+
+<h2>Las estafas que más golpean a negocios en Costa Rica</h2>
+
+<h3>El comprobante de SINPE falso</h3>
+<p>El cliente "paga", manda la captura de pantalla del SINPE Móvil y se lleva el producto. La captura está editada: el dinero nunca entró.</p>
+<p><strong>Cómo evitarlo:</strong> nunca entregues por una captura. Confirmá el ingreso <strong>en la aplicación de tu banco</strong>, no en la imagen que te mandan. Si hay mucho movimiento, designá a una sola persona que confirme pagos antes de despachar.</p>
+
+<h3>"Me equivoqué de número, devuélvamelo"</h3>
+<p>Llega un depósito, o una captura de uno, y enseguida un mensaje pidiendo que devuelvas la plata porque fue un error. A veces el depósito ni existió; otras veces sí existió y después se revierte.</p>
+<p><strong>Cómo evitarlo:</strong> no devuelvas nada por tu cuenta. Revisá en tu banco que el ingreso sea real y consultá con el banco cómo proceder. Una persona honesta que se equivocó puede esperar a que el banco lo resuelva.</p>
+
+<h3>El robo del WhatsApp del negocio</h3>
+<p>Alguien escribe haciéndose pasar por un contacto o por soporte técnico y pide que le reenviés "un código de seis dígitos que te llegó por error". Ese código es el de verificación de WhatsApp. Con él, se quedan con la cuenta y le escriben a todos tus clientes pidiendo plata a tu nombre.</p>
+<p><strong>Cómo evitarlo:</strong> ese código <strong>no se comparte nunca, con nadie</strong>. Y activá la verificación en dos pasos de WhatsApp —un PIN propio— para que aunque consigan el código, no puedan entrar.</p>
+
+<h3>El correo del proveedor que "cambió de cuenta"</h3>
+<p>Llega un correo que parece de un proveedor conocido avisando que cambió su cuenta bancaria y que los próximos pagos van a otra. El correo es falso, o el del proveedor fue hackeado. El pago se va a los estafadores.</p>
+<p><strong>Cómo evitarlo:</strong> cualquier cambio de cuenta bancaria se confirma <strong>llamando al proveedor a un número que ya tenías</strong>, nunca al que viene en el mismo correo.</p>
+
+<h3>El mensaje que se hace pasar por el banco</h3>
+<p>Un correo o mensaje con el logo de tu banco avisa de un "movimiento sospechoso" o una "cuenta bloqueada" y te manda a un enlace para verificar. La página es una copia perfecta que se roba tu usuario y contraseña.</p>
+<p><strong>Cómo evitarlo:</strong> nunca entres al banco desde un enlace que te mandaron. Escribí la dirección vos mismo o usá la aplicación oficial. Los bancos no piden contraseñas por mensaje.</p>
+
+<h2>Las diez medidas mínimas</h2>
+<p>No hace falta un presupuesto de empresa grande. Con esto cerrás la mayoría de las puertas:</p>
+<ol>
+  <li><strong>Verificación en dos pasos</strong> en todo lo importante: correo, banco, WhatsApp, redes sociales y el panel de tu sitio web. Es la medida que más ataques frena, por lejos.</li>
+  <li><strong>Una contraseña distinta para cada servicio</strong>, guardadas en un gestor de contraseñas. Si se filtra una, no caen todas.</li>
+  <li><strong>Cuentas separadas para cada persona.</strong> Nada de una sola cuenta compartida por todo el equipo: si alguien se va, no hay forma de cerrarle el acceso sin cambiarlo todo.</li>
+  <li><strong>Quitar accesos el mismo día</strong> que alguien deja la empresa. Correo, sistemas, redes, el WhatsApp del negocio.</li>
+  <li><strong>Respaldos que estén fuera de la oficina</strong>, y probar de vez en cuando que se pueden recuperar. Un respaldo que nunca se probó no es un respaldo.</li>
+  <li><strong>Actualizar</strong> el sistema operativo, el celular y, sobre todo, tu sitio web y sus complementos. Los sitios en WordPress desactualizados son de los blancos más fáciles que existen.</li>
+  <li><strong>Confirmar pagos en el banco</strong>, nunca por capturas de pantalla.</li>
+  <li><strong>Confirmar cambios de cuenta bancaria por teléfono</strong>, a un número que ya tenías.</li>
+  <li><strong>Una red de wifi aparte para clientes</strong>, separada de la que usan las computadoras del negocio.</li>
+  <li><strong>Proteger tu dominio contra la suplantación de correo.</strong> Hay tres registros técnicos —SPF, DKIM y DMARC— que evitan que alguien mande correos haciéndose pasar por tu empresa. Casi ninguna PYME los tiene bien configurados.</li>
+</ol>
+
+<h2>Tu sitio web también es una puerta</h2>
+<p>Un sitio hackeado no solo se cae: puede empezar a mandar spam a tu nombre, redirigir a tus visitantes a páginas de estafa o quedar marcado por Google como peligroso, lo que hunde tu posicionamiento de un día para otro.</p>
+<p>Lo mínimo para un sitio de negocio:</p>
+<ul>
+  <li><strong>HTTPS</strong>, el candado del navegador.</li>
+  <li><strong>Actualizaciones al día</strong> del sistema y de cada complemento, y borrar los que no se usan.</li>
+  <li><strong>Contraseñas fuertes y verificación en dos pasos</strong> en el panel de administración.</li>
+  <li><strong>Respaldos automáticos</strong> guardados fuera del mismo servidor.</li>
+  <li><strong>Que nadie tenga acceso de administrador</strong> si no lo necesita.</li>
+</ul>
+<p>Los sitios estáticos —sin base de datos que consultar en cada visita— tienen mucha menos superficie de ataque, y es una de las razones por las que los usamos cuando el proyecto lo permite.</p>
+
+<h2>Si ya te pasó</h2>
+<p>Actuar rápido limita el daño:</p>
+<ul>
+  <li><strong>WhatsApp robado:</strong> reinstalá WhatsApp con tu número para recuperar la cuenta, y avisá de inmediato a tus clientes por otros medios que no respondan pedidos de dinero.</li>
+  <li><strong>Datos bancarios comprometidos:</strong> llamá al banco de inmediato para bloquear.</li>
+  <li><strong>Contraseñas expuestas:</strong> cambialas desde un dispositivo que sepas que está limpio, empezando por el correo — porque desde el correo se recupera todo lo demás.</li>
+  <li><strong>Fraude consumado:</strong> guardá las capturas, los números y los comprobantes, y presentá la denuncia ante el OIJ.</li>
+</ul>
+
+<h2>La seguridad es un hábito, no una compra</h2>
+<p>Ningún producto te protege si la contraseña está pegada en un papel junto a la computadora o si alguien reenvía el código de WhatsApp. La mayor parte de la seguridad de una PYME está en que el equipo conozca estas estafas y sepa qué no hacer. Una reunión de media hora contándoles este artículo protege más que muchos programas.</p>
+<p>Si querés que revisemos la seguridad de tu sitio o que lo mantengamos actualizado, en <a href="/desarrollo-web-costa-rica/">desarrollo web</a> está cómo lo construimos con la seguridad desde el inicio, y en el <a href="/product/mantenimiento-web-pro-mensual/">plan de mantenimiento</a> cómo lo cuidamos después.</p>
+`,
+  },
+  {
+    slug: 'seguridad-web-y-seo-disenar-un-sitio-seguro',
+    title: 'Seguridad web y SEO: por qué un sitio inseguro no llega a primer lugar',
+    metaTitle: 'Seguridad web y SEO: diseñar un sitio seguro | HacksinCodigos',
+    metaDesc:
+      'Cómo la seguridad de una página web afecta su posicionamiento en Google: HTTPS, sitios hackeados, spam inyectado, advertencias y lo que hay que cuidar al diseñar.',
+    excerpt:
+      'Podés tener el mejor contenido del país y perder todo el posicionamiento en una noche porque alguien entró por un complemento viejo. La seguridad no es aparte del SEO: es su base.',
+    tag: '🛡️ Seguridad y SEO',
+    tagColor: '#22c55e',
+    published: '2026-09-13',
+    updated: '2026-09-13',
+    readingMinutes: 10,
+    relatedServices: [
+      { href: '/seo-costa-rica/', label: 'posicionamiento SEO' },
+      { href: '/desarrollo-web-costa-rica/', label: 'desarrollo web seguro' },
+    ],
+    bodyHtml: `
+<p>Casi todo lo que se escribe sobre posicionamiento habla de palabras clave, contenido y enlaces. Casi todo lo que se escribe sobre seguridad habla de virus y contraseñas. Rara vez alguien los junta, y es un error caro: <strong>un sitio inseguro no puede sostener un buen posicionamiento</strong>, por más contenido que tenga.</p>
+<p>Podés pasar meses subiendo en Google y perderlo todo en una noche porque alguien entró por un complemento sin actualizar. Esto es lo que conviene saber antes de diseñar un sitio —o antes de invertir en posicionar uno que ya existe.</p>
+
+<h2>Cómo la seguridad afecta directamente a tu posición</h2>
+
+<h3>HTTPS es una señal de Google</h3>
+<p>Google confirmó hace años que usa HTTPS —el candado del navegador— como señal para ordenar resultados. Es una señal liviana, pero tiene un efecto indirecto mucho más fuerte: un sitio sin HTTPS aparece marcado como <strong>"No seguro"</strong> en el navegador.</p>
+<p>Nadie deja sus datos, ni escribe por el formulario, ni compra en una página que su propio navegador le dice que no es segura. La gente se va, y Google nota que se va.</p>
+
+<h3>Un sitio hackeado recibe advertencias en los resultados</h3>
+<p>Cuando Google detecta que un sitio fue comprometido, puede mostrar una advertencia directamente en los resultados de búsqueda, o una pantalla roja de alerta cuando alguien intenta entrar. En ese momento el tráfico se desploma, no importa en qué posición estuvieras.</p>
+<p>Y salir de ahí no es inmediato: hay que limpiar el sitio, cerrar la puerta por la que entraron y pedirle a Google que lo revise de nuevo.</p>
+
+<h3>El spam inyectado: el hackeo que no se ve</h3>
+<p>Este es el más traicionero, porque el dueño muchas veces no se entera. Los atacantes no rompen el sitio: <strong>le agregan páginas escondidas</strong> con contenido de spam —medicamentos, apuestas, productos falsificados— y enlaces hacia sus propios sitios. Para el visitante normal todo se ve igual.</p>
+<p>Pero Google sí las ve. De repente tu dominio aparece en búsquedas de cosas que nunca vendiste, tu reputación ante Google cae, y el posicionamiento de tus páginas reales se hunde. En algunos casos Google aplica una penalización manual al dominio completo.</p>
+<p><strong>Cómo detectarlo:</strong> buscá en Google <code>site:tudominio.com</code> y revisá si aparecen páginas o títulos que no reconocés. Y revisá en Search Console el informe de <em>Problemas de seguridad</em> y las búsquedas por las que te están mostrando.</p>
+
+<h3>Un sitio caído no posiciona</h3>
+<p>Los ataques que sobrecargan un sitio hasta tumbarlo, o un servidor comprometido que se usa para mandar spam y termina bloqueado, dejan tu página sin responder. Si Google intenta visitarla repetidamente y no puede, empieza a bajarla.</p>
+
+<h2>Por qué los sitios inseguros suelen ser también lentos</h2>
+<p>Hay una relación que no es casualidad. Un sitio lleno de complementos —uno para el formulario, otro para el carrusel, otro para las redes, otro para el SEO— es a la vez <strong>más lento y más vulnerable</strong>: cada complemento es código que se carga en cada visita y una puerta más que alguien tiene que mantener cerrada.</p>
+<p>Menos complementos significa un sitio más rápido, que Google premia, y con menos superficie de ataque. La misma decisión mejora las dos cosas.</p>
+
+<h2>Lo que hay que cuidar al diseñar el sitio</h2>
+<p>La seguridad es mucho más barata si se piensa desde el diseño que si se agrega después de un problema.</p>
+
+<h3>1. Elegir la tecnología según el riesgo</h3>
+<p>No todos los sitios necesitan un sistema con base de datos y panel de administración. Un sitio de negocio que cambia poco puede construirse como <strong>sitio estático</strong>: se sirve HTML ya armado, sin base de datos que consultar en cada visita y sin panel expuesto a internet. Es más rápido y deja muy poco por dónde entrar.</p>
+<p>Cuando el cliente necesita editar contenido todos los días, un gestor como WordPress tiene sentido — pero entonces hay que asumir el compromiso de mantenerlo actualizado.</p>
+
+<h3>2. HTTPS en todo el sitio, y una sola dirección</h3>
+<p>No alcanza con tener el certificado: todo el sitio tiene que cargar en HTTPS, y todas las variantes —con www, sin www, con http— tienen que redirigir de forma permanente a una sola. Además de cerrar huecos, eso evita que Google vea varias copias de tu sitio y reparta la autoridad entre ellas.</p>
+
+<h3>3. Cabeceras de seguridad</h3>
+<p>Son instrucciones que el servidor le da al navegador: que siempre use conexión segura, que no permita que tu sitio se incruste dentro de otro para engañar al visitante, que solo cargue código de orígenes autorizados. No se ven, pero bloquean tipos enteros de ataque. Casi ningún sitio de PYME las tiene configuradas.</p>
+
+<h3>4. Formularios que no sean una puerta</h3>
+<p>Los formularios de contacto son de los puntos más atacados: se usan para mandar spam masivo, para intentar inyectar código o para llenar tu correo de basura. Hay que validar lo que llega, limitar los envíos y, cuando se pueda, no guardar datos que no hacen falta.</p>
+
+<h3>5. Cero credenciales dentro del código</h3>
+<p>Claves de API, contraseñas de base de datos o tokens de servicios nunca van escritas en el código del sitio. Si ese código queda en un repositorio público, las encuentran en horas. Van en variables de entorno del servidor, fuera de la vista de cualquiera.</p>
+
+<h3>6. Accesos mínimos</h3>
+<p>Solo tiene acceso de administrador quien lo necesita, cada persona con su propia cuenta y con verificación en dos pasos. Una cuenta compartida por todo el equipo es imposible de auditar y de cerrar cuando alguien se va.</p>
+
+<h3>7. Respaldos que se puedan restaurar</h3>
+<p>Si todo lo demás falla, un respaldo reciente y probado es lo que te devuelve el sitio en horas en vez de semanas. Tiene que estar guardado fuera del mismo servidor — si el servidor cae, un respaldo guardado ahí adentro cae con él.</p>
+
+<h2>Lo que hay que cuidar después de lanzarlo</h2>
+<ul>
+  <li><strong>Actualizar</strong> el sistema y cada complemento. La mayoría de los sitios hackeados no caen por ataques ingeniosos, sino por una vulnerabilidad conocida que nunca se parchó.</li>
+  <li><strong>Borrar lo que no se usa:</strong> complementos desactivados, temas viejos, cuentas de ex colaboradores.</li>
+  <li><strong>Revisar Search Console</strong> cada tanto, en especial el informe de problemas de seguridad y las búsquedas por las que te muestran.</li>
+  <li><strong>Vigilar que el dominio no se use para suplantarte:</strong> los registros SPF, DKIM y DMARC evitan que manden correos haciéndose pasar por tu empresa, algo que también daña la reputación del dominio.</li>
+</ul>
+
+<h2>Cómo lo aplicamos en nuestro propio sitio</h2>
+<p>No es teoría: este sitio está construido así. Es estático, sin base de datos expuesta; se sirve siempre por HTTPS con una sola dirección canónica; tiene cabeceras de seguridad que restringen qué código puede cargarse; las credenciales de servicios externos viven en variables del servidor y no en el código; y antes de cada publicación corre una revisión automática que busca, entre otras cosas, secretos filtrados y enlaces rotos.</p>
+<p>Venimos de la ciberseguridad, y por eso lo tomamos como punto de partida y no como un agregado al final.</p>
+
+<h2>La idea para llevarse</h2>
+<p>El posicionamiento se construye con meses de trabajo y se puede perder en una noche. La seguridad es lo que protege esa inversión. Si estás por hacer un sitio, pedile a quien lo construya que te explique cómo lo va a proteger. Si ya tenés uno y estás invirtiendo en posicionarlo, revisá primero que no tenga la puerta abierta.</p>
+<p>En <a href="/desarrollo-web-costa-rica/">desarrollo web</a> está cómo construimos con la seguridad desde el inicio, y en <a href="/seo-costa-rica/">posicionamiento SEO</a> cómo auditamos un sitio existente. Si te interesa la parte del negocio, mirá también <a href="/blog/ciberseguridad-para-pymes-costa-rica/">ciberseguridad para PYMES</a> y <a href="/blog/por-que-mi-pagina-web-no-aparece-en-google/">por qué tu página no aparece en Google</a>.</p>
+`,
+  },
 ];
 
 export function getArticle(slug: string): Article | undefined {

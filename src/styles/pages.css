@@ -54,7 +54,6 @@
 .brand-logo { display: block; width: auto; height: auto; max-width: 100%; }
 .nav-logo { gap: 0; }
 .nav-logo .brand-logo { height: 38px; }
-.footer-logo .brand-logo { height: 40px; }
 @media (max-width: 400px) { .nav-logo .brand-logo { height: 32px; } }
 
 /* ── SERVICIOS: enlace secundario hacia la landing del servicio ── */
@@ -270,30 +269,68 @@
   .partner-wordmark { font-size: .9rem; }
 }
 
-/* ── FOOTER ampliado ── */
-.footer-cols { display: flex; flex-wrap: wrap; gap: 2.5rem; justify-content: center; }
+/* ── FOOTER ──────────────────────────────────────────────────────────────────
+   Marca y contacto a la izquierda; tres columnas de enlaces a la derecha. En
+   móvil todo va alineado a la izquierda y las columnas quedan de a dos, que se
+   lee mejor que la lista centrada de antes. */
+.site-footer { background: #070709; border-top: 1px solid rgba(255,255,255,.06); padding: 3.5rem 1.25rem 1.5rem; }
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-grid { display: grid; gap: 2.75rem; }
+.footer-logo { display: inline-flex; }
+.footer-logo .brand-logo { height: 40px; }
+.footer-tagline { margin-top: .9rem; font-size: .92rem; color: var(--text-secondary); line-height: 1.6; max-width: 32ch; }
+.footer-contact { font-style: normal; display: grid; gap: .6rem; margin-top: 1.5rem; font-size: .88rem; color: var(--text-secondary); }
+.footer-contact a, .footer-contact span { display: inline-flex; align-items: center; gap: .6rem; color: var(--text-secondary); text-decoration: none; width: fit-content; }
+.footer-contact svg { width: 17px; height: 17px; flex-shrink: 0; color: var(--accent-green); }
+.footer-contact a:hover { color: var(--text-primary); }
+.footer-socials { display: flex; align-items: center; gap: .6rem; margin-top: 1.5rem; }
+.footer-wa {
+  display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; padding: 0 1.1rem;
+  border-radius: 999px; background: #25d366; color: #04130a; font-family: var(--font-display);
+  font-weight: 600; font-size: .9rem; text-decoration: none; transition: filter var(--transition);
+}
+.footer-wa svg { width: 18px; height: 18px; }
+.footer-wa:hover { filter: brightness(1.08); }
+.footer-icon {
+  display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.12); color: var(--text-secondary); transition: color var(--transition), border-color var(--transition);
+}
+.footer-icon svg { width: 19px; height: 19px; }
+.footer-icon:hover { color: var(--text-primary); border-color: rgba(255,255,255,.3); }
+
+.footer-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.25rem 1.5rem; }
 .footer-col-title {
-  font-size: .72rem;
-  font-family: var(--font-mono);
-  text-transform: uppercase;
-  letter-spacing: .12em;
-  color: var(--text-secondary);
-  margin-bottom: .85rem;
-  font-weight: 500;
+  font-size: .72rem; font-family: var(--font-mono); font-weight: 500; text-transform: uppercase;
+  letter-spacing: .12em; color: var(--text-primary); margin-bottom: 1rem;
 }
-.footer-col .footer-links { flex-direction: column; gap: .55rem; align-items: center; }
-.footer-nap {
-  font-style: normal;
-  margin-top: .9rem;
-  font-size: .85rem;
-  color: var(--text-secondary);
-  line-height: 1.8;
+.footer-links { list-style: none; margin: 0; padding: 0; display: grid; gap: .15rem; }
+.footer-links a {
+  display: block; padding: .35rem 0; color: var(--text-secondary); text-decoration: none;
+  font-size: .9rem; line-height: 1.35; transition: color var(--transition);
 }
-.footer-nap a { color: var(--text-secondary); text-decoration: none; }
-.footer-nap a:hover { color: var(--accent-green); }
+.footer-links a:hover { color: var(--accent-green); }
+
+.footer-bottom {
+  margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.06);
+  display: flex; flex-direction: column; gap: .75rem; font-size: .8rem; color: var(--text-secondary);
+}
+.footer-bottom p { margin: 0; }
+.footer-legal { display: flex; flex-wrap: wrap; gap: .4rem 1.5rem; }
+.footer-legal a { color: var(--text-secondary); text-decoration: none; }
+.footer-legal a:hover { color: var(--text-primary); }
+/* El botón flotante de WhatsApp tapa la esquina inferior derecha en móvil. */
+@media (max-width: 767px) {
+  .site-footer { padding-bottom: 6rem; }
+  .footer-nav .footer-col:last-child { grid-column: 1 / -1; }
+  .footer-nav .footer-col:last-child .footer-links { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 1.5rem; }
+}
+
 @media (min-width: 768px) {
-  .footer-cols { justify-content: flex-start; }
-  .footer-col .footer-links { align-items: flex-start; }
+  .footer-nav { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; padding-right: 88px; }
+}
+@media (min-width: 1024px) {
+  .footer-grid { grid-template-columns: minmax(260px, 1fr) 2.2fr; gap: 4rem; }
 }
 
 /* ══════════════════════════════════════════════════════════════════════════

@@ -1,73 +1,99 @@
 ---
-import { site, mainNav } from '../data/site';
+import { site, mainNav, wa } from '../data/site';
 import Logo from './Logo.astro';
 import WhatsAppIcon from './WhatsAppIcon.astro';
 
 const year = new Date().getFullYear();
 
-/** Landings de servicio: enlazado interno hacia las páginas SEO principales. */
-const serviceLinks = [
-  { href: '/paginas-web-costa-rica/', label: 'Páginas web Costa Rica' },
-  { href: '/diseno-web-costa-rica/', label: 'Diseño web Costa Rica' },
-  { href: '/desarrollo-web-costa-rica/', label: 'Desarrollo web Costa Rica' },
-  { href: '/tiendas-online-costa-rica/', label: 'Tiendas online Costa Rica' },
-  { href: '/software-a-la-medida-costa-rica/', label: 'Software a la medida y CRM' },
-  { href: '/agentes-ia-costa-rica/', label: 'Agentes IA WhatsApp' },
-  { href: '/agentes-ia-redes-sociales-costa-rica/', label: 'Agentes IA redes sociales' },
-  { href: '/aplicaciones-moviles-costa-rica/', label: 'Aplicaciones móviles' },
-  { href: '/software-empresas-costa-rica/', label: 'Software para empresas' },
-  { href: '/seo-costa-rica/', label: 'SEO Costa Rica' },
+/**
+ * Enlazado interno hacia las landings, agrupado como lo piensa el cliente: lo que
+ * tiene que ver con su sitio y con Google, y lo que tiene que ver con sistemas.
+ */
+const grupos = [
+  {
+    titulo: 'Web y SEO',
+    links: [
+      { href: '/paginas-web-costa-rica/', label: 'Páginas web' },
+      { href: '/diseno-web-costa-rica/', label: 'Diseño web' },
+      { href: '/desarrollo-web-costa-rica/', label: 'Desarrollo web' },
+      { href: '/tiendas-online-costa-rica/', label: 'Tiendas online' },
+      { href: '/seo-costa-rica/', label: 'Posicionamiento SEO' },
+    ],
+  },
+  {
+    titulo: 'Software e IA',
+    links: [
+      { href: '/software-a-la-medida-costa-rica/', label: 'Software a la medida y CRM' },
+      { href: '/software-empresas-costa-rica/', label: 'Software para empresas' },
+      { href: '/aplicaciones-moviles-costa-rica/', label: 'Aplicaciones móviles' },
+      { href: '/agentes-ia-costa-rica/', label: 'Agentes de IA' },
+      { href: '/agentes-ia-redes-sociales-costa-rica/', label: 'IA para redes sociales' },
+      { href: '/soporte-tecnico-computadoras-costa-rica/', label: 'Soporte técnico' },
+    ],
+  },
 ];
+
+const empresa = mainNav.filter((item) => item.href !== '/#servicios');
 ---
-<footer role="contentinfo">
+<footer role="contentinfo" class="site-footer">
   <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <div class="footer-logo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo" aria-label="HacksinCodigos, inicio">
           <Logo height={40} alt="HacksinCodigos" />
-        </div>
-        <div class="footer-tagline" data-i18n="footer_tagline">Páginas web, IA y ciberseguridad en Costa Rica</div>
-        <address class="footer-nap">
-          <a href={`tel:${site.phoneE164}`}>{site.phone}</a><br />
-          <span>{site.hours}</span><br />
-          <span>{site.countryName}</span>
+        </a>
+        <p class="footer-tagline" data-i18n="footer_tagline">Páginas web, IA y ciberseguridad en Costa Rica</p>
+
+        <address class="footer-contact">
+          <a href={`tel:${site.phoneE164}`}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.28 6.72 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.37c0-.52-.35-.97-.85-1.09l-4.42-1.1c-.44-.11-.9.05-1.17.41l-.97 1.29a1.13 1.13 0 01-1.21.38 12.04 12.04 0 01-7.14-7.14 1.13 1.13 0 01.38-1.21l1.29-.97c.36-.27.52-.73.41-1.17L6.96 3.1A1.13 1.13 0 005.87 2.25H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+            {site.phone}
+          </a>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 7v5l3 2"/></svg>
+            {site.hours}
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-6.2-7-11.5A7 7 0 0112 2.5a7 7 0 017 7C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            {site.countryName} · todo el país
+          </span>
         </address>
+
+        <div class="footer-socials">
+          <a href={wa()} target="_blank" rel="noopener" class="footer-wa">
+            <WhatsAppIcon />
+            <span data-i18n="footer_whatsapp">WhatsApp</span>
+          </a>
+          <a href={site.instagram} target="_blank" rel="noopener" class="footer-icon" aria-label={`Instagram ${site.instagramHandle}`}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>
+          </a>
+        </div>
       </div>
 
-      <nav class="footer-cols" aria-label="Enlaces del pie de página">
+      <nav class="footer-nav" aria-label="Enlaces del pie de página">
+        {grupos.map((g) => (
+          <div class="footer-col">
+            <h2 class="footer-col-title">{g.titulo}</h2>
+            <ul class="footer-links" role="list">
+              {g.links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+            </ul>
+          </div>
+        ))}
         <div class="footer-col">
-          <h2 class="footer-col-title">Navegación</h2>
+          <h2 class="footer-col-title">Empresa</h2>
           <ul class="footer-links" role="list">
-            {mainNav.map((item) => (
+            {empresa.map((item) => (
               <li><a href={item.href} data-i18n={item.i18n}>{item.label}</a></li>
             ))}
           </ul>
         </div>
-        <div class="footer-col">
-          <h2 class="footer-col-title">Servicios</h2>
-          <ul class="footer-links" role="list">
-            {serviceLinks.map((l) => (
-              <li><a href={l.href}>{l.label}</a></li>
-            ))}
-          </ul>
-        </div>
       </nav>
-
-      <div class="footer-socials">
-        <a href={`https://wa.me/${site.whatsappNumber}`} target="_blank" rel="noopener" class="footer-social" aria-label="WhatsApp">
-          <WhatsAppIcon />
-          <span data-i18n="footer_whatsapp">WhatsApp</span>
-        </a>
-        <a href={site.instagram} target="_blank" rel="noopener" class="footer-social" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          <span data-i18n="footer_instagram">Instagram</span>
-        </a>
-      </div>
     </div>
+
     <div class="footer-bottom">
-      <p>
-        <span data-i18n="footer_copyright">© {year} HacksinCodigos · Hecho con 💚 en Costa Rica</span> &nbsp;|&nbsp;
-        <a href="/politica-de-privacidad/" data-i18n="footer_privacy">Política de privacidad</a> ·
+      <p>© {year} HacksinCodigos. <span data-i18n="footer_rights">Todos los derechos reservados.</span></p>
+      <p class="footer-legal">
+        <a href="/politica-de-privacidad/" data-i18n="footer_privacy">Política de privacidad</a>
         <a href="/terminos-de-servicio/" data-i18n="footer_terms">Términos de servicio</a>
       </p>
     </div>

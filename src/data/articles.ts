@@ -811,7 +811,7 @@ export const articles: Article[] = [
     title: 'Por qué tu página web no aparece en Google (y cómo arreglarlo)',
     metaTitle: 'Por qué tu página web no aparece en Google | HacksinCodigos',
     metaDesc:
-      'Las razones reales por las que un sitio no sale en Google en Costa Rica: indexación, versiones duplicadas, URLs viejas, falta de páginas y de autoridad.',
+      'Por qué tu página web no aparece en Google y cómo arreglarlo: indexación, versiones duplicadas, URLs viejas, Google Maps y posicionamiento SEO en Costa Rica.',
     excerpt:
       'Si solo aparecés cuando alguien busca el nombre de tu empresa, algo concreto está fallando. Estas son las causas que encontramos una y otra vez — incluida la que tenía nuestro propio sitio.',
     tag: '📈 SEO',
@@ -861,9 +861,9 @@ export const articles: Article[] = [
 <p>La autoridad se construye, sobre todo, con <strong>enlaces desde otros sitios</strong>. Un dominio que lleva veinte años recibiendo enlaces no se alcanza en un mes. Pero hay enlaces legítimos que casi todo negocio tiene a mano y no aprovecha: proveedores, clientes, cámaras y asociaciones del sector, medios locales, directorios de negocios del país.</p>
 <p>Lo que <strong>no</strong> hay que hacer es comprarlos. Los paquetes de "mil enlaces por veinte dólares" funcionan unas semanas y después Google hunde el dominio.</p>
 
-<h2>6. Tu perfil de Google Business está suelto</h2>
+<h2>6. No aparecés en Google Maps: tu perfil de negocio está suelto</h2>
 <p>Para búsquedas locales —"diseño web en San José", "dentista en Palmares"— lo que aparece arriba, con el mapa, sale del perfil de negocio de Google. Tenerlo verificado es el requisito, no el resultado.</p>
-<p>Lo que lo hace subir: <strong>reseñas reales y con texto</strong>, categorías bien elegidas, fotos propias, y que el nombre, teléfono y zona coincidan exactamente con lo que dice tu sitio. Si el perfil dice un teléfono y la página otro, Google pierde confianza en los dos.</p>
+<p>Si te preguntás cómo aparecer en Google Maps con tu negocio, la respuesta está en ese perfil. Lo que lo hace subir: <strong>reseñas reales y con texto</strong>, categorías bien elegidas, fotos propias, y que el nombre, teléfono y zona coincidan exactamente con lo que dice tu sitio. Si el perfil dice un teléfono y la página otro, Google pierde confianza en los dos.</p>
 
 <h2>7. El sitio es lento en el celular</h2>
 <p>La mayoría de tus visitas llegan desde el teléfono, muchas veces desde el navegador interno de Instagram o WhatsApp. Si la página tarda en cargar, la gente se va antes de verla, y Google lo toma en cuenta.</p>
@@ -895,10 +895,10 @@ export const articles: Article[] = [
   },
   {
     slug: 'que-debe-tener-una-pagina-web-de-negocio',
-    title: 'Qué debe tener la página web de un negocio en Costa Rica',
-    metaTitle: 'Qué debe tener la página web de un negocio | HacksinCodigos',
+    title: 'Página web para tu negocio: qué debe tener para traer clientes',
+    metaTitle: 'Página web para negocios: qué debe tener | HacksinCodigos',
     metaDesc:
-      'Lo que no puede faltar en el sitio de un negocio en Costa Rica para que traiga clientes: mensaje claro, WhatsApp, páginas por servicio, velocidad y confianza.',
+      'Qué debe tener la página web de un negocio o pequeña empresa en Costa Rica para traer clientes: mensaje claro, WhatsApp, páginas por servicio y confianza.',
     excerpt:
       'Una página bonita que nadie contacta no sirve. Esta es la lista de lo que un sitio de negocio necesita para convertir visitas en clientes — y lo que conviene quitarle.',
     tag: '🎨 Diseño web',
@@ -982,7 +982,7 @@ export const articles: Article[] = [
     title: '¿Cuánto cuesta un chatbot de IA para WhatsApp en Costa Rica?',
     metaTitle: '¿Cuánto cuesta un chatbot de IA para WhatsApp? | HacksinCodigos',
     metaDesc:
-      'Qué define el costo de un agente de IA para WhatsApp: desarrollo, uso de la IA, la plataforma de Meta y el mantenimiento. Y cómo saber si te conviene.',
+      'Cuánto cuesta un chatbot con IA para WhatsApp Business: desarrollo, uso de la IA, la plataforma de Meta y mantenimiento. Y cómo saber si te conviene.',
     excerpt:
       'No existe un precio honesto de lista, pero sí se puede saber de qué depende. Estos son los cuatro costos de un agente de IA para WhatsApp y cómo calcular si te conviene.',
     tag: '🤖 Agentes IA',
@@ -998,7 +998,7 @@ export const articles: Article[] = [
 <p>La respuesta corta es incómoda pero honesta: <strong>depende</strong>. Y no porque queramos esquivar la pregunta, sino porque un agente que contesta diez mensajes al día y uno que atiende cuatrocientos no cuestan lo mismo, igual que no cuesta lo mismo una casa de una habitación que una de cinco.</p>
 <p>Lo que sí se puede hacer es explicar <strong>de qué depende</strong>, para que cuando pidás una cotización sepas qué estás comparando. Porque ahí es donde la gente se confunde: dos precios muy distintos a veces son dos productos muy distintos.</p>
 
-<h2>Los cuatro costos de un agente de IA</h2>
+<h2>Los cuatro costos de un chatbot con IA</h2>
 <p>Un agente para WhatsApp no tiene un solo costo. Tiene cuatro, y conviene separarlos:</p>
 
 <h3>1. El desarrollo — pago único</h3>
@@ -1030,7 +1030,7 @@ export const articles: Article[] = [
   <li><strong>Si se usa la plataforma oficial de Meta</strong> o se trabaja sobre la aplicación normal.</li>
 </ul>
 
-<h2>WhatsApp normal o la plataforma oficial</h2>
+<h2>WhatsApp Business normal o la API oficial</h2>
 <p>Es la decisión que más cambia el costo, y conviene entenderla.</p>
 <p>Para un negocio pequeño, con un solo número y volumen moderado, se puede trabajar sobre la aplicación normal. Es más barato y arranca antes.</p>
 <p>La plataforma oficial corresponde cuando hay mucho volumen, varias personas atendiendo el mismo número, o necesidad de mandar mensajes de plantilla como confirmaciones y recordatorios. Tiene costo por uso, pero es la vía reconocida por Meta y la más estable.</p>
@@ -1074,7 +1074,7 @@ export const articles: Article[] = [
     title: 'Inteligencia artificial para PYMES: por dónde empezar sin gastar de más',
     metaTitle: 'IA para PYMES en Costa Rica: por dónde empezar | HacksinCodigos',
     metaDesc:
-      'Cómo una PYME en Costa Rica puede empezar a usar inteligencia artificial con sentido: dónde rinde primero, dónde no conviene y un plan de treinta días.',
+      'Inteligencia artificial para PYMES y empresas en Costa Rica: usos prácticos, dónde no conviene y un plan de treinta días para empezar sin gastar de más.',
     excerpt:
       'La IA no es para empresas grandes ni hace falta entenderla para aprovecharla. Lo que sí hace falta es empezar por el problema correcto. Así se arranca sin tirar la plata.',
     tag: '🧠 Inteligencia artificial',
@@ -1094,7 +1094,7 @@ export const articles: Article[] = [
 <p>No es "¿cómo uso IA en mi negocio?". Es: <strong>"¿en qué se nos va el tiempo haciendo lo mismo una y otra vez?"</strong></p>
 <p>La inteligencia artificial rinde en tareas que se repiten, que siguen un patrón y que hoy hace una persona que podría estar haciendo algo más valioso. Si identificás eso primero, la herramienta se elige casi sola.</p>
 
-<h2>Dónde rinde primero en una PYME</h2>
+<h2>Usos prácticos de la inteligencia artificial en una PYME</h2>
 
 <h3>Atender las consultas de siempre</h3>
 <p>Precios, horarios, ubicación, disponibilidad, formas de pago. Un <a href="/agentes-ia-costa-rica/">agente de IA</a> en WhatsApp, en tu sitio o en Instagram contesta eso al instante, a cualquier hora, y te pasa solo lo que necesita una persona. Es, por lejos, donde más se nota el cambio.</p>
@@ -1150,10 +1150,10 @@ export const articles: Article[] = [
   },
   {
     slug: 'ciberseguridad-para-pymes-costa-rica',
-    title: 'Ciberseguridad para PYMES en Costa Rica: lo mínimo que tenés que hacer',
+    title: 'Ciberseguridad para PYMES en Costa Rica: estafas por SINPE y cómo protegerte',
     metaTitle: 'Ciberseguridad para PYMES en Costa Rica | HacksinCodigos',
     metaDesc:
-      'Las estafas que más golpean a negocios en Costa Rica —comprobantes de SINPE falsos, WhatsApp robado, correos falsos— y las medidas mínimas para protegerte.',
+      'Ciberseguridad para PYMES en Costa Rica: estafas por SINPE Móvil, robo de WhatsApp y correos falsos, y las medidas mínimas para proteger tu negocio.',
     excerpt:
       'A una PYME no la atacan por grande: la atacan porque es fácil. Estas son las estafas que más vemos en Costa Rica y las medidas básicas que cierran la mayoría de las puertas.',
     tag: '🔐 Ciberseguridad',
@@ -1171,11 +1171,11 @@ export const articles: Article[] = [
 
 <h2>Las estafas que más golpean a negocios en Costa Rica</h2>
 
-<h3>El comprobante de SINPE falso</h3>
+<h3>Estafas por SINPE Móvil: el comprobante falso</h3>
 <p>El cliente "paga", manda la captura de pantalla del SINPE Móvil y se lleva el producto. La captura está editada: el dinero nunca entró.</p>
 <p><strong>Cómo evitarlo:</strong> nunca entregues por una captura. Confirmá el ingreso <strong>en la aplicación de tu banco</strong>, no en la imagen que te mandan. Si hay mucho movimiento, designá a una sola persona que confirme pagos antes de despachar.</p>
 
-<h3>"Me equivoqué de número, devuélvamelo"</h3>
+<h3>La estafa del SINPE equivocado: "me equivoqué de número"</h3>
 <p>Llega un depósito, o una captura de uno, y enseguida un mensaje pidiendo que devuelvas la plata porque fue un error. A veces el depósito ni existió; otras veces sí existió y después se revierte.</p>
 <p><strong>Cómo evitarlo:</strong> no devuelvas nada por tu cuenta. Revisá en tu banco que el ingreso sea real y consultá con el banco cómo proceder. Una persona honesta que se equivocó puede esperar a que el banco lo resuelva.</p>
 
@@ -1237,7 +1237,7 @@ export const articles: Article[] = [
     title: 'Seguridad web y SEO: por qué un sitio inseguro no llega a primer lugar',
     metaTitle: 'Seguridad web y SEO: diseñar un sitio seguro | HacksinCodigos',
     metaDesc:
-      'Cómo la seguridad de una página web afecta su posicionamiento en Google: HTTPS, sitios hackeados, spam inyectado, advertencias y lo que hay que cuidar al diseñar.',
+      'Cómo la seguridad de tu página web afecta su posicionamiento en Google, cómo verificarla y qué cuidar al diseñar: certificado HTTPS, hackeos y spam.',
     excerpt:
       'Podés tener el mejor contenido del país y perder todo el posicionamiento en una noche porque alguien entró por un complemento viejo. La seguridad no es aparte del SEO: es su base.',
     tag: '🛡️ Seguridad y SEO',
@@ -1274,6 +1274,17 @@ export const articles: Article[] = [
 <h2>Por qué los sitios inseguros suelen ser también lentos</h2>
 <p>Hay una relación que no es casualidad. Un sitio lleno de complementos —uno para el formulario, otro para el carrusel, otro para las redes, otro para el SEO— es a la vez <strong>más lento y más vulnerable</strong>: cada complemento es código que se carga en cada visita y una puerta más que alguien tiene que mantener cerrada.</p>
 <p>Menos complementos significa un sitio más rápido, que Google premia, y con menos superficie de ataque. La misma decisión mejora las dos cosas.</p>
+
+<h2>Cómo verificar la seguridad de tu página web</h2>
+<p>Antes de invertir en posicionar un sitio conviene revisar que no tenga la puerta abierta. Estas revisiones las podés hacer vos, gratis:</p>
+<ul>
+  <li><strong>El certificado de seguridad.</strong> Hacé clic en el candado junto a la dirección: tiene que decir que la conexión es segura y que el certificado está vigente. Probá también entrar con <code>http://</code> y comprobá que te lleve solo a la versión segura.</li>
+  <li><strong>El informe de Navegación Segura de Google.</strong> Google tiene una página pública, dentro de su Informe de Transparencia, donde escribís tu dominio y te dice si lo tiene marcado como peligroso.</li>
+  <li><strong>Search Console.</strong> El apartado de problemas de seguridad te avisa si Google detectó malware, contenido inyectado o páginas engañosas.</li>
+  <li><strong>Una búsqueda de <code>site:tudominio.com</code>.</strong> Si aparecen páginas, títulos o idiomas que no reconocés, es la señal típica de spam inyectado.</li>
+  <li><strong>Las versiones de todo lo instalado.</strong> Si usás WordPress u otro gestor, revisá que el sistema, el tema y cada complemento estén en su última versión.</li>
+</ul>
+<p>Si alguna de estas revisiones falla, eso se arregla <em>antes</em> de seguir invirtiendo en contenido o publicidad.</p>
 
 <h2>Lo que hay que cuidar al diseñar el sitio</h2>
 <p>La seguridad es mucho más barata si se piensa desde el diseño que si se agrega después de un problema.</p>
@@ -1315,6 +1326,143 @@ export const articles: Article[] = [
 <h2>La idea para llevarse</h2>
 <p>El posicionamiento se construye con meses de trabajo y se puede perder en una noche. La seguridad es lo que protege esa inversión. Si estás por hacer un sitio, pedile a quien lo construya que te explique cómo lo va a proteger. Si ya tenés uno y estás invirtiendo en posicionarlo, revisá primero que no tenga la puerta abierta.</p>
 <p>En <a href="/desarrollo-web-costa-rica/">desarrollo web</a> está cómo construimos con la seguridad desde el inicio, y en <a href="/seo-costa-rica/">posicionamiento SEO</a> cómo auditamos un sitio existente. Si te interesa la parte del negocio, mirá también <a href="/blog/ciberseguridad-para-pymes-costa-rica/">ciberseguridad para PYMES</a> y <a href="/blog/por-que-mi-pagina-web-no-aparece-en-google/">por qué tu página no aparece en Google</a>.</p>
+`,
+  },
+  {
+    slug: 'chatbot-con-ia-para-pagina-web-ventas-y-servicio-al-cliente',
+    title: 'Chatbot con IA para tu página web: un vendedor y servicio al cliente 24/7',
+    metaTitle: 'Chatbot con IA para tu página web: ventas y atención | HacksinCodigos',
+    metaDesc:
+      'Cómo poner un chatbot con IA en tu página web que trabaje como vendedor y como servicio al cliente: recomienda, resuelve dudas y lleva al siguiente paso.',
+    excerpt:
+      'La mayoría de los chats de sitios web solo responden preguntas. Un chatbot con IA bien armado hace lo que tu mejor vendedor antes de la compra y lo que tu mejor persona de servicio al cliente después.',
+    tag: '🤖 Agentes IA',
+    tagColor: 'var(--accent-amber)',
+    published: '2026-09-13',
+    updated: '2026-09-13',
+    readingMinutes: 10,
+    relatedServices: [
+      { href: '/agentes-ia-costa-rica/', label: 'agentes de IA' },
+      { href: '/software-a-la-medida-costa-rica/', label: 'CRM y software a la medida' },
+    ],
+    bodyHtml: `
+<p>Casi todos los chats que se ven en las páginas web hacen lo mismo: esperan a que alguien pregunte y contestan. Eso es un mostrador de información, no un vendedor. Y la diferencia se nota en lo que termina pasando: la persona recibe su respuesta y se va.</p>
+<p>Un buen vendedor no espera a que le pregunten. Saluda, entiende qué anda buscando el cliente, le recomienda algo concreto, le quita las dudas y lo lleva al siguiente paso. Y una buena persona de servicio al cliente resuelve el problema de quien ya compró sin hacerlo esperar.</p>
+<p><strong>Eso mismo puede hacer un chatbot con IA en tu página web</strong> — si se arma pensando en vender y atender, y no solo en contestar. Acá explicamos cómo funciona en los dos papeles.</p>
+
+<h2>La diferencia entre un chat que contesta y un agente que vende</h2>
+<p>Pongamos a alguien que entra a la página de un servicio y escribe: <em>"¿cuánto cuesta?"</em>.</p>
+<p><strong>El chat que contesta</strong> responde el precio, o dice que depende, y ahí termina la conversación.</p>
+<p><strong>El agente que vende</strong> hace lo que haría tu mejor vendedor: pregunta un par de cosas para entender el caso, explica de qué depende el precio para ese caso en particular, recomienda la opción que le calza, y propone el siguiente paso — una cotización, una llamada, agendar, o seguir la conversación por WhatsApp. Y deja los datos registrados para que nadie tenga que empezar de cero.</p>
+<p>Misma pregunta. Resultado completamente distinto.</p>
+
+<h2>El chatbot como vendedor: los cuatro momentos de una venta</h2>
+<p>El trabajo de un vendedor tiene cuatro momentos, y un agente bien diseñado sigue ese mismo orden:</p>
+
+<h3>1. Entender antes de ofrecer</h3>
+<p>Un vendedor malo recita el catálogo. Uno bueno pregunta. El agente hace dos o tres preguntas naturales para entender qué necesita la persona: para qué lo quiere, para cuándo, qué tiene hoy. Sin interrogatorios ni formularios disfrazados — como una conversación.</p>
+
+<h3>2. Recomendar algo concreto</h3>
+<p>Con eso claro, el agente no manda a la persona a "ver el catálogo": le recomienda la opción que le sirve y le explica por qué. Si hay dos que calzan, las compara. Si lo que busca no lo ofrecés, lo dice — un vendedor honesto no le vende cualquier cosa a nadie.</p>
+
+<h3>3. Resolver las dudas que frenan la compra</h3>
+<p>Las personas no dejan de comprar por falta de información: dejan de comprar por dudas. ¿Cuánto tarda? ¿Qué pasa si no me gusta? ¿Hacen envíos a mi zona? ¿Con qué otros clientes han trabajado? El agente responde esas dudas en el momento en que aparecen, que es exactamente cuando se pierden las ventas.</p>
+
+<h3>4. Cerrar el siguiente paso</h3>
+<p>No siempre se vende en el chat, y no hace falta. Lo que un buen vendedor nunca hace es dejar la conversación en el aire. El agente propone un paso concreto: pedir la cotización, agendar una llamada, agregar al carrito, o pasar la conversación a WhatsApp con todo lo conversado. Y si la persona no está lista, le deja una forma fácil de volver.</p>
+
+<h2>El mismo chatbot como servicio al cliente</h2>
+<p>Antes de la compra el agente vende. Después de la compra, atiende. Es el mismo agente, con la misma información del negocio, pero con otro objetivo: que quien ya es cliente resuelva su problema rápido y vuelva a comprar.</p>
+<p>La atención al cliente con IA rinde sobre todo en lo que más se repite:</p>
+<ul>
+  <li><strong>Estado del pedido</strong>: si ya salió, cuándo llega, qué pasa si se atrasa.</li>
+  <li><strong>Cambios, devoluciones y garantías</strong>: qué aplica, qué hay que hacer y qué datos se necesitan.</li>
+  <li><strong>Cómo usar lo que compró</strong>: instrucciones, cuidados, dudas de instalación o configuración.</li>
+  <li><strong>Horarios, ubicación y formas de contacto</strong> para cuando hace falta una persona.</li>
+  <li><strong>Primer nivel de soporte</strong>: las soluciones a los problemas de siempre, antes de abrir un caso.</li>
+  <li><strong>Registrar el caso</strong> con todos los datos cuando no se puede resolver solo, para que la persona que lo tome no tenga que volver a preguntar.</li>
+</ul>
+<p>Cambia también el tono. Como vendedor el agente conversa y recomienda; como servicio al cliente escucha, tiene paciencia y va al punto. Un cliente con un problema no quiere que le ofrezcan otro producto: quiere que le resuelvan. Un buen agente distingue si le escribe alguien que está por comprar o alguien que ya compró, y cambia de modo solo.</p>
+<p>El resultado para tu equipo es concreto: las consultas repetitivas se resuelven solas a cualquier hora, y a las personas les llegan solo los casos que de verdad necesitan criterio, ya ordenados.</p>
+
+<h2>Cómo se "contrata" y se capacita al agente</h2>
+<p>La mejor forma de pensarlo es como si entrara un vendedor nuevo al equipo. No lo mandarías a atender el primer día sin explicarle nada. Al agente tampoco.</p>
+<p>Lo que necesita saber es lo mismo que le enseñarías a una persona:</p>
+<ul>
+  <li><strong>Qué vendés</strong>, con detalle: productos o servicios, para quién es cada uno y en qué se diferencian.</li>
+  <li><strong>Cómo se cotiza</strong>: precios si los publicás, o qué datos hacen falta para cotizar si no.</li>
+  <li><strong>Las políticas</strong>: plazos, garantías, formas de pago, cobertura, devoluciones.</li>
+  <li><strong>Las preguntas que siempre te hacen</strong>, con las respuestas que funcionan.</li>
+  <li><strong>Las objeciones típicas</strong> y cómo se responden bien.</li>
+  <li><strong>Casos reales</strong> para mostrar que ya lo hiciste antes.</li>
+  <li><strong>El tono de tu marca</strong>: si tuteás, si sos formal, qué palabras usás.</li>
+  <li><strong>Qué NO puede hacer</strong>: inventar descuentos, prometer plazos que no se cumplen, opinar de temas delicados.</li>
+</ul>
+<p>La mejor fuente para todo esto ya la tenés: <strong>las conversaciones reales de tus vendedores</strong> por WhatsApp y correo. Ahí está cómo pregunta tu cliente de verdad y qué respuestas cierran.</p>
+
+<h2>La ventaja que ningún vendedor humano tiene</h2>
+<p>Un agente en tu sitio <strong>sabe en qué página está parado el visitante</strong>. Si alguien lleva un rato en la página de tiendas online, no le pregunta "¿en qué le puedo ayudar?": le pregunta si está pensando en vender por internet y qué tipo de productos tiene.</p>
+<p>Y está disponible a la hora en que la gente investiga, que muchas veces es de noche o el fin de semana, cuando tu equipo no está.</p>
+
+<h2>Cuándo tiene que entrar una persona</h2>
+<p>Un agente vendedor no reemplaza a tu equipo: le prepara el terreno. Hay momentos en que tiene que pasar la conversación sin intentarlo:</p>
+<ul>
+  <li><strong>Cuando la persona lo pide.</strong> Siempre, sin resistencia.</li>
+  <li><strong>Cuando hay que negociar</strong> un precio especial, un descuento o una excepción.</li>
+  <li><strong>Cuando es un cliente grande</strong> o un proyecto complejo que merece atención personal.</li>
+  <li><strong>Cuando hay un reclamo</strong> o alguien está molesto.</li>
+  <li><strong>Cuando la pregunta sale de lo que sabe.</strong> Mejor decir "te comunico con alguien" que inventar.</li>
+</ul>
+<p>Lo importante es que al pasar la conversación, la persona de tu equipo reciba todo lo que ya se habló. Nada peor para un cliente que tener que repetir su caso desde el principio.</p>
+
+<h2>Conectado a tu CRM, el agente no pierde a nadie</h2>
+<p>Aquí está la diferencia entre un agente que conversa y uno que realmente suma ventas. Si está conectado a tu <a href="/software-a-la-medida-costa-rica/">CRM</a>, cada conversación que termina en interés queda registrada como oportunidad: quién es, qué necesita, qué se le recomendó y cuál es el siguiente paso.</p>
+<p>Así, el interesado de las once de la noche amanece asignado a un vendedor, con el contexto completo. También se puede conectar con tu calendario para agendar directo, con tu tienda para consultar existencias o con WhatsApp para seguir la conversación donde el cliente prefiera.</p>
+
+<h2>¿En la página web o en WhatsApp?</h2>
+<p>No son excluyentes, y conviene entender qué hace mejor cada uno.</p>
+<p><strong>En la página web</strong> el agente atrapa a quien está investigando: llegó desde Google, todavía no tiene tu número y no quiere salir de la página. Funciona especialmente bien en servicios que se piensan antes de contratar, en ventas entre empresas y en sitios con mucho tráfico de búsqueda.</p>
+<p><strong>En WhatsApp</strong> el agente atiende a quien ya decidió escribirte, en el canal donde el costarricense conversa todos los días y retoma la conversación días después.</p>
+<p>Lo más potente es que funcionen juntos: el agente del sitio entiende el caso y, cuando la conversación se pone seria, la pasa a WhatsApp con todo el contexto. Cuándo conviene solo uno de los dos lo contamos en el <a href="/blog/caso-chatbot-whatsapp-la-casita-del-bebe/">caso de La Casita del Bebé</a>, donde elegimos WhatsApp a propósito.</p>
+
+<h2>Lo técnico que no se ve y que importa</h2>
+<ul>
+  <li>
+    <strong>Que no ponga lento tu sitio.</strong> Un chat mal instalado puede cargar mucho código en cada visita y empeorar tu posicionamiento en Google. Tiene que cargarse de forma diferida, sin frenar la página.
+  </li>
+  <li>
+    <strong>Que la clave de la IA nunca esté en el navegador.</strong> Si queda a la vista en el código de la página, cualquiera la copia y la usa a tu costa. Tiene que pasar por un servidor intermedio.
+  </li>
+  <li>
+    <strong>Protección contra abuso.</strong> Límites de mensajes para que un robot no se ponga a conversar sin parar y te gaste la cuota del mes en una noche.
+  </li>
+  <li>
+    <strong>Privacidad.</strong> Avisar que es un asistente virtual, pedir solo los datos necesarios y cuidar dónde se guardan las conversaciones.
+  </li>
+</ul>
+
+<h2>Lo que un agente vendedor nunca debe hacer</h2>
+<ul>
+  <li><strong>Hacerse pasar por una persona.</strong> Se presenta como asistente virtual. La honestidad vende más que el truco.</li>
+  <li><strong>Inventar precios, descuentos o plazos.</strong> Todo lo que promete tiene que ser cierto.</li>
+  <li><strong>Presionar.</strong> Un vendedor insistente espanta, sea humano o no.</li>
+  <li><strong>Hablar mal de la competencia.</strong> Se habla de lo que vos hacés bien.</li>
+</ul>
+
+<h2>Cómo saber si está vendiendo y atendiendo bien</h2>
+<p>No alcanza con que "converse bonito". Hay que medir:</p>
+<ul>
+  <li><strong>Cuántas conversaciones inicia</strong> y en qué páginas.</li>
+  <li><strong>Cuántas terminan en un siguiente paso</strong>: cotización, cita, carrito, WhatsApp.</li>
+  <li><strong>Cuántos casos de servicio al cliente resuelve sin una persona</strong>, y cuántos tiene que pasar.</li>
+  <li><strong>Cuánto tarda en dar la primera respuesta</strong> frente a lo que tardaba tu equipo.</li>
+  <li><strong>Qué preguntas no supo responder</strong> — cada una es algo que hay que enseñarle.</li>
+  <li><strong>En qué punto se va la gente</strong> — ahí suele haber una duda mal resuelta.</li>
+</ul>
+
+<h2>Por dónde empezar</h2>
+<p>No hace falta ponerlo en todo el sitio el primer día. Lo sensato es empezar en las <strong>páginas de servicio que más visitas reciben</strong>, con la información de esos servicios bien preparada, y revisar las conversaciones durante las primeras semanas. Con lo que aparece ahí se afina, y después se extiende al resto.</p>
+<p>Si querés un chatbot con IA para tu empresa, en <a href="/agentes-ia-costa-rica/">agentes de IA para tu sitio web, WhatsApp y redes</a> está cómo trabajamos. Si antes querés entender la inversión, mirá <a href="/blog/cuanto-cuesta-un-chatbot-de-ia-para-whatsapp/">cuánto cuesta un chatbot de IA</a>. Y si tus clientes también te escriben por Instagram, está <a href="/agentes-ia-redes-sociales-costa-rica/">agentes de IA para redes sociales</a>.</p>
 `,
   },
 ];

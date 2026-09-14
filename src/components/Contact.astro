@@ -6,8 +6,13 @@ import WhatsAppIcon from './WhatsAppIcon.astro';
 <section id="contacto" aria-label="Contacto">
   <div class="contact-grid container">
     <div class="contact-info fade-up">
-      <h2 data-i18n="contact_title">¿Listo para crecer?</h2>
-      <p data-i18n="contact_desc">Cuéntanos tu proyecto y te respondemos en menos de 24 horas. Sin compromisos, sin letra pequeña.</p>
+      <h2 data-i18n="contact_title">Contanos qué necesitás</h2>
+      <p data-i18n="contact_desc">Te respondemos en menos de 24 horas con una propuesta clara. Sin compromiso y sin letra pequeña.</p>
+      <ol class="contacto-pasos" role="list">
+        <li><strong>Nos escribís</strong> por WhatsApp o con el formulario.</li>
+        <li><strong>Te hacemos un par de preguntas</strong> para entender tu negocio.</li>
+        <li><strong>Te mandamos la propuesta</strong> por escrito, con precio y plazo.</li>
+      </ol>
       <div class="contact-item">
         <WhatsAppIcon />
         <a href={wa()} target="_blank" rel="noopener">{site.phone}</a>
@@ -33,18 +38,8 @@ import WhatsAppIcon from './WhatsAppIcon.astro';
           <span class="form-error" id="err-nombre" role="alert"></span>
         </div>
         <div class="form-group">
-          <label for="empresa" data-i18n="form_empresa_label">Empresa (opcional)</label>
+          <label for="empresa" data-i18n="form_empresa_label">Negocio o empresa (opcional)</label>
           <input type="text" id="empresa" name="empresa" placeholder="Tu empresa" autocomplete="organization" data-i18n="form_empresa_ph" />
-        </div>
-        <div class="form-group">
-          <label for="email" data-i18n="form_email_label">Correo electrónico *</label>
-          <input type="email" id="email" name="email" placeholder="tu@email.com" autocomplete="email" required data-i18n="form_email_ph" />
-          <span class="form-error" id="err-email" role="alert"></span>
-        </div>
-        <div class="form-group">
-          <label for="telefono" data-i18n="form_tel_label">Teléfono *</label>
-          <input type="tel" id="telefono" name="telefono" placeholder="+506 8888 8888" autocomplete="tel" required data-i18n="form_tel_ph" />
-          <span class="form-error" id="err-telefono" role="alert"></span>
         </div>
         <div class="form-group">
           <label for="servicio" data-i18n="form_servicio_label">Servicio de interés *</label>
@@ -58,10 +53,11 @@ import WhatsAppIcon from './WhatsAppIcon.astro';
         </div>
         <div class="form-group">
           <label for="mensaje" data-i18n="form_msg_label">Mensaje *</label>
-          <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tu proyecto..." required data-i18n="form_msg_ph"></textarea>
+          <textarea id="mensaje" name="mensaje" placeholder="Ej.: tengo una ferretería y quiero vender en línea" required data-i18n="form_msg_ph"></textarea>
           <span class="form-error" id="err-mensaje" role="alert"></span>
         </div>
         <button type="submit" class="btn-submit" aria-label="Enviar por WhatsApp" data-i18n="contact_btn">Enviar por WhatsApp →</button>
+        <p class="form-nota">Se abre WhatsApp con tu mensaje listo para enviar. No pedimos correo ni teléfono.</p>
       </form>
     </div>
   </div>

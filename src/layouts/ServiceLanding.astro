@@ -2,6 +2,8 @@
 import Base from './Base.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CtaBand from '../components/CtaBand.astro';
+import WhatsAppIcon from '../components/WhatsAppIcon.astro';
+import { wa } from '../data/site';
 import { webPageSchema, breadcrumbSchema, serviceSchema, faqSchema } from '../lib/schema';
 
 export interface Props {
@@ -56,7 +58,10 @@ const schemas = [
         <h1 class="page-h1">{h1}</h1>
         <p class="page-lead">{lead}</p>
         <div class="page-cta-row">
-          <a href="/#contacto" class="btn btn-solid">Pedir cotización</a>
+          <a href={wa(waText)} class="btn btn-solid wa-btn" target="_blank" rel="noopener">
+            <WhatsAppIcon size={18} />
+            <span>Cotizar gratis por WhatsApp</span>
+          </a>
           <a href="/proyectos/" class="btn btn-outline">Ver proyectos</a>
         </div>
       </div>

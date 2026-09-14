@@ -10,6 +10,8 @@ import GoogleReviews from '../components/GoogleReviews.astro';
 import Faq from '../components/Faq.astro';
 import BlogTeasers from '../components/BlogTeasers.astro';
 import Contact from '../components/Contact.astro';
+import ClientLogos from '../components/ClientLogos.astro';
+import Oferta from '../components/Oferta.astro';
 import { faqs } from '../data/content';
 import { services } from '../data/services';
 import { faqSchema, webPageSchema, serviceSchema } from '../lib/schema';
@@ -34,14 +36,19 @@ const schemas = [
 ];
 ---
 <Base title={title} description={description} path="/" schemas={schemas} heroEffects>
+  {/* Orden pensado para convertir: qué hacemos → quién confía → qué ofrecemos →
+      pruebas → cuánto cuesta y qué garantizamos → cómo se trabaja → dudas → contacto.
+      El blog y las tecnologías van al final: interesan, pero no deciden la compra. */}
   <Hero />
+  <ClientLogos />
   <Stats />
   <Services />
-  <Process />
-  <Partners />
   <Portfolio />
   <GoogleReviews />
+  <Oferta />
+  <Process />
   <Faq />
-  <BlogTeasers />
   <Contact />
+  <BlogTeasers />
+  <Partners />
 </Base>

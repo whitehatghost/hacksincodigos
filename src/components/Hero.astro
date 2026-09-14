@@ -1,13 +1,23 @@
 ---
 import { wa } from '../data/site';
 import WhatsAppIcon from './WhatsAppIcon.astro';
+import resenas from '../data/google-reviews.json';
 
 /**
  * H1: se usa el mismo texto que el motor i18n ya renderiza para es-CR en el sitio
  * actual, de modo que el HTML servido coincida con lo que ve el usuario (antes el
  * HTML traía un texto y el JS lo reemplazaba por otro al cargar).
  */
-const h1 = 'Páginas Web Costa Rica — Soluciones Digitales que Posicionan tu Negocio';
+const h1 = 'Páginas web en Costa Rica que te traen clientes';
+
+/*
+ * CONVERSIÓN. En los primeros segundos la persona tiene que entender qué hacemos,
+ * qué gana, cuánto cuesta más o menos y cómo dar el siguiente paso. Todo lo que se
+ * afirma acá es verificable: el precio de entrada es el mismo de las FAQ y del
+ * artículo de precios, la garantía y la propiedad salen de los términos de
+ * servicio, y la calificación se muestra solo si la API de Google la trajo.
+ */
+const nota = resenas.calificacion && resenas.totalResenas ? resenas : null;
 ---
 <section id="hero" aria-label="Inicio">
   <div id="tsparticles" aria-hidden="true"></div>
@@ -17,20 +27,29 @@ const h1 = 'Páginas Web Costa Rica — Soluciones Digitales que Posicionan tu N
     <div class="hero-left fade-up">
       <div class="hero-badge" data-i18n="hero_badge">// Costa Rica · IT &amp; Ciberseguridad</div>
       <h1 class="hero-h1 glitch" data-text={h1} data-i18n="hero_title">{h1}</h1>
-      <p class="hero-typewriter" aria-live="polite">
-        <span id="typewriter-text"></span><span class="tw-cursor" aria-hidden="true">|</span>
+      <p class="hero-lead">
+        Diseñamos tu sitio, lo preparamos para aparecer en Google y lo conectamos a WhatsApp
+        para que cada visita pueda terminar en una venta. <strong>Desde $350</strong>, con
+        cotización sin compromiso.
       </p>
       <div class="hero-btns">
-        <a href="#servicios" class="btn btn-outline" aria-label="Ver nuestros servicios" data-i18n="hero_btn1">Ver Servicios</a>
-        <a href={wa()} class="btn btn-solid wa-btn" target="_blank" rel="noopener" aria-label="Hablar por WhatsApp">
+        <a href={wa('Hola HacksinCodigos, vengo de la página web y quiero cotizar')} class="btn btn-solid wa-btn" target="_blank" rel="noopener">
           <WhatsAppIcon size={18} />
-          <span data-i18n="hero_btn2">Hablar por WhatsApp</span>
+          <span>Cotizar gratis por WhatsApp</span>
         </a>
+        <a href="#portafolio" class="btn btn-outline">Ver trabajos reales</a>
       </div>
-      <div class="scroll-indicator" aria-hidden="true">
-        <span data-i18n="scroll_label">Explorar</span>
-        <svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
+      <ul class="hero-trust" role="list">
+        {nota && (
+          <li>
+            <span class="hero-trust-stars" aria-hidden="true">★★★★★</span>
+            {`${nota.calificacion} en Google · ${nota.totalResenas} reseñas`}
+          </li>
+        )}
+        <li>Respuesta en menos de 24 horas</li>
+        <li>Sitio y dominio a tu nombre</li>
+        <li>30 días de garantía</li>
+      </ul>
     </div>
 
     <div class="hero-card fade-up" style="transition-delay:.15s" aria-label="Agente de ciberseguridad interactivo 3D">

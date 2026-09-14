@@ -6,7 +6,8 @@ import Partners from '../components/Partners.astro';
 import Faq from '../components/Faq.astro';
 import { projects } from '../data/projects';
 import { faqs, process } from '../data/content';
-import { areasServed } from '../data/site';
+import { areasServed, wa } from '../data/site';
+import WhatsAppIcon from '../components/WhatsAppIcon.astro';
 import { webPageSchema, breadcrumbSchema, serviceSchema, faqSchema } from '../lib/schema';
 
 const path = '/paginas-web-costa-rica/';
@@ -110,7 +111,10 @@ const schemas = [
           consultas te lleguen de una vez.
         </p>
         <div class="page-cta-row">
-          <a href="/#contacto" class="btn btn-solid">Pedir cotización</a>
+          <a href={wa('Hola HacksinCodigos, quiero cotizar una página web para mi negocio')} class="btn btn-solid wa-btn" target="_blank" rel="noopener">
+            <WhatsAppIcon size={18} />
+            <span>Cotizar gratis por WhatsApp</span>
+          </a>
           <a href="/proyectos/" class="btn btn-outline">Ver proyectos</a>
         </div>
       </div>

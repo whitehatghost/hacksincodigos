@@ -1,5 +1,7 @@
 ---
 import { projects } from '../data/projects';
+import { wa } from '../data/site';
+import WhatsAppIcon from './WhatsAppIcon.astro';
 ---
 <section id="portafolio" aria-label="Portafolio">
   <div class="container">
@@ -35,6 +37,10 @@ import { projects } from '../data/projects';
     ))}
   </div>
   <div class="container portfolio-footer fade-up">
+    <a href={wa('Hola HacksinCodigos, vi su portafolio y quiero algo así para mi negocio')} class="btn btn-solid wa-btn" target="_blank" rel="noopener">
+      <WhatsAppIcon size={18} />
+      <span>Quiero algo así para mi negocio</span>
+    </a>
     <a href="/proyectos/" class="btn btn-outline">Ver todo el portafolio</a>
   </div>
 </section>

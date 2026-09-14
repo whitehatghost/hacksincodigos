@@ -1,0 +1,106 @@
+---
+import { wa } from '../data/site';
+import WhatsAppIcon from './WhatsAppIcon.astro';
+
+/**
+ * Precios de referencia y lo que el cliente se lleva.
+ *
+ * La duda que más frena a quien está por escribir es "¿cuánto me va a costar?".
+ * Dar un punto de partida honesto filtra a quien no calza y le da confianza al
+ * que sí. Los montos y plazos son los mismos que ya están publicados en las FAQ
+ * y en el artículo de precios; lo que no tiene precio de lista se dice así.
+ *
+ * Las garantías salen de los términos de servicio (propiedad al completar el
+ * pago y 30 días de corrección de defectos). No agregar promesas que no estén ahí.
+ */
+const planes = [
+  {
+    nombre: 'Página web de negocio',
+    precio: 'Desde $350',
+    nota: '₡180.000 aprox. · lista en 3 a 7 días hábiles',
+    incluye: [
+      'Diseño profesional que se ve bien en celular',
+      'Preparada para aparecer en Google',
+      'Botón y mensajes directos a WhatsApp',
+      'Formulario de contacto y soporte después de entregar',
+    ],
+    wa: 'Hola HacksinCodigos, quiero cotizar una página web para mi negocio',
+    destacado: true,
+    mas: '/paginas-web-costa-rica/',
+  },
+  {
+    nombre: 'Tienda online',
+    precio: '$800 a $2.500',
+    nota: 'según catálogo y pagos · 2 a 4 semanas',
+    incluye: [
+      'Catálogo por categorías',
+      'Pagos con tarjeta, SINPE y WhatsApp en cada producto',
+      'Panel para cargar productos y precios vos mismo',
+      'Todo lo de la página web de negocio',
+    ],
+    wa: 'Hola HacksinCodigos, quiero cotizar una tienda online',
+    destacado: false,
+    mas: '/tiendas-online-costa-rica/',
+  },
+  {
+    nombre: 'Agentes de IA y software',
+    precio: 'Por alcance',
+    nota: 'se puede arrancar por una sola parte',
+    incluye: [
+      'Agente de IA que atiende y vende por WhatsApp, Instagram o tu web',
+      'CRM y sistemas a la medida',
+      'Aplicaciones móviles',
+      'Propuesta por escrito antes de empezar',
+    ],
+    wa: 'Hola HacksinCodigos, quiero cotizar un agente de IA o un sistema a la medida',
+    destacado: false,
+    mas: '/agentes-ia-costa-rica/',
+  },
+];
+
+const garantias = [
+  { t: 'Todo queda a tu nombre', d: 'Al completar el pago, el sitio, el dominio y los accesos son tuyos. No quedás amarrado a nosotros.' },
+  { t: '30 días de garantía', d: 'Si algo de nuestro trabajo falla en los 30 días después de la entrega, lo corregimos sin costo.' },
+  { t: 'Precio claro antes de empezar', d: 'Te pasamos la propuesta por escrito. Sin cobros escondidos ni letra pequeña.' },
+  { t: 'Seguridad desde el inicio', d: 'Venimos de la ciberseguridad: tu sitio sale protegido, no parchado después de un problema.' },
+];
+---
+<section id="precios" class="oferta" aria-label="Precios y garantías">
+  <div class="container">
+    <h2 class="section-title fade-up">Cuánto cuesta y qué te llevás</h2>
+    <p class="section-subtitle fade-up">
+      Precios de referencia para que sepás desde dónde se arranca. La cotización final es gratis y sin compromiso.
+    </p>
+
+    <div class="oferta-planes">
+      {planes.map((p) => (
+        <article class:list={['oferta-plan fade-up', p.destacado && 'destacado']}>
+          {p.destacado && <span class="oferta-etiqueta">Para empezar</span>}
+          <h3>{p.nombre}</h3>
+          <p class="oferta-precio">{p.precio}</p>
+          <p class="oferta-nota">{p.nota}</p>
+          <ul role="list">
+            {p.incluye.map((i) => <li>{i}</li>)}
+          </ul>
+          <a href={wa(p.wa)} target="_blank" rel="noopener" class:list={['btn', p.destacado ? 'btn-solid' : 'btn-outline', 'oferta-cta']}>
+            <WhatsAppIcon size={18} />
+            <span>Cotizar esto</span>
+          </a>
+          <a href={p.mas} class="oferta-mas">Ver detalles</a>
+        </article>
+      ))}
+    </div>
+
+    <ul class="oferta-garantias" role="list">
+      {garantias.map((g) => (
+        <li class="fade-up">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div>
+            <h3>{g.t}</h3>
+            <p>{g.d}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

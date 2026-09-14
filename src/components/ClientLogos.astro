@@ -1,0 +1,30 @@
+---
+import { projects } from '../data/projects';
+
+/**
+ * Franja de clientes justo debajo del hero.
+ *
+ * Es la prueba social más rápida de leer: antes de bajar, la persona ya ve que
+ * hay negocios reales detrás. Solo aparecen clientes del portafolio con logo
+ * propio, y cada logo lleva a su caso para que se pueda comprobar el trabajo.
+ * Grupo Novo tiene dos casos (tienda y CRM) con el mismo logo: se muestra una vez.
+ */
+const vistos = new Set<string>();
+const clientes = projects.filter((p) => {
+  if (!p.logo || vistos.has(p.logo)) return false;
+  vistos.add(p.logo);
+  return true;
+});
+---
+<section class="clientes-strip" aria-label="Clientes">
+  <p class="clientes-titulo">Negocios de Costa Rica que ya trabajan con nosotros</p>
+  <ul class="clientes-logos" role="list">
+    {clientes.map((c) => (
+      <li>
+        <a href={`/proyectos/${c.slug}/`} title={`Ver el caso de ${c.name}`}>
+          <img src={c.logo} alt={c.name} width="320" height="160" loading="lazy" decoding="async" />
+        </a>
+      </li>
+    ))}
+  </ul>
+</section>

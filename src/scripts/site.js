@@ -408,16 +408,15 @@
         var t = (curLang !== 'es-CR' && loadedI18n && loadedI18n[curLang]) || FORM_ES;
         function err(id,msg){document.getElementById(id).textContent=msg;ok=false;}
         function clr(id){document.getElementById(id).textContent='';}
-        var n=form.nombre.value.trim(), em=form.email.value.trim(), tel=form.telefono.value.trim(), sv=form.servicio.value, ms=form.mensaje.value.trim();
+        // Solo nombre, servicio y mensaje: el teléfono llega con el propio WhatsApp.
+        var n=form.nombre.value.trim(), sv=form.servicio.value, ms=form.mensaje.value.trim();
         n?clr('err-nombre'):err('err-nombre',t.form_err_name||FORM_ES.form_err_name);
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)?clr('err-email'):err('err-email',t.form_err_email||FORM_ES.form_err_email);
-        tel?clr('err-telefono'):err('err-telefono',t.form_err_tel||FORM_ES.form_err_tel);
         sv?clr('err-servicio'):err('err-servicio',t.form_err_serv||FORM_ES.form_err_serv);
         ms?clr('err-mensaje'):err('err-mensaje',t.form_err_msg||FORM_ES.form_err_msg);
         if(!ok){ var firstErr = form.querySelector('.form-error:not(:empty)'); if(firstErr){ var grp = firstErr.closest('.form-group'); var input = grp && grp.querySelector('input,select,textarea'); if(input) input.focus(); } return; }
         var emp=form.empresa.value.trim();
         var waIntro = t.wa_intro || FORM_ES.wa_intro;
-        var txt = waIntro + '\n\n*' + (t.form_name_label_raw||FORM_ES.form_name_label_raw) + ':* ' + n + '\n' + (emp ? '*' + (t.form_empresa_label_raw||FORM_ES.form_empresa_label_raw) + ':* ' + emp + '\n' : '') + '*' + (t.form_email_label_raw||FORM_ES.form_email_label_raw) + ':* ' + em + '\n*' + (t.form_tel_label_raw||FORM_ES.form_tel_label_raw) + ':* ' + tel + '\n*' + (t.form_servicio_label_raw||FORM_ES.form_servicio_label_raw) + ':* ' + sv + '\n*' + (t.form_msg_label_raw||FORM_ES.form_msg_label_raw) + ':* ' + ms;
+        var txt = waIntro + '\n\n*' + (t.form_name_label_raw||FORM_ES.form_name_label_raw) + ':* ' + n + '\n' + (emp ? '*' + (t.form_empresa_label_raw||FORM_ES.form_empresa_label_raw) + ':* ' + emp + '\n' : '') + '*' +(t.form_servicio_label_raw||FORM_ES.form_servicio_label_raw) + ':* ' + sv + '\n*' + (t.form_msg_label_raw||FORM_ES.form_msg_label_raw) + ':* ' + ms;
         window.open('https://wa.me/50689840662?text='+encodeURIComponent(txt),'_blank');
       });
     }

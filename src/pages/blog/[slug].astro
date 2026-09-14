@@ -4,7 +4,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import { articles, type Article } from '../../data/articles';
 import { getProject } from '../../data/projects';
-import { site } from '../../data/site';
+import { site, autorBlog } from '../../data/site';
 import { webPageSchema, breadcrumbSchema } from '../../lib/schema';
 import { conReferenciaEnHtml } from '../../lib/referral';
 
@@ -39,7 +39,11 @@ const schemas = [
     datePublished: article.published,
     dateModified: article.updated,
     inLanguage: 'es-CR',
-    author: { '@id': `${site.url}/#organization` },
+    author: {
+      '@type': 'Person',
+      name: autorBlog.name,
+      worksFor: { '@id': `${site.url}/#organization` },
+    },
     publisher: { '@id': `${site.url}/#organization` },
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${site.url}${path}` },
     image: new URL(site.ogImage, site.url).href,
@@ -75,7 +79,8 @@ const fmt = new Intl.DateTimeFormat('es-CR', { year: 'numeric', month: 'long', d
         <h1 class="page-h1">{article.title}</h1>
         <p class="page-lead">{article.excerpt}</p>
         <p style="margin-top:1.25rem;font-family:var(--font-mono);font-size:.75rem;color:var(--text-secondary)">
-          Publicado el <time datetime={article.published}>{fmt.format(new Date(article.published))}</time>
+          Por <span class="articulo-autor">{autorBlog.name}</span>
+          · Publicado el <time datetime={article.published}>{fmt.format(new Date(article.published))}</time>
           · Actualizado el <time datetime={article.updated}>{fmt.format(new Date(article.updated))}</time>
           · {article.readingMinutes} min de lectura
         </p>

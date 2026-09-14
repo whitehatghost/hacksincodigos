@@ -2236,6 +2236,127 @@ export const articles: Article[] = [
 <p>Si no sabés si tu negocio ya la necesita, escribinos. Te lo decimos con honestidad, aunque la respuesta sea que todavía no.</p>
 `,
   },
+  {
+    slug: 'estudio-de-mercado-para-seo',
+    title: 'Estudio de mercado para SEO: dónde puede ganar tu negocio en Google',
+    metaTitle: 'Estudio de mercado para SEO local e internacional | HacksinCodigos',
+    metaDesc:
+      'Cómo un estudio de mercado para SEO muestra dónde puede competir tu negocio en Google: palabras clave, análisis de la competencia y SEO local o internacional.',
+    excerpt:
+      'Antes de escribir una sola página conviene saber qué busca la gente, contra quién competís y en qué búsquedas sí podés ganar. Así se hace un estudio de mercado para SEO, en Costa Rica y afuera.',
+    tag: '📊 Estrategia SEO',
+    tagColor: 'var(--accent-blue)',
+    published: '2026-09-14',
+    updated: '2026-09-14',
+    readingMinutes: 11,
+    relatedServices: [
+      { href: '/seo-costa-rica/', label: 'posicionamiento SEO en Costa Rica' },
+      { href: '/paginas-web-costa-rica/', label: 'páginas web para negocios' },
+    ],
+    bodyHtml: `
+<p>La mayoría de los negocios empieza el SEO al revés: primero hace la página, después escribe lo que se le ocurre y al final se pregunta por qué no sale en Google. El paso que se saltan es el que define todo lo demás: <strong>entender el mercado antes de competir en él</strong>.</p>
+<p>Un estudio de mercado para SEO responde tres preguntas: qué está buscando tu cliente, quién aparece hoy cuando lo busca, y en cuáles de esas búsquedas tenés posibilidades reales de ganar. Sin esas respuestas, el posicionamiento es puro tanteo.</p>
+
+<h2>Por qué no alcanza con "quiero salir primero en Google"</h2>
+<p>"Salir primero" no significa nada hasta que se define <em>en qué búsqueda</em>. Salir primero en "abogado" es casi imposible y además no te sirve si solo atendés en Alajuela. Salir primero en "abogado laboral en Alajuela" es mucho más alcanzable y te trae justo a quien necesitás.</p>
+<p>El estudio de mercado es lo que convierte un deseo general en una lista concreta de búsquedas donde vale la pena pelear.</p>
+
+<h2>1. Qué busca tu cliente: la investigación de palabras clave</h2>
+<p>El punto de partida no es cómo describís vos tu negocio, sino <strong>cómo lo busca tu cliente</strong>. Casi nunca coinciden. Una empresa dice "soluciones de climatización"; el cliente escribe "reparación de aire acondicionado en Heredia".</p>
+
+<h3>Fuentes gratuitas que ya tenés a mano</h3>
+<ul>
+  <li><strong>El autocompletado de Google:</strong> lo que Google sugiere mientras escribís sale de lo que la gente busca de verdad. Configurado para Costa Rica, muestra cómo busca el tico.</li>
+  <li><strong>"Otras preguntas de los usuarios"</strong> y las búsquedas relacionadas al final de cada resultado.</li>
+  <li><strong>Google Search Console:</strong> si ya tenés sitio, te dice por qué búsquedas te están mostrando, aunque todavía no te hagan clic. Es oro puro.</li>
+  <li><strong>Google Trends:</strong> para comparar términos y ver temporadas. Muchos negocios tienen meses fuertes y conviene tener el contenido listo antes.</li>
+  <li><strong>El Planificador de palabras clave de Google Ads:</strong> da rangos de volumen de búsqueda.</li>
+  <li><strong>Tus propios clientes:</strong> las preguntas que te hacen por WhatsApp son búsquedas que alguien más está haciendo en Google.</li>
+</ul>
+<p>Las herramientas de pago de análisis SEO agregan estimaciones de volumen y dificultad, y sirven para ir más rápido, pero no reemplazan entender al cliente.</p>
+
+<h3>No todas las búsquedas valen lo mismo: la intención</h3>
+<p>Esta es la parte que más dinero ahorra. Cada búsqueda tiene una intención detrás:</p>
+<ul>
+  <li><strong>Informativa:</strong> "cómo quitar la humedad de una pared". Quiere aprender. Atrae tráfico y confianza, pero no compra hoy.</li>
+  <li><strong>Comparativa:</strong> "mejor impermeabilizante para techos". Está evaluando opciones.</li>
+  <li><strong>Transaccional:</strong> "impermeabilización de techos precio Cartago". Está listo para contratar.</li>
+</ul>
+<p>Un buen estudio no busca solo las palabras con más volumen, sino el equilibrio: búsquedas de compra para vender pronto, y búsquedas informativas que atraen gente que después compra. Una búsqueda con poco volumen y mucha intención de compra suele valer más que una muy popular que no convierte.</p>
+
+<h2>2. Contra quién competís: el análisis de la competencia SEO</h2>
+<p>Tu competencia en Google no siempre es la misma que en la calle. A veces el negocio de la esquina ni aparece, y quien te quita clientes es un directorio, un sitio de otro país o una empresa grande con una página muy bien hecha.</p>
+
+<h3>Cómo analizarla</h3>
+<ol>
+  <li><strong>Buscá tus palabras clave principales</strong> desde Costa Rica, en modo incógnito, y anotá quién aparece en los primeros resultados y en el mapa.</li>
+  <li><strong>Mirá qué tipo de resultado gana:</strong> ¿páginas de empresas, directorios, artículos, videos, el mapa? Eso te dice qué formato espera Google para esa búsqueda.</li>
+  <li><strong>Revisá sus páginas:</strong> qué tan completas son, si responden las preguntas del cliente, si tienen una página por servicio, qué tan rápido cargan en el celular.</li>
+  <li><strong>Revisá su perfil de Google Business:</strong> cuántas reseñas tienen, qué tan completo está, si publican.</li>
+  <li><strong>Buscá los huecos:</strong> preguntas que nadie responde bien, servicios que nadie explica, zonas que nadie cubre.</li>
+</ol>
+
+<h3>Dónde se puede ganar</h3>
+<p>El objetivo del análisis no es copiar al que va primero, sino encontrar dónde es débil. Lo que más a menudo encontramos en Costa Rica:</p>
+<ul>
+  <li><strong>Competidores con una sola página</strong> para todos sus servicios. Una página por servicio suele ganarles.</li>
+  <li><strong>Búsquedas por zona sin dueño:</strong> "en Grecia", "en Pérez Zeledón", "en Liberia".</li>
+  <li><strong>Preguntas sin respuesta</strong>, sobre todo de precios, tiempos y procesos.</li>
+  <li><strong>Perfiles de Google Business abandonados</strong>, con pocas reseñas o datos viejos.</li>
+  <li><strong>Sitios lentos o que se ven mal en el celular.</strong></li>
+</ul>
+
+<h2>3. Local o internacional: definí la cancha</h2>
+<p>La misma estrategia no sirve para un negocio que atiende en su cantón y para uno que le vende al mundo.</p>
+
+<h3>SEO local</h3>
+<p>Para negocios que atienden en una zona: clínicas, talleres, restaurantes, abogados, constructoras, servicios a domicilio. Acá la competencia es menor y la intención de compra es altísima: quien busca "veterinaria cerca de mí" quiere ir hoy.</p>
+<ul>
+  <li>El <strong>perfil de Google Business</strong> pesa tanto como la página web. Lo explicamos en <a href="/blog/como-aparecer-en-google-maps-con-mi-negocio/">cómo aparecer en Google Maps</a>.</li>
+  <li><strong>Reseñas reales</strong> y con texto.</li>
+  <li><strong>Páginas por zona</strong> solo donde realmente das el servicio, con contenido propio de cada una.</li>
+  <li><strong>Datos consistentes</strong> —nombre, teléfono, dirección— en todos lados.</li>
+</ul>
+<p>Más detalle en la <a href="/blog/guia-seo-negocios-locales-costa-rica/">guía de SEO para negocios locales en Costa Rica</a>.</p>
+
+<h3>SEO nacional</h3>
+<p>Para negocios que venden en todo el país: tiendas en línea, servicios remotos, software. Acá no ayuda tanto el mapa y la pelea es por contenido y autoridad: páginas de servicio y categoría muy completas, artículos que respondan lo que se busca, y enlaces de otros sitios costarricenses que te mencionen.</p>
+
+<h3>SEO internacional</h3>
+<p>Para negocios que le venden a otros países: turismo, bienes raíces para inversionistas extranjeros, exportación, servicios digitales. Es la cancha con más oportunidades y también con más errores caros.</p>
+<ul>
+  <li><strong>El idioma no es el país.</strong> Un turista de Estados Unidos no busca igual que uno del Reino Unido, y un cliente en México no usa las mismas palabras que uno en España. El estudio se hace <em>por mercado</em>, no solo por idioma.</li>
+  <li><strong>Traducir no es posicionar.</strong> Una página traducida palabra por palabra no responde a cómo busca la gente en ese otro mercado. Hay que investigar las palabras clave de cada uno.</li>
+  <li><strong>La estructura técnica importa:</strong> cada idioma o país en su propia sección del sitio, con las etiquetas que le indican a Google qué versión mostrar a quién (hreflang). Si no, Google muestra la versión equivocada o las ve como contenido duplicado.</li>
+  <li><strong>La competencia es otra:</strong> en inglés competís contra empresas de todo el mundo. Conviene empezar por nichos concretos donde Costa Rica es la respuesta, como "eco lodge in Monteverde" en vez de "hotels".</li>
+  <li><strong>Moneda, forma de pago y confianza</strong> tienen que tener sentido para ese cliente.</li>
+</ul>
+
+<h2>4. Convertir el estudio en un plan</h2>
+<p>Un estudio que termina en un documento guardado no sirve. Tiene que terminar en decisiones:</p>
+<ol>
+  <li><strong>Agrupá las búsquedas por tema.</strong> Cada grupo es una página, no cada palabra suelta.</li>
+  <li><strong>Priorizá</strong> por tres criterios: intención de compra, posibilidad real de ganar y valor para tu negocio.</li>
+  <li><strong>Definí la estructura del sitio</strong> a partir de esos grupos: qué páginas de servicio, de zona, de categoría y de artículos hacen falta.</li>
+  <li><strong>Escribí para el cliente</strong>, usando sus palabras con naturalidad. Repetir la palabra clave de más no ayuda; responder bien sí.</li>
+  <li><strong>Medí con Search Console</strong> y ajustá cada mes: aparecen búsquedas que no estaban en el estudio y conviene aprovecharlas.</li>
+</ol>
+
+<h2>Errores comunes</h2>
+<ul>
+  <li><strong>Elegir palabras clave por intuición</strong>, sin revisar cómo busca la gente.</li>
+  <li><strong>Perseguir solo las búsquedas más grandes</strong>, donde ganan empresas con años de ventaja.</li>
+  <li><strong>Ignorar la intención</strong> y llenar el sitio de tráfico que nunca compra.</li>
+  <li><strong>Traducir el sitio y llamarlo SEO internacional.</strong></li>
+  <li><strong>Crear decenas de páginas por ciudad casi idénticas.</strong> Google las detecta como contenido de relleno.</li>
+  <li><strong>Hacer el estudio una vez y no volver a mirarlo.</strong> Los mercados y las búsquedas cambian.</li>
+</ul>
+
+<h2>Cómo lo aplicamos</h2>
+<p>Es el mismo proceso que usamos en nuestro propio sitio: revisamos cómo buscan en Costa Rica cada servicio, qué preguntas se repiten y quién aparece hoy, y a partir de ahí decidimos qué páginas y qué artículos escribir. Este mismo artículo nació de ese análisis.</p>
+<p>Si querés saber dónde puede ganar tu negocio en Google —en tu zona, en todo el país o afuera—, en <a href="/seo-costa-rica/">posicionamiento SEO</a> te explicamos cómo trabajamos. Y si tu sitio ya existe pero no aparece, empezá por <a href="/blog/por-que-mi-pagina-web-no-aparece-en-google/">por qué tu página web no aparece en Google</a>.</p>
+`,
+  },
 ];
 
 export function getArticle(slug: string): Article | undefined {

@@ -881,3 +881,4 @@ a.info-card { display: block; text-decoration: none; color: inherit; }
 .contacto-pasos li::before { content: counter(paso); position: absolute; left: 0; top: -.1rem; width: 1.7rem; height: 1.7rem; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-mono); font-size: .8rem; font-weight: 700; color: #000; background: var(--accent-green); }
 .contacto-pasos strong { color: var(--text-primary); }
 .form-nota { margin: .75rem 0 0; font-size: .8rem; color: var(--text-secondary); text-align: center; }
+.articulo-autor { color: var(--text-primary); }

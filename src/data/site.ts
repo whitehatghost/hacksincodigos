@@ -25,6 +25,11 @@ export const site = {
   ogImage: '/images/og-hacksincodigos.png',
 } as const;
 
+/** Autor de los artículos del blog. Se muestra en cada artículo y va en el schema. */
+export const autorBlog = {
+  name: 'Luis Roberto Rodríguez Mora',
+} as const;
+
 /**
  * Cómo cobra HacksinCodigos sus propios servicios.
  *

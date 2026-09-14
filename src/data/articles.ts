@@ -2040,6 +2040,202 @@ export const articles: Article[] = [
 <p>Si estás armando desde cero, seguí con <a href="/blog/como-armar-una-pc-gamer-en-costa-rica/">cómo armar una PC</a> y <a href="/blog/que-tarjeta-grafica-comprar/">qué tarjeta gráfica comprar</a>. Y si tenés dudas sobre qué conviene para tu caso, hacemos un <strong>PDF de asesoría de compra</strong> por ₡5.000: con tu presupuesto y lo que querés hacer, te armamos las opciones que calzan, te decimos en qué lugares conseguir esas piezas al mejor precio y te damos acceso a descuentos por medio de nosotros. Lo encontrás en <a href="/soporte-tecnico-computadoras-costa-rica/">soporte técnico y asesoría de compra</a>.</p>
 `,
   },
+  {
+    slug: 'como-vender-en-linea-en-costa-rica',
+    title: 'Cómo vender en línea en Costa Rica: guía para empezar desde cero',
+    metaTitle: 'Cómo vender en línea en Costa Rica desde cero | HacksinCodigos',
+    metaDesc:
+      'Cómo vender por internet en Costa Rica: canales, cobros con SINPE y tarjeta, envíos, factura electrónica, cuánto cuesta una tienda en línea y errores comunes.',
+    excerpt:
+      'Vender por internet en Costa Rica no empieza por la tienda: empieza por decidir por dónde te van a encontrar, cómo te van a pagar y cómo llega el producto. Esta es la ruta, paso a paso.',
+    tag: '🛒 Vender en línea',
+    tagColor: '#22c55e',
+    published: '2026-09-14',
+    updated: '2026-09-14',
+    readingMinutes: 10,
+    relatedServices: [
+      { href: '/tiendas-online-costa-rica/', label: 'tiendas online en Costa Rica' },
+      { href: '/paginas-web-costa-rica/', label: 'páginas web para negocios' },
+    ],
+    bodyHtml: `
+<p>Cada vez más gente en Costa Rica compra por internet, y cada vez más negocios quieren vender así. El problema es que la mayoría empieza por el final: se pregunta qué plataforma usar antes de saber cómo va a cobrar, cómo va a enviar o cómo la van a encontrar.</p>
+<p>Esta guía va en el orden correcto. Sirve igual si vendés ropa, repuestos, comida, servicios o productos hechos a mano.</p>
+
+<h2>1. Definí qué vendés y a quién</h2>
+<p>Suena obvio, pero cambia todo lo demás. Tres preguntas antes de gastar un colón:</p>
+<ul>
+  <li><strong>¿Cuántos productos tenés?</strong> No es lo mismo vender cinco productos que quinientos. Con pocos, un catálogo simple alcanza; con muchos, hace falta búsqueda, filtros e inventario.</li>
+  <li><strong>¿El cliente compra solo o necesita preguntar?</strong> Una camiseta se compra con dos clics. Un mueble a la medida, un repuesto o un servicio casi siempre pasan por una conversación.</li>
+  <li><strong>¿Vendés en todo el país o en tu zona?</strong> Eso define cómo resolvés los envíos.</li>
+</ul>
+
+<h2>2. Elegí por dónde te van a encontrar</h2>
+<p>Hay tres canales, y lo normal es terminar usando más de uno:</p>
+<ul>
+  <li><strong>Redes sociales</strong> (Instagram, Facebook, TikTok): son buenas para mostrar y generar ganas. Pero la gente te ve solo si el algoritmo decide mostrarte, y la cuenta no es tuya: si la bloquean o la hackean, perdés todo.</li>
+  <li><strong>WhatsApp:</strong> es donde el tico cierra la compra. Casi toda venta en Costa Rica pasa por una conversación en algún momento.</li>
+  <li><strong>Tu propia página o tienda en línea:</strong> es lo único que te encuentra alguien que <em>busca</em> lo que vendés en Google, está disponible siempre y es tuyo.</li>
+</ul>
+<p>La combinación que mejor funciona para la mayoría: redes para atraer, página web para que te encuentren y generar confianza, y WhatsApp para cerrar. Si dudás si te hace falta la página, lo analizamos en <a href="/blog/pagina-web-o-redes-sociales-para-mi-negocio/">página web o redes sociales</a>.</p>
+
+<h2>3. Resolvé cómo te van a pagar</h2>
+<p>En Costa Rica conviene ofrecer <strong>al menos dos formas de pago</strong>:</p>
+<ul>
+  <li><strong>SINPE Móvil:</strong> es la forma que más usa la gente acá, rápida y sin comisión para el cliente. Su punto débil es que se confirma a mano, y eso abre la puerta a comprobantes falsos. Confirmá siempre en tu cuenta antes de entregar; lo explicamos en <a href="/blog/estafas-sinpe-movil-costa-rica/">estafas por SINPE Móvil</a>.</li>
+  <li><strong>Tarjeta de crédito o débito:</strong> por medio de una pasarela de pago. Cobra una comisión por venta, pero hay clientes que solo compran así y el cobro queda confirmado de una vez.</li>
+  <li><strong>Transferencia bancaria:</strong> útil para montos grandes y ventas a empresas.</li>
+</ul>
+<p>La pasarela conviene elegirla antes de construir la tienda, porque condiciona cómo se arma el proceso de pago.</p>
+
+<h2>4. Resolvé los envíos antes de publicar el primer producto</h2>
+<p>Es la parte donde más ventas se caen. Un cliente que llega al final de la compra y descubre un costo de envío que no esperaba, se va.</p>
+<ul>
+  <li><strong>Definí zonas y tarifas:</strong> Gran Área Metropolitana, resto del país, zonas alejadas.</li>
+  <li><strong>Mostrá el costo desde el principio</strong>, no al final.</li>
+  <li><strong>Elegí con quién enviás:</strong> Correos de Costa Rica, empresas de mensajería o tu propio repartidor en tu zona. Muchos negocios combinan dos opciones.</li>
+  <li><strong>Considerá retiro en tu local</strong> si tenés uno: a mucha gente le sirve.</li>
+  <li><strong>Pensá en envío gratis a partir de cierto monto</strong>, si los números te dan. Sube el valor de cada compra.</li>
+</ul>
+
+<h2>5. No te olvidés de Hacienda</h2>
+<p>Vender por internet no cambia tus obligaciones: si estás inscrito, las ventas en línea también llevan <strong>factura electrónica</strong>. Conviene que tu forma de vender tome en cuenta desde el inicio cómo vas a facturar cada pedido, para no tener que hacerlo todo a mano después. Si tenés dudas sobre tu caso, consultalo con tu contador.</p>
+
+<h2>6. Elegí la herramienta según tu etapa</h2>
+<p>No todos tienen que empezar con una tienda completa. Hay una escalera, y cada escalón tiene sentido en su momento:</p>
+
+<h3>Etapa 1: catálogo en WhatsApp Business y redes</h3>
+<p>Gratis y rápido para arrancar y probar si el producto se vende. Se queda corto cuando tenés muchos productos, cuando respondés lo mismo cien veces al día o cuando querés que te encuentren en Google.</p>
+
+<h3>Etapa 2: página web con catálogo y pedidos por WhatsApp</h3>
+<p>Tu negocio aparece en Google, se ve profesional y el cliente llega a WhatsApp ya sabiendo qué quiere. Es el paso que más cambia la confianza, y para muchos negocios es todo lo que necesitan. Una <a href="/paginas-web-costa-rica/">página web de negocio</a> arranca <strong>desde $499</strong>.</p>
+
+<h3>Etapa 3: tienda en línea completa</h3>
+<p>Carrito, pagos con tarjeta y SINPE, cálculo de envíos, inventario y panel de pedidos. Tiene sentido cuando el volumen de ventas ya no se sostiene a mano. Una <a href="/tiendas-online-costa-rica/">tienda online</a> va de <strong>$800 a $2.500</strong> según el tamaño del catálogo y las integraciones. El desglose de costos está en <a href="/blog/cuanto-cuesta-una-pagina-web-en-costa-rica/">cuánto cuesta una página web en Costa Rica</a>.</p>
+
+<h3>Cuando los mensajes no te dan abasto</h3>
+<p>Si pasás el día respondiendo precios, horarios y disponibilidad, un <a href="/agentes-ia-costa-rica/">agente de IA</a> puede atender WhatsApp, Instagram o tu web a cualquier hora y pasarte solo las conversaciones listas para cerrar.</p>
+
+<h2>7. Hacé que te encuentren</h2>
+<p>Una tienda que nadie visita no vende. Lo básico:</p>
+<ul>
+  <li><strong>Perfil de Google Business</strong> completo, para aparecer en Google Maps. Te explicamos cómo en <a href="/blog/como-aparecer-en-google-maps-con-mi-negocio/">cómo aparecer en Google Maps</a>.</li>
+  <li><strong>Una página por producto o categoría</strong>, con fotos propias y una descripción escrita por vos, no copiada del proveedor.</li>
+  <li><strong>Contenido que responda lo que la gente pregunta</strong>: tallas, garantía, tiempos de entrega.</li>
+  <li><strong>Enlaces desde tus redes</strong> hacia la página, no solo publicaciones sueltas.</li>
+</ul>
+
+<h2>8. Generá confianza</h2>
+<p>El tico todavía desconfía de comprar a quien no conoce, con razón. Lo que más ayuda:</p>
+<ul>
+  <li>Fotos reales de tus productos.</li>
+  <li>Políticas claras de envío, cambios y devoluciones, visibles antes de pagar.</li>
+  <li>Reseñas reales en tu perfil de Google.</li>
+  <li>Un WhatsApp y un teléfono a la vista.</li>
+  <li>Un sitio seguro, con el candado en la barra del navegador.</li>
+</ul>
+
+<h2>Errores que vemos seguido</h2>
+<ul>
+  <li><strong>Empezar por la tienda más compleja</strong> antes de saber si el producto se vende.</li>
+  <li><strong>Esconder el costo de envío</strong> hasta el final.</li>
+  <li><strong>Depender solo de Instagram</strong>, sin nada propio.</li>
+  <li><strong>Entregar con un comprobante de SINPE</strong> sin revisar la cuenta.</li>
+  <li><strong>Fotos del proveedor</strong> iguales a las de otros veinte vendedores.</li>
+  <li><strong>Obligar a todos a pasar por el carrito</strong>, cuando muchos clientes prefieren preguntar antes por WhatsApp.</li>
+</ul>
+
+<h2>¿Por dónde empezar con tu negocio?</h2>
+<p>Si ya vendés por redes y WhatsApp y querés dar el siguiente paso, escribinos. Te decimos honestamente en qué etapa estás y qué conviene: a veces es una página web sencilla, a veces una tienda completa, y a veces todavía no hace falta invertir. La cotización es gratis y sin compromiso.</p>
+<p>Mirá también cómo lo hicimos con <a href="/blog/crm-empresarial-caso-grupo-novo/">Grupo Novo</a>, que vende andamios y accesorios en línea.</p>
+`,
+  },
+  {
+    slug: 'pagina-web-o-redes-sociales-para-mi-negocio',
+    title: '¿Página web o redes sociales? Qué necesita tu negocio de verdad',
+    metaTitle: '¿Página web o redes sociales para mi negocio? | HacksinCodigos',
+    metaDesc:
+      '¿Tu negocio necesita página web si ya tiene Instagram y Facebook? Diferencias reales entre página web y redes sociales, cuándo alcanza con redes y cuándo no.',
+    excerpt:
+      'Tener Instagram no es lo mismo que tener página web, y la diferencia se nota justo cuando alguien te busca en Google. Qué hace cada una, cuándo alcanza con redes y cuándo te está costando clientes.',
+    tag: '🌐 Página web',
+    tagColor: 'var(--accent-blue)',
+    published: '2026-09-12',
+    updated: '2026-09-14',
+    readingMinutes: 8,
+    relatedServices: [
+      { href: '/paginas-web-costa-rica/', label: 'páginas web en Costa Rica' },
+      { href: '/seo-costa-rica/', label: 'posicionamiento SEO' },
+    ],
+    bodyHtml: `
+<p>"Para qué quiero una página web si ya tengo Instagram." Es de las frases que más escuchamos, y tiene sentido: las redes son gratis, ya las usás y ahí están tus clientes. Pero página web y redes sociales <strong>no son lo mismo ni hacen el mismo trabajo</strong>, y confundirlas te puede estar costando ventas sin que lo notés.</p>
+
+<h2>Lo que hacen bien las redes sociales</h2>
+<ul>
+  <li><strong>Mostrar el día a día</strong>: productos nuevos, trabajos terminados, promociones.</li>
+  <li><strong>Generar ganas</strong> en gente que todavía no te estaba buscando.</li>
+  <li><strong>Conversar</strong> con tu comunidad.</li>
+  <li><strong>Arrancar sin costo</strong> y probar si hay interés.</li>
+</ul>
+<p>Para eso son insuperables, y hay que usarlas.</p>
+
+<h2>Lo que las redes no pueden hacer</h2>
+
+<h3>1. Que te encuentre quien te está buscando</h3>
+<p>Esta es la diferencia más grande. Cuando alguien escribe en Google "dentista en Palmares", "ferretería en Cartago" o "diseño de cocinas en Heredia", Google muestra páginas web y perfiles de negocio, casi nunca publicaciones de Instagram. Esa persona ya tiene la necesidad y la billetera en la mano. Si no tenés página, se la lleva la competencia que sí tiene.</p>
+
+<h3>2. Ser tuya</h3>
+<p>Tu cuenta de Instagram es de Meta. Si te la hackean, te la suspenden por error o cambian las reglas, perdés tus seguidores y tu vitrina de un día para otro. Tu página web y tu dominio son tuyos.</p>
+
+<h3>3. Dejar de depender del algoritmo</h3>
+<p>En redes, cuántas personas ven lo que publicás lo decide la plataforma. En tu página, quien llega ve todo lo que tenés que ofrecer, ordenado como vos querés.</p>
+
+<h3>4. Dar toda la información en un solo lugar</h3>
+<p>Precios de referencia, servicios, horarios, ubicación, preguntas frecuentes, formas de pago, garantía. En redes esa información queda enterrada entre publicaciones y la gente termina preguntando lo mismo por mensaje una y otra vez.</p>
+
+<h3>5. Generar confianza para compras grandes</h3>
+<p>Para comprar algo caro o contratar un servicio, la gente investiga. Un negocio con página propia, dominio propio y correo con su nombre transmite algo que un perfil de redes no alcanza a transmitir. Más todavía con tantas estafas en redes.</p>
+
+<h2>Diferencias, lado a lado</h2>
+<ul>
+  <li><strong>Aparecer en Google:</strong> la página sí; las redes, muy poco.</li>
+  <li><strong>Propiedad:</strong> la página es tuya; la cuenta es de la plataforma.</li>
+  <li><strong>Alcance:</strong> la página no depende de un algoritmo; las redes sí.</li>
+  <li><strong>Costo:</strong> las redes son gratis; la página es una inversión inicial más el dominio y el hosting cada año.</li>
+  <li><strong>Mostrar novedades:</strong> las redes son mejores para el día a día.</li>
+  <li><strong>Información completa y ordenada:</strong> la página.</li>
+</ul>
+
+<h2>Cuándo alcanza con redes sociales</h2>
+<p>Siendo honestos, hay casos donde todavía no hace falta invertir en una página:</p>
+<ul>
+  <li>Estás probando si tu producto se vende.</li>
+  <li>Vendés solo a gente que ya te conoce, por recomendación.</li>
+  <li>Tu cliente nunca te buscaría en Google.</li>
+</ul>
+
+<h2>Cuándo ya te está costando clientes no tener página</h2>
+<ul>
+  <li>Tus clientes buscan tu servicio en Google: servicios profesionales, salud, construcción, turismo, reparaciones, educación.</li>
+  <li>Vendés a empresas: casi siempre te van a buscar antes de contratarte.</li>
+  <li>Respondés las mismas preguntas todos los días por mensaje.</li>
+  <li>Querés cobrar precios más altos y necesitás verte a la altura.</li>
+  <li>Tenés competencia que ya aparece en Google y vos no.</li>
+</ul>
+
+<h2>La respuesta no es una o la otra: es que trabajen juntas</h2>
+<p>Lo que mejor funciona es un sistema simple:</p>
+<ol>
+  <li><strong>Las redes atraen</strong> y muestran el día a día.</li>
+  <li><strong>La página web convence</strong> y te hace aparecer en Google.</li>
+  <li><strong>WhatsApp cierra</strong> la venta.</li>
+</ol>
+<p>Tu biografía de Instagram lleva a tu página; tu página tiene tus redes y un botón de WhatsApp en cada sección; y tu perfil de Google Business apunta a tu página. Así cada canal hace lo que mejor sabe hacer.</p>
+
+<h2>¿Cuánto cuesta dar el paso?</h2>
+<p>Una <a href="/paginas-web-costa-rica/">página web de negocio</a> arranca <strong>desde $499</strong> e incluye diseño que se ve bien en celular, la base para aparecer en Google y WhatsApp integrado. Al completar el pago, el sitio y el dominio quedan a tu nombre. Qué tiene que llevar para que funcione lo explicamos en <a href="/blog/que-debe-tener-una-pagina-web-de-negocio/">qué debe tener la página web de un negocio</a>, y los costos completos en <a href="/blog/cuanto-cuesta-una-pagina-web-en-costa-rica/">cuánto cuesta una página web en Costa Rica</a>.</p>
+<p>Si no sabés si tu negocio ya la necesita, escribinos. Te lo decimos con honestidad, aunque la respuesta sea que todavía no.</p>
+`,
+  },
 ];
 
 export function getArticle(slug: string): Article | undefined {

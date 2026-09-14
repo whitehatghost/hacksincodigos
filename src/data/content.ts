@@ -12,7 +12,7 @@ export const faqs: Faq[] = [
     i18nQ: 'faq_q1',
     i18nA: 'faq_a1',
     q: '¿Cuánto cuesta una página web en Costa Rica?',
-    a: 'El precio depende del tipo de proyecto. Una página web básica para un negocio local inicia desde $350 (₡180,000), mientras que un e-commerce completo puede estar entre $800 y $2,500. Te damos una cotización personalizada sin compromiso.',
+    a: 'El precio depende del tipo de proyecto. Una página web básica para un negocio local inicia desde $499, mientras que un e-commerce completo puede estar entre $800 y $2,500. Te damos una cotización personalizada sin compromiso.',
   },
   {
     i18nQ: 'faq_q2',
@@ -106,7 +106,7 @@ export const blogTeasers = [
     tag: '💰 Precios 2026',
     tagColor: 'var(--accent-green)',
     title: '¿Cuánto cuesta una página web en Costa Rica?',
-    html: 'El costo de una página web en Costa Rica varía según el tipo de proyecto. Un sitio web básico para un negocio local en San José o Alajuela puede costar desde <strong>$350 (₡180,000)</strong>. Un e-commerce completo con carrito de compras, pasarela de pago e integración de WhatsApp puede estar entre <strong>$800 y $2,500</strong>. En HacksinCodigos te damos una cotización personalizada sin compromiso, incluyendo diseño responsive, SEO técnico, y optimización para dispositivos móviles. Contáctanos para recibir una propuesta adaptada a tu negocio en Costa Rica.',
+    html: 'El costo de una página web en Costa Rica varía según el tipo de proyecto. Un sitio web básico para un negocio local en San José o Alajuela puede costar desde <strong>$499</strong>. Un e-commerce completo con carrito de compras, pasarela de pago e integración de WhatsApp puede estar entre <strong>$800 y $2,500</strong>. En HacksinCodigos te damos una cotización personalizada sin compromiso, incluyendo diseño responsive, SEO técnico, y optimización para dispositivos móviles. Contáctanos para recibir una propuesta adaptada a tu negocio en Costa Rica.',
     ctaLabel: 'Solicitar cotización →',
     ctaWa: 'Hola, quiero una cotización de página web',
     i18n: 'blog1',

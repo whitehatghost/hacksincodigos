@@ -38,11 +38,11 @@ export const articles: Article[] = [
     metaDesc:
       'Cuánto cuesta hacer una página web en Costa Rica en 2026: rangos reales por tipo de proyecto, qué incluye cada precio y qué costos anuales hay que sumar.',
     excerpt:
-      'Un sitio de negocio arranca alrededor de los $350–$450 y un e-commerce completo va de $800 a $2,500. Acá está el desglose de qué cambia el precio y qué costos anuales hay que sumar.',
+      'Un sitio de negocio arranca desde $499 y un e-commerce completo va de $800 a $2,500. Acá está el desglose de qué cambia el precio y qué costos anuales hay que sumar.',
     tag: '💰 Precios 2026',
     tagColor: 'var(--accent-green)',
     published: '2026-03-18',
-    updated: '2026-08-26',
+    updated: '2026-09-14',
     readingMinutes: 6,
     relatedServices: [
       { href: '/paginas-web-costa-rica/', label: 'páginas web en Costa Rica' },
@@ -53,7 +53,7 @@ export const articles: Article[] = [
 
 <h2>Rangos por tipo de proyecto</h2>
 
-<h3>Página web de negocio — desde $350 (₡180,000)</h3>
+<h3>Página web de negocio — desde $499</h3>
 <p>Un sitio de una o varias secciones para un negocio de servicios: quién sos, qué ofrecés, portafolio o galería, y formulario de contacto con botón de WhatsApp. Es lo que necesita la mayoría de los negocios locales que hoy solo tienen Instagram.</p>
 <p>Nuestra <a href="/product/pagina-web-profesional-sin-carrito-de-compras/">página web profesional</a> cae en ese rango e incluye diseño responsive, las secciones esenciales, formulario, botón de WhatsApp y la base de SEO. El número exacto depende de cuántas secciones lleve y de si los textos vienen listos.</p>
 

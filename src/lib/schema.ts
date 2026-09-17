@@ -123,6 +123,8 @@ export function serviceSchema(opts: {
   description: string;
   path: string;
   serviceType: string;
+  /** Las páginas de zona declaran su cantón; el resto, el país entero. */
+  areaServed?: Record<string, string>;
 }) {
   return {
     '@context': 'https://schema.org',
@@ -132,7 +134,7 @@ export function serviceSchema(opts: {
     description: opts.description,
     serviceType: opts.serviceType,
     provider: { '@id': ORG_ID },
-    areaServed: { '@type': 'Country', name: 'Costa Rica' },
+    areaServed: opts.areaServed ?? { '@type': 'Country', name: 'Costa Rica' },
     url: new URL(opts.path, site.url).href,
   };
 }

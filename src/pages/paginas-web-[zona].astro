@@ -1,0 +1,155 @@
+---
+/**
+ * Página de zona: /paginas-web-<canton>/
+ *
+ * Persigue las búsquedas locales ("páginas web en San Ramón", "diseño web
+ * Grecia", "posicionamiento en Google Palmares"), que son mucho menos peleadas
+ * que las nacionales y traen gente con intención de compra inmediata.
+ *
+ * El contenido propio de cada cantón vive en src/data/zonas.ts. Acá solo está la
+ * estructura. Si mañana se agrega un cantón nuevo al arreglo, su página se
+ * genera sola y entra al sitemap.
+ */
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaBand from '../components/CtaBand.astro';
+import GoogleReviews from '../components/GoogleReviews.astro';
+import WhatsAppIcon from '../components/WhatsAppIcon.astro';
+import { zonas, type Zona } from '../data/zonas';
+import { wa, site } from '../data/site';
+import { webPageSchema, breadcrumbSchema, serviceSchema, faqSchema } from '../lib/schema';
+
+export function getStaticPaths() {
+  return zonas.map((zona) => ({ params: { zona: zona.slug }, props: { zona } }));
+}
+
+interface Props {
+  zona: Zona;
+}
+
+const { zona } = Astro.props;
+const path = `/paginas-web-${zona.slug}/`;
+
+const crumbs = [
+  { name: 'Inicio', path: '/' },
+  { name: 'Páginas web Costa Rica', path: '/paginas-web-costa-rica/' },
+  { name: zona.nombre, path },
+];
+
+const schemas = [
+  webPageSchema({ path, name: zona.metaTitle, description: zona.metaDesc }),
+  breadcrumbSchema(crumbs),
+  serviceSchema({
+    name: `Diseño de páginas web y SEO en ${zona.nombre}`,
+    description: zona.metaDesc,
+    path,
+    serviceType: 'Diseño y desarrollo web',
+    areaServed: { '@type': 'City', name: zona.nombre, addressRegion: zona.provincia, addressCountry: 'CR' },
+  }),
+  faqSchema(zona.faqs),
+];
+
+const waTexto = `Hola HacksinCodigos, tengo un negocio en ${zona.nombre} y quiero cotizar una página web`;
+---
+<Base title={zona.metaTitle} description={zona.metaDesc} path={path} schemas={schemas}>
+  <div class="page-wrap">
+    <Breadcrumbs items={crumbs} />
+
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <span class="page-eyebrow">{zona.provincia} · {zona.region}</span>
+        <h1 class="page-h1">{zona.h1}</h1>
+        <p class="page-lead">{zona.lead}</p>
+        <div class="page-cta-row">
+          <a href={wa(waTexto)} class="btn btn-solid wa-btn" target="_blank" rel="noopener">
+            <WhatsAppIcon size={18} />
+            <span>Cotizar gratis por WhatsApp</span>
+          </a>
+          <a href="/proyectos/" class="btn btn-outline">Ver proyectos</a>
+        </div>
+        <ul class="page-credenciales" role="list">
+          <li>Desde 2015 en Costa Rica</li>
+          <li>Trabajo 100% remoto</li>
+          <li>Desde $499</li>
+          <li>30 días de garantía</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-block alt">
+      <div class="section-inner narrow prose">
+        <h2>Qué pasa hoy con los negocios de {zona.nombre}</h2>
+        <Fragment set:html={zona.contextoHtml} />
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-inner">
+        <h2 class="block-title">A quién le servimos en {zona.nombre}</h2>
+        <p class="block-sub">Si su negocio se parece a alguno de estos, esto le sirve.</p>
+        <div class="card-grid cols-3">
+          {zona.negocios.map((n) => (
+            <div class="info-card"><h3>{n}</h3></div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block alt">
+      <div class="section-inner narrow prose">
+        <h2>Qué incluye el trabajo</h2>
+        <p>
+          Lo mismo que para cualquier cliente del país, con el enfoque puesto en que lo encuentren
+          en {zona.nombre} y alrededores:
+        </p>
+        <ul>
+          <li>
+            <strong>Página web desde $499</strong>, lista en 3 a 7 días hábiles: diseño que se ve
+            bien en el celular, secciones por servicio, formulario y botón de WhatsApp.
+            El detalle está en <a href="/paginas-web-costa-rica/">páginas web en Costa Rica</a>.
+          </li>
+          <li>
+            <strong>Tienda en línea de $800 a $2.500</strong> si vende productos, con pagos por
+            tarjeta, SINPE y WhatsApp. Ver <a href="/tiendas-online-costa-rica/">tiendas online</a>.
+          </li>
+          <li>
+            <strong>SEO local desde $250</strong>: auditoría, corrección técnica y perfil de Google
+            Business Profile para salir en el mapa cuando busquen desde {zona.nombre}. Los paquetes
+            completos están en <a href="/seo-costa-rica/">posicionamiento SEO</a>.
+          </li>
+          <li>
+            <strong>Agente de IA</strong> que atienda WhatsApp, Instagram o su web a cualquier hora,
+            si los mensajes ya no le dan abasto. Ver <a href="/agentes-ia-costa-rica/">agentes de IA</a>.
+          </li>
+        </ul>
+
+        <h2>Cómo trabajamos a distancia</h2>
+        <p>
+          No tenemos oficina en {zona.nombre}: el trabajo es remoto, como lo hacemos con clientes en
+          todo el país. Definimos el proyecto por WhatsApp o videollamada, le pasamos la propuesta
+          por escrito con precio y plazo, va viendo los avances por un enlace y al final el sitio,
+          el dominio y los accesos quedan a su nombre.
+        </p>
+        <p>
+          También atendemos negocios de {zona.cerca.join(', ')} y del resto de {zona.provincia}.
+        </p>
+
+        <h2>Preguntas de negocios de {zona.nombre}</h2>
+        {zona.faqs.map((f) => (
+          <div>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <GoogleReviews />
+
+    <CtaBand
+      title={`¿Hablamos de su negocio en ${zona.nombre}?`}
+      text="Contanos qué hacés y te decimos con honestidad qué necesitás, aunque sea menos de lo que pensabas. Cotización gratis y sin compromiso."
+      waText={waTexto}
+    />
+  </div>
+</Base>

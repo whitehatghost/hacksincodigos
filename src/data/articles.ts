@@ -2357,6 +2357,203 @@ export const articles: Article[] = [
 <p>Si querés saber dónde puede ganar tu negocio en Google —en tu zona, en todo el país o afuera—, en <a href="/seo-costa-rica/">posicionamiento SEO</a> te explicamos cómo trabajamos. Y si tu sitio ya existe pero no aparece, empezá por <a href="/blog/por-que-mi-pagina-web-no-aparece-en-google/">por qué tu página web no aparece en Google</a>.</p>
 `,
   },
+  {
+    slug: 'cuanto-cuesta-el-seo-en-costa-rica',
+    title: 'Cuánto cuesta el SEO en Costa Rica y qué se paga exactamente',
+    metaTitle: 'Cuánto cuesta el SEO en Costa Rica | Precios 2026',
+    metaDesc:
+      'Cuánto cuesta posicionar una página web en Google en Costa Rica: qué incluye cada paquete de SEO, precios de referencia, cuándo se ven resultados y señales de humo.',
+    excerpt:
+      'Posicionar una página web no tiene precio de lista, pero sí rangos claros. Qué se está pagando de verdad, qué debería incluir cada paquete y cómo detectar al que te va a cobrar por nada.',
+    tag: '📈 Precios SEO',
+    tagColor: 'var(--accent-blue)',
+    published: '2026-09-16',
+    updated: '2026-09-17',
+    readingMinutes: 10,
+    relatedServices: [
+      { href: '/seo-costa-rica/', label: 'posicionamiento SEO en Costa Rica' },
+      { href: '/paginas-web-costa-rica/', label: 'páginas web para negocios' },
+    ],
+    bodyHtml: `
+<p>"¿Cuánto me cobrás por posicionarme en Google?" es la pregunta, y la respuesta honesta incomoda: depende. Pero "depende" no le sirve a nadie para presupuestar, así que acá van los rangos con los que trabajamos, qué incluye cada uno y —lo más importante— <strong>qué se está pagando exactamente</strong>.</p>
+<p>Porque el problema del SEO no es el precio. Es que casi nadie explica qué recibe a cambio, y así es fácil pagar meses por nada.</p>
+
+<h2>Por qué el SEO no tiene precio de lista</h2>
+<p>Dos negocios que piden "posicionarse en Google" pueden necesitar trabajos completamente distintos:</p>
+<ul>
+  <li><strong>El tamaño del sitio.</strong> Optimizar cinco páginas no es lo mismo que optimizar doscientas fichas de producto.</li>
+  <li><strong>El estado en el que llega.</strong> Un sitio hecho la semana pasada con buena base necesita menos trabajo que uno de hace ocho años, lento, con contenido duplicado y URLs viejas indexadas.</li>
+  <li><strong>La competencia del sector.</strong> Posicionar una veterinaria en Grecia y posicionar un bufete en San José son peleas de peso distinto.</li>
+  <li><strong>Hasta dónde querés llegar.</strong> No cuesta lo mismo salir en el mapa de tu cantón que competir por una búsqueda nacional.</li>
+</ul>
+
+<h2>Precios de referencia en Costa Rica</h2>
+<p>Estos son nuestros rangos, y sirven para comparar cualquier cotización que te pasen.</p>
+
+<h3>Optimización por página — $15 cada una</h3>
+<p>El escalón más chico. Se trabaja una página concreta: título y descripción escritos para búsqueda, encabezados ordenados, el texto trabajado con los términos por los que te buscan, enlazado interno y datos estructurados. Sirve cuando el sitio está sano y solo hay páginas que se quedaron atrás, o cuando se agregan páginas nuevas.</p>
+
+<h3>SEO Inicial — desde $250</h3>
+<p>El arranque para un negocio que hoy no aparece. Incluye la <strong>auditoría completa</strong> del sitio con el informe de qué está frenando el posicionamiento, la corrección del SEO técnico —títulos, descripciones, encabezados, URLs, sitemap, datos estructurados—, el <strong>perfil de Google Business Profile</strong> creado u optimizado para salir en el mapa, la configuración de Search Console y Bing, y la guía para empezar a pedir reseñas.</p>
+<p>Se paga una vez y deja la casa ordenada. Para muchos negocios locales, esto solo ya cambia el panorama.</p>
+
+<h3>SEO + Contenido — desde $500</h3>
+<p>Acá empieza a moverse lo que de verdad vende. Suma el <strong>estudio de palabras clave y de la competencia</strong> para saber por dónde sí se puede ganar, la estructura de páginas por servicio y por zona, la implementación del blog con artículos sobre lo que busca tu cliente, y el enlazado interno que reparte la autoridad hacia las páginas que venden.</p>
+<p>Es el que recomendamos a quien quiere aparecer <em>por lo que vende</em>, no solo por el nombre de su empresa.</p>
+
+<h3>SEO Completo — desde $1.000</h3>
+<p>Para pelear los primeros lugares en un sector competido. Suma contenido sostenido en el tiempo, <strong>monitoreo en Search Console</strong> —posiciones, impresiones, consultas nuevas y errores—, trabajo de enlaces y menciones legítimas, ajustes según lo que muestren los datos y reporte de lo hecho.</p>
+<p>El detalle de cada uno está en <a href="/seo-costa-rica/">paquetes de SEO en Costa Rica</a>.</p>
+
+<h2>En qué se va la plata realmente</h2>
+<p>El SEO se paga en horas de trabajo, no en una licencia mágica. Esto es lo que hay detrás:</p>
+<ul>
+  <li><strong>Diagnóstico:</strong> revisar qué páginas conoce Google, cuáles ignora y por qué.</li>
+  <li><strong>Investigación:</strong> cómo busca tu cliente y contra quién estás compitiendo.</li>
+  <li><strong>Trabajo técnico:</strong> velocidad, estructura, metadatos, datos estructurados, redirecciones.</li>
+  <li><strong>Contenido:</strong> escribir páginas y artículos que respondan de verdad. Es lo que más tiempo toma y lo que más resultados da.</li>
+  <li><strong>Presencia local:</strong> Google Business Profile, reseñas, datos consistentes.</li>
+  <li><strong>Seguimiento:</strong> medir, corregir y aprovechar las búsquedas nuevas que van apareciendo.</li>
+</ul>
+
+<h2>Cuándo se ven resultados</h2>
+<ul>
+  <li><strong>Semanas:</strong> los arreglos técnicos y el perfil de Google Business pueden mover la presencia local relativamente rápido.</li>
+  <li><strong>Dos a tres meses:</strong> empiezan a subir las impresiones y aparecen consultas nuevas en Search Console.</li>
+  <li><strong>Tres a seis meses o más:</strong> las posiciones en términos competidos, con trabajo sostenido.</li>
+</ul>
+<p>La posición es lo último en moverse. Antes cambian tres señales, en este orden: páginas indexadas, impresiones y consultas nuevas. Si esas tres suben, el trabajo va bien aunque todavía no estés de primero.</p>
+
+<h2>Señales de que te están vendiendo humo</h2>
+<ul>
+  <li><strong>"Te garantizo el primer lugar en Google."</strong> Nadie puede garantizarlo: el ranking lo decide Google. Quien lo promete o no sabe, o va a usar trucos que después te cuestan una penalización.</li>
+  <li><strong>"Te consigo 500 enlaces por $50."</strong> Son enlaces comprados o de redes de sitios basura. Google los detecta y castiga al que los recibe.</li>
+  <li><strong>Reseñas compradas.</strong> Motivo de suspensión del perfil de negocio, y lo notan hasta los clientes.</li>
+  <li><strong>No te dice qué va a hacer.</strong> Si la propuesta no lista tareas concretas, no hay forma de saber si trabajó.</li>
+  <li><strong>Reportes de "posiciones" sin contexto.</strong> Salir primero en una búsqueda que nadie hace no sirve de nada.</li>
+  <li><strong>Cobra mensualidad sin entregar nada.</strong> Todos los meses tiene que haber algo: contenido nuevo, arreglos, reportes.</li>
+</ul>
+
+<h2>Cómo saber si vale la pena para tu negocio</h2>
+<p>El SEO conviene cuando <strong>tu cliente te busca en Google</strong>. Si vendés servicios profesionales, salud, construcción, reparaciones, turismo, educación o productos que la gente busca por nombre, sí. Si vendés solo por recomendación a gente que ya te conoce, puede que primero convenga invertir en otra cosa.</p>
+<p>Una forma rápida de saberlo: buscá en Google lo que vendés, como lo buscaría un cliente. Si aparecen competidores y no aparecés vos, ahí hay dinero yéndose. Si ni siquiera hay resultados relevantes, quizá tu cliente no busca así.</p>
+
+<h2>SEO o publicidad pagada</h2>
+<p>La publicidad en Google te pone arriba desde el primer día, pero dejás de aparecer el día que dejás de pagar. El SEO tarda meses, y lo que se construye queda. Lo ideal, cuando el presupuesto da, es usar publicidad mientras el SEO madura. Si hay que escoger uno solo, depende de si necesitás ventas esta semana o clientes todos los meses del próximo año.</p>
+
+<h2>Antes de contratar, preguntá esto</h2>
+<ol>
+  <li>¿Qué vas a hacer exactamente el primer mes?</li>
+  <li>¿Qué me vas a entregar y cada cuánto?</li>
+  <li>¿Cómo vamos a medir si funciona?</li>
+  <li>¿Los accesos y el contenido quedan a mi nombre?</li>
+  <li>¿Qué pasa si dejo de trabajar con vos?</li>
+</ol>
+<p>Quien tiene claro su trabajo responde eso sin rodeos.</p>
+
+<h2>Empezá por un diagnóstico</h2>
+<p>Si querés saber qué necesita tu sitio antes de gastar, escribinos y lo revisamos. Te decimos qué está roto, qué se puede arreglar rápido y qué paquete tiene sentido para tu caso. La cotización es gratis y sin compromiso.</p>
+<p>Y si querés entender primero cómo se decide dónde competir, leé <a href="/blog/estudio-de-mercado-para-seo/">estudio de mercado para SEO</a> y <a href="/blog/por-que-mi-pagina-web-no-aparece-en-google/">por qué tu página web no aparece en Google</a>.</p>
+`,
+  },
+  {
+    slug: 'como-elegir-agencia-seo-o-diseno-web-costa-rica',
+    title: 'Cómo elegir agencia de SEO o diseño web en Costa Rica sin que te vendan humo',
+    metaTitle: 'Cómo elegir agencia SEO o de diseño web en Costa Rica',
+    metaDesc:
+      'Qué revisar antes de contratar una agencia SEO o de diseño web en Costa Rica: preguntas clave, señales de alerta y qué debe quedar a tu nombre.',
+    excerpt:
+      'Contratar mal cuesta el doble: primero lo que pagaste y después lo que cuesta arreglarlo. Las preguntas que filtran, las señales de alerta y cómo comparar dos cotizaciones que parecen iguales.',
+    tag: '🤝 Cómo contratar',
+    tagColor: '#22c55e',
+    published: '2026-09-17',
+    updated: '2026-09-17',
+    readingMinutes: 9,
+    relatedServices: [
+      { href: '/paginas-web-costa-rica/', label: 'páginas web en Costa Rica' },
+      { href: '/seo-costa-rica/', label: 'agencia SEO en Costa Rica' },
+    ],
+    bodyHtml: `
+<p>Nos llegan varios clientes al año con el mismo cuento: pagaron una página web o un servicio de posicionamiento, y quedaron peor que antes. Sitio que no aparece en Google, dominio registrado a nombre de otra persona, un panel al que no tienen acceso, o meses de mensualidad sin nada que mostrar.</p>
+<p>Contratar mal sale caro dos veces: lo que pagaste y lo que cuesta arreglarlo. Esta guía es lo que nosotros revisaríamos antes de contratar, aunque el resultado sea que elijás a otro.</p>
+
+<h2>1. Pedí ver trabajos reales, en línea</h2>
+<p>No capturas de pantalla ni un PDF bonito: <strong>direcciones web que puedas abrir</strong>. Y una vez abiertas, revisá tres cosas:</p>
+<ul>
+  <li><strong>¿El sitio sigue en línea?</strong> Si la mitad del portafolio ya no existe, algo pasó.</li>
+  <li><strong>¿Se ve bien en tu celular?</strong> Ahí es donde entra la mayoría de la gente.</li>
+  <li><strong>¿Ese negocio aparece en Google?</strong> Buscá su nombre y su servicio principal. Si un portafolio de "expertos en SEO" no posiciona ni a sus propios clientes, ya sabés.</li>
+</ul>
+<p>Nuestro <a href="/proyectos/">portafolio</a> está con nombre y enlace a cada sitio, justamente por eso.</p>
+
+<h2>2. Revisá que tengan su propia casa en orden</h2>
+<p>Es la prueba más rápida y casi nadie la hace. Buscá en Google el servicio que venden, no su marca. Una agencia que no aparece por "diseño web Costa Rica" ni por "SEO Costa Rica" está en la misma situación en la que vos no querés estar.</p>
+<p>Revisá también su propio sitio: ¿carga rápido en el celular?, ¿tiene el candado de seguridad?, ¿tiene reseñas reales en Google?, ¿el blog está vivo o quedó hace tres años?</p>
+
+<h2>3. Exigí que todo quede a tu nombre</h2>
+<p>Este punto solo duele cuando ya es tarde. Tiene que quedar por escrito que, al completar el pago:</p>
+<ul>
+  <li>El <strong>dominio</strong> está registrado a tu nombre o al de tu empresa, no al del proveedor.</li>
+  <li>Tenés los <strong>accesos</strong>: hosting, panel de administración, correo.</li>
+  <li>El <strong>contenido y las imágenes</strong> son tuyos o tienen licencia a tu nombre.</li>
+  <li>Las cuentas de <strong>Google Business Profile, Search Console y Analytics</strong> son tuyas, con el proveedor como invitado.</li>
+</ul>
+<p>Si el proveedor se queda con el dominio, no sos dueño de tu negocio en internet: sos inquilino. Y el día que se pelean o desaparece, empezás de cero.</p>
+
+<h2>4. Que te digan qué incluye y qué no</h2>
+<p>Dos cotizaciones por el mismo monto pueden ser cosas muy distintas. Pedí que la propuesta diga:</p>
+<ul>
+  <li>Cuántas páginas o secciones, y cuáles.</li>
+  <li>Quién escribe los textos: ¿vos o ellos?</li>
+  <li>Quién pone las fotos y si son propias o de banco de imágenes.</li>
+  <li>Si incluye SEO técnico o es un extra.</li>
+  <li>Cuántas rondas de cambios entran en el precio.</li>
+  <li>Qué pasa con el hosting y el dominio cada año, y cuánto cuestan.</li>
+  <li>Qué cubre la garantía y por cuánto tiempo.</li>
+  <li>Qué cuesta un cambio después de entregado.</li>
+</ul>
+<p>Ese último punto se olvida siempre, y es el que más pleitos genera.</p>
+
+<h2>5. Cuidado con lo que se paga todos los años</h2>
+<p>Una página web tiene costos recurrentes reales —dominio y hosting— y eso es normal. Lo que no es normal es enterarse después. Preguntá cuánto se paga cada año, a quién, y qué pasa si querés mover el sitio a otro lado.</p>
+<p>El desglose completo está en <a href="/blog/cuanto-cuesta-una-pagina-web-en-costa-rica/">cuánto cuesta una página web en Costa Rica</a>.</p>
+
+<h2>6. Señales de alerta</h2>
+<ul>
+  <li><strong>Promete el primer lugar en Google.</strong> Nadie puede garantizarlo.</li>
+  <li><strong>Precio sospechosamente bajo</strong> con "todo incluido". Casi siempre es una plantilla genérica sin contenido propio, que no posiciona.</li>
+  <li><strong>No firma nada</strong> ni entrega propuesta por escrito.</li>
+  <li><strong>No te deja hablar con clientes anteriores.</strong></li>
+  <li><strong>Testimonios sin nombre ni empresa</strong>, o con fotos de banco de imágenes.</li>
+  <li><strong>Desaparece días entre respuestas</strong> mientras te está vendiendo. Después de cobrar no mejora.</li>
+  <li><strong>Te apura</strong> con descuentos que vencen hoy.</li>
+</ul>
+
+<h2>7. Las preguntas que filtran</h2>
+<ol>
+  <li>¿Qué me vas a entregar exactamente y en qué plazo?</li>
+  <li>¿El dominio y los accesos quedan a mi nombre?</li>
+  <li>¿Quién escribe los textos y quién pone las fotos?</li>
+  <li>¿Qué pasa si necesito un cambio en seis meses?</li>
+  <li>¿Cómo vamos a medir si funcionó?</li>
+  <li>¿Qué costos anuales voy a tener?</li>
+  <li>¿Puedo ver tres sitios suyos que estén en línea hoy?</li>
+</ol>
+<p>Quien trabaja en serio responde estas siete sin incomodarse.</p>
+
+<h2>Agencia grande, freelancer o estudio pequeño</h2>
+<ul>
+  <li><strong>Freelancer:</strong> más barato y más cercano, pero depende de una sola persona. Si se enferma o cambia de trabajo, quedás a la deriva.</li>
+  <li><strong>Agencia grande:</strong> más estructura y respaldo, pero un negocio pequeño suele terminar atendido por el personal con menos experiencia.</li>
+  <li><strong>Estudio pequeño:</strong> el punto medio, si de verdad tiene portafolio comprobable.</li>
+</ul>
+<p>Lo que importa no es el tamaño, sino que pueda mostrar trabajos vivos y explicar sus decisiones sin humo.</p>
+
+<h2>Cómo trabajamos nosotros</h2>
+<p>Para que compare con lo de arriba: propuesta por escrito antes de empezar, con alcance y precio; el sitio, el dominio y los accesos quedan a tu nombre al completar el pago; 30 días de garantía sobre defectos de nuestro trabajo; portafolio público con nombre y enlace; y cero promesas de posiciones, porque el ranking lo decide Google.</p>
+<p>Si estás comparando cotizaciones, escribinos: te decimos con honestidad qué necesita tu caso, aunque termine siendo menos de lo que pensabas contratar. Mirá <a href="/paginas-web-costa-rica/">páginas web en Costa Rica</a> y <a href="/seo-costa-rica/">nuestros paquetes de SEO</a>, que tienen los precios a la vista.</p>
+`,
+  },
 ];
 
 export function getArticle(slug: string): Article | undefined {

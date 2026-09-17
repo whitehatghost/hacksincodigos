@@ -2,6 +2,7 @@
 import Base from './Base.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CtaBand from '../components/CtaBand.astro';
+import GoogleReviews from '../components/GoogleReviews.astro';
 import WhatsAppIcon from '../components/WhatsAppIcon.astro';
 import { wa } from '../data/site';
 import { webPageSchema, breadcrumbSchema, serviceSchema, faqSchema } from '../lib/schema';
@@ -64,6 +65,12 @@ const schemas = [
           </a>
           <a href="/proyectos/" class="btn btn-outline">Ver proyectos</a>
         </div>
+        <ul class="page-credenciales" role="list">
+          <li>Desde 2015 en Costa Rica</li>
+          <li>+50 proyectos entregados</li>
+          <li>Todo queda a tu nombre</li>
+          <li>30 días de garantía</li>
+        </ul>
       </div>
     </section>
 
@@ -87,6 +94,10 @@ const schemas = [
         </div>
       </section>
     )}
+
+    {/* Las reseñas del perfil de Google también acá: son la prueba que ningún
+        competidor del sector está mostrando en sus landings. */}
+    <GoogleReviews />
 
     <CtaBand title={ctaTitle} waText={waText} />
   </div>

@@ -897,3 +897,12 @@ a.info-card { display: block; text-decoration: none; color: inherit; }
 .seo-nota-legal { max-width: 1100px; margin: 1.75rem auto 0; font-size: .82rem; color: var(--text-secondary); line-height: 1.6; }
 .seo-nota-legal a { color: var(--text-secondary); }
 .seo-nota-legal a:hover { color: var(--accent-green); }
+
+/* Credenciales bajo el CTA del encabezado de cada landing de servicio. */
+.page-credenciales {
+  list-style: none; margin: 1.75rem 0 0; padding: 0;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem 1.25rem;
+  font-size: .82rem; color: var(--text-secondary);
+}
+.page-credenciales li { display: inline-flex; align-items: center; gap: .4rem; }
+.page-credenciales li::before { content: '✓'; color: var(--accent-green); font-weight: 700; }

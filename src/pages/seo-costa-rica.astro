@@ -1,10 +1,71 @@
 ﻿---
 import ServiceLanding from '../layouts/ServiceLanding.astro';
-import { areasServed } from '../data/site';
+import WhatsAppIcon from '../components/WhatsAppIcon.astro';
+import { areasServed, wa } from '../data/site';
 
 const path = '/seo-costa-rica/';
 
+/*
+ * PAQUETES DE SEO. Precios de referencia definidos por el negocio. El monto es el
+ * punto de partida de cada paquete ("desde"), porque el alcance real depende del
+ * tamaño del sitio y de la competencia del sector.
+ *
+ * Nada de lo que se promete acá depende de Google: se vende trabajo hecho, no
+ * posiciones. La página entera sostiene lo mismo en "Qué no hacemos".
+ */
+const paquetes = [
+  {
+    nombre: 'SEO Inicial',
+    precio: 'Desde $250',
+    nota: 'la base, para negocios que hoy no aparecen',
+    para: 'Para el negocio que ya tiene sitio pero no sale en Google ni en el mapa.',
+    incluye: [
+      'Auditoría SEO completa del sitio, con informe de qué está frenando el posicionamiento',
+      'Corrección del SEO técnico: títulos, descripciones, encabezados, URLs, sitemap y datos estructurados',
+      'Perfil de Google Business Profile creado u optimizado: categorías, servicios, horarios, fotos y zonas',
+      'Alta y configuración en Google Search Console y Bing Webmaster Tools',
+      'Guía para pedir reseñas a clientes reales y cómo responderlas',
+    ],
+    wa: 'Hola HacksinCodigos, me interesa el paquete SEO Inicial',
+    destacado: false,
+  },
+  {
+    nombre: 'SEO + Contenido',
+    precio: 'Desde $500',
+    nota: 'el que mueve la aguja en búsquedas de servicio',
+    para: 'Para el que quiere aparecer por lo que vende, no solo por el nombre de su empresa.',
+    incluye: [
+      'Todo lo del paquete SEO Inicial',
+      'Estudio de palabras clave y de la competencia: por dónde sí se puede ganar',
+      'Estructura de páginas por servicio y por zona, escritas para posicionar',
+      'Implementación del blog con artículos optimizados sobre lo que busca tu cliente',
+      'Enlazado interno para repartir la autoridad entre las páginas que venden',
+    ],
+    wa: 'Hola HacksinCodigos, me interesa el paquete SEO + Contenido',
+    destacado: true,
+  },
+  {
+    nombre: 'SEO Completo',
+    precio: 'Desde $1.000',
+    nota: 'posicionamiento sostenido y con seguimiento',
+    para: 'Para el que quiere pelear los primeros lugares en un sector competido.',
+    incluye: [
+      'Todo lo de SEO + Contenido',
+      'Contenido sostenido en el tiempo, no una sola tanda de artículos',
+      'Monitoreo en Search Console: posiciones, impresiones, consultas nuevas y errores',
+      'Trabajo de enlaces y menciones legítimas: directorios costarricenses, alianzas y prensa local',
+      'Ajustes según lo que muestren los datos, y reporte de lo que se hizo cada mes',
+    ],
+    wa: 'Hola HacksinCodigos, me interesa el paquete SEO Completo',
+    destacado: false,
+  },
+];
+
 const faqs = [
+  {
+    q: '¿Cuánto cuesta el SEO en Costa Rica?',
+    a: 'Trabajamos con tres paquetes, con precios de referencia: SEO Inicial desde $250, que incluye la auditoría, la corrección técnica y el perfil de Google Business Profile; SEO + Contenido desde $500, que suma el estudio de palabras clave, las páginas por servicio y el blog; y SEO Completo desde $1.000, con contenido sostenido, monitoreo, enlaces legítimos y reportes. Si solo necesitás optimizar páginas sueltas, son $15 por página. El monto final depende del tamaño del sitio y de la competencia de tu sector, y te lo pasamos por escrito antes de empezar.',
+  },
   {
     q: '¿En cuánto tiempo se ven resultados en Google?',
     a: 'El SEO no es inmediato. Los arreglos técnicos y el perfil de Google Business pueden mover cosas en semanas; posicionar términos competitivos suele tomar de tres a seis meses de trabajo sostenido. Cualquiera que te prometa el primer lugar en dos semanas te está vendiendo humo.',
@@ -169,7 +230,67 @@ const faqs = [
     </div>
   </section>
 
-  <section class="section-block">
+  <section id="paquetes" class="section-block">
+    <div class="section-inner">
+      <h2 class="block-title">Paquetes de SEO en Costa Rica</h2>
+      <p class="block-sub">
+        Precios de referencia para que sepás desde dónde arranca cada uno. El monto final depende
+        del tamaño de tu sitio y de qué tan peleado esté tu sector: te lo decimos por escrito antes
+        de empezar, sin compromiso.
+      </p>
+
+      <div class="oferta-planes" style="margin-top:2.5rem">
+        {paquetes.map((p) => (
+          <article class:list={['oferta-plan fade-up', p.destacado && 'destacado']}>
+            {p.destacado && <span class="oferta-etiqueta">El que recomendamos</span>}
+            <h3>{p.nombre}</h3>
+            <p class="oferta-precio">{p.precio}</p>
+            <p class="oferta-nota">{p.nota}</p>
+            <p class="oferta-para">{p.para}</p>
+            <ul role="list">
+              {p.incluye.map((i) => <li>{i}</li>)}
+            </ul>
+            <a
+              href={wa(p.wa)}
+              target="_blank"
+              rel="noopener"
+              class:list={['btn', p.destacado ? 'btn-solid' : 'btn-outline', 'oferta-cta']}
+            >
+              <WhatsAppIcon size={18} />
+              <span>Cotizar este paquete</span>
+            </a>
+          </article>
+        ))}
+      </div>
+
+      <div class="seo-extra fade-up">
+        <div>
+          <h3>¿Solo necesitás optimizar unas páginas?</h3>
+          <p>
+            Optimización SEO por página suelta: <strong>$15 cada una</strong>. Incluye título y
+            descripción escritos para búsqueda, encabezados ordenados, texto trabajado con los
+            términos por los que te buscan, enlazado interno y datos estructurados. Sirve para
+            sumar páginas nuevas a un sitio que ya trabajamos o para arreglar las que se quedaron
+            atrás.
+          </p>
+        </div>
+        <a
+          href={wa('Hola HacksinCodigos, quiero optimizar algunas páginas de mi sitio ($15 por página)')}
+          target="_blank"
+          rel="noopener"
+          class="btn btn-outline"
+        >Consultar por WhatsApp</a>
+      </div>
+
+      <p class="seo-nota-legal">
+        Ningún paquete promete una posición en Google, porque el ranking lo decide Google. Lo que
+        se cobra es el trabajo, y ese queda hecho y documentado. Un ejemplo de trabajo completo es
+        <a href="/proyectos/ryv-dental/">RyV Dental</a>, clínica dental en Palmares.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-block alt">
     <div class="section-inner">
       <h2 class="block-title">Qué incluye una auditoría SEO</h2>
       <div class="card-grid cols-3">

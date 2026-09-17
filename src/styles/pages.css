@@ -882,3 +882,18 @@ a.info-card { display: block; text-decoration: none; color: inherit; }
 .contacto-pasos strong { color: var(--text-primary); }
 .form-nota { margin: .75rem 0 0; font-size: .8rem; color: var(--text-secondary); text-align: center; }
 .articulo-autor { color: var(--text-primary); }
+
+/* Paquetes de SEO: reutilizan las tarjetas de precio de la portada y suman
+   la línea de "para quién es", el bloque del precio por página y la nota legal. */
+.oferta-para { font-size: .88rem; color: var(--text-primary); margin: 0 0 1.1rem; line-height: 1.45; }
+.seo-extra {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.25rem;
+  max-width: 1100px; margin: 2.5rem auto 0; padding: 1.75rem 1.5rem;
+  background: var(--bg-card); border: 1px dashed rgba(255,255,255,.15); border-radius: var(--radius);
+}
+.seo-extra h3 { font-family: var(--font-display); font-size: 1.05rem; margin: 0 0 .5rem; }
+.seo-extra p { color: var(--text-secondary); font-size: .9rem; line-height: 1.55; margin: 0; max-width: 62ch; }
+.seo-extra strong { color: var(--accent-green); }
+.seo-nota-legal { max-width: 1100px; margin: 1.75rem auto 0; font-size: .82rem; color: var(--text-secondary); line-height: 1.6; }
+.seo-nota-legal a { color: var(--text-secondary); }
+.seo-nota-legal a:hover { color: var(--accent-green); }

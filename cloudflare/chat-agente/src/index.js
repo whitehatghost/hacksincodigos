@@ -110,7 +110,7 @@ export default {
     // instrucción: se limpia de los caracteres que cerrarían la plantilla.
     const visitante = recortar(cuerpo.visitante, 60).replace(/[`${}]/g, '');
     const sistema =
-      `Te llamás ${nombre} y sos la asistente virtual del equipo de servicio al cliente de HacksinCodigos. Presentate por tu nombre cuando tenga sentido.` +
+      `Te llamás ${nombre} y sos la asistente virtual del equipo de servicio al cliente de HacksinCodigos. El saludo de bienvenida ya se dio antes de que vos entraras: NO vuelvas a presentarte ni a saludar, entrá directo a responder lo que te preguntan.` +
       (visitante
         ? `\nLa persona con la que hablás se llama ${visitante}: tratala por su nombre de vez en cuando, sin repetirlo en cada mensaje.`
         : '') +

@@ -25,6 +25,12 @@ const sugerencias = [
 ];
 ---
 <div class="chat-agente" id="chat-agente">
+  <div class="chat-aviso" id="chat-aviso" hidden role="button" tabindex="0">
+    <button type="button" class="chat-aviso-cerrar" id="chat-aviso-cerrar" aria-label="Cerrar el aviso">✕</button>
+    <strong id="chat-aviso-nombre">Estamos en línea</strong><br />
+    ¿Le ayudo a cotizar lo que necesita? Le respondo aquí mismo.
+  </div>
+
   <button type="button" class="chat-burbuja" id="chat-abrir" aria-expanded="false" aria-controls="chat-panel">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
       <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h8M8 8h8M8 16h5M21 12a9 9 0 01-13.1 8L3 21l1.1-4.9A9 9 0 1121 12z"/>
@@ -35,10 +41,13 @@ const sugerencias = [
   <section class="chat-panel" id="chat-panel" hidden aria-label={`Asistente virtual de ${site.name}`}>
     <header class="chat-cabecera">
       <div>
-        <p class="chat-titulo"><span id="chat-nombre">Asistente</span> · Servicio al cliente</p>
-        <p class="chat-estado">
-          <span class="chat-punto" aria-hidden="true"></span> En línea 24/7 · {site.name}
-        </p>
+        <span class="chat-avatar" id="chat-avatar" aria-hidden="true">·</span>
+        <span>
+          <p class="chat-titulo" id="chat-nombre">Asistente</p>
+          <p class="chat-estado">
+            <span class="chat-punto" aria-hidden="true"></span> Servicio al cliente · en línea
+          </p>
+        </span>
       </div>
       <button type="button" class="chat-cerrar" id="chat-cerrar" aria-label="Cerrar el chat">✕</button>
     </header>
@@ -46,9 +55,8 @@ const sugerencias = [
     <div class="chat-mensajes" id="chat-mensajes" role="log" aria-live="polite">
       <div class="chat-msg agente" id="chat-saludo">
         <p>
-          ¡Buenas! Soy del equipo de servicio al cliente de {site.name}. Atiendo por acá a toda
-          hora: le cotizo lo que necesite, le tomo un reporte de soporte o le digo qué le conviene
-          según su negocio. ¿En qué le ayudo?
+          ¡Buenas! Le cotizo lo que necesite, le tomo un reporte de soporte o le digo qué le
+          conviene. ¿En qué le ayudo?
         </p>
       </div>
     </div>
@@ -78,8 +86,8 @@ const sugerencias = [
     </form>
 
     <p class="chat-pie">
-      Atención automatizada con IA, disponible 24/7. Para cerrar un trato o cotizar en firme,
-      <a href={waInicial} target="_blank" rel="noopener">hablá con el equipo por WhatsApp</a>.
+      Atención con IA, 24/7. ¿Prefiere una persona?
+      <a href={waInicial} target="_blank" rel="noopener">Escriba por WhatsApp</a>.
     </p>
   </section>
 </div>
@@ -171,8 +179,10 @@ const sugerencias = [
     // claro que es un asistente virtual.
     const nombreEl = document.getElementById('chat-nombre');
     if (nombreEl) nombreEl.textContent = nombreAgente;
+    const avatar = document.getElementById('chat-avatar');
+    if (avatar) avatar.textContent = nombreAgente[0];
     const saludo = document.querySelector('#chat-saludo p');
-    if (saludo) saludo.textContent = `¡Buenas! Soy ${nombreAgente}, del equipo de servicio al cliente de HacksinCodigos. Atiendo por acá a toda hora: le cotizo lo que necesite, le tomo un reporte de soporte o le digo qué le conviene según su negocio. ¿En qué le ayudo?`;
+    if (saludo) saludo.textContent = `¡Buenas! Soy ${nombreAgente}, de servicio al cliente. Le cotizo lo que necesite, le tomo un reporte de soporte o le digo qué le conviene. ¿En qué le ayudo?`;
 
     const agente = crearAgente({ pintar, pintarOpciones, pintarAccion });
 
@@ -184,12 +194,35 @@ const sugerencias = [
 
     const alternar = (mostrar: boolean) => {
       panel.hidden = !mostrar;
+      if (mostrar && aviso) aviso.hidden = true;
       abrir.setAttribute('aria-expanded', String(mostrar));
       raiz.classList.toggle('abierto', mostrar);
       if (mostrar) entrada.focus();
     };
 
-    abrir.addEventListener('click', () => alternar(panel.hidden));
+    const aviso = document.getElementById('chat-aviso');
+    const avisoNombre = document.getElementById('chat-aviso-nombre');
+    if (avisoNombre) avisoNombre.textContent = `${nombreAgente} está en línea`;
+    let avisoVisto = false;
+    try { avisoVisto = sessionStorage.getItem('chat-aviso') === 'visto'; } catch {}
+    const ocultarAviso = () => {
+      if (aviso) aviso.hidden = true;
+      try { sessionStorage.setItem('chat-aviso', 'visto'); } catch {}
+    };
+    if (aviso && !avisoVisto) {
+      setTimeout(() => { if (panel.hidden) aviso.hidden = false; }, 8000);
+      aviso.addEventListener('click', (e) => {
+        if ((e.target as HTMLElement).id === 'chat-aviso-cerrar') return;
+        ocultarAviso();
+        alternar(true);
+      });
+      document.getElementById('chat-aviso-cerrar')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        ocultarAviso();
+      });
+    }
+
+    abrir.addEventListener('click', () => { ocultarAviso(); alternar(panel.hidden); });
     cerrar.addEventListener('click', () => { alternar(false); abrir.focus(); });
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && !panel.hidden) { alternar(false); abrir.focus(); }

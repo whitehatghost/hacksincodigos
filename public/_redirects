@@ -56,9 +56,11 @@
 /category/*               /blog/                    301
 /tag/*                    /blog/                    301
 
-# ── Selector de idioma antiguo: eran enlaces rotos (404) en el sitio actual ──
-# El idioma ahora se cambia en el sitio sin cambiar de URL.
-/en/*                     /                         301
+# ── Selector de idioma antiguo del WordPress: eran enlaces rotos (404) ───────
+# OJO: /en/ ya NO se redirige. Ahí viven las páginas en inglés escritas para la
+# comunidad extranjera, y esta regla se las estaba comiendo: todas respondían
+# 301 hacia la portada y ninguna podía indexarse. Lo detectó el informe de
+# scripts/baseline-seo.mjs, no la build, porque en local sí existían.
 /fr/*                     /                         301
 /pt/*                     /                         301
 /de/*                     /                         301

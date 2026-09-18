@@ -524,3 +524,26 @@ test('el hreflang es recíproco entre español e inglés', { skip: !hasDist }, (
     );
   }
 });
+
+// ── Redirecciones que tapan páginas reales ──────────────────────────────────
+// Pasó de verdad: una regla vieja del selector de idioma del WordPress mandaba
+// /en/* a la portada, y cuando se publicaron las páginas en inglés, Cloudflare
+// las redirigía antes de servirlas. La build no lo veía porque el archivo
+// _redirects solo actúa en producción. Esta prueba compara las dos cosas.
+
+test('ninguna redirección tapa una página construida', { skip: !hasDist }, () => {
+  const rutas = allHtml().map((f) =>
+    `/${path.relative(DIST, f).split(path.sep).slice(0, -1).join('/')}/`.replace('//', '/')
+  );
+  for (const linea of read('_redirects').split('\n')) {
+    const t = linea.trim();
+    if (!t || t.startsWith('#')) continue;
+    const origen = t.split(/\s+/)[0];
+    const prefijo = origen.endsWith('/*') ? origen.slice(0, -1) : null;
+    for (const ruta of rutas) {
+      if (prefijo ? ruta.startsWith(prefijo) : ruta === origen) {
+        assert.fail(`la regla "${t}" tapa la página ${ruta}, que sí existe en el sitio`);
+      }
+    }
+  }
+});

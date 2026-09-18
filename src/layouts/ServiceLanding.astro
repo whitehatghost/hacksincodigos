@@ -20,6 +20,8 @@ export interface Props {
   faqs?: { q: string; a: string }[];
   waText: string;
   ctaTitle?: string;
+  /** Versión en inglés de esta misma página, si existe. */
+  alternates?: { lang: string; path: string }[];
 }
 
 const {
@@ -35,6 +37,7 @@ const {
   faqs = [],
   waText,
   ctaTitle,
+  alternates = [],
 } = Astro.props;
 
 const crumbs = [
@@ -49,7 +52,7 @@ const schemas = [
   ...(faqs.length ? [faqSchema(faqs)] : []),
 ];
 ---
-<Base title={title} description={description} path={path} schemas={schemas}>
+<Base title={title} description={description} path={path} schemas={schemas} alternates={alternates}>
   <div class="page-wrap">
     <Breadcrumbs items={crumbs} />
 
@@ -65,6 +68,11 @@ const schemas = [
           </a>
           <a href="/proyectos/" class="btn btn-outline">Ver proyectos</a>
         </div>
+        {alternates.some((a) => a.lang === 'en') && (
+          <p class="page-idioma">
+            <a href={alternates.find((a) => a.lang === 'en').path}>Read this page in English</a>
+          </p>
+        )}
         <ul class="page-credenciales" role="list">
           <li>Desde 2015 en Costa Rica</li>
           <li>+50 proyectos entregados</li>

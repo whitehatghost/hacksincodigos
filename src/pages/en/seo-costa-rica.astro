@@ -1,0 +1,279 @@
+---
+/**
+ * /en/seo-costa-rica/ — la búsqueda "seo costa rica" en inglés hoy la dominan
+ * directorios (Clutch, DesignRush) y sitios para expatriados. Es tráfico con
+ * dinero: hoteles, bienes raíces y clínicas que le venden a extranjeros.
+ */
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import GoogleReviews from '../../components/GoogleReviews.astro';
+import WhatsAppIcon from '../../components/WhatsAppIcon.astro';
+import { wa } from '../../data/site';
+import { webPageSchema, breadcrumbSchema, serviceSchema, faqSchema } from '../../lib/schema';
+
+const path = '/en/seo-costa-rica/';
+const title = 'SEO in Costa Rica — Get Found on Google | HacksinCodigos';
+const description =
+  'SEO services in Costa Rica for hotels, real estate, clinics and local businesses. Technical SEO, Google Business Profile and content. Packages from $250.';
+
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'SEO in Costa Rica', path },
+];
+
+const packages = [
+  {
+    name: 'SEO Starter',
+    price: 'From $250',
+    note: 'the foundation, for businesses nobody can find',
+    includes: [
+      'Full SEO audit with a report of what is holding the site back',
+      'Technical fixes: titles, descriptions, headings, URLs, sitemap, structured data',
+      'Google Business Profile created or optimized so you show on the map',
+      'Google Search Console and Bing Webmaster Tools set up',
+      'A process for asking real customers for reviews',
+    ],
+    wa: "Hi HacksinCodigos, I'm interested in the SEO Starter package",
+    featured: false,
+  },
+  {
+    name: 'SEO + Content',
+    price: 'From $500',
+    note: 'where rankings for what you actually sell begin',
+    includes: [
+      'Everything in SEO Starter',
+      'Keyword and competitor research — where you can realistically win',
+      'Pages per service and per area, written to rank',
+      'Blog set up with articles answering what your customers search',
+      'Internal linking that pushes authority to the pages that sell',
+    ],
+    wa: "Hi HacksinCodigos, I'm interested in the SEO + Content package",
+    featured: true,
+  },
+  {
+    name: 'Full SEO',
+    price: 'From $1,000',
+    note: 'sustained work for competitive markets',
+    includes: [
+      'Everything in SEO + Content',
+      'Ongoing content, not a single batch of articles',
+      'Search Console monitoring: positions, impressions, new queries, errors',
+      'Legitimate link and mention building — local directories, partners, press',
+      'Adjustments based on data, and a report of what was done',
+    ],
+    wa: "Hi HacksinCodigos, I'm interested in the Full SEO package",
+    featured: false,
+  },
+];
+
+const faqs = [
+  {
+    q: 'How long until I see results?',
+    a: 'Technical fixes and a Google Business Profile can move local visibility within weeks. Ranking for competitive terms usually takes three to six months of sustained work. Anyone promising page one in two weeks is not being straight with you.',
+  },
+  {
+    q: 'Do you guarantee first position on Google?',
+    a: 'No, and no honest provider can — Google decides rankings. What we guarantee is correct technical work, honest content and a documented report of what was done.',
+  },
+  {
+    q: 'My customers are abroad, not in Costa Rica. Does local SEO still matter?',
+    a: 'Your Google Business Profile still matters for credibility and reviews, but the heavy lifting shifts to content and international search: how travelers or buyers phrase things in their own language and country, which is not the same as translating your Spanish pages.',
+  },
+  {
+    q: 'Do you do link building?',
+    a: 'Only legitimate links: real mentions, Costa Rican business directories, partnerships, and credit on the client sites we build. We do not buy links or use private blog networks — that is exactly what gets a domain penalized.',
+  },
+  {
+    q: 'What about AI search — ChatGPT, Gemini, AI overviews?',
+    a: 'More people now ask an AI instead of clicking links. There is no button to buy your way into those answers, but you can be the source they trust: direct verifiable answers, correct structured data, consistent business information everywhere, and original content with real authorship. We build AI agents ourselves, so we know what these systems look for.',
+  },
+  {
+    q: 'How much does SEO cost in Costa Rica?',
+    a: 'Our packages start at $250 for the audit, technical fixes and Google Business Profile; $500 with keyword research, service pages and blog; and $1,000 for sustained work with monitoring and link building. Single-page optimization is $15 per page.',
+  },
+];
+
+const schemas = [
+  webPageSchema({ path, name: title, description }),
+  breadcrumbSchema(crumbs),
+  serviceSchema({
+    name: 'SEO services in Costa Rica',
+    description,
+    path,
+    serviceType: 'Search engine optimization',
+  }),
+  faqSchema(faqs),
+];
+
+const waText = "Hi HacksinCodigos, I'd like help with SEO for my business in Costa Rica";
+---
+<Base
+  title={title}
+  description={description}
+  path={path}
+  lang="en"
+  alternates={[{ lang: 'es-CR', path: '/seo-costa-rica/' }]}
+  schemas={schemas}
+>
+  <div class="page-wrap">
+    <Breadcrumbs items={crumbs} />
+
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <span class="page-eyebrow">Costa Rica · Search engine optimization</span>
+        <h1 class="page-h1">SEO in Costa Rica: get found when people search</h1>
+        <p class="page-lead">
+          Technical and content work so Google understands what your business does, where it does it
+          and why it should show you. No tricks that cost you later.
+        </p>
+        <div class="page-cta-row">
+          <a href={wa(waText)} class="btn btn-solid wa-btn" target="_blank" rel="noopener">
+            <WhatsAppIcon size={18} />
+            <span>Get a free quote on WhatsApp</span>
+          </a>
+          <a href="/en/web-design-costa-rica/" class="btn btn-outline">Web design</a>
+        </div>
+        <ul class="page-credenciales" role="list">
+          <li>Costa Rican team since 2015</li>
+          <li>We work in English</li>
+          <li>No purchased links, ever</li>
+          <li>Written reports</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-block alt">
+      <div class="section-inner narrow prose">
+        <h2>What the work actually involves</h2>
+        <h3>1. Technical SEO</h3>
+        <p>
+          The foundation, and where most sites fail: load speed and Core Web Vitals, heading
+          structure, unique metadata per page, clean URLs, correct canonicals, Schema.org structured
+          data, XML sitemap, robots.txt and redirects that do not lose the authority a domain already
+          earned.
+        </p>
+        <h3>2. Content that matches how people search</h3>
+        <p>
+          Your customers do not use your industry's vocabulary. A hotel writes "boutique
+          accommodation"; the traveler types "places to stay near Manuel Antonio park". We research
+          the real phrasing — in English and Spanish — and build a page for each intent instead of one
+          page trying to cover everything.
+        </p>
+        <h3>3. Local presence</h3>
+        <p>
+          Google Business Profile with the right categories, services, hours and photos; consistent
+          name, phone and address everywhere; and a steady flow of real reviews. For anything with a
+          physical location, this moves faster than anything else.
+        </p>
+
+        <h2>What we do not do</h2>
+        <p>
+          No purchased links, no private blog networks, no hidden text, no fake reviews, no structured
+          data describing things that do not exist. All of it works for a while and then sinks the
+          domain. If that is what you are shopping for, we are not your provider.
+        </p>
+
+        <h2>Ranking in AI answers, not just blue links</h2>
+        <p>
+          A growing share of people ask ChatGPT, Gemini or Google's AI summary instead of clicking
+          through. You cannot buy your way into those answers, but you can make your business the
+          source they trust: direct, verifiable answers with real numbers; correct structured data;
+          the same business facts on your site, your Google profile and every directory; original
+          content with visible authorship; and a site that loads without heavy scripts.
+        </p>
+        <p>
+          We build AI agents as part of our own business, so this is not a trend we read about — it is
+          how the systems we work with actually choose their sources.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-inner">
+        <h2 class="block-title">SEO packages</h2>
+        <p class="block-sub">
+          Reference pricing so you know where each one starts. The final number depends on the size of
+          your site and how competitive your market is — always in writing before we begin.
+        </p>
+
+        <div class="oferta-planes" style="margin-top:2.5rem">
+          {packages.map((p) => (
+            <article class:list={['oferta-plan', p.featured && 'destacado']}>
+              {p.featured && <span class="oferta-etiqueta">Our pick</span>}
+              <h3>{p.name}</h3>
+              <p class="oferta-precio">{p.price}</p>
+              <p class="oferta-nota">{p.note}</p>
+              <ul role="list">
+                {p.includes.map((i) => <li>{i}</li>)}
+              </ul>
+              <a
+                href={wa(p.wa)}
+                target="_blank"
+                rel="noopener"
+                class:list={['btn', p.featured ? 'btn-solid' : 'btn-outline', 'oferta-cta']}
+              >
+                <WhatsAppIcon size={18} />
+                <span>Get a quote</span>
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <div class="seo-extra">
+          <div>
+            <h3>Just need a few pages optimized?</h3>
+            <p>
+              Single-page SEO optimization is <strong>$15 per page</strong>: title and description
+              written for search, clean headings, copy worked around the terms people actually use,
+              internal links and structured data.
+            </p>
+          </div>
+          <a
+            href={wa("Hi HacksinCodigos, I'd like to optimize a few pages ($15 per page)")}
+            target="_blank"
+            rel="noopener"
+            class="btn btn-outline"
+          >Ask on WhatsApp</a>
+        </div>
+
+        <p class="seo-nota-legal">
+          No package promises a position on Google, because Google decides rankings. What you pay for
+          is the work, and the work is documented. See <a href="/proyectos/ryv-dental/">RyV Dental</a>
+          for an example of a full engagement.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-block alt">
+      <div class="section-inner narrow prose">
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <div>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </div>
+        ))}
+        <p class="seo-nota-legal">
+          ¿Preferís español? <a href="/seo-costa-rica/">Versión en español de esta página</a>.
+        </p>
+      </div>
+    </section>
+
+    <GoogleReviews />
+
+    <section class="cta-band">
+      <h2>Want to know why you are not showing up?</h2>
+      <p>
+        Send us your website and we will tell you what is broken, what can be fixed quickly and which
+        package makes sense. Free, no commitment.
+      </p>
+      <div class="page-cta-row">
+        <a href={wa(waText)} class="btn btn-solid wa-btn" target="_blank" rel="noopener">
+          <WhatsAppIcon size={18} />
+          <span>Message us on WhatsApp</span>
+        </a>
+        <a href="/en/web-design-costa-rica/" class="btn btn-outline">Web design and pricing</a>
+      </div>
+    </section>
+  </div>
+</Base>

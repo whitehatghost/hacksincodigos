@@ -19,6 +19,10 @@ export interface Props {
   /** La home carga el fondo de partículas y la escena 3D; el resto no los necesita. */
   heroEffects?: boolean;
   bodyClass?: string;
+  /** es-CR por defecto; las páginas de /en/ declaran en. */
+  lang?: 'es-CR' | 'en';
+  /** Pares de la misma página en otro idioma, para hreflang. */
+  alternates?: { lang: string; path: string }[];
 }
 
 const {
@@ -31,6 +35,8 @@ const {
   schemas = [],
   heroEffects = false,
   bodyClass,
+  lang = 'es-CR',
+  alternates = [],
 } = Astro.props;
 
 // Organization + WebSite van en todas las páginas: le dan a Google una única
@@ -38,7 +44,7 @@ const {
 const allSchemas = [organizationSchema(), websiteSchema(), ...schemas];
 ---
 <!doctype html>
-<html lang="es-CR">
+<html lang={lang}>
   <head>
     <SeoHead
       title={title}
@@ -48,6 +54,8 @@ const allSchemas = [organizationSchema(), websiteSchema(), ...schemas];
       type={type}
       noindex={noindex}
       schemas={allSchemas}
+      lang={lang}
+      alternates={alternates}
     />
     {heroEffects && (
       <>

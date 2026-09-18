@@ -94,7 +94,10 @@ for (const file of htmlFiles) {
   }
 
   // ── Idioma ────────────────────────────────────────────────────────────────
-  if (!/<html[^>]+lang="es-CR"/.test(html)) errors.push(`${url} — el <html> no declara lang="es-CR"`);
+  const langEsperado = url.startsWith('/en/') ? 'en' : 'es-CR';
+  if (!new RegExp(`<html[^>]+lang="${langEsperado}"`).test(html)) {
+    errors.push(`${url} — el <html> no declara lang="${langEsperado}"`);
+  }
 
   // ── Enlaces internos ──────────────────────────────────────────────────────
   for (const m of html.matchAll(/href="(\/[^"]*)"/g)) {

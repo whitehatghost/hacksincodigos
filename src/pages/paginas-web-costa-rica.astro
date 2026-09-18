@@ -98,7 +98,13 @@ const schemas = [
   faqSchema(pageFaqs.map((f) => ({ q: f.q, a: f.a }))),
 ];
 ---
-<Base title={title} description={description} path={path} schemas={schemas}>
+<Base
+  title={title}
+  description={description}
+  path={path}
+  schemas={schemas}
+  alternates={[{ lang: 'en', path: '/en/web-design-costa-rica/' }]}
+>
   <div class="page-wrap">
     <Breadcrumbs items={crumbs} />
 
@@ -110,6 +116,9 @@ const schemas = [
           Diseñamos y programamos sitios web profesionales para empresas y emprendimientos
           costarricenses. Rápidos, listos para Google y con WhatsApp integrado para que las
           consultas te lleguen de una vez.
+        </p>
+        <p class="page-idioma">
+          <a href="/en/web-design-costa-rica/">Read this page in English</a>
         </p>
         <div class="page-cta-row">
           <a href={wa('Hola HacksinCodigos, quiero cotizar una página web para mi negocio')} class="btn btn-solid wa-btn" target="_blank" rel="noopener">

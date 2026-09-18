@@ -205,12 +205,18 @@
       }
       return 'es-CR';
     }
-    var savedLang = 'es-CR';
-    try {
-      var stored = localStorage.getItem('hacksinCodigosLang');
-      savedLang = stored && supported.indexOf(stored) !== -1 ? stored : detectFromBrowser();
-    } catch (e) { savedLang = detectFromBrowser(); }
-    applyLanguage(savedLang);
+    // Las páginas de /en/ ya vienen escritas en inglés desde el servidor: el
+    // traductor no las toca ni les cambia el lang del <html>, que es lo que lee
+    // Google. Antes, el script las dejaba declaradas como es-CR.
+    var esPaginaEn = location.pathname.indexOf('/en/') === 0;
+    if (!esPaginaEn) {
+      var savedLang = 'es-CR';
+      try {
+        var stored = localStorage.getItem('hacksinCodigosLang');
+        savedLang = stored && supported.indexOf(stored) !== -1 ? stored : detectFromBrowser();
+      } catch (e) { savedLang = detectFromBrowser(); }
+      applyLanguage(savedLang);
+    }
     // ── LANGUAGE SWITCHER ──
     var langBtn = document.getElementById('langBtn');
     var langDropdown = document.getElementById('langDropdown');

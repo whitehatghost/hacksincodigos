@@ -1,0 +1,170 @@
+---
+/**
+ * English zone page: /en/web-design-<zone>/
+ *
+ * Para el extranjero que vive en Costa Rica o que le vende a extranjeros: busca
+ * en inglés y hoy esas búsquedas se las llevan sitios de expatriados. Esta
+ * página es HTML real en inglés —no el cambiador de idioma por JavaScript, que
+ * Google no ve— y declara con hreflang cuál es su equivalente en español.
+ */
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import GoogleReviews from '../../components/GoogleReviews.astro';
+import WhatsAppIcon from '../../components/WhatsAppIcon.astro';
+import { zonesEn, type ZoneEn } from '../../data/zones-en';
+import { wa } from '../../data/site';
+import { webPageSchema, breadcrumbSchema, serviceSchema, faqSchema } from '../../lib/schema';
+
+export function getStaticPaths() {
+  return zonesEn.map((zone) => ({ params: { zone: zone.slug }, props: { zone } }));
+}
+
+interface Props {
+  zone: ZoneEn;
+}
+
+const { zone } = Astro.props;
+const path = `/en/web-design-${zone.slug}/`;
+const esPath = `/paginas-web-${zone.esSlug}/`;
+
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Web design in Costa Rica', path: '/en/web-design-costa-rica/' },
+  { name: zone.name, path },
+];
+
+const schemas = [
+  webPageSchema({ path, name: zone.metaTitle, description: zone.metaDesc }),
+  breadcrumbSchema(crumbs),
+  serviceSchema({
+    name: `Web design and SEO in ${zone.name}, Costa Rica`,
+    description: zone.metaDesc,
+    path,
+    serviceType: 'Web design and development',
+    areaServed: { '@type': 'City', name: zone.name, addressCountry: 'CR' },
+  }),
+  faqSchema(zone.faqs),
+];
+
+const waText = `Hi HacksinCodigos, I have a business in ${zone.name} and I'd like a quote for a website`;
+---
+<Base
+  title={zone.metaTitle}
+  description={zone.metaDesc}
+  path={path}
+  lang="en"
+  alternates={[{ lang: 'es-CR', path: esPath }]}
+  schemas={schemas}
+>
+  <div class="page-wrap">
+    <Breadcrumbs items={crumbs} />
+
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <span class="page-eyebrow">{zone.region} · Costa Rica</span>
+        <h1 class="page-h1">{zone.h1}</h1>
+        <p class="page-lead">{zone.lead}</p>
+        <div class="page-cta-row">
+          <a href={wa(waText)} class="btn btn-solid wa-btn" target="_blank" rel="noopener">
+            <WhatsAppIcon size={18} />
+            <span>Get a free quote on WhatsApp</span>
+          </a>
+          <a href="/proyectos/" class="btn btn-outline">See our work</a>
+        </div>
+        <ul class="page-credenciales" role="list">
+          <li>Costa Rican team since 2015</li>
+          <li>We work in English</li>
+          <li>From $499</li>
+          <li>Everything in your name</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-block alt">
+      <div class="section-inner narrow prose">
+        <h2>What we see in {zone.name}</h2>
+        <Fragment set:html={zone.contextHtml} />
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-inner">
+        <h2 class="block-title">Who we work with in {zone.name}</h2>
+        <div class="card-grid cols-3">
+          {zone.businesses.map((b) => (
+            <div class="info-card"><h3>{b}</h3></div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block alt">
+      <div class="section-inner narrow prose">
+        <h2>What we build</h2>
+        <ul>
+          <li>
+            <strong>Business websites from $499</strong>, usually live in 3 to 7 business days:
+            mobile-first design, pages per service, contact form and WhatsApp built in.
+          </li>
+          <li>
+            <strong>Online stores from $800 to $2,500</strong>, with card payments, local SINPE
+            transfers and WhatsApp ordering.
+          </li>
+          <li>
+            <strong>SEO from $250</strong>: technical audit, fixes, and a Google Business Profile
+            set up properly so you appear on the map.
+          </li>
+          <li>
+            <strong>AI agents</strong> that answer WhatsApp, Instagram or your website around the
+            clock, in English and Spanish, and pass you the conversations worth closing.
+          </li>
+          <li>
+            <strong>Custom software</strong> — CRM, bookings, inventory, internal tools — when a
+            website is not the whole problem.
+          </li>
+        </ul>
+
+        <h2>How we work</h2>
+        <p>
+          We are a Costa Rican team and we work remotely across the country, including {zone.name}.
+          We scope the project over WhatsApp, email or a video call, send a written proposal with
+          price and timeline, share progress by link, and hand over a site whose domain and accounts
+          are all in your name once it is paid.
+        </p>
+        <p>
+          We do not promise rankings, because Google decides those. We promise the work, done
+          properly and documented.
+        </p>
+
+        <h2>Questions from business owners in {zone.name}</h2>
+        {zone.faqs.map((f) => (
+          <div>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </div>
+        ))}
+
+        <p class="seo-nota-legal">
+          ¿Preferís leer esto en español? <a href={esPath}>Versión en español de esta página</a>.
+        </p>
+      </div>
+    </section>
+
+    <GoogleReviews />
+
+    <section class="cta-band">
+      <h2>Let's talk about your business in {zone.name}</h2>
+      <p>
+        Tell us what you do and we will tell you honestly what you need — even if it is less than you
+        planned to buy. Free quote, no commitment.
+      </p>
+      <div class="page-cta-row">
+        <a href={wa(waText)} class="btn btn-solid wa-btn" target="_blank" rel="noopener">
+          <WhatsAppIcon size={18} />
+          <span>Message us on WhatsApp</span>
+        </a>
+        <a href="/en/web-design-costa-rica/" class="btn btn-outline">Services and pricing</a>
+      </div>
+    </section>
+  </div>
+</Base>

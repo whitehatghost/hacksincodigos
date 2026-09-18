@@ -489,3 +489,38 @@ test('ninguna página de zona inventa una oficina en el cantón', { skip: !hasDi
     );
   }
 });
+
+// ── Versiones en inglés ─────────────────────────────────────────────────────
+// El cambiador de idioma por JavaScript no sirve para buscadores. Estas páginas
+// son HTML real en inglés, y lo que las mantiene sanas es el hreflang cruzado:
+// si una apunta a su gemela y la gemela no le devuelve el apunte, Google ignora
+// el par y las trata como contenido competido entre sí.
+
+test('cada página en inglés declara lang="en" y su alterna en español', { skip: !hasDist }, () => {
+  const enFiles = allHtml().filter((f) => f.includes(`${path.sep}en${path.sep}`));
+  assert.ok(enFiles.length >= 10, 'no se generaron las páginas en inglés');
+  for (const file of enFiles) {
+    const html = fs.readFileSync(file, 'utf8');
+    const rel = path.relative(DIST, file);
+    assert.match(html, /<html[^>]+lang="en"/, `${rel}: no declara lang="en"`);
+    assert.match(html, /hreflang="es-CR"/, `${rel}: no declara su versión en español`);
+    assert.match(html, /hreflang="x-default"/, `${rel}: falta hreflang x-default`);
+  }
+});
+
+test('el hreflang es recíproco entre español e inglés', { skip: !hasDist }, () => {
+  const href = (html, lang) =>
+    html.match(new RegExp(`<link rel="alternate" hreflang="${lang}" href="([^"]+)"`))?.[1];
+  for (const file of allHtml().filter((f) => f.includes(`${path.sep}en${path.sep}`))) {
+    const html = fs.readFileSync(file, 'utf8');
+    const esUrl = href(html, 'es-CR');
+    if (!esUrl) continue;
+    const esFile = path.join(DIST, new URL(esUrl).pathname, 'index.html');
+    assert.ok(fs.existsSync(esFile), `${path.relative(DIST, file)}: su alterna ${esUrl} no existe`);
+    const esHtml = fs.readFileSync(esFile, 'utf8');
+    assert.ok(
+      href(esHtml, 'en')?.includes(path.relative(DIST, path.dirname(file)).split(path.sep).join('/')),
+      `${esUrl}: no devuelve el hreflang hacia su versión en inglés`
+    );
+  }
+});

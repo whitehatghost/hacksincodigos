@@ -1,0 +1,238 @@
+---
+/**
+ * Página principal en inglés: /en/web-design-costa-rica/
+ *
+ * Objetivo: "web design costa rica", "website designer costa rica", "web
+ * developer costa rica" y sus variantes. Según el estudio de competencia, esas
+ * búsquedas hoy las dominan directorios y sitios para expatriados; casi ninguna
+ * agencia tica compite ahí porque publica solo en español.
+ */
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import GoogleReviews from '../../components/GoogleReviews.astro';
+import WhatsAppIcon from '../../components/WhatsAppIcon.astro';
+import { zonesEn } from '../../data/zones-en';
+import { projects } from '../../data/projects';
+import { wa } from '../../data/site';
+import { webPageSchema, breadcrumbSchema, serviceSchema, faqSchema } from '../../lib/schema';
+
+const path = '/en/web-design-costa-rica/';
+const title = 'Web Design in Costa Rica — Websites, SEO and AI | HacksinCodigos';
+const description =
+  'Costa Rican web design team working in English: business websites from $499, online stores, SEO and AI agents. Everything ends up in your name.';
+
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Web design in Costa Rica', path },
+];
+
+const faqs = [
+  {
+    q: 'Do you work in English?',
+    a: 'Yes. We are a Costa Rican team and we work with foreign clients in English over WhatsApp, email or video call. We can build your site in English, Spanish, or both — each language in its own section, with the tags that tell Google which version to serve.',
+  },
+  {
+    q: 'How much does a website cost in Costa Rica?',
+    a: 'A business website starts at $499 and is usually live in 3 to 7 business days. An online store runs from $800 to $2,500 depending on the catalog and payment setup. SEO packages start at $250. Custom software and AI agents are quoted by scope, always in writing before we start.',
+  },
+  {
+    q: 'Who owns the website and the domain?',
+    a: 'You do. Once the project is paid, the site, the domain and every account are registered in your name, with us added as a collaborator only if you want ongoing support. We see a lot of owners locked out by a previous developer, and we refuse to work that way.',
+  },
+  {
+    q: 'Can you fix or take over a site someone else built?',
+    a: 'Often, yes. We review it first and tell you honestly whether fixing is cheaper than rebuilding. If a site is a pile of outdated plugins on an abandoned theme, patching it is usually throwing money away — and we will say so.',
+  },
+  {
+    q: 'Do you guarantee first place on Google?',
+    a: 'No, and nobody honest can: Google decides rankings, not the agency. What we guarantee is correct technical work, honest content and a report of what was done. Anyone promising you position one in two weeks is selling you something else.',
+  },
+  {
+    q: 'How do payments work?',
+    a: 'We invoice in US dollars and accept SINPE Móvil or bank transfer. Projects are paid in stages against a written scope, so you always know what you are paying for.',
+  },
+  {
+    q: 'Is the site built on WordPress?',
+    a: 'Only when it makes sense. If you need to edit content daily, WordPress is a good fit and we maintain it. If the site changes rarely, we build it static — much faster, far more secure, and nothing to patch every month. We recommend based on your case, not on what is easier for us.',
+  },
+];
+
+const schemas = [
+  webPageSchema({ path, name: title, description }),
+  breadcrumbSchema(crumbs),
+  serviceSchema({
+    name: 'Web design and development in Costa Rica',
+    description,
+    path,
+    serviceType: 'Web design and development',
+  }),
+  faqSchema(faqs),
+];
+
+const waText = "Hi HacksinCodigos, I'd like a quote for a website in Costa Rica";
+const casos = projects.filter((p) => p.liveUrl).slice(0, 6);
+---
+<Base
+  title={title}
+  description={description}
+  path={path}
+  lang="en"
+  alternates={[{ lang: 'es-CR', path: '/paginas-web-costa-rica/' }]}
+  schemas={schemas}
+>
+  <div class="page-wrap">
+    <Breadcrumbs items={crumbs} />
+
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <span class="page-eyebrow">Costa Rica · We work in English</span>
+        <h1 class="page-h1">Web design in Costa Rica that brings you customers</h1>
+        <p class="page-lead">
+          We build the website, get it ready to rank on Google and wire it to WhatsApp, so the people
+          searching for what you sell can actually find you and book. From $499.
+        </p>
+        <div class="page-cta-row">
+          <a href={wa(waText)} class="btn btn-solid wa-btn" target="_blank" rel="noopener">
+            <WhatsAppIcon size={18} />
+            <span>Get a free quote on WhatsApp</span>
+          </a>
+          <a href="/proyectos/" class="btn btn-outline">See our work</a>
+        </div>
+        <ul class="page-credenciales" role="list">
+          <li>Costa Rican team since 2015</li>
+          <li>Reply within 24 hours</li>
+          <li>Domain and site in your name</li>
+          <li>30-day warranty</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-block alt">
+      <div class="section-inner narrow prose">
+        <h2>Who we build for</h2>
+        <p>
+          Most of our clients are businesses in Costa Rica that depend on being found: hotels and
+          tour operators selling to travelers abroad, clinics and law firms competing in the
+          metropolitan area, real estate offices, restaurants, and companies that outgrew
+          spreadsheets and need software of their own.
+        </p>
+        <p>
+          A good share of them are foreign-owned or run by residents who moved here — which is why we
+          work in English, invoice in dollars, and put everything in writing before we start.
+        </p>
+
+        <h2>What we do</h2>
+        <ul>
+          <li>
+            <strong>Business websites — from $499.</strong> Mobile-first design, a page per service,
+            contact form, WhatsApp integration and the technical SEO baseline. Usually live in 3 to 7
+            business days.
+          </li>
+          <li>
+            <strong>Online stores — $800 to $2,500.</strong> Catalog, card payments, SINPE Móvil
+            (the local transfer everyone here uses), WhatsApp ordering and a panel you control.
+          </li>
+          <li>
+            <strong>SEO — from $250.</strong> Technical audit, fixes, Google Business Profile, then
+            content and local search work. Full packages on our
+            <a href="/seo-costa-rica/">SEO page</a>.
+          </li>
+          <li>
+            <strong>AI agents.</strong> A bot on WhatsApp, Instagram or your website that answers the
+            repetitive questions day and night, in English and Spanish, and hands you the leads worth
+            closing.
+          </li>
+          <li>
+            <strong>Custom software.</strong> CRM, bookings, inventory, internal tools and
+            integrations with the systems you already run.
+          </li>
+        </ul>
+
+        <h2>Why sites here fail to bring customers</h2>
+        <p>The pattern repeats, whether the site cost $200 or $3,000:</p>
+        <ul>
+          <li><strong>It is a template with the logo swapped.</strong> Generic text no search engine has a reason to rank.</li>
+          <li><strong>It is slow on a phone</strong>, which is where nearly all of your visitors are.</li>
+          <li><strong>It has one page for everything.</strong> One page cannot rank for six different services.</li>
+          <li><strong>No Google Business Profile</strong>, so the business never appears on the map.</li>
+          <li><strong>Nobody touched it in three years</strong>, and abandoned plugins turned it into a security hole.</li>
+        </ul>
+        <p>
+          None of that is exotic. It is just the work nobody did — which is also why fixing it tends
+          to pay for itself quickly.
+        </p>
+
+        <h2>What you get, in writing</h2>
+        <ul>
+          <li><strong>The domain, the site and every account in your name</strong> once the project is paid.</li>
+          <li><strong>A 30-day warranty</strong> on defects in our work after delivery.</li>
+          <li><strong>A written proposal</strong> with scope, price and timeline before anything starts.</li>
+          <li><strong>Security from the start</strong> — we come from cybersecurity, so it is the baseline, not an upsell after an incident.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-inner">
+        <h2 class="block-title">Work we have shipped</h2>
+        <p class="block-sub">Real Costa Rican clients, with names and links. Check them yourself.</p>
+        <div class="card-grid cols-3">
+          {casos.map((p) => (
+            <a class="info-card" href={`/proyectos/${p.slug}/`}>
+              <span class="info-card-num">{p.domain}</span>
+              <h3>{p.name}</h3>
+              <p>{p.summary}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block alt">
+      <div class="section-inner">
+        <h2 class="block-title">Areas we cover in English</h2>
+        <p class="block-sub">
+          We work remotely across Costa Rica. These are the areas with a page of their own, where most
+          of the English-speaking business community is.
+        </p>
+        <ul class="zonas-lista" role="list" style="margin-top:2rem">
+          {zonesEn.map((z) => (
+            <li><a href={`/en/web-design-${z.slug}/`}>{z.name}</a></li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-inner narrow prose">
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <div>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </div>
+        ))}
+        <p class="seo-nota-legal">
+          ¿Preferís español? <a href="/paginas-web-costa-rica/">Versión en español de esta página</a>.
+        </p>
+      </div>
+    </section>
+
+    <GoogleReviews />
+
+    <section class="cta-band">
+      <h2>Tell us what your business needs</h2>
+      <p>
+        Free quote, no commitment, and an honest answer — including when the answer is that you do not
+        need what you were about to buy.
+      </p>
+      <div class="page-cta-row">
+        <a href={wa(waText)} class="btn btn-solid wa-btn" target="_blank" rel="noopener">
+          <WhatsAppIcon size={18} />
+          <span>Message us on WhatsApp</span>
+        </a>
+        <a href="/proyectos/" class="btn btn-outline">See our work</a>
+      </div>
+    </section>
+  </div>
+</Base>

@@ -16,6 +16,7 @@ import CtaBand from '../components/CtaBand.astro';
 import GoogleReviews from '../components/GoogleReviews.astro';
 import WhatsAppIcon from '../components/WhatsAppIcon.astro';
 import { zonas, type Zona } from '../data/zonas';
+import { zonesEn } from '../data/zones-en';
 import { wa, site } from '../data/site';
 import { webPageSchema, breadcrumbSchema, serviceSchema, faqSchema } from '../lib/schema';
 
@@ -50,8 +51,18 @@ const schemas = [
 ];
 
 const waTexto = `Hola HacksinCodigos, tengo un negocio en ${zona.nombre} y quiero cotizar una página web`;
+
+/** Zonas con comunidad extranjera: tienen versión en inglés y se declaran con hreflang. */
+const enZona = zonesEn.find((z) => z.esSlug === zona.slug);
+const alternates = enZona ? [{ lang: 'en', path: `/en/web-design-${enZona.slug}/` }] : [];
 ---
-<Base title={zona.metaTitle} description={zona.metaDesc} path={path} schemas={schemas}>
+<Base
+  title={zona.metaTitle}
+  description={zona.metaDesc}
+  path={path}
+  schemas={schemas}
+  alternates={alternates}
+>
   <div class="page-wrap">
     <Breadcrumbs items={crumbs} />
 
@@ -67,6 +78,11 @@ const waTexto = `Hola HacksinCodigos, tengo un negocio en ${zona.nombre} y quier
           </a>
           <a href="/proyectos/" class="btn btn-outline">Ver proyectos</a>
         </div>
+        {enZona && (
+          <p class="page-idioma">
+            <a href={`/en/web-design-${enZona.slug}/`}>Read this page in English</a>
+          </p>
+        )}
         <ul class="page-credenciales" role="list">
           <li>Desde 2015 en Costa Rica</li>
           <li>Trabajo 100% remoto</li>

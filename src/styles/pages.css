@@ -921,3 +921,8 @@ a.info-card { display: block; text-decoration: none; color: inherit; }
   transition: color var(--transition), border-color var(--transition);
 }
 .zonas-lista a:hover { color: var(--accent-green); border-color: var(--border-glow); }
+
+/* Enlace a la otra versión de idioma, bajo los botones del encabezado. */
+.page-idioma { margin: 1.25rem 0 0; font-size: .85rem; }
+.page-idioma a { color: var(--accent-blue); text-decoration: none; border-bottom: 1px solid transparent; }
+.page-idioma a:hover { border-bottom-color: currentColor; }

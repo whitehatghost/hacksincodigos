@@ -1,0 +1,187 @@
+---
+import { site, wa } from '../data/site';
+
+/**
+ * Agente de IA en el chat del sitio.
+ *
+ * Es herramienta y demostración a la vez: quien pregunta acá está viendo
+ * funcionando lo que vendemos en /agentes-ia-costa-rica/ y lo que va incluido en
+ * la línea corporativa.
+ *
+ * La lógica vive en src/scripts/chat-agente.js, que resuelve casi todo sin
+ * consumir tokens: flujos guiados para soporte y recomendación, respuestas
+ * locales a las preguntas de siempre, y la IA solo para lo que sobra.
+ *
+ * Siempre se identifica como asistente virtual. Hacer pasar un bot por persona
+ * es engaño y además se nota a los dos mensajes.
+ */
+const waInicial = wa('Hola HacksinCodigos, vengo del chat del sitio');
+
+const sugerencias = [
+  '¿Cuánto cuesta una página web?',
+  '¿Qué me recomiendan?',
+  'Reportar un problema',
+  '¿Trabajan en mi zona?',
+];
+---
+<div class="chat-agente" id="chat-agente">
+  <button type="button" class="chat-burbuja" id="chat-abrir" aria-expanded="false" aria-controls="chat-panel">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h8M8 8h8M8 16h5M21 12a9 9 0 01-13.1 8L3 21l1.1-4.9A9 9 0 1121 12z"/>
+    </svg>
+    <span>¿Dudas? Preguntame</span>
+  </button>
+
+  <section class="chat-panel" id="chat-panel" hidden aria-label={`Asistente virtual de ${site.name}`}>
+    <header class="chat-cabecera">
+      <div>
+        <p class="chat-titulo">Asistente de {site.name}</p>
+        <p class="chat-estado"><span class="chat-punto" aria-hidden="true"></span> Responde al instante</p>
+      </div>
+      <button type="button" class="chat-cerrar" id="chat-cerrar" aria-label="Cerrar el chat">✕</button>
+    </header>
+
+    <div class="chat-mensajes" id="chat-mensajes" role="log" aria-live="polite">
+      <div class="chat-msg agente">
+        <p>
+          ¡Buenas! Soy el asistente virtual de {site.name} — un agente de IA, igual a los que les
+          montamos a los clientes. Le puedo aclarar precios y plazos, recomendarle qué le sirve, o
+          tomarle un reporte de soporte con su número de referencia.
+        </p>
+      </div>
+    </div>
+
+    <div class="chat-sugerencias" id="chat-sugerencias">
+      {sugerencias.map((s) => (
+        <button type="button" class="chat-chip" data-pregunta={s}>{s}</button>
+      ))}
+    </div>
+
+    <form class="chat-form" id="chat-form">
+      <label class="sr-only" for="chat-entrada">Escriba su pregunta</label>
+      <input
+        type="text"
+        id="chat-entrada"
+        name="mensaje"
+        placeholder="Escriba su pregunta…"
+        autocomplete="off"
+        maxlength="500"
+        required
+      />
+      <button type="submit" aria-label="Enviar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 12h13M13 6l6 6-6 6"/>
+        </svg>
+      </button>
+    </form>
+
+    <p class="chat-pie">
+      Asistente virtual, no una persona. Para cerrar un trato o cotizar en firme,
+      <a href={waInicial} target="_blank" rel="noopener">hablá con el equipo por WhatsApp</a>.
+    </p>
+  </section>
+</div>
+
+<script>
+  import { crearAgente } from '../scripts/chat-agente.js';
+
+  const raiz = document.getElementById('chat-agente');
+  if (raiz) {
+    const abrir = document.getElementById('chat-abrir')!;
+    const panel = document.getElementById('chat-panel')!;
+    const cerrar = document.getElementById('chat-cerrar')!;
+    const lista = document.getElementById('chat-mensajes')!;
+    const form = document.getElementById('chat-form') as HTMLFormElement;
+    const entrada = document.getElementById('chat-entrada') as HTMLInputElement;
+    const chips = document.getElementById('chat-sugerencias')!;
+
+    const alFinal = () => { lista.scrollTop = lista.scrollHeight; };
+
+    /** Pinta un mensaje. `espera` es el globo de los tres puntos. */
+    const pintar = (rol: string, texto: string) => {
+      const div = document.createElement('div');
+      div.className = `chat-msg ${rol}`;
+      if (rol === 'espera') {
+        div.innerHTML = '<p><span class="chat-puntos"><i></i><i></i><i></i></span></p>';
+      } else {
+        const p = document.createElement('p');
+        p.textContent = texto;
+        div.appendChild(p);
+      }
+      lista.appendChild(div);
+      alFinal();
+      return div;
+    };
+
+    /** Opciones de un flujo guiado: se responden con un toque, sin escribir. */
+    const pintarOpciones = (opciones: string[]) => {
+      const cont = document.createElement('div');
+      cont.className = 'chat-opciones';
+      for (const o of opciones) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'chat-chip';
+        b.textContent = o;
+        b.addEventListener('click', () => {
+          cont.remove();
+          enviar(o);
+        });
+        cont.appendChild(b);
+      }
+      lista.appendChild(cont);
+      alFinal();
+    };
+
+    /** Botón de acción: enviar el reporte o seguir por WhatsApp. */
+    const pintarAccion = (etiqueta: string, url: string) => {
+      const a = document.createElement('a');
+      a.className = 'chat-accion';
+      a.href = url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = etiqueta;
+      lista.appendChild(a);
+      alFinal();
+    };
+
+    const agente = crearAgente({ pintar, pintarOpciones, pintarAccion });
+
+    const enviar = (texto: string) => {
+      pintar('user', texto);
+      chips.hidden = true;
+      agente.responder(texto);
+    };
+
+    const alternar = (mostrar: boolean) => {
+      panel.hidden = !mostrar;
+      abrir.setAttribute('aria-expanded', String(mostrar));
+      raiz.classList.toggle('abierto', mostrar);
+      if (mostrar) entrada.focus();
+    };
+
+    abrir.addEventListener('click', () => alternar(panel.hidden));
+    cerrar.addEventListener('click', () => { alternar(false); abrir.focus(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !panel.hidden) { alternar(false); abrir.focus(); }
+    });
+
+    chips.addEventListener('click', (e) => {
+      const chip = (e.target as HTMLElement).closest('.chat-chip') as HTMLElement | null;
+      if (!chip) return;
+      const pregunta = chip.dataset.pregunta || chip.textContent || '';
+      pintar('user', pregunta);
+      chips.hidden = true;
+      if (pregunta.startsWith('Reportar')) agente.iniciarFlujo('soporte');
+      else if (pregunta.startsWith('¿Qué me recomiendan')) agente.iniciarFlujo('recomendador');
+      else agente.responder(pregunta);
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const texto = entrada.value.trim();
+      if (!texto) return;
+      entrada.value = '';
+      enviar(texto);
+    });
+  }
+</script>

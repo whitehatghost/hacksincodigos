@@ -1,0 +1,21 @@
+# Worker del agente de IA del chat. Atiende /api/chat en el dominio principal.
+#
+# La llave del proveedor NO va acá. Se carga una sola vez como secreto:
+#   npx wrangler secret put IA_API_KEY --name chat-agente
+# o desde el panel de Cloudflare, en Workers → chat-agente → Settings → Variables.
+name = "chat-agente"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+
+# Ruta más específica que la del sitio, así que Cloudflare la atiende primero.
+routes = [
+  { pattern = "hacksincodigos.com/api/chat", zone_name = "hacksincodigos.com" },
+]
+
+[vars]
+ORIGENES = "https://hacksincodigos.com"
+# Cambiar según el proveedor que se use:
+#   OpenAI      → https://api.openai.com/v1        · modelo gpt-4o-mini
+#   OpenRouter  → https://openrouter.ai/api/v1     · modelo openai/gpt-4o-mini
+IA_BASE_URL = "https://api.openai.com/v1"
+IA_MODELO = "gpt-4o-mini"

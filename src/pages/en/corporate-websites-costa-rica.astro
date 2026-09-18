@@ -32,7 +32,15 @@ const faqs = [
   },
   {
     q: 'What does the $5,000 package include?',
-    a: 'Market and competitor research, content architecture, custom design, performance-tuned development, complete technical SEO with structured data, copywriting for the main pages plus launch articles, full measurement setup — Search Console, Bing, analytics and click events — and three months of follow-up with monthly reports. Exact scope is written into the proposal before we start.',
+    a: 'Market and competitor research, content architecture, custom design, performance-tuned development, complete technical SEO with structured data, copywriting for as many pages as the research calls for plus launch articles, an AI agent in the site chat, full measurement setup — Search Console, Bing, analytics and click events — and three months of follow-up with monthly reports. Exact scope, page count included, is written into the proposal before we start.',
+  },
+  {
+    q: 'How many pages does it include?',
+    a: 'As many as the market research says it takes to compete — that is the honest answer. Anyone selling you "10 pages" before looking at your sector is guessing: if your competitors cover thirty searches with thirty pages, ten will not beat them. That is why the research comes first and the number goes into the written proposal before you pay anything.',
+  },
+  {
+    q: 'What is the difference between the $5,000 and $10,000 tiers?',
+    a: 'The $5,000 tier covers your main market with three months of follow-up. The $10,000 tier covers the full search map the research produces, adds the site in two languages, a six-month editorial plan, the AI agent extended to WhatsApp and Instagram with lead qualification, integration with your CRM, and six months of follow-up with a monthly review call. Both tiers include the AI agent in the site chat.',
   },
   {
     q: 'Do you guarantee first position on Google?',
@@ -66,13 +74,51 @@ const schemas = [
 
 const waText = "Hi HacksinCodigos, I'd like a proposal for a corporate website";
 
+const tiers = [
+  {
+    name: 'Corporate',
+    price: 'From $5,000',
+    note: 'complete project · 3 months of follow-up',
+    who: 'For the company that wants to compete seriously in its main market.',
+    includes: [
+      'Market and competitor research before anything is designed',
+      'However many pages the research says it takes: per service, per sector, per area',
+      'Custom design and copy written to rank',
+      'Tuned performance and complete technical SEO',
+      'An AI agent in the site chat, answering enquiries at any hour',
+      'Full measurement: Search Console, analytics, click events and campaign tags',
+      'Three months of follow-up with a monthly report',
+    ],
+    wa: 'Hi HacksinCodigos, I would like a proposal for the Corporate tier (from $5,000)',
+    featured: false,
+  },
+  {
+    name: 'Authority',
+    price: 'From $10,000',
+    note: 'extended project · 6 months of follow-up',
+    who: 'For the company that does not want to compete in its category — it wants to be the category.',
+    includes: [
+      'Everything in the Corporate tier',
+      'Coverage of the full search map: every service, sector and area the research identifies',
+      'English and Spanish site, each language worked separately, never machine-translated',
+      'A six-month editorial plan, with content published every month',
+      'The same AI agent extended to WhatsApp and Instagram, qualifying every enquiry',
+      'Integration with your CRM or internal system so each lead arrives organized',
+      'Authority work: legitimate mentions, directories and profiles',
+      'Six months of follow-up, with a monthly review call',
+    ],
+    wa: 'Hi HacksinCodigos, I would like a proposal for the Authority tier (from $10,000)',
+    featured: true,
+  },
+];
+
 const includes = [
   {
     t: 'Research and strategy',
     items: [
       'Keyword and search intent research',
       'Analysis of the competitors ranking today',
-      'Content map: which page competes for which search',
+      'Content map: how many pages it takes and which search each one competes for',
       'Audit of your current site and a migration plan that protects rankings',
     ],
   },
@@ -80,8 +126,8 @@ const includes = [
     t: 'Site and content',
     items: [
       'Custom design, not a purchased template, built mobile-first',
-      'Pages per service, per sector and per area',
-      'Copywriting for the main pages plus launch articles',
+      'Pages per service, per sector and per area — as many as the research calls for',
+      'Copywriting for all of those pages plus launch articles',
       'Optional English and Spanish versions with correct hreflang',
     ],
   },
@@ -92,6 +138,15 @@ const includes = [
       'Complete, validated Schema.org structured data',
       'Sitemap, canonicals, robots and redirects with no loose ends',
       'Security headers and HTTPS enforced site-wide',
+    ],
+  },
+  {
+    t: 'Automated response',
+    items: [
+      'AI agent in the site chat, trained on your real business information',
+      'Answers pricing, hours, services and availability around the clock',
+      'Hands a human the conversations worth having',
+      'On the Authority tier, the same agent also covers WhatsApp and Instagram',
     ],
   },
   {
@@ -212,19 +267,27 @@ const includes = [
           written proposal before any work starts.
         </p>
 
-        <div class="corp-precio">
-          <div>
-            <span class="corp-etiqueta">Corporate line</span>
-            <p class="oferta-precio">From $5,000</p>
-            <p class="oferta-nota">complete project · includes three months of follow-up and reporting</p>
-          </div>
-          <a href={wa(waText)} target="_blank" rel="noopener" class="btn btn-solid wa-btn">
-            <WhatsAppIcon size={18} />
-            <span>Request a proposal</span>
-          </a>
+        <div class="oferta-planes corp-niveles">
+          {tiers.map((t) => (
+            <article class:list={['oferta-plan', t.featured && 'destacado']}>
+              {t.featured && <span class="oferta-etiqueta">Most complete</span>}
+              <h3>{t.name}</h3>
+              <p class="oferta-precio">{t.price}</p>
+              <p class="oferta-nota">{t.note}</p>
+              <p class="oferta-para">{t.who}</p>
+              <ul role="list">
+                {t.includes.map((i) => <li>{i}</li>)}
+              </ul>
+              <a href={wa(t.wa)} target="_blank" rel="noopener" class:list={['btn', t.featured ? 'btn-solid' : 'btn-outline', 'oferta-cta']}>
+                <WhatsAppIcon size={18} />
+                <span>Request a proposal</span>
+              </a>
+            </article>
+          ))}
         </div>
 
-        <div class="card-grid cols-4" style="margin-top:2.5rem">
+        <h3 class="corp-subtitulo">The work behind both tiers</h3>
+        <div class="card-grid cols-4">
           {includes.map((g) => (
             <div class="info-card">
               <h3>{g.t}</h3>
@@ -258,6 +321,23 @@ const includes = [
           <li>You are still testing whether the product sells.</li>
           <li>You expect results in two weeks. This is months of sustained work.</li>
         </ul>
+
+        <h2>Where every business fits</h2>
+        <p>
+          Not everyone needs the same thing, and charging everyone alike is the fastest way to run out
+          of clients. This is the full ladder, from the smallest business to the largest company:
+        </p>
+        <ul>
+          <li><strong>From $250 — <a href="/en/seo-costa-rica/">SEO Starter</a>.</strong> You have a site but nobody finds it: audit, technical fixes, Google Business Profile.</li>
+          <li><strong>From $499 — <a href="/en/web-design-costa-rica/">business website</a>.</strong> The local business that needs to exist on Google and get enquiries.</li>
+          <li><strong>$800 to $2,500 — online store.</strong> When there are products to sell and payments to take.</li>
+          <li><strong>From $5,000 — Corporate tier.</strong> The company competing in contested searches that needs to measure the return.</li>
+          <li><strong>From $10,000 — Authority tier.</strong> The one going after the whole category, in two languages, with the operation connected.</li>
+        </ul>
+        <p>
+          You can move up a step when the business calls for it. What we do not recommend is jumping
+          to the top without needing it: if your case is solved at $499, that is what we will quote.
+        </p>
 
         <h2>What we do not promise</h2>
         <p>

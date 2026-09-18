@@ -943,3 +943,10 @@ a.info-card { display: block; text-decoration: none; color: inherit; }
 .corp-lista { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: .55rem; }
 .corp-lista li { position: relative; padding-left: 1.4rem; font-size: .85rem; color: var(--text-secondary); line-height: 1.45; }
 .corp-lista li::before { content: '✓'; position: absolute; left: 0; color: var(--accent-green); font-weight: 700; }
+
+/* Los dos niveles de la línea corporativa, lado a lado. */
+@media (min-width: 900px) { .oferta-planes.corp-niveles { grid-template-columns: repeat(2, 1fr); max-width: 900px; } }
+.corp-subtitulo {
+  text-align: center; font-family: var(--font-mono); font-size: .75rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--text-secondary); margin: 3rem 0 1.5rem;
+}

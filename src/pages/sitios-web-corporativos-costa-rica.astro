@@ -25,7 +25,15 @@ const faqs = [
   },
   {
     q: '¿Qué incluye el paquete de $5.000?',
-    a: 'Estudio de mercado y de la competencia, arquitectura de contenidos, diseño propio, desarrollo con rendimiento afinado, SEO técnico completo con datos estructurados, redacción de las páginas principales y artículos de arranque, configuración completa de medición —Search Console, Bing, analítica y eventos de clic—, y tres meses de seguimiento con reportes. El alcance exacto queda por escrito en la propuesta antes de empezar.',
+    a: 'Estudio de mercado y de la competencia, arquitectura de contenidos, diseño propio, desarrollo con rendimiento afinado, SEO técnico completo con datos estructurados, redacción de las páginas que el estudio indique más los artículos de arranque, agente de IA en el chat del sitio, configuración completa de medición —Search Console, Bing, analítica y eventos de clic—, y tres meses de seguimiento con reportes. El alcance exacto, incluida la cantidad de páginas, queda por escrito en la propuesta antes de empezar.',
+  },
+  {
+    q: '¿Cuántas páginas incluye?',
+    a: 'Las que el estudio de mercado diga que hacen falta para competir, y esa es la respuesta honesta. Quien le venda "10 páginas" antes de mirar su sector está adivinando: si su competencia cubre treinta búsquedas con treinta páginas, con diez no se le gana. Por eso el estudio va primero y el número queda en la propuesta, por escrito, antes de que usted pague nada.',
+  },
+  {
+    q: '¿Cuál es la diferencia entre el nivel de $5.000 y el de $10.000?',
+    a: 'El de $5.000 cubre su mercado principal con tres meses de seguimiento. El de $10.000 cubre el mapa completo de búsquedas que salga del estudio, suma el sitio en dos idiomas, un plan editorial de seis meses, el agente de IA extendido a WhatsApp e Instagram con calificación de consultas, integración con su CRM y seis meses de acompañamiento con reunión mensual. El agente de IA en el chat del sitio va incluido en los dos niveles. El primero compite; el segundo va por la categoría.',
   },
   {
     q: '¿Garantizan el primer lugar en Google?',
@@ -86,13 +94,51 @@ const fases = [
   },
 ];
 
+const niveles = [
+  {
+    nombre: 'Corporativo',
+    precio: 'Desde $5.000',
+    nota: 'proyecto completo · 3 meses de seguimiento',
+    para: 'Para la empresa que quiere competir en serio por su mercado principal.',
+    incluye: [
+      'Estudio de mercado y de la competencia antes de diseñar nada',
+      'Las páginas que el estudio diga que hacen falta: por servicio, por sector y por zona',
+      'Diseño propio y contenido escrito para posicionar',
+      'Rendimiento afinado y SEO técnico completo',
+      'Agente de IA en el chat del sitio, atendiendo consultas a cualquier hora',
+      'Medición completa: Search Console, analítica, eventos de clic y campañas',
+      'Tres meses de seguimiento con reporte mensual',
+    ],
+    wa: 'Hola HacksinCodigos, quiero cotizar la línea corporativa desde $5.000',
+    destacado: false,
+  },
+  {
+    nombre: 'Autoridad',
+    precio: 'Desde $10.000',
+    nota: 'proyecto ampliado · 6 meses de seguimiento',
+    para: 'Para el que no quiere competir en su categoría: quiere ser la referencia de su categoría.',
+    incluye: [
+      'Todo lo del nivel Corporativo',
+      'Cobertura del mapa completo de búsquedas: cada cruce de servicio, sector y zona que el estudio identifique',
+      'Sitio en español e inglés, cada idioma trabajado aparte y no traducido',
+      'Plan editorial de seis meses, con contenido publicándose todos los meses',
+      'El mismo agente de IA también en WhatsApp e Instagram, calificando cada consulta',
+      'Integración con su CRM o sistema interno, para que cada consulta entre ordenada',
+      'Trabajo de autoridad: menciones legítimas, directorios y perfiles',
+      'Seis meses de seguimiento, con reunión mensual de revisión',
+    ],
+    wa: 'Hola HacksinCodigos, quiero cotizar el nivel Autoridad desde $10.000',
+    destacado: true,
+  },
+];
+
 const incluye = [
   {
     t: 'Estudio y estrategia',
     items: [
       'Investigación de palabras clave y de intención de búsqueda',
       'Análisis de los competidores que hoy salen primero',
-      'Mapa de contenidos: qué página pelea cada búsqueda',
+      'Mapa de contenidos: cuántas páginas hacen falta y qué búsqueda pelea cada una',
       'Auditoría del sitio actual, si existe, y plan de migración sin perder posiciones',
     ],
   },
@@ -100,8 +146,8 @@ const incluye = [
     t: 'Sitio y contenido',
     items: [
       'Diseño propio, no plantilla, pensado para celular',
-      'Páginas por servicio, por sector y por zona',
-      'Redacción de las páginas principales y artículos de arranque',
+      'Páginas por servicio, por sector y por zona — las que el estudio indique',
+      'Redacción de todas esas páginas y de los artículos de arranque',
       'Versión en inglés opcional, con hreflang bien configurado',
     ],
   },
@@ -112,6 +158,15 @@ const incluye = [
       'Datos estructurados de Schema.org completos y verificados',
       'Sitemap, canónicas, robots y redirecciones sin cabos sueltos',
       'Cabeceras de seguridad y HTTPS forzado en todo el sitio',
+    ],
+  },
+  {
+    t: 'Atención automatizada',
+    items: [
+      'Agente de IA en el chat del sitio, con la información real del negocio',
+      'Responde precios, horarios, servicios y disponibilidad a cualquier hora',
+      'Pasa a una persona las conversaciones que valen la pena',
+      'En el nivel Autoridad, el mismo agente atiende WhatsApp e Instagram',
     ],
   },
   {
@@ -234,21 +289,27 @@ const incluye = [
         define en la propuesta, por escrito, antes de empezar.
       </p>
 
-      <div class="corp-precio">
-        <div>
-          <span class="corp-etiqueta">Línea corporativa</span>
-          <p class="oferta-precio">Desde $5.000</p>
-          <p class="oferta-nota">
-            proyecto completo · incluye tres meses de seguimiento con reportes
-          </p>
-        </div>
-        <a href={wa('Hola HacksinCodigos, quiero cotizar la línea corporativa de sitios web')} target="_blank" rel="noopener" class="btn btn-solid wa-btn">
-          <WhatsAppIcon size={18} />
-          <span>Solicitar propuesta</span>
-        </a>
+      <div class="oferta-planes corp-niveles">
+        {niveles.map((n) => (
+          <article class:list={['oferta-plan', n.destacado && 'destacado']}>
+            {n.destacado && <span class="oferta-etiqueta">El más completo</span>}
+            <h3>{n.nombre}</h3>
+            <p class="oferta-precio">{n.precio}</p>
+            <p class="oferta-nota">{n.nota}</p>
+            <p class="oferta-para">{n.para}</p>
+            <ul role="list">
+              {n.incluye.map((i) => <li>{i}</li>)}
+            </ul>
+            <a href={wa(n.wa)} target="_blank" rel="noopener" class:list={['btn', n.destacado ? 'btn-solid' : 'btn-outline', 'oferta-cta']}>
+              <WhatsAppIcon size={18} />
+              <span>Solicitar propuesta</span>
+            </a>
+          </article>
+        ))}
       </div>
 
-      <div class="card-grid cols-4" style="margin-top:2.5rem">
+      <h3 class="corp-subtitulo">El trabajo detrás de los dos niveles</h3>
+      <div class="card-grid cols-4">
         {incluye.map((g) => (
           <div class="info-card">
             <h3>{g.t}</h3>
@@ -295,6 +356,37 @@ const incluye = [
         Cómo detectar al que sí promete todo eso está en
         <a href="/blog/como-elegir-agencia-seo-o-diseno-web-costa-rica/">cómo elegir agencia sin que
         te vendan humo</a>.
+      </p>
+
+      <h2>Dónde encaja cada negocio</h2>
+      <p>
+        No todo el mundo necesita lo mismo, y cobrarle a todos igual es la forma más rápida de
+        quedarse sin clientes. Esta es la escalera completa, del negocio más pequeño a la empresa
+        más grande:
+      </p>
+      <ul>
+        <li><strong>Desde $250 — <a href="/seo-costa-rica/">SEO Inicial</a>.</strong> Ya tiene sitio pero no aparece: auditoría, arreglos técnicos y perfil de Google Business.</li>
+        <li><strong>Desde $499 — <a href="/paginas-web-costa-rica/">página web de negocio</a>.</strong> El negocio local que necesita existir en Google y recibir consultas por WhatsApp.</li>
+        <li><strong>De $800 a $2.500 — <a href="/tiendas-online-costa-rica/">tienda en línea</a>.</strong> Cuando hay productos que vender y cobrar en línea.</li>
+        <li><strong>Desde $5.000 — nivel Corporativo.</strong> La empresa que compite en búsquedas peleadas y necesita medir el retorno.</li>
+        <li><strong>Desde $10.000 — nivel Autoridad.</strong> La que va por toda la categoría, en dos idiomas y con la operación conectada.</li>
+      </ul>
+      <p>
+        Se puede subir de escalón cuando el negocio lo pida. Lo que no recomendamos es saltar hasta
+        arriba sin necesidad: si su caso se resuelve con $499, eso es lo que le vamos a cotizar.
+      </p>
+
+      <h2>Cuándo conviene el nivel Autoridad</h2>
+      <p>
+        El salto de $5.000 a $10.000 no es "más páginas porque sí". Tiene sentido cuando el estudio
+        muestra que su categoría se pelea en muchos frentes a la vez —varios servicios, varias zonas,
+        varios tipos de cliente— y cubrir solo el principal lo deja compitiendo a medias.
+      </p>
+      <p>
+        También cuando el negocio ya no puede con las consultas que genera. Los dos niveles traen el
+        agente de IA en el chat del sitio; en Autoridad ese mismo agente se extiende a WhatsApp e
+        Instagram, califica cada consulta y la deja ordenada dentro de su CRM. Y cuando hay que
+        atender en dos idiomas de verdad, no con un traductor automático.
       </p>
 
       <h2>Se conecta con lo demás</h2>

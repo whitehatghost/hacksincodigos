@@ -1039,3 +1039,4 @@ a.info-card { display: block; text-decoration: none; color: inherit; }
   font-size: .85rem; text-decoration: none;
 }
 .chat-accion:hover { filter: brightness(1.08); }
+.chat-msg.agente p a { color: var(--accent-green); }

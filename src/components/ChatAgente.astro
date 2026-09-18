@@ -18,10 +18,10 @@ import { site, wa } from '../data/site';
 const waInicial = wa('Hola HacksinCodigos, vengo del chat del sitio');
 
 const sugerencias = [
-  '¿Cuánto cuesta una página web?',
+  'Cotizar mi proyecto',
   '¿Qué me recomiendan?',
   'Reportar un problema',
-  '¿Trabajan en mi zona?',
+  '¿Cuánto cuesta una página web?',
 ];
 ---
 <div class="chat-agente" id="chat-agente">
@@ -35,18 +35,20 @@ const sugerencias = [
   <section class="chat-panel" id="chat-panel" hidden aria-label={`Asistente virtual de ${site.name}`}>
     <header class="chat-cabecera">
       <div>
-        <p class="chat-titulo">Asistente de {site.name}</p>
-        <p class="chat-estado"><span class="chat-punto" aria-hidden="true"></span> Responde al instante</p>
+        <p class="chat-titulo"><span id="chat-nombre">Asistente</span> · Servicio al cliente</p>
+        <p class="chat-estado">
+          <span class="chat-punto" aria-hidden="true"></span> En línea 24/7 · {site.name}
+        </p>
       </div>
       <button type="button" class="chat-cerrar" id="chat-cerrar" aria-label="Cerrar el chat">✕</button>
     </header>
 
     <div class="chat-mensajes" id="chat-mensajes" role="log" aria-live="polite">
-      <div class="chat-msg agente">
+      <div class="chat-msg agente" id="chat-saludo">
         <p>
-          ¡Buenas! Soy el asistente virtual de {site.name} — un agente de IA, igual a los que les
-          montamos a los clientes. Le puedo aclarar precios y plazos, recomendarle qué le sirve, o
-          tomarle un reporte de soporte con su número de referencia.
+          ¡Buenas! Soy del equipo de servicio al cliente de {site.name}. Atiendo por acá a toda
+          hora: le cotizo lo que necesite, le tomo un reporte de soporte o le digo qué le conviene
+          según su negocio. ¿En qué le ayudo?
         </p>
       </div>
     </div>
@@ -76,14 +78,14 @@ const sugerencias = [
     </form>
 
     <p class="chat-pie">
-      Asistente virtual, no una persona. Para cerrar un trato o cotizar en firme,
+      Atención automatizada con IA, disponible 24/7. Para cerrar un trato o cotizar en firme,
       <a href={waInicial} target="_blank" rel="noopener">hablá con el equipo por WhatsApp</a>.
     </p>
   </section>
 </div>
 
 <script>
-  import { crearAgente } from '../scripts/chat-agente.js';
+  import { crearAgente, nombreAgente } from '../scripts/chat-agente.js';
 
   const raiz = document.getElementById('chat-agente');
   if (raiz) {
@@ -97,6 +99,25 @@ const sugerencias = [
 
     const alFinal = () => { lista.scrollTop = lista.scrollHeight; };
 
+    /**
+     * El modelo responde con markdown liviano (**negrita** y [enlaces](/ruta/)).
+     * Se convierte a mano en vez de con una librería: primero se escapa TODO el
+     * texto y después se reemplazan solo esos dos patrones, así nada de lo que
+     * devuelva el modelo puede inyectar HTML en la página.
+     */
+    const aHtml = (texto: string) => {
+      const escapado = texto
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+      return escapado
+        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+        .replace(/\[([^\]]+)\]\((\/[a-z0-9\-/#]*)\)/gi, '<a href="$2">$1</a>')
+        .replace(/\[([^\]]+)\]\((https:\/\/(?:wa\.me|hacksincodigos\.com)[^\s)]*)\)/gi,
+          '<a href="$2" target="_blank" rel="noopener">$1</a>');
+    };
+
     /** Pinta un mensaje. `espera` es el globo de los tres puntos. */
     const pintar = (rol: string, texto: string) => {
       const div = document.createElement('div');
@@ -105,7 +126,8 @@ const sugerencias = [
         div.innerHTML = '<p><span class="chat-puntos"><i></i><i></i><i></i></span></p>';
       } else {
         const p = document.createElement('p');
-        p.textContent = texto;
+        if (rol === 'agente') p.innerHTML = aHtml(texto);
+        else p.textContent = texto;
         div.appendChild(p);
       }
       lista.appendChild(div);
@@ -144,6 +166,14 @@ const sugerencias = [
       alFinal();
     };
 
+    // El nombre se escoge al azar en cada visita y se muestra arriba. El saludo
+    // lo usa también, pero sin decir nunca que es una persona: en el pie queda
+    // claro que es un asistente virtual.
+    const nombreEl = document.getElementById('chat-nombre');
+    if (nombreEl) nombreEl.textContent = nombreAgente;
+    const saludo = document.querySelector('#chat-saludo p');
+    if (saludo) saludo.textContent = `¡Buenas! Soy ${nombreAgente}, del equipo de servicio al cliente de HacksinCodigos. Atiendo por acá a toda hora: le cotizo lo que necesite, le tomo un reporte de soporte o le digo qué le conviene según su negocio. ¿En qué le ayudo?`;
+
     const agente = crearAgente({ pintar, pintarOpciones, pintarAccion });
 
     const enviar = (texto: string) => {
@@ -172,6 +202,7 @@ const sugerencias = [
       pintar('user', pregunta);
       chips.hidden = true;
       if (pregunta.startsWith('Reportar')) agente.iniciarFlujo('soporte');
+      else if (pregunta.startsWith('Cotizar')) agente.iniciarFlujo('cotizador');
       else if (pregunta.startsWith('¿Qué me recomiendan')) agente.iniciarFlujo('recomendador');
       else agente.responder(pregunta);
     });

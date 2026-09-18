@@ -1,3 +1,5 @@
+import { SISTEMA } from './prompt.js';
+
 /**
  * Agente de IA del chat de hacksincodigos.com.
  *
@@ -15,84 +17,6 @@
  * Google, no inventar clientes, y decir "no sé" y pasar a WhatsApp cuando no
  * tenga el dato.
  */
-
-const NEGOCIO = `
-HacksinCodigos — empresa costarricense de tecnología, trabajando desde 2015.
-Teléfono y WhatsApp: +506 8984 0662. Horario: lunes a viernes, 8am a 6pm.
-Servicio remoto en las siete provincias. No hay oficina para visitas.
-Instagram: @hacksincodigos. Sitio: https://hacksincodigos.com
-
-SERVICIOS Y PRECIOS DE REFERENCIA (son los publicados; no inventar otros):
-- Página web de negocio: desde $499. Lista en 3 a 7 días hábiles.
-- Tienda en línea: de $800 a $2.500, según catálogo e integraciones. 2 a 4 semanas.
-- SEO Inicial: desde $250 (auditoría, corrección técnica, Google Business Profile,
-  Search Console y Bing, guía de reseñas).
-- SEO + Contenido: desde $500 (suma estudio de palabras clave, páginas por
-  servicio y por zona, blog implementado, enlazado interno).
-- SEO Completo: desde $1.000 (contenido sostenido, monitoreo, enlaces legítimos,
-  reportes mensuales).
-- Optimización SEO por página suelta: $15 por página.
-- Sitio web corporativo, nivel Corporativo: desde $5.000, con 3 meses de
-  seguimiento y agente de IA en el chat.
-- Sitio web corporativo, nivel Autoridad: desde $10.000, con 6 meses de
-  seguimiento, sitio en dos idiomas, plan editorial de 6 meses, agente de IA
-  también en WhatsApp e Instagram e integración con CRM.
-- Agentes de IA para WhatsApp, Instagram y web: se cotizan por alcance.
-- Software a la medida, CRM, apps móviles: se cotizan por alcance.
-- Soporte técnico remoto de computadoras: se cotiza según el caso.
-- Asesoría de compra de computadora o PC gamer: PDF por ₡5.000, con opciones
-  según presupuesto, dónde comprarlas y descuentos.
-La cantidad de páginas de un proyecto corporativo la define el estudio de mercado.
-Todo proyecto lleva propuesta por escrito antes de empezar.
-
-CONDICIONES REALES:
-- Al completar el pago, el sitio, el dominio y los accesos quedan a nombre del cliente.
-- 30 días de garantía sobre defectos del trabajo entregado.
-- Se cobra en dólares; se paga por SINPE Móvil o transferencia bancaria.
-- Cotización gratis y sin compromiso. Respuesta en menos de 24 horas.
-
-CLIENTES REALES (los únicos que se pueden mencionar):
-Grupo Novo (andamios y construcción, tienda en línea y CRM), RyV Dental (clínica
-dental en Palmares), La Casita del Bebé (tienda y agente de IA en WhatsApp),
-Costa Rica Realty PRO (portal inmobiliario), Carlouis (salsas artesanales),
-Tico's Home Remodeling, Redes Deportivas CR.
-
-PÁGINAS ÚTILES PARA ENLAZAR:
-/paginas-web-costa-rica/ · /tiendas-online-costa-rica/ · /seo-costa-rica/ ·
-/sitios-web-corporativos-costa-rica/ · /agentes-ia-costa-rica/ ·
-/software-a-la-medida-costa-rica/ · /soporte-tecnico-computadoras-costa-rica/ ·
-/proyectos/ · /blog/ · /en/web-design-costa-rica/ (inglés)
-`;
-
-const SISTEMA = `Sos el asistente virtual del sitio de HacksinCodigos. Atendés a
-quien está navegando la página.
-
-CÓMO HABLÁS
-- Español de Costa Rica, de usted o de vos según como te escriban, cordial y directo.
-- Si te escriben en inglés, respondés en inglés.
-- Respuestas cortas: dos o tres frases y, si hace falta, una lista breve. Nada de
-  párrafos largos.
-- Decí siempre de entrada que sos un asistente virtual si te preguntan si sos una
-  persona. Nunca digas que sos humano.
-
-LO QUE NO PODÉS HACER NUNCA
-- Inventar precios, plazos, descuentos o servicios que no estén en la información.
-- Prometer el primer lugar en Google o resultados garantizados. El ranking lo
-  decide Google: eso se dice tal cual.
-- Inventar clientes, casos o cifras de resultados.
-- Pedir contraseñas, datos de tarjetas ni números de cuenta.
-- Cerrar un trato o comprometer una fecha: eso lo hace una persona del equipo.
-
-QUÉ HACÉS
-- Respondés con la información de abajo.
-- Si no tenés el dato, lo decís claro y ofrecés pasar la conversación por WhatsApp
-  al +506 8984 0662.
-- Cuando alguien muestra interés real en contratar, le sugerís escribir por
-  WhatsApp para que una persona le dé la propuesta.
-- Podés recomendar páginas del sitio con su ruta.
-
-INFORMACIÓN DEL NEGOCIO:
-${NEGOCIO}`;
 
 const cors = (origen) => ({
   'Access-Control-Allow-Origin': origen,
@@ -136,6 +60,14 @@ export default {
       .map((m) => ({ role: m.rol, content: m.texto.slice(0, 1000) }));
     if (limpio.length === 0) return json({ error: 'Sin mensajes' }, 400, origenOk);
 
+    // El nombre con el que se presenta. Se valida contra una lista para que
+    // nadie pueda inyectar texto en el prompt a través de este campo.
+    const NOMBRES = ['Sofía', 'Andrés', 'Valeria', 'Diego', 'Mariana', 'Josué', 'Karla', 'Esteban'];
+    const nombre = NOMBRES.includes(cuerpo.agente) ? cuerpo.agente : NOMBRES[0];
+    const sistema = `Te llamás ${nombre} y sos la asistente virtual del equipo de servicio al cliente de HacksinCodigos. Presentate por tu nombre cuando tenga sentido.
+
+${SISTEMA}`;
+
     try {
       const res = await fetch(`${env.IA_BASE_URL || 'https://api.openmodel.ai'}/v1/messages`, {
         method: 'POST',
@@ -149,9 +81,9 @@ export default {
           // El prompt del sistema es lo más largo de cada consulta y no cambia
           // nunca: marcado para caché, se cobra una fracción a partir de la
           // segunda consulta seguida.
-          system: [{ type: 'text', text: SISTEMA, cache_control: { type: 'ephemeral' } }],
+          system: [{ type: 'text', text: sistema, cache_control: { type: 'ephemeral' } }],
           messages: limpio,
-          max_tokens: 300,
+          max_tokens: 400,
           temperature: 0.3,
         }),
       });

@@ -1,0 +1,317 @@
+---
+/**
+ * Línea corporativa: el producto caro, para empresas.
+ *
+ * Persigue "sitio web corporativo Costa Rica", "página web para empresas",
+ * "desarrollo web empresarial" y "agencia web para empresas". Es distinta de
+ * /paginas-web-costa-rica/ (el sitio de $499) a propósito: otro cliente, otro
+ * problema y otro precio. Si las dos dijeran lo mismo, competirían entre sí.
+ *
+ * REGLA QUE NO SE ROMPE: acá tampoco se promete una posición en Google. Se
+ * vende el trabajo —y el trabajo es medible—, no el ranking. Los números de
+ * rendimiento que se citan son los de este mismo sitio, medidos con
+ * scripts/baseline-seo.mjs, y quedan guardados en informes/.
+ */
+import ServiceLanding from '../layouts/ServiceLanding.astro';
+import { wa } from '../data/site';
+import WhatsAppIcon from '../components/WhatsAppIcon.astro';
+
+const path = '/sitios-web-corporativos-costa-rica/';
+
+const faqs = [
+  {
+    q: '¿Qué diferencia a un sitio corporativo de una página web normal?',
+    a: 'El alcance y el objetivo. Una página de negocio existe para que te encuentren y te escriban, y con $499 se resuelve bien. Un sitio corporativo se construye para competir por búsquedas peleadas y para medir cada peso que entra: estudio de mercado previo, una página por servicio y por zona, contenido escrito para posicionar, rendimiento afinado, medición de clics y conversiones, y seguimiento mensual con reportes.',
+  },
+  {
+    q: '¿Qué incluye el paquete de $5.000?',
+    a: 'Estudio de mercado y de la competencia, arquitectura de contenidos, diseño propio, desarrollo con rendimiento afinado, SEO técnico completo con datos estructurados, redacción de las páginas principales y artículos de arranque, configuración completa de medición —Search Console, Bing, analítica y eventos de clic—, y tres meses de seguimiento con reportes. El alcance exacto queda por escrito en la propuesta antes de empezar.',
+  },
+  {
+    q: '¿Garantizan el primer lugar en Google?',
+    a: 'No, y nadie serio puede garantizarlo: el ranking lo decide Google. Lo que garantizamos es el trabajo que hace competitivo a un sitio, hecho completo y documentado, y la medición para saber mes a mes si está funcionando. Quien le prometa el primer lugar por contrato le está vendiendo humo caro.',
+  },
+  {
+    q: '¿Por qué importa tanto la velocidad?',
+    a: 'Porque Google la mide —son las Core Web Vitals— y porque la gente se va de un sitio lento antes de ver nada. Este mismo sitio responde en menos de 100 milisegundos y pesa cerca de 36 kB por página; la mayoría de los sitios corporativos del país anda en cientos de kilobytes y varios segundos. Esa diferencia es de construcción, no de hosting.',
+  },
+  {
+    q: '¿Cómo se mide si está funcionando?',
+    a: 'Con datos, no con sensaciones. Search Console para impresiones, clics, consultas nuevas y posición; analítica del sitio para visitas y comportamiento; y eventos de clic para saber cuántos tocaron WhatsApp, el teléfono o el formulario. Eso llega en un reporte mensual que compara contra el mes anterior.',
+  },
+  {
+    q: '¿Sirve si ya tenemos sitio?',
+    a: 'Sí, y es lo más común. Se audita lo que hay, se conserva lo que ya posiciona y se migra con redirecciones bien hechas para no perder la autoridad ganada. Un rediseño mal migrado es la forma más rápida de tirar años de posicionamiento.',
+  },
+  {
+    q: '¿Se puede pagar por partes?',
+    a: 'Sí, el proyecto se paga por etapas contra entregables definidos. También se puede arrancar por una parte —por ejemplo el estudio y la arquitectura— y decidir después si seguimos.',
+  },
+  {
+    q: '¿Y si mi empresa necesita además sistemas internos?',
+    a: 'Lo hacemos: CRM, cotizaciones, inventarios, aplicaciones y conexiones con lo que ya usan. Está en software para empresas, y se puede integrar con el sitio para que las consultas entren directo al sistema.',
+  },
+];
+
+const fases = [
+  {
+    num: '01',
+    t: 'Estudio de mercado',
+    d: 'Cómo busca su cliente, qué está haciendo la competencia que hoy sale primero y en cuáles búsquedas sí se puede ganar. De ahí sale el plan, no de una plantilla.',
+  },
+  {
+    num: '02',
+    t: 'Arquitectura de contenidos',
+    d: 'Una página por intención de búsqueda: por servicio, por sector, por zona. Es lo que permite competir por decenas de términos en vez de por uno.',
+  },
+  {
+    num: '03',
+    t: 'Diseño propio',
+    d: 'Diseño a la medida de la empresa, no una plantilla comprada. Pensado primero para el celular y para que la información se entienda sin esfuerzo.',
+  },
+  {
+    num: '04',
+    t: 'Desarrollo afinado',
+    d: 'Sitio liviano y rápido, con SEO técnico completo: datos estructurados, canónicas, sitemap, redirecciones y cabeceras de seguridad.',
+  },
+  {
+    num: '05',
+    t: 'Medición completa',
+    d: 'Search Console, Bing, analítica y eventos de clic configurados desde el día uno. Sin esto, nadie puede decir si el sitio funciona.',
+  },
+  {
+    num: '06',
+    t: 'Seguimiento',
+    d: 'Tres meses de trabajo continuo: contenido, ajustes según los datos y un reporte mensual que compara contra el mes anterior.',
+  },
+];
+
+const incluye = [
+  {
+    t: 'Estudio y estrategia',
+    items: [
+      'Investigación de palabras clave y de intención de búsqueda',
+      'Análisis de los competidores que hoy salen primero',
+      'Mapa de contenidos: qué página pelea cada búsqueda',
+      'Auditoría del sitio actual, si existe, y plan de migración sin perder posiciones',
+    ],
+  },
+  {
+    t: 'Sitio y contenido',
+    items: [
+      'Diseño propio, no plantilla, pensado para celular',
+      'Páginas por servicio, por sector y por zona',
+      'Redacción de las páginas principales y artículos de arranque',
+      'Versión en inglés opcional, con hreflang bien configurado',
+    ],
+  },
+  {
+    t: 'Técnica y rendimiento',
+    items: [
+      'Core Web Vitals afinados: carga, estabilidad visual y respuesta',
+      'Datos estructurados de Schema.org completos y verificados',
+      'Sitemap, canónicas, robots y redirecciones sin cabos sueltos',
+      'Cabeceras de seguridad y HTTPS forzado en todo el sitio',
+    ],
+  },
+  {
+    t: 'Medición y seguimiento',
+    items: [
+      'Google Search Console y Bing Webmaster Tools configurados',
+      'Analítica del sitio y eventos de clic: WhatsApp, teléfono, formulario',
+      'Enlaces con seguimiento para campañas, para saber qué canal trae qué',
+      'Tres meses de acompañamiento con reporte mensual comparativo',
+    ],
+  },
+];
+---
+<ServiceLanding
+  path={path}
+  title="Sitios Web Corporativos en Costa Rica | HacksinCodigos"
+  description="Sitios web corporativos en Costa Rica construidos para competir en Google: estudio de mercado, rendimiento afinado, medición completa y seguimiento. Desde $5.000."
+  eyebrow="Costa Rica · Línea corporativa"
+  h1="Sitios web corporativos construidos para competir en Google"
+  lead="Para empresas que no necesitan una página bonita, sino un canal que traiga clientes y se pueda medir. Estudio de mercado, rendimiento afinado, medición completa y seguimiento mensual."
+  crumbLabel="Sitios web corporativos"
+  serviceName="Desarrollo de sitios web corporativos en Costa Rica"
+  serviceType="Desarrollo web corporativo"
+  faqs={faqs}
+  waText="Hola HacksinCodigos, me interesa la línea corporativa de sitios web"
+  ctaTitle="¿Conversamos sobre el sitio de su empresa?"
+  alternates={[{ lang: 'en', path: '/en/corporate-websites-costa-rica/' }]}
+>
+  <section class="section-block alt">
+    <div class="section-inner narrow prose">
+      <h2>Por qué un sitio corporativo no es una página más cara</h2>
+      <p>
+        Un sitio de negocio de $499 resuelve bien un problema concreto: que lo encuentren, que se
+        vea serio y que le escriban. Para la mayoría de los negocios de Costa Rica, con eso basta y
+        se lo decimos de frente.
+      </p>
+      <p>
+        El problema de una empresa es otro. Compite en búsquedas donde hay dominios con quince años
+        de antigüedad y agencias trabajándolos a tiempo completo. Tiene varios servicios, varios
+        tipos de cliente y varias zonas. Y tiene que justificar la inversión con números, no con la
+        sensación de que el sitio quedó bonito.
+      </p>
+      <p>
+        Eso no se resuelve con más diseño. Se resuelve con <strong>estudio previo, estructura,
+        contenido, velocidad y medición</strong>, que es exactamente lo que casi nadie cotiza en el
+        país porque es la parte que cuesta trabajo.
+      </p>
+
+      <h2>Lo que medimos, y por qué importa</h2>
+      <p>
+        Un sitio sin medición es una inversión a ciegas. Desde el primer día dejamos conectado:
+      </p>
+      <ul>
+        <li>
+          <strong>Search Console.</strong> Por qué búsquedas aparece la empresa, cuántas veces,
+          cuántos entran, en qué posición y qué páginas indexó Google. Es la única fuente honesta de
+          posicionamiento: sale de Google, no de una herramienta que estima.
+        </li>
+        <li>
+          <strong>Analítica del sitio.</strong> Cuánta gente entra, de dónde viene, qué páginas lee y
+          en cuáles se va. Se puede configurar sin cookies, que además evita el banner de consentimiento.
+        </li>
+        <li>
+          <strong>Eventos de clic.</strong> Cuántos tocaron el botón de WhatsApp, cuántos llamaron y
+          cuántos enviaron el formulario. Sin esto se sabe cuánta gente llegó, pero no cuántos
+          hicieron algo — que es lo que paga las cuentas.
+        </li>
+        <li>
+          <strong>Enlaces con seguimiento para campañas.</strong> Si se invierte en publicidad,
+          correos o redes, cada enlace lleva su marca y el reporte dice qué canal trajo qué. Se acaba
+          la discusión de si la pauta sirvió.
+        </li>
+        <li>
+          <strong>Core Web Vitals.</strong> Las tres métricas con las que Google mide la experiencia
+          real: cuánto tarda en aparecer el contenido principal, qué tan rápido responde al primer
+          toque y si los elementos saltan mientras carga.
+        </li>
+      </ul>
+
+      <h2>Rendimiento: la parte que casi nadie trabaja</h2>
+      <p>
+        La velocidad no es un lujo técnico: Google la usa para ordenar resultados y la gente la nota
+        en el primer segundo. La mayoría de los sitios corporativos costarricenses pesa cientos de
+        kilobytes y tarda varios segundos en un celular con señal regular.
+      </p>
+      <p>
+        Como referencia de lo que sí se puede lograr, estos son los números de <strong>este mismo
+        sitio</strong>, medidos sobre sus 120 páginas publicadas: <strong>36 kB de peso promedio y
+        menos de 100 milisegundos de respuesta</strong>. No es magia ni un hosting caro: es
+        construirlo liviano, servirlo estático y no cargar veinte complementos que nadie usa.
+      </p>
+      <p>
+        Si quiere comprobarlo, mida este sitio con la herramienta que prefiera antes de contratarnos.
+        Es la clase de prueba que una agencia debería poder ofrecer.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-inner">
+      <h2 class="block-title">Cómo se construye</h2>
+      <p class="block-sub">Seis etapas, con entregable en cada una.</p>
+      <div class="card-grid cols-3">
+        {fases.map((f) => (
+          <div class="info-card">
+            <span class="info-card-num">{f.num}</span>
+            <h3>{f.t}</h3>
+            <p>{f.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="paquete" class="section-block alt">
+    <div class="section-inner">
+      <h2 class="block-title">Paquete corporativo</h2>
+      <p class="block-sub">
+        Un precio de referencia claro para que sepa de qué estamos hablando. El alcance final se
+        define en la propuesta, por escrito, antes de empezar.
+      </p>
+
+      <div class="corp-precio">
+        <div>
+          <span class="corp-etiqueta">Línea corporativa</span>
+          <p class="oferta-precio">Desde $5.000</p>
+          <p class="oferta-nota">
+            proyecto completo · incluye tres meses de seguimiento con reportes
+          </p>
+        </div>
+        <a href={wa('Hola HacksinCodigos, quiero cotizar la línea corporativa de sitios web')} target="_blank" rel="noopener" class="btn btn-solid wa-btn">
+          <WhatsAppIcon size={18} />
+          <span>Solicitar propuesta</span>
+        </a>
+      </div>
+
+      <div class="card-grid cols-4" style="margin-top:2.5rem">
+        {incluye.map((g) => (
+          <div class="info-card">
+            <h3>{g.t}</h3>
+            <ul class="corp-lista" role="list">
+              {g.items.map((i) => <li>{i}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-inner narrow prose">
+      <h2>Para quién sí, y para quién no</h2>
+      <p><strong>Tiene sentido si:</strong></p>
+      <ul>
+        <li>Su empresa compite en búsquedas peleadas, donde ya hay competidores bien posicionados.</li>
+        <li>Tiene varios servicios o sectores y hoy todo vive en una sola página.</li>
+        <li>Necesita justificar la inversión con números frente a una junta o un socio.</li>
+        <li>Le vende a empresas, y quien decide investiga antes de llamar.</li>
+        <li>Atiende también a clientes extranjeros y necesita el sitio en dos idiomas bien hecho.</li>
+      </ul>
+      <p><strong>No tiene sentido si:</strong></p>
+      <ul>
+        <li>
+          Es un negocio pequeño que solo necesita que lo encuentren en su cantón. Con una
+          <a href="/paginas-web-costa-rica/">página web desde $499</a> y el
+          <a href="/seo-costa-rica/">paquete de SEO Inicial desde $250</a> queda mejor servido, y se
+          lo vamos a decir aunque perdamos el proyecto grande.
+        </li>
+        <li>Todavía está probando si el producto se vende. Primero eso, después la inversión fuerte.</li>
+        <li>Espera resultados en dos semanas. Esto es trabajo de meses, sostenido.</li>
+      </ul>
+
+      <h2>Lo que no prometemos</h2>
+      <p>
+        No prometemos el primer lugar en Google, ni una cantidad de clientes, ni un retorno
+        garantizado. El ranking lo decide Google y las ventas dependen también de su producto, su
+        precio y su atención. Lo que sí queda comprometido por escrito es el trabajo: cada entregable,
+        cada fecha y cada número que vamos a medir.
+      </p>
+      <p>
+        Cómo detectar al que sí promete todo eso está en
+        <a href="/blog/como-elegir-agencia-seo-o-diseno-web-costa-rica/">cómo elegir agencia sin que
+        te vendan humo</a>.
+      </p>
+
+      <h2>Se conecta con lo demás</h2>
+      <ul>
+        <li>
+          <a href="/software-empresas-costa-rica/">Software para empresas</a> — CRM, sistemas
+          internos e integraciones, cuando el sitio es solo la punta del proceso.
+        </li>
+        <li>
+          <a href="/agentes-ia-costa-rica/">Agentes de IA</a> — para atender consultas a cualquier
+          hora y calificar quién vale la pena.
+        </li>
+        <li>
+          <a href="/seo-costa-rica/">Posicionamiento SEO</a> — si el sitio ya está bien y lo que falta
+          es el trabajo continuo.
+        </li>
+      </ul>
+    </div>
+  </section>
+</ServiceLanding>

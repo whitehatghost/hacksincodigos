@@ -926,3 +926,20 @@ a.info-card { display: block; text-decoration: none; color: inherit; }
 .page-idioma { margin: 1.25rem 0 0; font-size: .85rem; }
 .page-idioma a { color: var(--accent-blue); text-decoration: none; border-bottom: 1px solid transparent; }
 .page-idioma a:hover { border-bottom-color: currentColor; }
+
+/* Línea corporativa: bloque de precio y listas dentro de las tarjetas. */
+.corp-precio {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem;
+  max-width: 1100px; margin: 2.5rem auto 0; padding: 2rem 1.75rem;
+  background: var(--bg-card); border: 1px solid var(--accent-green); border-radius: var(--radius);
+  box-shadow: 0 0 0 1px var(--accent-green), 0 20px 50px rgba(0,255,136,.08);
+}
+.corp-precio .oferta-precio { margin: .6rem 0 .15rem; }
+.corp-precio .oferta-nota { margin: 0; }
+.corp-etiqueta {
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--accent-green);
+}
+.corp-lista { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: .55rem; }
+.corp-lista li { position: relative; padding-left: 1.4rem; font-size: .85rem; color: var(--text-secondary); line-height: 1.45; }
+.corp-lista li::before { content: '✓'; position: absolute; left: 0; color: var(--accent-green); font-weight: 700; }

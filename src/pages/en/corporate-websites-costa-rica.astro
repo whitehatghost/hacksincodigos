@@ -1,0 +1,301 @@
+---
+/**
+ * /en/corporate-websites-costa-rica/ — la línea cara, en inglés.
+ *
+ * Es el público con más presupuesto del mercado local: empresas del corredor
+ * Escazú–Santa Ana, turismo que factura en dólares y dueños extranjeros que
+ * comparan contra agencias de su país. Misma regla: se vende el trabajo y la
+ * medición, nunca una posición.
+ */
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import GoogleReviews from '../../components/GoogleReviews.astro';
+import WhatsAppIcon from '../../components/WhatsAppIcon.astro';
+import { wa } from '../../data/site';
+import { webPageSchema, breadcrumbSchema, serviceSchema, faqSchema } from '../../lib/schema';
+
+const path = '/en/corporate-websites-costa-rica/';
+const title = 'Corporate Websites in Costa Rica | HacksinCodigos';
+const description =
+  'Corporate websites built to compete on Google in Costa Rica: market research, tuned performance, full tracking and monthly reporting. From $5,000.';
+
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Web design in Costa Rica', path: '/en/web-design-costa-rica/' },
+  { name: 'Corporate websites', path },
+];
+
+const faqs = [
+  {
+    q: 'How is this different from your $499 website?',
+    a: 'Scope and purpose. The $499 site exists so people find you and message you, and for most small businesses that is the right call — we will say so. The corporate line is built to compete for contested searches and to prove its own return: market research first, a page per search intent, content written to rank, tuned performance, click tracking and three months of follow-up with reports.',
+  },
+  {
+    q: 'What does the $5,000 package include?',
+    a: 'Market and competitor research, content architecture, custom design, performance-tuned development, complete technical SEO with structured data, copywriting for the main pages plus launch articles, full measurement setup — Search Console, Bing, analytics and click events — and three months of follow-up with monthly reports. Exact scope is written into the proposal before we start.',
+  },
+  {
+    q: 'Do you guarantee first position on Google?',
+    a: 'No, and no honest agency can: Google decides rankings. What we commit to in writing is the work that makes a site competitive, delivered in full and documented, plus the measurement to know month by month whether it is working. Anyone who guarantees position one by contract is selling you something expensive and untrue.',
+  },
+  {
+    q: 'Why does site speed matter so much?',
+    a: 'Google measures it — those are the Core Web Vitals — and people leave a slow site before they see anything. This very site averages about 36 kB per page and responds in under 100 milliseconds across its 120 published pages. Most corporate sites in the country run into hundreds of kilobytes and several seconds. That gap is how it is built, not what it is hosted on.',
+  },
+  {
+    q: 'We already have a website. Can you take it over?',
+    a: 'Usually yes, and it is the common case. We audit what exists, keep what already ranks, and migrate with proper redirects so the authority you earned is not thrown away. A badly migrated redesign is the fastest way to lose years of SEO.',
+  },
+  {
+    q: 'Can we pay in stages?',
+    a: 'Yes. The project is paid in stages against defined deliverables, and you can start with one phase — the research and architecture, for instance — and decide afterwards whether to continue.',
+  },
+];
+
+const schemas = [
+  webPageSchema({ path, name: title, description }),
+  breadcrumbSchema(crumbs),
+  serviceSchema({
+    name: 'Corporate website development in Costa Rica',
+    description,
+    path,
+    serviceType: 'Corporate web development',
+  }),
+  faqSchema(faqs),
+];
+
+const waText = "Hi HacksinCodigos, I'd like a proposal for a corporate website";
+
+const includes = [
+  {
+    t: 'Research and strategy',
+    items: [
+      'Keyword and search intent research',
+      'Analysis of the competitors ranking today',
+      'Content map: which page competes for which search',
+      'Audit of your current site and a migration plan that protects rankings',
+    ],
+  },
+  {
+    t: 'Site and content',
+    items: [
+      'Custom design, not a purchased template, built mobile-first',
+      'Pages per service, per sector and per area',
+      'Copywriting for the main pages plus launch articles',
+      'Optional English and Spanish versions with correct hreflang',
+    ],
+  },
+  {
+    t: 'Technical and performance',
+    items: [
+      'Core Web Vitals tuned: loading, interaction and visual stability',
+      'Complete, validated Schema.org structured data',
+      'Sitemap, canonicals, robots and redirects with no loose ends',
+      'Security headers and HTTPS enforced site-wide',
+    ],
+  },
+  {
+    t: 'Measurement and follow-up',
+    items: [
+      'Google Search Console and Bing Webmaster Tools configured',
+      'Site analytics and click events: WhatsApp, phone, forms',
+      'Tagged campaign links so you know which channel brought what',
+      'Three months of follow-up with a monthly comparative report',
+    ],
+  },
+];
+---
+<Base
+  title={title}
+  description={description}
+  path={path}
+  lang="en"
+  alternates={[{ lang: 'es-CR', path: '/sitios-web-corporativos-costa-rica/' }]}
+  schemas={schemas}
+>
+  <div class="page-wrap">
+    <Breadcrumbs items={crumbs} />
+
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <span class="page-eyebrow">Costa Rica · Corporate line</span>
+        <h1 class="page-h1">Corporate websites built to compete on Google</h1>
+        <p class="page-lead">
+          For companies that do not need a prettier page — they need a channel that brings clients and
+          can prove it. Market research, tuned performance, full tracking and monthly reporting.
+        </p>
+        <div class="page-cta-row">
+          <a href={wa(waText)} class="btn btn-solid wa-btn" target="_blank" rel="noopener">
+            <WhatsAppIcon size={18} />
+            <span>Request a proposal</span>
+          </a>
+          <a href="/proyectos/" class="btn btn-outline">See our work</a>
+        </div>
+        <ul class="page-credenciales" role="list">
+          <li>Costa Rican team since 2015</li>
+          <li>We work in English</li>
+          <li>From $5,000</li>
+          <li>Everything in your name</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-block alt">
+      <div class="section-inner narrow prose">
+        <h2>Why this is not just a more expensive website</h2>
+        <p>
+          A $499 business site solves a specific problem: be found, look credible, get the message.
+          For most businesses in Costa Rica that is enough, and we will tell you so directly.
+        </p>
+        <p>
+          A company's problem is different. You compete in searches where domains have fifteen years
+          of history and agencies working them full time. You have several services, several customer
+          types and often several locations. And you have to justify the spend with numbers, not with
+          the feeling that the site looks nice.
+        </p>
+        <p>
+          More design does not fix that. <strong>Research, structure, content, speed and
+          measurement</strong> do — which is the part almost nobody in this market quotes, because it
+          is the part that takes work.
+        </p>
+
+        <h2>What gets measured, and why</h2>
+        <ul>
+          <li>
+            <strong>Search Console.</strong> Which searches show your company, how often, how many
+            click, at what position, and which pages Google actually indexed. It comes from Google
+            itself, not from a tool that estimates.
+          </li>
+          <li>
+            <strong>Site analytics.</strong> Who arrives, where from, what they read and where they
+            leave. Can be configured without cookies, which also removes the consent banner.
+          </li>
+          <li>
+            <strong>Click events.</strong> How many tapped WhatsApp, called, or submitted the form.
+            Without this you know how many arrived, not how many acted — and only the second one pays
+            the bills.
+          </li>
+          <li>
+            <strong>Tagged campaign links.</strong> If you spend on ads, email or social, every link
+            carries its tag and the report tells you which channel produced what.
+          </li>
+          <li>
+            <strong>Core Web Vitals.</strong> The three metrics Google uses for real-world experience:
+            how fast the main content appears, how quickly the page responds, and whether things jump
+            around while loading.
+          </li>
+        </ul>
+
+        <h2>Performance, with numbers you can verify</h2>
+        <p>
+          Speed is not a technical luxury: Google ranks with it and visitors feel it in the first
+          second. Most corporate sites here weigh hundreds of kilobytes and take seconds on mobile.
+        </p>
+        <p>
+          As a reference for what is achievable, these are the measured numbers of <strong>this very
+          site</strong>, across its 120 published pages: <strong>about 36 kB average page weight and
+          under 100 ms response time</strong>. No expensive hosting involved — it is built light,
+          served static, and free of twenty plugins nobody uses.
+        </p>
+        <p>
+          Test this site yourself with whatever tool you trust before hiring us. An agency should be
+          able to offer that.
+        </p>
+      </div>
+    </section>
+
+    <section id="package" class="section-block">
+      <div class="section-inner">
+        <h2 class="block-title">Corporate package</h2>
+        <p class="block-sub">
+          A clear reference price so you know what we are talking about. Final scope is defined in the
+          written proposal before any work starts.
+        </p>
+
+        <div class="corp-precio">
+          <div>
+            <span class="corp-etiqueta">Corporate line</span>
+            <p class="oferta-precio">From $5,000</p>
+            <p class="oferta-nota">complete project · includes three months of follow-up and reporting</p>
+          </div>
+          <a href={wa(waText)} target="_blank" rel="noopener" class="btn btn-solid wa-btn">
+            <WhatsAppIcon size={18} />
+            <span>Request a proposal</span>
+          </a>
+        </div>
+
+        <div class="card-grid cols-4" style="margin-top:2.5rem">
+          {includes.map((g) => (
+            <div class="info-card">
+              <h3>{g.t}</h3>
+              <ul class="corp-lista" role="list">
+                {g.items.map((i) => <li>{i}</li>)}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block alt">
+      <div class="section-inner narrow prose">
+        <h2>Who this is for — and who it is not for</h2>
+        <p><strong>It makes sense if:</strong></p>
+        <ul>
+          <li>You compete in searches where established competitors already rank.</li>
+          <li>You have several services or sectors and today everything lives on one page.</li>
+          <li>You need to justify the investment with numbers to a board or a partner.</li>
+          <li>You sell to businesses, and the decision-maker researches before calling.</li>
+          <li>You serve customers in English and Spanish and need both done properly.</li>
+        </ul>
+        <p><strong>It does not make sense if:</strong></p>
+        <ul>
+          <li>
+            You are a small business that just needs to be found locally — a
+            <a href="/en/web-design-costa-rica/">website from $499</a> plus SEO from $250 serves you
+            better, and we will say so even if it costs us the bigger project.
+          </li>
+          <li>You are still testing whether the product sells.</li>
+          <li>You expect results in two weeks. This is months of sustained work.</li>
+        </ul>
+
+        <h2>What we do not promise</h2>
+        <p>
+          Not first position on Google, not a number of customers, not a guaranteed return. Google
+          decides rankings, and sales also depend on your product, your pricing and how you follow up.
+          What is committed in writing is the work: every deliverable, every date and every number we
+          will measure.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <div>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </div>
+        ))}
+
+        <p class="seo-nota-legal">
+          ¿Preferís español? <a href="/sitios-web-corporativos-costa-rica/">Versión en español de esta página</a>.
+        </p>
+      </div>
+    </section>
+
+    <GoogleReviews />
+
+    <section class="cta-band">
+      <h2>Let's talk about your company's site</h2>
+      <p>
+        Tell us what you sell and who you sell it to. You get an honest answer and a written proposal
+        — including when the honest answer is that you need less than this.
+      </p>
+      <div class="page-cta-row">
+        <a href={wa(waText)} class="btn btn-solid wa-btn" target="_blank" rel="noopener">
+          <WhatsAppIcon size={18} />
+          <span>Message us on WhatsApp</span>
+        </a>
+        <a href="/en/seo-costa-rica/" class="btn btn-outline">SEO services</a>
+      </div>
+    </section>
+  </div>
+</Base>

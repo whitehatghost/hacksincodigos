@@ -38,11 +38,21 @@ if (!comprobacion.ok) {
   process.exit(1);
 }
 
-const res = await fetch('https://api.indexnow.org/IndexNow', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json; charset=utf-8' },
-  body: JSON.stringify({ host: HOST, key: CLAVE, keyLocation: `${SITIO}/${CLAVE}.txt`, urlList: urls }),
-});
+const enviar = () =>
+  fetch('https://api.indexnow.org/IndexNow', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json; charset=utf-8' },
+    body: JSON.stringify({ host: HOST, key: CLAVE, keyLocation: `${SITIO}/${CLAVE}.txt`, urlList: urls }),
+  });
+
+// Un reintento: avisar de una página recién publicada a veces devuelve 422
+// porque del otro lado todavía no la ven. Al minuto ya pasa.
+let res = await enviar();
+if (res.status === 422) {
+  console.log('Rechazado (422). Reintentando en 60 segundos…');
+  await new Promise((r) => setTimeout(r, 60000));
+  res = await enviar();
+}
 
 console.log(`${urls.length} URLs avisadas a IndexNow — respuesta ${res.status} ${res.statusText}`);
 if (res.status === 200 || res.status === 202) {

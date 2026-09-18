@@ -456,3 +456,36 @@ test('todo enlace externo abre con rel="noopener"', { skip: !hasDist }, () => {
     }
   }
 });
+
+// ── Páginas de zona ─────────────────────────────────────────────────────────
+// El riesgo de tener una página por cantón es caer en doorway pages: el mismo
+// texto con el nombre cambiado. Google las detecta y penaliza el dominio
+// completo, así que esto se vigila con pruebas y no con buena voluntad.
+
+const zonasSrc = fs.readFileSync(path.join(ROOT, 'src', 'data', 'zonas.ts'), 'utf8');
+const zonaSlugs = [...zonasSrc.matchAll(/^\s{4}slug: '([a-z0-9-]+)',$/gm)].map((m) => m[1]);
+const zonaContextos = [...zonasSrc.matchAll(/contextoHtml: `([\s\S]*?)`,\n/g)].map((m) => m[1]);
+
+test('cada zona tiene su propio slug', () => {
+  assert.ok(zonaSlugs.length >= 6, 'no se encontraron las zonas en zonas.ts');
+  assert.equal(new Set(zonaSlugs).size, zonaSlugs.length, 'hay slugs de zona repetidos');
+});
+
+test('el texto de cada zona es propio y no una plantilla repetida', () => {
+  assert.equal(zonaContextos.length, zonaSlugs.length, 'alguna zona quedó sin contexto propio');
+  const firmas = zonaContextos.map((c) => c.replace(/\s+/g, ' ').trim());
+  assert.equal(new Set(firmas).size, firmas.length, 'dos zonas comparten el mismo texto');
+  for (const [i, c] of firmas.entries()) {
+    assert.ok(c.length > 600, `la zona ${zonaSlugs[i]} tiene un texto demasiado corto para justificar su página`);
+  }
+});
+
+test('ninguna página de zona inventa una oficina en el cantón', { skip: !hasDist }, () => {
+  for (const file of allHtml().filter((f) => /paginas-web-(?!costa-rica)/.test(f))) {
+    const html = fs.readFileSync(file, 'utf8');
+    assert.ok(
+      !/nuestra oficina en|visitanos en nuestra|sucursal en/i.test(html),
+      `${path.relative(DIST, file)}: insinúa una oficina física que no existe`
+    );
+  }
+});

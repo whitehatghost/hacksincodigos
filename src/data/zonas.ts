@@ -1615,6 +1615,62 @@ export const zonas: Zona[] = [
       },
     ],
   },
+  {
+    slug: 'nosara',
+    nombre: 'Nosara',
+    region: 'Guanacaste',
+    provincia: 'Guanacaste',
+    cerca: ['Sámara', 'Nicoya', 'Ostional'],
+    metaTitle: 'Páginas Web y SEO en Nosara, Guanacaste | HacksinCodigos',
+    metaDesc:
+      'Páginas web en inglés y español para hospedajes, retiros, surf, bienes raíces y negocios de Nosara y Guiones. Reservas directas y SEO desde $250.',
+    h1: 'Páginas web y SEO en Nosara',
+    lead:
+      'En Nosara su cliente llega desde otro país, decide en inglés y paga en dólares. El sitio tiene que estar listo para esa conversación.',
+    contextoHtml: `
+<p>
+  Nosara es un caso aparte dentro de Guanacaste. Alrededor de Playa Guiones y Playa Pelada se armó
+  un destino de surf y bienestar con proyección internacional: escuelas de surf, estudios de yoga,
+  retiros, hospedajes boutique, alquileres vacacionales, bienes raíces, restaurantes de cocina
+  saludable y una comunidad grande de extranjeros que vive ahí todo el año o por temporadas.
+</p>
+<p>
+  Cerca está Ostional, con las arribadas de tortuga, y la zona entera es parte del área de Nicoya
+  conocida por la longevidad de su gente. Todo eso pesa en cómo se vende Nosara afuera.
+</p>
+<p>
+  El negocio nosareño compite con destinos de surf y retiros de todo el mundo, no con el vecino. Su
+  cliente planea con meses, busca en inglés, compara fotos y reseñas, y quiere ver precios y
+  disponibilidad sin tener que escribir. Si el sitio es lento, está solo en español o depende de una
+  página de Facebook, ese cliente se va con otro antes de preguntar.
+</p>`,
+    negocios: [
+      'Hospedajes boutique, villas y alquileres vacacionales',
+      'Escuelas de surf y campamentos',
+      'Yoga, retiros y bienestar',
+      'Bienes raíces y administración de propiedades',
+      'Restaurantes, cafés y comida saludable',
+      'Construcción, mantenimiento y servicios para propiedades',
+    ],
+    faqs: [
+      {
+        q: '¿Hacen el sitio en inglés para clientes de Estados Unidos y Europa?',
+        a: 'Sí, y es lo que corresponde acá. Cada idioma va en su propia sección del sitio, con las etiquetas que le indican a Google cuál mostrar a quién, y con investigación de cómo busca esa persona en su idioma. Traducir palabra por palabra no posiciona.',
+      },
+      {
+        q: '¿Puedo recibir reservas y pagos directos en dólares?',
+        a: 'Sí. Según el tamaño del negocio se puede ir desde consulta por formulario y WhatsApp hasta un sistema de reservas con pago en línea. La pasarela se define con usted, revisando comisiones y con qué banco trabaja.',
+      },
+      {
+        q: 'Mi negocio es un retiro o un paquete de varios días, ¿sirve igual?',
+        a: 'Sirve, y mucho: ese cliente necesita ver el programa completo, qué incluye, fechas, política de cancelación y quién lo va a atender. Es justo la información que no cabe en redes sociales y que decide la compra.',
+      },
+      {
+        q: 'La conexión en la zona no siempre es buena, ¿afecta?',
+        a: 'Afecta a quien visita su sitio desde acá, por eso lo construimos liviano y rápido: sitios estáticos, sin peso innecesario, que cargan bien aunque la señal esté floja.',
+      },
+    ],
+  },
 ];
 
 export function getZona(slug: string): Zona | undefined {

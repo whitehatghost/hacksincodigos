@@ -6,8 +6,9 @@
  * guarda como secreto de Cloudflare (`wrangler secret put IA_API_KEY`), nunca en
  * el repositorio ni en el navegador.
  *
- * Es agnóstico del proveedor: cualquiera compatible con la API de chat de OpenAI
- * —OpenAI, OpenRouter, Together y otros— sirve cambiando IA_BASE_URL y IA_MODELO.
+ * Habla el protocolo Messages (el de Anthropic), que es el que usa OpenModel y
+ * el que soportan casi todos sus modelos. Cambiando IA_BASE_URL y IA_MODELO
+ * sirve para cualquier pasarela que hable ese mismo protocolo.
  *
  * Reglas que el agente no puede romper (van en el prompt del sistema y son las
  * mismas que rigen el sitio): no inventar precios, no prometer posiciones en
@@ -136,19 +137,21 @@ export default {
     if (limpio.length === 0) return json({ error: 'Sin mensajes' }, 400, origenOk);
 
     try {
-      const res = await fetch(`${env.IA_BASE_URL || 'https://api.openai.com/v1'}/chat/completions`, {
+      const res = await fetch(`${env.IA_BASE_URL || 'https://api.openmodel.ai'}/v1/messages`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${env.IA_API_KEY}`,
-          // OpenRouter pide estas dos; el resto de proveedores las ignora.
-          'HTTP-Referer': 'https://hacksincodigos.com',
-          'X-Title': 'HacksinCodigos',
+          'anthropic-version': '2023-06-01',
         },
         body: JSON.stringify({
-          model: env.IA_MODELO || 'gpt-4o-mini',
-          messages: [{ role: 'system', content: SISTEMA }, ...limpio],
-          max_tokens: 400,
+          model: env.IA_MODELO || 'claude-haiku-4-5-20251001',
+          // El prompt del sistema es lo más largo de cada consulta y no cambia
+          // nunca: marcado para caché, se cobra una fracción a partir de la
+          // segunda consulta seguida.
+          system: [{ type: 'text', text: SISTEMA, cache_control: { type: 'ephemeral' } }],
+          messages: limpio,
+          max_tokens: 300,
           temperature: 0.3,
         }),
       });
@@ -160,7 +163,13 @@ export default {
       }
 
       const datos = await res.json();
-      const texto = datos.choices?.[0]?.message?.content?.trim();
+      // Protocolo Messages: { content: [{ type: 'text', text }] }. Se acepta
+      // también la forma de chat/completions por si se cambia de pasarela.
+      const texto = (
+        datos.content?.find((b) => b.type === 'text')?.text ??
+        datos.choices?.[0]?.message?.content ??
+        ''
+      ).trim();
       if (!texto) return json({ error: 'respuesta-vacia' }, 502, origenOk);
       return json({ texto }, 200, origenOk);
     } catch (err) {

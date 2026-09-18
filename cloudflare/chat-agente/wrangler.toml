@@ -14,8 +14,8 @@ routes = [
 
 [vars]
 ORIGENES = "https://hacksincodigos.com"
-# Cambiar según el proveedor que se use:
-#   OpenAI      → https://api.openai.com/v1        · modelo gpt-4o-mini
-#   OpenRouter  → https://openrouter.ai/api/v1     · modelo openai/gpt-4o-mini
-IA_BASE_URL = "https://api.openai.com/v1"
-IA_MODELO = "gpt-4o-mini"
+# OpenModel (api.openmodel.ai), protocolo Messages. La llave empieza con "om-".
+# Modelos baratos que hablan este mismo protocolo, si se quiere abaratar más:
+#   deepseek-v4.1-flash  ·  glm-5.3-flash  ·  qwen3.8-flash
+IA_BASE_URL = "https://api.openmodel.ai"
+IA_MODELO = "claude-haiku-4-5-20251001"

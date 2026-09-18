@@ -240,14 +240,70 @@ function recomendar(r) {
     : 'Le calza una página web de negocio desde **$499**: diseño para celular, secciones por servicio, formulario y WhatsApp, lista en 3 a 7 días hábiles.';
 }
 
+/**
+ * Presentación: el nombre y el contacto de quien escribe.
+ *
+ * Se piden al inicio, se puede saltar cada uno, y se guardan en el servidor
+ * apenas los deja. Eso es lo que permite responderle a alguien que preguntó a
+ * medianoche y nunca llegó a WhatsApp; sin esto, ese interesado se pierde.
+ */
+const PRESENTACION = [
+  {
+    campo: 'nombre',
+    pregunta: 'Antes de arrancar, ¿cómo se llama? Así le doy seguimiento en condiciones.',
+    opciones: ['Prefiero no decirlo'],
+  },
+  {
+    campo: 'telefono',
+    pregunta: '¿Me deja un número de WhatsApp? Es para mandarle la información y la cotización.',
+    opciones: ['Ahora no'],
+  },
+  {
+    campo: 'correo',
+    pregunta: '¿Y un correo, si gusta? Ahí le puedo mandar todo por escrito.',
+    opciones: ['Sin correo, gracias'],
+  },
+];
+
+const SALTAR = ['prefiero no decirlo', 'ahora no', 'sin correo, gracias', 'no', 'luego', 'despues'];
+
 export function crearAgente({ pintar, pintarOpciones, pintarAccion }) {
   const historia = [];
   const cache = new Map();
+  const contacto = { nombre: '', telefono: '', correo: '' };
   let consultasIA = 0;
   let flujo = null;
+  let presentado = false;
+  let pendiente = null;
 
   const normal = (t) => t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
-  const waUrl = (texto) => `https://wa.me/${WA_NUMERO}?text=${encodeURIComponent(texto)}`;
+
+  /** Los datos de contacto van pegados a cada mensaje que sale a WhatsApp. */
+  const firma = () => {
+    const partes = [];
+    if (contacto.nombre) partes.push(`Nombre: ${contacto.nombre}`);
+    if (contacto.telefono) partes.push(`Tel: ${contacto.telefono}`);
+    if (contacto.correo) partes.push(`Correo: ${contacto.correo}`);
+    return partes.length ? `
+
+${partes.join(' · ')}` : '';
+  };
+  const waUrl = (texto) => `https://wa.me/${WA_NUMERO}?text=${encodeURIComponent(texto + firma())}`;
+
+  /** Manda el contacto al Worker. Si falla, la conversación sigue igual. */
+  const guardarContacto = (interes) => {
+    if (!contacto.nombre && !contacto.telefono && !contacto.correo) return;
+    try {
+      fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...contacto, interes: interes || '', pagina: location.pathname }),
+        keepalive: true,
+      }).catch(() => {});
+    } catch {
+      // Da igual: el contacto también viaja en el mensaje de WhatsApp.
+    }
+  };
 
   const local = (pregunta) => {
     const q = normal(pregunta);
@@ -270,9 +326,28 @@ export function crearAgente({ pintar, pintarOpciones, pintarAccion }) {
   };
 
   const pasosDe = (f) =>
-    f.tipo === 'soporte' ? SOPORTE : f.tipo === 'recomendador' ? RECOMENDADOR : f.pasos;
+    f.tipo === 'soporte'
+      ? SOPORTE
+      : f.tipo === 'recomendador'
+        ? RECOMENDADOR
+        : f.tipo === 'presentacion'
+          ? PRESENTACION
+          : f.pasos;
 
   const cerrar = (tipo, datos) => {
+    if (tipo === 'presentacion') {
+      guardarContacto('Se presentó en el chat');
+      const saludo = contacto.nombre
+        ? `Mucho gusto, ${contacto.nombre}. ¿En qué le ayudo?`
+        : 'Sin problema. ¿En qué le ayudo?';
+      pintar('agente', saludo);
+      if (pendiente) {
+        const guardado = pendiente;
+        pendiente = null;
+        return responder(guardado);
+      }
+      return;
+    }
     if (tipo === 'soporte') {
       const ref = referencia();
       const texto = [
@@ -283,6 +358,7 @@ export function crearAgente({ pintar, pintarOpciones, pintarAccion }) {
         `Desde cuándo: ${datos.desde || '—'}`,
         `Urgencia: ${datos.urgencia || '—'}`,
       ].join('\n');
+      guardarContacto(`Soporte: ${datos.problema || ''}`);
       pintar(
         'agente',
         `Listo. Su número de referencia es **${ref}**. Toque el botón y le llega al equipo con todo lo que me contó; le responden en horario de oficina. Guarde la referencia para dar seguimiento.`
@@ -290,6 +366,7 @@ export function crearAgente({ pintar, pintarOpciones, pintarAccion }) {
       return pintarAccion(`Enviar el reporte ${ref}`, waUrl(texto));
     }
     if (tipo === 'recomendador') {
+      guardarContacto(`Recomendación: ${datos.objetivo || ''}`);
       pintar('agente', recomendar(datos));
       return pintarAccion(
         'Cotizar esto por WhatsApp',
@@ -297,6 +374,7 @@ export function crearAgente({ pintar, pintarOpciones, pintarAccion }) {
       );
     }
     const { texto, wa } = estimar(datos);
+    guardarContacto(`Cotizó: ${datos.tipo || ''}`);
     pintar('agente', texto);
     pintarAccion('Pedir la cotización en firme', waUrl(wa));
   };
@@ -317,7 +395,10 @@ export function crearAgente({ pintar, pintarOpciones, pintarAccion }) {
     }
 
     const pasos = pasosDe(flujo);
-    flujo.datos[pasos[flujo.paso].campo] = respuesta;
+    const campo = pasos[flujo.paso].campo;
+    const salta = SALTAR.includes(normal(respuesta).trim());
+    flujo.datos[campo] = salta ? '' : respuesta;
+    if (flujo.tipo === 'presentacion' && !salta) contacto[campo] = respuesta;
     flujo.paso += 1;
 
     if (flujo.paso >= pasos.length) {
@@ -329,6 +410,10 @@ export function crearAgente({ pintar, pintarOpciones, pintarAccion }) {
   };
 
   const iniciarFlujo = (tipo) => {
+    if (tipo === 'presentacion') {
+      flujo = { tipo, paso: 0, datos: {} };
+      return preguntar(PRESENTACION[0]);
+    }
     if (tipo === 'cotizador') {
       flujo = { tipo, paso: 0, datos: {}, pasos: null };
       return preguntar(COTIZADOR.inicio);
@@ -342,6 +427,14 @@ export function crearAgente({ pintar, pintarOpciones, pintarAccion }) {
     if (!texto) return;
 
     if (flujo) return avanzarFlujo(texto);
+
+    // Lo primero es saber con quién se habla. La pregunta original se guarda y
+    // se responde apenas termina la presentación: nadie tiene que repetirla.
+    if (!presentado) {
+      presentado = true;
+      pendiente = texto;
+      return iniciarFlujo('presentacion');
+    }
     if (quiereCotizar(texto)) return iniciarFlujo('cotizador');
     if (quiereSoporte(texto)) return iniciarFlujo('soporte');
     if (quiereRecomendacion(texto)) return iniciarFlujo('recomendador');
@@ -369,7 +462,11 @@ export function crearAgente({ pintar, pintarOpciones, pintarAccion }) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         // Historial corto: el contexto largo es lo que dispara el costo.
-        body: JSON.stringify({ mensajes: historia.slice(-6), agente: nombreAgente }),
+        body: JSON.stringify({
+          mensajes: historia.slice(-6),
+          agente: nombreAgente,
+          visitante: contacto.nombre,
+        }),
       });
       if (res.ok) {
         const datos = await res.json();

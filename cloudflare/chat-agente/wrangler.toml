@@ -10,7 +10,14 @@ compatibility_date = "2026-09-01"
 # Ruta más específica que la del sitio, así que Cloudflare la atiende primero.
 routes = [
   { pattern = "hacksincodigos.com/api/chat", zone_name = "hacksincodigos.com" },
+  { pattern = "hacksincodigos.com/api/lead", zone_name = "hacksincodigos.com" },
 ]
+
+# Donde caen los contactos que la gente deja en el chat. Se leen con
+# `node scripts/leads.mjs`. Se borran solos a los 180 días.
+[[kv_namespaces]]
+binding = "LEADS"
+id = "093cfd6921ea49a282b68ee2e940b992"
 
 [vars]
 ORIGENES = "https://hacksincodigos.com"
